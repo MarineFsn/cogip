@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+
+  header {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    background-color: #f9de4e;
+    align-items: center;
+
+    nav {
+      display: flex;
+      flex-direction: row;
+      font-size: 20px;
+      font-weight: 600;
+      justify-content: center;
+      align-items: center;
+
+      .nav__bar {
+        margin-top: 94px;
+        margin-right: 324px;
+        display: flex;
+        flex-direction: row;
+        li {
+          margin-right: 28px;
+          a {
+            text-decoration: none;
+            color: black;
+          }
+          a:visited {
+            color: black;
+          }
+          a:active {
+            color: black;
+          }
+        }
+      }
+
+      .nav__login {
+        margin-top: 94px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        li {
+          margin-right: 44px;
+          a {
+            text-decoration: none;
+            color: black;
+          }
+          a:visited {
+            color: black;
+          }
+          a:active {
+            color: black;
+          }
+        }
+        li:first-child {
+          background-color: white;
+          width: 107px;
+          height: 37px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          border-radius: 10px;
+        }
+      }
+      h1 {
+        margin-top: 94px;
+        font-size: 48px;
+        font-weight: 900;
+        margin-right: 126px;
+      }
+    }
+
+    .container__info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h2 {
+        font-size: 65px;
+        font-weight: 900;
+        width: 595px;
+      }
+    }
+  }
+}
