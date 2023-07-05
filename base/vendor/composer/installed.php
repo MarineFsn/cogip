@@ -2,10 +2,7 @@
     'root' => array(
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-<<<<<<< HEAD
         'reference' => 'a89798655077ebe9f97563375e4f8829bbb4c8c5',
-=======
->>>>>>> dev
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -17,10 +14,7 @@
         'becode/base' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-<<<<<<< HEAD
             'reference' => 'a89798655077ebe9f97563375e4f8829bbb4c8c5',
-=======
->>>>>>> dev
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
