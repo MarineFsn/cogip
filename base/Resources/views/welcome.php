@@ -3,7 +3,7 @@ include "header.php";
 ?>
 
 <main>
-    <section class="container">
+    <!-- <section class="container">
         <img src="assets/img/Illustration.png" alt="cogip logo" class="illustration">
         <h1>Welcome to <?php echo $name ?></h1>
         <p>This base project is provided by BeCode</p>
@@ -13,7 +13,7 @@ include "header.php";
             <li>dd() function</li>
             <li>redirect() function</li>
         </ul>
-    </section>
+    </section> -->
 </main>
 <?php
 include "footer.php";
