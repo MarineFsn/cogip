@@ -49,10 +49,10 @@
     <span><hr class="footer_down_line"></span>
     <nav class="footer_nav-footer">
         <ul class="">
-            <li><a href="/">HOME</a></li>
-            <li><a href="">INVOICES</a></li>
-            <li><a href="">COMPANIES</a> </li>
-            <li><a href="">CONTACTS</a></li>
+            <li><a href="/projects/cogip/base/public/assets/css/welcome.php">HOME</a></li>
+            <li><a href="/projects/cogip/base/public/assets/css/invoices.php">INVOICES</a></li>
+            <li><a href="/projects/cogip/base/public/assets/css/companies.php">COMPANIES</a> </li>
+            <li><a href="/projects/cogip/base/public/assets/css/contacts.php">CONTACTS</a></li>
             <li> <a href="">PRIVACY POLICY</a></li>
         </ul>
         <span>Copyright © 2022 • COGIP Inc.</span>
