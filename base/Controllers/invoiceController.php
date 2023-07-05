@@ -1,6 +1,7 @@
 <?php
 
 require 'connect.php';
+require '../models/invoice.php';
 
 class invoiceController
 {
@@ -30,12 +31,17 @@ class invoiceController
         if ($result->num_rows > 0) {
 
             while ($row = $result->fetch_assoc()) {
-                $invoices[] = $row;
+                $invoice = new invoice(
+                    $row['id'],
+                    $row['ref'],
+                    $row['company'],
+                    $row['creation_date'],
+                    $row['update_date']
+                );
+                $invoices[] = $invoice;
             }
         }
-
         return $invoices;
-
     }
 }
 

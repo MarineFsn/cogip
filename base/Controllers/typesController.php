@@ -1,6 +1,7 @@
 <?php
 
 require 'connect.php';
+require '../models/type.php';
 
 class typeController
 {
@@ -29,14 +30,16 @@ class typeController
         $types = array();
 
         if ($result->num_rows > 0) {
-
             while ($row = $result->fetch_assoc()) {
-                $types[] = $row;
+                $type = new type(
+                    $row['id'],
+                    $row['name'],
+                    $row['created_at'],
+                    $row['updated_at']
+                );
+                $types[] = $type;
             }
         }
-
         return $types;
-
     }
-
 }

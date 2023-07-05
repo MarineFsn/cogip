@@ -1,6 +1,7 @@
 <?php
 
 require 'connect.php';
+require '../models/contact.php';
 
 class ContactController
 {
@@ -29,10 +30,18 @@ class ContactController
         if ($result->num_rows > 0) {
 
             while ($row = $result->fetch_assoc()) {
-                $contacts[] = $row;
+                $contact = new contact(
+                    $row['id'],
+                    $row['name'],
+                    $row['company'],
+                    $row['email'],
+                    $row['phone'],
+                    $row['creation_date'],
+                    $row['update_date']
+                );
+                $contacts[] = $contact;
             }
         }
-
         return $contacts;
     }
 }

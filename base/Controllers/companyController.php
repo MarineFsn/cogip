@@ -1,6 +1,7 @@
 <?php
 
 require 'connect.php';
+require '../models/company.php';
 
 class CompanyController
 {
@@ -26,17 +27,21 @@ class CompanyController
         $result = $connection->query($query);
 
         $companies = array();
-
         if ($result->num_rows > 0) {
-
             while ($row = $result->fetch_assoc()) {
-                $companies[] = $row;
+                $company = new Company(
+                    $row['id'],
+                    $row['name'],
+                    $row['type_id'],
+                    $row['country'],
+                    $row['tva'],
+                    $row['created_at'],
+                    $row['updated_at']
+                );
+                $companies[] = $company;
             }
         }
-
         return $companies;
-
     }
 }
-
 ?>
