@@ -1,34 +1,23 @@
 <?php
 
-require 'connect.php';
-require '../models/company.php';
+require './connect.php';
+require '../Models/company.php';
 
 class CompanyController
 {
     private $db;
 
-    public function __construct()
-    {
-        $host = "localhost";
-        $username = "root";
-        $password = "";
-        $database = "cogip";
-
-        $this->db = new Database($host, $username, $password, $database);
-    }
-
     public function getCompanies()
     {
-        $this->db->connect();
-        $connection = $this->db->getConnection();
-
+        $this->db = connect();
 
         $query = "SELECT * FROM companies";
-        $result = $connection->query($query);
+        $result = $this->db->query($query);
 
         $companies = array();
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
+
+        if ($result->rowCount() > 0) {
+            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                 $company = new Company(
                     $row['id'],
                     $row['name'],
@@ -41,7 +30,23 @@ class CompanyController
                 $companies[] = $company;
             }
         }
+
         return $companies;
     }
 }
+
+// $controllercontact = new CompanyController();
+// $companies = $controllercontact->getCompanies();
+
+
+// foreach ($companies as $company) {
+//     echo "ID: " . $company->id . "<br>";
+//     echo "Nom: " . $company->name . "<br>";
+//     echo "Type: " . $company->type . "<br>";
+//     echo "Pays: " . $company->country . "<br>";
+//     echo "TVA: " . $company->tva . "<br>";
+//     echo "Date de mise à jour: " . $company->update_date . "<br>";
+//     echo "<br>";
+// }
+
 ?>

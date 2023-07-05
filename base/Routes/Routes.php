@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Routes;
+// namespace App\Routes;
 
-use Bramus\Router\Router;
-use App\Controllers\HomeController;
+// use Bramus\Router\Router;
+// use App\Controllers\HomeController;
 
-$router = new Router();
+// $router = new Router();
 
-$router->get('/', function() {
-    (new HomeController)->index();
-});
+// $router->get('/', function() {
+//     (new HomeController)->index();
+// });
 
-$router->run();
+// $router->run();
