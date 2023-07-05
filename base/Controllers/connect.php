@@ -1,39 +1,17 @@
 <?php
 
-class Database
+function connect()
 {
-    private $host;
-    private $username;
-    private $password;
-    private $database;
-    private $connection;
+    $host_dbname = 'mysql:host=localhost;dbname=cogip;charset=utf8';
+    $username = 'root';
+    $password = '';
 
-    public function __construct($host, $username, $password, $database)
-    {
-        $this->host = $host;
-        $this->username = $username;
-        $this->password = $password;
-        $this->database = $database;
-    }
-
-    public function connect()
-    {
-        try {
-            $this->connection = new mysqli($this->host, $this->username, $this->password, $this->database);
-
-            if ($this->connection->connect_error) {
-                throw new Exception("Erreur de connexion à la base de données : " . $this->connection->connect_error);
-            }
-        } catch (Exception $e) {
-            echo "Erreur de connexion : " . $e->getMessage();
-        }
-    }
-
-
-    public function getConnection()
-    {
-        return $this->connection;
+    try {
+        $db = new PDO($host_dbname, $username, $password);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $db;
+    } catch (PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
+        exit;
     }
 }
-
-?>
