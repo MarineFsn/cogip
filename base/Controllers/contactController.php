@@ -36,8 +36,8 @@ class ContactController
                     $row['company'],
                     $row['email'],
                     $row['phone'],
-                    $row['creation_date'],
-                    $row['update_date']
+                    $row['created_at'],
+                    $row['update_at']
                 );
                 $contacts[] = $contact;
             }

@@ -35,8 +35,8 @@ class invoiceController
                     $row['id'],
                     $row['ref'],
                     $row['company'],
-                    $row['creation_date'],
-                    $row['update_date']
+                    $row['created_at'],
+                    $row['updated_at']
                 );
                 $invoices[] = $invoice;
             }
