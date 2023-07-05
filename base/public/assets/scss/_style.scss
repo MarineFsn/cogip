@@ -4,7 +4,8 @@ body {
   header {
     color: black;
     width: 100vw;
-    height: 100vh;
+    min-height: 270px;
+    max-height: 100vh;
     background-color: #f9de4e;
     display: flex;
     flex-direction: column;
