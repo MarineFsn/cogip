@@ -146,6 +146,12 @@ body header {
   flex-direction: column;
   align-items: center;
 }
+@media screen and (min-width: 1440px) {
+  body header {
+    height: auto;
+    width: auto;
+  }
+}
 body header nav {
   display: flex;
   flex-direction: column;
@@ -154,7 +160,12 @@ body header nav {
   font-weight: 600;
   margin-top: 35px;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 376px) and (max-width: 1439px) {
+  body header nav {
+    margin-bottom: 80px;
+  }
+}
+@media screen and (min-width: 1440px) {
   body header nav {
     justify-content: center;
     flex-direction: row;
@@ -165,7 +176,7 @@ body header nav .nav__bar {
   display: flex;
   margin-top: 35px;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1440px) {
   body header nav .nav__bar {
     margin-top: 94px;
     margin-right: 324px;
@@ -175,7 +186,12 @@ body header nav .nav__bar {
 body header nav .nav__bar li {
   margin-right: 10px;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 376px) and (max-width: 1439px) {
+  body header nav .nav__bar li {
+    margin-right: 20px;
+  }
+}
+@media screen and (min-width: 1440px) {
   body header nav .nav__bar li {
     margin-right: 28px;
   }
@@ -200,7 +216,7 @@ body header nav .nav__login {
   margin-top: 10px;
   margin-bottom: 35px;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1440px) {
   body header nav .nav__login {
     margin-right: 28px;
     flex-direction: row;
@@ -211,7 +227,7 @@ body header nav .nav__login {
 body header nav .nav__login li {
   margin-right: 10px;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1440px) {
   body header nav .nav__login li {
     margin-right: 44px;
   }
@@ -219,6 +235,24 @@ body header nav .nav__login li {
 body header nav .nav__login li a {
   text-decoration: none;
   color: black;
+  position: relative;
+  display: inline-block;
+  background-color: transparent;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+body header nav .nav__login li a::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: white;
+  width: 102px;
+  height: 37px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  z-index: -1;
 }
 body header nav .nav__login li a:visited {
   color: black;
@@ -226,21 +260,22 @@ body header nav .nav__login li a:visited {
 body header nav .nav__login li a:active {
   color: black;
 }
-body header nav .nav__login li:first-child {
-  background-color: white;
-  width: 107px;
-  height: 37px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
+body header nav .nav__login li a:hover {
+  transform: scale(1);
+}
+body header nav .nav__login li a:hover::after {
+  transform: translate(-50%, -50%) scale(1);
 }
 body header nav h1 {
   font-size: 48px;
   font-weight: 900;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 376px) and (max-width: 1439px) {
+  body header nav h1 {
+    margin-bottom: 80px;
+  }
+}
+@media screen and (min-width: 1440px) {
   body header nav h1 {
     margin-right: 126px;
     margin-top: 94px;
@@ -252,9 +287,10 @@ body header .container__info {
   justify-content: center;
   align-items: center;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1440px) {
   body header .container__info {
     flex-direction: row;
+    align-items: normal;
   }
 }
 body header .container__info h2 {
@@ -262,32 +298,45 @@ body header .container__info h2 {
   font-weight: 900;
   text-align: center;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 376px) and (max-width: 1439px) {
+  body header .container__info h2 {
+    width: 595px;
+    font-size: 50px;
+  }
+}
+@media screen and (min-width: 1440px) {
   body header .container__info h2 {
     font-size: 65px;
     text-align: left;
     width: 595px;
+    margin-top: 150px;
+    margin-left: 100px;
   }
 }
 body header .container__info .container__info__img {
   height: 290px;
   width: 100vw;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 376px) and (max-width: 1439px) {
+  body header .container__info .container__info__img {
+    height: 500px;
+    width: 759px;
+  }
+}
+@media screen and (min-width: 1440px) {
   body header .container__info .container__info__img {
     height: 586px;
     width: 759px;
   }
 }
-body header .svg__bottom {
-  width: 100vw;
+body header svg {
+  width: 375px;
   height: 33px;
   margin-top: auto;
 }
-@media screen and (min-width: 1024px) {
-  body header .svg__bottom {
-    margin-top: none;
-    width: 1290px;
+@media screen and (min-width: 1440px) {
+  body header svg {
+    width: 1299px;
     height: 112px;
   }
 }/*# sourceMappingURL=main.css.map */

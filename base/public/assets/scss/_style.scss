@@ -11,6 +11,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    @include responsive-desktop {
+      height: auto;
+      width: auto;
+    }
 
     nav {
       display: flex;
@@ -19,6 +23,9 @@ body {
       font-size: 20px;
       font-weight: 600;
       margin-top: 35px;
+      @include responsive-tablet {
+        margin-bottom: 80px;
+      }
       @include responsive-desktop {
         justify-content: center;
         flex-direction: row;
@@ -35,6 +42,9 @@ body {
 
         li {
           margin-right: 10px;
+          @include responsive-tablet {
+            margin-right: 20px;
+          }
           @include responsive-desktop {
             margin-right: 28px;
           }
@@ -74,6 +84,24 @@ body {
           a {
             text-decoration: none;
             color: black;
+            position: relative;
+            display: inline-block;
+            background-color: transparent;
+            transition: transform 0.3s ease;
+            z-index: 1;
+          }
+          a::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background-color: white;
+            width: 102px;
+            height: 37px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            z-index: -1;
           }
           a:visited {
             color: black;
@@ -81,21 +109,20 @@ body {
           a:active {
             color: black;
           }
-        }
-        li:first-child {
-          background-color: white;
-          width: 107px;
-          height: 37px;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          border-radius: 10px;
+          a:hover {
+            transform: scale(1);
+          }
+          a:hover::after {
+            transform: translate(-50%, -50%) scale(1);
+          }
         }
       }
       h1 {
         font-size: 48px;
         font-weight: 900;
+        @include responsive-tablet {
+          margin-bottom: 80px;
+        }
         @include responsive-desktop {
           margin-right: 126px;
           margin-top: 94px;
@@ -110,34 +137,45 @@ body {
       align-items: center;
       @include responsive-desktop {
         flex-direction: row;
+        align-items: normal;
       }
 
       h2 {
         font-size: 35px;
         font-weight: 900;
         text-align: center;
+
+        @include responsive-tablet {
+          width: 595px;
+          font-size: 50px;
+        }
         @include responsive-desktop {
           font-size: 65px;
           text-align: left;
           width: 595px;
+          margin-top: 150px;
+          margin-left: 100px;
         }
       }
       .container__info__img {
         height: 290px;
         width: 100vw;
+        @include responsive-tablet {
+          height: 500px;
+          width: 759px;
+        }
         @include responsive-desktop {
           height: 586px;
           width: 759px;
         }
       }
     }
-    .svg__bottom {
-      width: 100vw;
+    svg {
+      width: 375px;
       height: 33px;
       margin-top: auto;
       @include responsive-desktop {
-        margin-top: none;
-        width: 1290px;
+        width: 1299px;
         height: 112px;
       }
     }

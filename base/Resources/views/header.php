@@ -21,8 +21,8 @@
                 <li><a href="contacts.php">Contacts</a></li>
             </ul>
             <ul class="nav__login">
-                <li><a href="">Sign up</a></li>
-                <li><a href="">Login</a></li>
+                <li><a href="signup.php">Sign up</a></li>
+                <li><a href="login.php">Login</a></li>
             </ul>
         </nav>
         <section class="container__info">
@@ -39,7 +39,7 @@
 
 
         </section>
-        <svg class="svg__bottom" width="1299" height="112" viewBox="0 0 1299 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="1299" height="112" viewBox="0 0 1299 112" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 39.3514H649.5L1046 0L1299 112H0V39.3514Z" fill="white" />
         </svg>
 
