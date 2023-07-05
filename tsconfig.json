@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "base/public/assets/js",
+    "strict": true
+  },
+  "include": ["base/public/**/*.ts"]
+}

@@ -3,6 +3,7 @@
    License: none (public domain)
 */
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Roboto&display=swap");
 html,
 body,
 div,
@@ -135,7 +136,7 @@ table {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", serif;
 }
 body header {
   color: black;

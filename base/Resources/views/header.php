@@ -15,10 +15,10 @@
         <nav>
             <h1>COGIP</h1>
             <ul class="nav__bar">
-                <li><a href="welcome.php">Home</a></li>
-                <li><a href="invoices.php">Invoices</a></li>
-                <li><a href="companies.php">Companies</a></li>
-                <li><a href="contacts.php">Contacts</a></li>
+                <li><a href="/projects/cogip/base/Resources/views/welcome.php">Home</a></li>
+                <li><a href="/projects/cogip/base/Resources/views/invoices.php">Invoices</a></li>
+                <li><a href="/projects/cogip/base/Resources/views/companies.php">Companies</a></li>
+                <li><a href="/projects/cogip/base/Resources/views/contacts.php">Contacts</a></li>
             </ul>
             <ul class="nav__login">
                 <li><a href="signup.php">Sign up</a></li>
