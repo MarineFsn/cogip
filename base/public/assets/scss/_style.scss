@@ -1,0 +1,336 @@
+// @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap");
+
+.footer {
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0px;
+    // height: m543px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: space-around;
+    padding: 40px;
+    font-size: $font-size-footer;
+    font-family: $font-family-title;
+    color: rgba(0, 0, 0, 0.4);
+    // font-weight: $font-weight-footer;
+    // border: 2px solid blue;
+    @include responsive-tablet {
+        justify-content: space-around;
+        padding: 100px 60px;
+    }
+    @include responsive-desktop {
+        justify-content: space-around;
+        height: 543px;
+        padding: 100px 180px;
+    }
+    h4 {
+        width: 165px;
+        height: 63px;
+        // border: 5px solid #f9de4e;
+        outline: 5px solid $yellow;
+        // outline-offset: 4px;
+        // margin-right: 354px;
+        font-family: $font-family-text;
+        font-size: $font-size-name;
+        font-weight: $font-weight-title;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        line-height: 63px;
+        @include responsive-tablet {
+        }
+        @include responsive-desktop {
+        }
+    }
+    &_top_line {
+        // margin-bottom: 88px;
+        border: 2px solid $yellow;
+        // margin: 0;
+        // padding: 0;
+    }
+    &_section {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 40px 0px;
+        gap: 60px;
+        @include responsive-tablet {
+            flex-direction: row;
+        }
+        @include responsive-desktop {
+            flex-direction: row;
+        }
+    }
+    &_name {
+        width: 50%;
+    }
+    &_contact {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        @include responsive-tablet {
+        }
+        @include responsive-desktop {
+            width: 50%;
+        }
+        // &_div_logo {
+        //     height: 20px;
+        //     line-height: 20px;
+        // }
+        &_number {
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px;
+        }
+        &_div_logo {
+            display: flex;
+            // justify-content: center;
+            align-items: center;
+            gap: 16px;
+        }
+        &_social_media {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: start;
+            gap: 10px;
+            svg {
+                margin: 0px 5px;
+                align-items: center;
+            }
+            &_logo {
+                display: flex;
+                border-spacing: 25px;
+            }
+            @include responsive-tablet {
+            }
+            @include responsive-desktop {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+    }
+    &_down_line {
+        margin-bottom: 24px;
+        border: 1px solid #7bb9fc20;
+    }
+    &_nav-footer {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        box-sizing: border-box;
+        @include responsive-tablet {
+        }
+        @include responsive-desktop {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            text-align: left;
+            gap: 10px;
+            @include responsive-tablet {
+            }
+            @include responsive-desktop {
+                gap: 69px;
+            }
+            a {
+                text-decoration: none;
+                color: rgba(0, 0, 0, 0.4);
+            }
+            li:hover {
+                outline: 2px solid rgba(0, 0, 0, 0.4);
+                outline-offset: 5px;
+            }
+        }
+        span {
+            // display: flex;
+            // text-align: right;
+        }
+    }
+}
+body {
+  font-family: $font-family-text;
+
+  header {
+    color: black;
+    width: 100vw;
+    min-height: 270px;
+    max-height: 100vh;
+    background-color: #f9de4e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include responsive-desktop {
+      height: auto;
+      width: auto;
+    }
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 20px;
+      font-weight: 600;
+      margin-top: 35px;
+      @include responsive-tablet {
+        margin-bottom: 80px;
+      }
+      @include responsive-desktop {
+        justify-content: center;
+        flex-direction: row;
+        margin-top: 0px;
+      }
+      .nav__bar {
+        display: flex;
+        margin-top: 35px;
+        @include responsive-desktop {
+          margin-top: 94px;
+          margin-right: 324px;
+          flex-direction: row;
+        }
+
+        li {
+          margin-right: 10px;
+          @include responsive-tablet {
+            margin-right: 20px;
+          }
+          @include responsive-desktop {
+            margin-right: 28px;
+          }
+          a {
+            text-decoration: none;
+            color: black;
+          }
+          a:visited {
+            color: black;
+          }
+          a:active {
+            color: black;
+          }
+          a:hover {
+            outline: solid 2px black;
+            outline-offset: 10px;
+          }
+        }
+      }
+
+      .nav__login {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 35px;
+        @include responsive-desktop {
+          margin-right: 28px;
+          flex-direction: row;
+          margin-top: 94px;
+          margin-bottom: 0px;
+        }
+        li {
+          margin-right: 10px;
+          @include responsive-desktop {
+            margin-right: 44px;
+          }
+          a {
+            text-decoration: none;
+            color: black;
+            position: relative;
+            display: inline-block;
+            background-color: transparent;
+            transition: transform 0.3s ease;
+            z-index: 1;
+          }
+          a::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background-color: white;
+            width: 102px;
+            height: 37px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            z-index: -1;
+          }
+          a:visited {
+            color: black;
+          }
+          a:active {
+            color: black;
+          }
+          a:hover {
+            transform: scale(1);
+          }
+          a:hover::after {
+            transform: translate(-50%, -50%) scale(1);
+          }
+        }
+      }
+      h1 {
+        font-size: 48px;
+        font-weight: 900;
+        @include responsive-tablet {
+          margin-bottom: 80px;
+        }
+        @include responsive-desktop {
+          margin-right: 126px;
+          margin-top: 94px;
+        }
+      }
+    }
+
+    .container__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      @include responsive-desktop {
+        flex-direction: row;
+        align-items: normal;
+      }
+
+      h2 {
+        font-size: 35px;
+        font-weight: 900;
+        text-align: center;
+
+        @include responsive-tablet {
+          width: 595px;
+          font-size: 50px;
+        }
+        @include responsive-desktop {
+          font-size: 65px;
+          text-align: left;
+          width: 595px;
+          margin-top: 150px;
+          margin-left: 100px;
+        }
+      }
+      .container__info__img {
+        height: 290px;
+        width: 100vw;
+        @include responsive-tablet {
+          height: 500px;
+          width: 759px;
+        }
+        @include responsive-desktop {
+          height: 586px;
+          width: 759px;
+        }
+      }
+    }
+    svg {
+      width: 375px;
+      height: 33px;
+      margin-top: auto;
+      @include responsive-desktop {
+        width: 1299px;
+        height: 112px;
+      }
+    }
+  }
+}
