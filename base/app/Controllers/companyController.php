@@ -1,6 +1,6 @@
 <?php
 
-require './Core/connect.php';
+require '../Core/connect.php';
 require '../Models/company.php';
 
 class CompanyController
