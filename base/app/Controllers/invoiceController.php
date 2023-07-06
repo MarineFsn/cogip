@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
 require_once APP . 'Core/connect.php';
 require_once APP . 'Models/invoice.php';
