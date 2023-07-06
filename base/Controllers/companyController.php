@@ -35,18 +35,18 @@ class CompanyController
     }
 }
 
-// $controllercontact = new CompanyController();
-// $companies = $controllercontact->getCompanies();
+$controllercontact = new CompanyController();
+$companies = $controllercontact->getCompanies();
 
 
-// foreach ($companies as $company) {
-//     echo "ID: " . $company->id . "<br>";
-//     echo "Nom: " . $company->name . "<br>";
-//     echo "Type: " . $company->type . "<br>";
-//     echo "Pays: " . $company->country . "<br>";
-//     echo "TVA: " . $company->tva . "<br>";
-//     echo "Date de mise à jour: " . $company->update_date . "<br>";
-//     echo "<br>";
-// }
+foreach ($companies as $company) {
+    echo "ID: " . $company->id . "<br>";
+    echo "Nom: " . $company->name . "<br>";
+    echo "Type: " . $company->type . "<br>";
+    echo "Pays: " . $company->country . "<br>";
+    echo "TVA: " . $company->tva . "<br>";
+    echo "Date de mise à jour: " . $company->update_date . "<br>";
+    echo "<br>";
+}
 
 ?>
