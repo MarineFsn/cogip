@@ -137,8 +137,6 @@ table {
 
 .footer {
   box-sizing: border-box;
-  position: fixed;
-  bottom: 0px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -191,6 +189,7 @@ table {
 @media screen and (min-width: 1440px) {
   .footer_section {
     flex-direction: row;
+    gap: 100px;
   }
 }
 .footer_name {

@@ -2,8 +2,8 @@
 
 .footer {
     box-sizing: border-box;
-    position: fixed;
-    bottom: 0px;
+    // position: fixed;
+    // bottom: 0px;
     // height: m543px;
     width: 100%;
     display: flex;
@@ -60,6 +60,7 @@
         }
         @include responsive-desktop {
             flex-direction: row;
+            gap: 100px;
         }
     }
     &_name {
