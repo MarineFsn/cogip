@@ -1,7 +1,7 @@
 <?php
 
-require_once APP.'Core/connect.php';
-require_once APP.'Models/invoice.php';
+require_once APP . 'Core/connect.php';
+require_once APP . 'Models/invoice.php';
 
 class invoiceController
 {
@@ -22,7 +22,7 @@ class invoiceController
                 $invoice = new invoice(
                     $row['id'],
                     $row['ref'],
-                    $row['company'],
+                    $row['id_company'],
                     $row['created_at'],
                     $row['updated_at']
                 );
@@ -33,6 +33,6 @@ class invoiceController
     }
 }
 
-require_once APP.'Views/invoices.php';
+require_once APP . 'Views/invoices.php';
 
 ?>

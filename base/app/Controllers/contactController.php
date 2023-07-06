@@ -1,7 +1,7 @@
 <?php
 
-require_once APP.'Core/connect.php';
-require_once APP.'Models/contact.php';
+require_once APP . 'Core/connect.php';
+require_once APP . 'Models/contact.php';
 
 class ContactController
 {
@@ -22,11 +22,11 @@ class ContactController
                 $contact = new contact(
                     $row['id'],
                     $row['name'],
-                    $row['company'],
+                    $row['company_id'],
                     $row['email'],
                     $row['phone'],
                     $row['created_at'],
-                    $row['update_at']
+                    $row['updated_at']
                 );
                 $contacts[] = $contact;
             }
@@ -49,5 +49,5 @@ class ContactController
 // }
 
 
-require_once APP.'Views/contacts.php';
+require_once APP . 'Views/contacts.php';
 ?>
