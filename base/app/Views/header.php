@@ -16,10 +16,10 @@
         <nav>
             <h1>COGIP</h1>
             <ul class="nav__bar">
-                <li><a href="base/index.php?route=Home">Home</a></li>
-                <li><a href="base/index.php?route=invoice">Invoices</a></li>
-                <li><a href="base/index.php?route=company">Companies</a></li>
-                <li><a href="base/index.php?route=contact">Contacts</a></li>
+                <li><a href="index.php?route=Home">Home</a></li>
+                <li><a href="index.php?route=invoice">Invoices</a></li>
+                <li><a href="index.php?route=company">Companies</a></li>
+                <li><a href="index.php?route=contact">Contacts</a></li>
             </ul>
             <ul class="nav__login">
                 <li><a href="signup.php">Sign up</a></li>
