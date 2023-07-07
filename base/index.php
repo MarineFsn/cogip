@@ -8,11 +8,10 @@
 
 
 define('APP', dirname(__FILE__) . "/app/");
-var_dump(APP);
 $route = $_GET['route'];
 $routeParts = explode('/', $route);
 $base = $routeParts[0];
-var_dump($routeParts);
+
 
 if ($base == '') {
     $base = 'Home';

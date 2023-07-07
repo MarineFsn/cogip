@@ -8,12 +8,6 @@ include "header.php";
         <div class="container__table__yellow__rectangle"> </div>
         <input type="text" id="searchbar" name="searchbar" placeholder="Search company name" required>
 
-
-        <?php
-        $controller = new ContactController();
-        $contacts = $controller->getContact();
-        ?>
-
         <div class="table__container">
             <table class="table__container__info">
                 <thead class="table__container__info__thead">
@@ -27,14 +21,24 @@ include "header.php";
                     </tr>
                 </thead>
                 <tbody class="table__container__info__tbody">
-                    <?php foreach ($contacts as $contact) : ?>
+                    <?php foreach ($contacts as $contact): ?>
                         <tr class="table__container__info__tbody__tr">
 
-                            <td><?php echo $contact->name; ?></td>
-                            <td><?php echo $contact->phone; ?></td>
-                            <td><?php echo $contact->email; ?></td>
-                            <td><?php echo $contact->company; ?></td>
-                            <td><?php echo $contact->creation_date; ?></td>
+                            <td>
+                                <?php echo $contact->name; ?>
+                            </td>
+                            <td>
+                                <?php echo $contact->phone; ?>
+                            </td>
+                            <td>
+                                <?php echo $contact->email; ?>
+                            </td>
+                            <td>
+                                <?php echo $contact->company; ?>
+                            </td>
+                            <td>
+                                <?php echo $contact->creation_date; ?>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
