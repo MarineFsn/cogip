@@ -10,8 +10,8 @@ include "header.php";
 
 
         <?php
-        $controller = new ContactController();
-        $contacts = $controller->getContact();
+        $controller = new ContactController($db);
+        $contacts = $controller->getContacts();
 
         usort($contacts, function ($a, $b) {
             return strcmp($a->name, $b->name);
@@ -30,7 +30,7 @@ include "header.php";
                     </tr>
                 </thead>
                 <tbody class="table__container__info__tbody">
-                    <?php foreach ($contacts as $contact): ?>
+                    <?php foreach ($contacts as $contact) : ?>
                         <tr class="table__container__info__tbody__tr">
 
 
