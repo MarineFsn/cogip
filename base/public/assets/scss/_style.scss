@@ -347,32 +347,76 @@ body {
     .container__contact {
       display: flex;
       flex-direction: column-reverse;
+      @include responsive-desktop {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 1088px;
+        height: 290px;
+      }
       &__info {
+        @include responsive-desktop {
+          margin-top: 39px;
+        }
         &__name {
+          position: relative;
           h5 {
             font-size: 30px;
             font-weight: $font-weight-title;
+            z-index: 1;
+            margin-bottom: 20px;
+            font-family: $font-family-title;
+            @include responsive-desktop {
+              margin-top: 39px;
+              font-size: 60px;
+            }
           }
           &__yellow {
             width: 200px;
             height: 17px;
             background-color: $yellow;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: -1;
+            @include responsive-desktop {
+              width: 496px;
+              height: 35px;
+
+              top: 35px;
+              left: 30px;
+            }
           }
         }
 
         p {
+          margin-bottom: 15px;
+          font-size: $font-size-text;
+          font-weight: $font-weight-title;
+
+          @include responsive-desktop {
+            margin-bottom: 5px;
+            font-size: 25px;
+            font-weight: $font-weight-title;
+            text-align: left;
+          }
         }
       }
       &__photo {
         height: 125px;
         width: 125px;
-        background-color: red;
+
         border-radius: 50%;
         margin-bottom: 15px;
         align-self: center;
         @include responsive-desktop {
           height: 255px;
           width: 255px;
+        }
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 50%;
         }
       }
     }
@@ -419,7 +463,7 @@ body {
         color: #636363;
         border: 1px solid #636363;
         border-radius: 10px;
-        font-size: $font-size-text;
+        font-size: 15px;
         font-weight: 300;
         font-family: $font-family-title;
         margin-bottom: 20px;
@@ -428,6 +472,7 @@ body {
           margin-bottom: 42px;
           height: 53px;
           width: 245px;
+          font-size: $font-size-text;
         }
       }
 

@@ -12,7 +12,7 @@ include "header.php";
 
         $companyController = new CompanyController($db);
         $companies = $companyController->getCompanies();
-      usort($companies, function ($a, $b) {
+        usort($companies, function ($a, $b) {
             return strcmp($a->name, $b->name);
         });
         ?>
@@ -29,7 +29,7 @@ include "header.php";
                     </tr>
                 </thead>
                 <tbody class="table__container__info__tbody">
-                    <?php foreach ($companies as $company): ?>
+                    <?php foreach ($companies as $company) : ?>
                         <tr class="table__container__info__tbody__tr">
 
                             <td><a href="show_company.php?company_id=<?php echo $company->id; ?>"><?php echo $company->name; ?></a></td>
@@ -61,6 +61,7 @@ include "header.php";
                 <button>10</button>
                 <button class="container__button__nav">></button>
     </section>
+    <script src="/cogip/base/public/assets/js/invoices.js"></script>
 </main>
 
 <?php

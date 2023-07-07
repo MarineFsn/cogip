@@ -21,7 +21,7 @@ include "header.php";
                     </tr>
                 </thead>
                 <tbody class="table__container__info__tbody">
-                    <?php foreach ($invoices as $invoice): ?>
+                    <?php foreach ($invoices as $invoice) : ?>
                         <tr class="table__container__info__tbody__tr">
 
                             <td>
@@ -42,7 +42,7 @@ include "header.php";
             </table>
         </div>
 
-        <script src="./base/public/assets/js/invoices.js"></script>
+        <script src="/cogip/base/public/assets/js/invoices.js"></script>
 
     </section>
     <section class="container__button">

@@ -66,7 +66,7 @@ include "header.php";
                 <button>10</button>
                 <button class="container__button__nav">></button>
     </section>
-    <script src="/projects/cogip/base/public/assets/js/invoices.js"></script>
+    <script src="/cogip/base/public/assets/js/invoices.js"></script>
 </main>
 
 <?php

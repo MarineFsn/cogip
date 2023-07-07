@@ -11,14 +11,14 @@ include "header.php";
             <p>Contact:</p>
             <p>Phone:</p>
             <p>Mail:</p>
-            <p>Campany:</p>
+            <p>Company:</p>
         </div>
         <div class="container__contact__photo">
-
+            <img src="/cogip/base/public/assets/img/img-contact.jpg" alt="photo du contact">
         </div>
     </section>
 </main>
-<script src="/projects/cogip/base/public/assets/js/invoices.js"></script>
+<script src="/cogip/base/public/assets/js/invoices.js"></script>
 
 <?php
 include "footer.php";
