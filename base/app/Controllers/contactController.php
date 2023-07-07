@@ -10,7 +10,7 @@ class ContactController
 
     public function getContact()
     {
-        $this->db->connect();
+        $this->db = connect();
 
         $query = "SELECT * FROM contacts";
         $result = $this->db->query($query);
@@ -50,4 +50,3 @@ class ContactController
 
 
 require_once APP . 'Views/contacts.php';
-?>

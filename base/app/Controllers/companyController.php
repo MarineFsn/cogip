@@ -1,7 +1,7 @@
 <?php
 
-require_once APP.'Core/connect.php';
-require_once APP.'Models/company.php';
+require_once APP . 'Core/connect.php';
+require_once APP . 'Models/company.php';
 
 class CompanyController
 {
@@ -38,5 +38,4 @@ class CompanyController
 $controllercontact = new CompanyController();
 $companies = $controllercontact->getCompanies();
 
-require_once APP.'Views/companies.php';
-?>
+require_once APP . 'Views/companies.php';
