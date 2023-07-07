@@ -4,15 +4,15 @@ include "header.php";
 
 <main>
     <section class="container__table">
-        <h3>All companies </h3>
-        <div class="container__table__yellow__rectangle"> </div>
+        <h3>All companies</h3>
+        <div class="container__table__yellow__rectangle"></div>
         <input type="text" id="searchbar" name="searchbar" placeholder="Search company name" required>
 
         <?php
-        $controllercontact = new CompanyController();
-        $companies = $controllercontact->getCompanies();
 
-        usort($companies, function ($a, $b) {
+        $companyController = new CompanyController($db);
+        $companies = $companyController->getCompanies();
+      usort($companies, function ($a, $b) {
             return strcmp($a->name, $b->name);
         });
         ?>
@@ -29,25 +29,31 @@ include "header.php";
                     </tr>
                 </thead>
                 <tbody class="table__container__info__tbody">
-                    <?php foreach ($companies as $company) : ?>
+                    <?php foreach ($companies as $company): ?>
                         <tr class="table__container__info__tbody__tr">
+
                             <td><a href="show_company.php?company_id=<?php echo $company->id; ?>"><?php echo $company->name; ?></a></td>
-                            <td><?php echo $company->tva; ?></td>
-                            <td><?php echo $company->country; ?></td>
-                            <td><?php echo $company->type; ?></td>
-                            <td><?php echo $company->creation_date; ?></td>
+                            <td>
+                                <?php echo $company->tva; ?>
+                            </td>
+                            <td>
+                                <?php echo $company->country; ?>
+                            </td>
+                            <td>
+                                <?php echo $company->type; ?>
+                            </td>
+                            <td>
+                                <?php echo $company->creation_date; ?>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
-
-        <script src="/projects/cogip/base/public/assets/js/invoices.js"></script>
-
     </section>
     <section class="container__button">
         <button class="container__button__nav">
-            < </button>
+            << /button>
                 <button>1</button>
                 <button>2</button>
                 <button>...</button>

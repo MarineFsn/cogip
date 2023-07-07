@@ -17,7 +17,6 @@ include "header.php";
             return strcmp($a->name, $b->name);
         });
         ?>
-
         <div class="table__container">
             <table class="table__container__info">
                 <thead class="table__container__info__thead">
@@ -31,14 +30,23 @@ include "header.php";
                     </tr>
                 </thead>
                 <tbody class="table__container__info__tbody">
-                    <?php foreach ($contacts as $contact) : ?>
+                    <?php foreach ($contacts as $contact): ?>
                         <tr class="table__container__info__tbody__tr">
 
+
                             <td><a href="show_contact.php?contact_id=<?php echo $contact->id; ?>"><?php echo $contact->name; ?></td>
-                            <td><?php echo $contact->phone; ?></td>
-                            <td><?php echo $contact->email; ?></td>
-                            <td><?php echo $contact->company; ?></td>
-                            <td><?php echo $contact->creation_date; ?></td>
+                            <td>
+                                <?php echo $contact->phone; ?>
+                            </td>
+                            <td>
+                                <?php echo $contact->email; ?>
+                            </td>
+                            <td>
+                                <?php echo $contact->company; ?>
+                            </td>
+                            <td>
+                                <?php echo $contact->creation_date; ?>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

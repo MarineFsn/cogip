@@ -1,6 +1,6 @@
 <?php
 // declare(strict_types=1);
-class contact
+class Contact
 {
     public int $id;
     public string $name;
