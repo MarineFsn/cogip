@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 04 juil. 2023 à 15:32
+-- Généré le : ven. 07 juil. 2023 à 14:09
 -- Version du serveur : 10.4.25-MariaDB
 -- Version de PHP : 8.1.10
 
@@ -85,6 +85,7 @@ CREATE TABLE `invoices` (
   `id` int(11) NOT NULL,
   `ref` varchar(50) NOT NULL,
   `id_company` int(11) NOT NULL,
+  `due_date` datetime DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -93,12 +94,12 @@ CREATE TABLE `invoices` (
 -- Déchargement des données de la table `invoices`
 --
 
-INSERT INTO `invoices` (`id`, `ref`, `id_company`, `created_at`, `updated_at`) VALUES
-(1, 'F20220915-001', 5, '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
-(2, 'F20220915-002', 2, '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
-(3, 'F20220915-003', 3, '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
-(4, 'F20220915-004', 4, '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
-(5, 'F20220915-005', 1, '2023-07-04 00:00:00', '2023-07-04 00:00:00');
+INSERT INTO `invoices` (`id`, `ref`, `id_company`, `due_date`, `created_at`, `updated_at`) VALUES
+(1, 'F20220915-001', 5, '2023-07-20 00:00:00', '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
+(2, 'F20220915-002', 2, '2023-07-20 00:00:00', '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
+(3, 'F20220915-003', 3, '2023-07-20 00:00:00', '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
+(4, 'F20220915-004', 4, '2023-07-20 00:00:00', '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
+(5, 'F20220915-005', 1, '2023-07-20 00:00:00', '2023-07-04 00:00:00', '2023-07-04 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -113,6 +114,16 @@ CREATE TABLE `permissions` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `permissions`
+--
+
+INSERT INTO `permissions` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'create', '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
+(2, 'update', '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
+(3, 'delete', '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
+(4, 'read', '2023-07-04 00:00:00', '2023-07-04 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -126,6 +137,15 @@ CREATE TABLE `roles` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'admin', '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
+(2, 'moderator', '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
+(3, 'user', '2023-07-04 00:00:00', '2023-07-04 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -137,6 +157,19 @@ CREATE TABLE `roles_permission` (
   `permission_id` int(11) NOT NULL,
   `role_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `roles_permission`
+--
+
+INSERT INTO `roles_permission` (`id`, `permission_id`, `role_id`) VALUES
+(1, 1, 1),
+(2, 2, 1),
+(3, 3, 1),
+(4, 4, 1),
+(5, 1, 2),
+(6, 4, 2),
+(7, 4, 3);
 
 -- --------------------------------------------------------
 
@@ -175,6 +208,17 @@ CREATE TABLE `users` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `first_name`, `role_id`, `last_name`, `email`, `password`, `created_at`, `updated_at`) VALUES
+(1, 'Marine', 1, 'Fassin', 'marine.fassin@gmail.com', 'password', '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
+(2, 'Nikko', 2, 'Di Bernardo', 'nikko.dibernardo@gmail.com', 'password', '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
+(3, 'Loïc', 2, 'Lion', 'loic.lion@gmail.com', 'password', '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
+(4, 'Benjamin', 3, 'Mayeur', 'benjamin.mayeur@gmail.com', 'password', '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
+(5, 'Noa', 3, 'Cayphas', 'noa.cayphas@gmail.com', 'password', '2023-07-04 00:00:00', '2023-07-04 00:00:00');
 
 --
 -- Index pour les tables déchargées
@@ -260,19 +304,19 @@ ALTER TABLE `invoices`
 -- AUTO_INCREMENT pour la table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `roles_permission`
 --
 ALTER TABLE `roles_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `types`
@@ -284,7 +328,7 @@ ALTER TABLE `types`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Contraintes pour les tables déchargées
