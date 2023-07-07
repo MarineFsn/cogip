@@ -8,17 +8,19 @@ include "header.php";
         <div class="container__table__yellow__rectangle"> </div>
         <input type="text" id="searchbar" name="searchbar" placeholder="Search company name" required>
 
-
         <?php
         $controllercontact = new CompanyController();
         $companies = $controllercontact->getCompanies();
+
+        usort($companies, function ($a, $b) {
+            return strcmp($a->name, $b->name);
+        });
         ?>
 
         <div class="table__container">
             <table class="table__container__info">
                 <thead class="table__container__info__thead">
                     <tr class="table__container__info__thead__tr">
-
                         <th>Name</th>
                         <th>TVA</th>
                         <th>Country</th>
@@ -29,8 +31,7 @@ include "header.php";
                 <tbody class="table__container__info__tbody">
                     <?php foreach ($companies as $company) : ?>
                         <tr class="table__container__info__tbody__tr">
-
-                            <td><?php echo $company->name; ?></td>
+                            <td><a href="show_company.php?company_id=<?php echo $company->id; ?>"><?php echo $company->name; ?></a></td>
                             <td><?php echo $company->tva; ?></td>
                             <td><?php echo $company->country; ?></td>
                             <td><?php echo $company->type; ?></td>
