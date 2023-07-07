@@ -23,14 +23,14 @@ include "header.php";
                     <tr class="table__container__info__thead__tr">
 
                         <th>Name</th>
-                        <th>Phone</th>
                         <th>Mail</th>
+                        <th>Phone</th>
                         <th>Company</th>
                         <th>Created at</th>
                     </tr>
                 </thead>
                 <tbody class="table__container__info__tbody">
-                    <?php foreach ($contacts as $contact) : ?>
+                    <?php foreach ($contacts as $contact): ?>
                         <tr class="table__container__info__tbody__tr">
 
 

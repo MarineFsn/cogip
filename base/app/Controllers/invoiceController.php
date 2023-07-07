@@ -28,6 +28,7 @@ class invoiceController
             $invoice = new invoice(
                 $row['id'],
                 $row['ref'],
+                $row['due_date'],
                 $row['id_company'],
                 $row['created_at'],
                 $row['updated_at']
