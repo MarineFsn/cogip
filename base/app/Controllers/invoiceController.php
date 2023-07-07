@@ -9,31 +9,40 @@ class invoiceController
 {
     private $db;
 
+    public function __construct($db)
+    {
+        $this->db = $db;
+    }
+
     public function getinvoices()
     {
-        $this->db->connect();
-
 
         $query = "SELECT * FROM invoices";
-        $result = $this->db->query($query);
+        $statement = $this->db->prepare($query);
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         $invoices = array();
 
-        if ($result->rowCount() > 0) {
-            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                $invoice = new invoice(
-                    $row['id'],
-                    $row['ref'],
-                    $row['id_company'],
-                    $row['created_at'],
-                    $row['updated_at']
-                );
-                $invoices[] = $invoice;
-            }
+        foreach ($result as $row) {
+            $invoice = new invoice(
+                $row['id'],
+                $row['ref'],
+                $row['id_company'],
+                $row['created_at'],
+                $row['updated_at']
+            );
+            $invoices[] = $invoice;
         }
+
         return $invoices;
+
     }
 }
+
+$invoiceController = new invoiceController($db);
+$invoices = $invoiceController->getinvoices();
+
 
 require_once APP . 'Views/invoices.php';
 
