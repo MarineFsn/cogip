@@ -9,8 +9,12 @@ include "header.php";
         <input type="text" id="searchbar" name="searchbar" placeholder="Search company name" required>
 
         <?php
+
         $companyController = new CompanyController($db);
         $companies = $companyController->getCompanies();
+      usort($companies, function ($a, $b) {
+            return strcmp($a->name, $b->name);
+        });
         ?>
 
         <div class="table__container">
@@ -27,9 +31,8 @@ include "header.php";
                 <tbody class="table__container__info__tbody">
                     <?php foreach ($companies as $company): ?>
                         <tr class="table__container__info__tbody__tr">
-                            <td>
-                                <?php echo $company->name; ?>
-                            </td>
+
+                            <td><a href="show_company.php?company_id=<?php echo $company->id; ?>"><?php echo $company->name; ?></a></td>
                             <td>
                                 <?php echo $company->tva; ?>
                             </td>

@@ -8,6 +8,15 @@ include "header.php";
         <div class="container__table__yellow__rectangle"> </div>
         <input type="text" id="searchbar" name="searchbar" placeholder="Search company name" required>
 
+
+        <?php
+        $controller = new ContactController();
+        $contacts = $controller->getContact();
+
+        usort($contacts, function ($a, $b) {
+            return strcmp($a->name, $b->name);
+        });
+        ?>
         <div class="table__container">
             <table class="table__container__info">
                 <thead class="table__container__info__thead">
@@ -24,9 +33,8 @@ include "header.php";
                     <?php foreach ($contacts as $contact): ?>
                         <tr class="table__container__info__tbody__tr">
 
-                            <td>
-                                <?php echo $contact->name; ?>
-                            </td>
+
+                            <td><a href="show_contact.php?contact_id=<?php echo $contact->id; ?>"><?php echo $contact->name; ?></td>
                             <td>
                                 <?php echo $contact->phone; ?>
                             </td>
@@ -45,7 +53,7 @@ include "header.php";
             </table>
         </div>
 
-        <script src="/projects/cogip/base/public/assets/js/invoices.js"></script>
+
 
     </section>
     <section class="container__button">
@@ -58,6 +66,7 @@ include "header.php";
                 <button>10</button>
                 <button class="container__button__nav">></button>
     </section>
+    <script src="/projects/cogip/base/public/assets/js/invoices.js"></script>
 </main>
 
 <?php

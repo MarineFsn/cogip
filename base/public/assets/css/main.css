@@ -302,7 +302,7 @@ body .public__header nav {
 }
 @media screen and (min-width: 376px) and (max-width: 1439px) {
   body .public__header nav {
-    margin-bottom: 80px;
+    margin-bottom: 20px;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -412,7 +412,7 @@ body .public__header nav h1 {
 }
 @media screen and (min-width: 376px) and (max-width: 1439px) {
   body .public__header nav h1 {
-    margin-bottom: 80px;
+    margin-bottom: 20px;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -440,7 +440,7 @@ body .public__header .container__info h2 {
 }
 @media screen and (min-width: 376px) and (max-width: 1439px) {
   body .public__header .container__info h2 {
-    width: 595px;
+    width: auto;
     font-size: 50px;
   }
 }
@@ -460,7 +460,7 @@ body .public__header .container__info .container__info__img {
 @media screen and (min-width: 376px) and (max-width: 1439px) {
   body .public__header .container__info .container__info__img {
     height: 500px;
-    width: 759px;
+    width: 550px;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -474,6 +474,12 @@ body .public__header svg {
   height: 33px;
   margin-top: auto;
 }
+@media screen and (min-width: 376px) and (max-width: 1439px) {
+  body .public__header svg {
+    height: 66px;
+    width: 751px;
+  }
+}
 @media screen and (min-width: 1440px) {
   body .public__header svg {
     width: 1299px;
@@ -485,6 +491,33 @@ body main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+body main .container__contact {
+  display: flex;
+  flex-direction: column-reverse;
+}
+body main .container__contact__info__name h5 {
+  font-size: 30px;
+  font-weight: 900;
+}
+body main .container__contact__info__name__yellow {
+  width: 200px;
+  height: 17px;
+  background-color: #f9de4e;
+}
+body main .container__contact__photo {
+  height: 125px;
+  width: 125px;
+  background-color: red;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  align-self: center;
+}
+@media screen and (min-width: 1440px) {
+  body main .container__contact__photo {
+    height: 255px;
+    width: 255px;
+  }
 }
 body main .container__table {
   display: flex;
@@ -577,6 +610,10 @@ body main .container__table .table__container__info__thead__tr th {
 body main .container__table .table__container__info__tbody__tr td {
   height: 55px;
   vertical-align: middle;
+}
+body main .container__table .table__container__info__tbody__tr td a {
+  text-decoration: none;
+  color: black;
 }
 body main .container__table .table__container__info__tbody__tr:nth-child(even) {
   background-color: #f5f5f5;
