@@ -1,6 +1,5 @@
 <?php
 include "header.php";
-include "../../Controllers/invoiceController.php";
 ?>
 
 <main>
