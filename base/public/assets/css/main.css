@@ -135,10 +135,8 @@ table {
   border-spacing: 0;
 }
 
-.footer {
+.public_footer {
   box-sizing: border-box;
-  position: fixed;
-  bottom: 0px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -150,19 +148,19 @@ table {
   color: rgba(0, 0, 0, 0.4);
 }
 @media screen and (min-width: 376px) and (max-width: 1439px) {
-  .footer {
+  .public_footer {
     justify-content: space-around;
     padding: 100px 60px;
   }
 }
 @media screen and (min-width: 1440px) {
-  .footer {
+  .public_footer {
     justify-content: space-around;
     height: 543px;
     padding: 100px 180px;
   }
 }
-.footer h4 {
+.public_footer h4 {
   width: 165px;
   height: 63px;
   outline: 5px solid #f9de4e;
@@ -173,10 +171,10 @@ table {
   text-align: center;
   line-height: 63px;
 }
-.footer_top_line {
+.public_footer_top_line {
   border: 2px solid #f9de4e;
 }
-.footer_section {
+.public_footer_section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -184,76 +182,76 @@ table {
   gap: 60px;
 }
 @media screen and (min-width: 376px) and (max-width: 1439px) {
-  .footer_section {
+  .public_footer_section {
     flex-direction: row;
   }
 }
 @media screen and (min-width: 1440px) {
-  .footer_section {
+  .public_footer_section {
     flex-direction: row;
   }
 }
-.footer_name {
+.public_footer_name {
   width: 50%;
 }
-.footer_contact {
+.public_footer_contact {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 @media screen and (min-width: 1440px) {
-  .footer_contact {
+  .public_footer_contact {
     width: 50%;
   }
 }
-.footer_contact_number {
+.public_footer_contact_number {
   display: flex;
   justify-content: flex-start;
   gap: 20px;
 }
-.footer_contact_div_logo {
+.public_footer_contact_div_logo {
   display: flex;
   align-items: center;
   gap: 16px;
 }
-.footer_contact_social_media {
+.public_footer_contact_social_media {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: start;
   gap: 10px;
 }
-.footer_contact_social_media svg {
+.public_footer_contact_social_media svg {
   margin: 0px 5px;
   align-items: center;
 }
-.footer_contact_social_media_logo {
+.public_footer_contact_social_media_logo {
   display: flex;
   border-spacing: 25px;
 }
 @media screen and (min-width: 1440px) {
-  .footer_contact_social_media {
+  .public_footer_contact_social_media {
     flex-direction: row;
     align-items: center;
   }
 }
-.footer_down_line {
+.public_footer_down_line {
   margin-bottom: 24px;
   border: 1px solid rgba(123, 185, 252, 0.1254901961);
 }
-.footer_nav-footer {
+.public_footer_nav-footer {
   display: flex;
   flex-direction: column;
   gap: 20px;
   box-sizing: border-box;
 }
 @media screen and (min-width: 1440px) {
-  .footer_nav-footer {
+  .public_footer_nav-footer {
     flex-direction: row;
     justify-content: space-between;
   }
 }
-.footer_nav-footer ul {
+.public_footer_nav-footer ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -261,37 +259,40 @@ table {
   gap: 10px;
 }
 @media screen and (min-width: 1440px) {
-  .footer_nav-footer ul {
+  .public_footer_nav-footer ul {
     gap: 69px;
   }
 }
-.footer_nav-footer ul a {
+.public_footer_nav-footer ul a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.4);
 }
-.footer_nav-footer ul li:hover {
+.public_footer_nav-footer ul li:hover {
   outline: 2px solid rgba(0, 0, 0, 0.4);
   outline-offset: 5px;
-}/*# sourceMappingURL=main.css.map */
+}
+
 body {
   font-family: "Roboto", serif;
 }
-body header {
+body .public__header {
   color: black;
   width: 100vw;
-  height: 100vh;
+  min-height: 250px;
+  max-height: 100vh;
   background-color: #f9de4e;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 25px;
 }
 @media screen and (min-width: 1440px) {
-  body header {
-    height: auto;
+  body .public__header {
     width: auto;
+    margin-bottom: 57px;
   }
 }
-body header nav {
+body .public__header nav {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -300,78 +301,78 @@ body header nav {
   margin-top: 35px;
 }
 @media screen and (min-width: 376px) and (max-width: 1439px) {
-  body header nav {
+  body .public__header nav {
     margin-bottom: 80px;
   }
 }
 @media screen and (min-width: 1440px) {
-  body header nav {
+  body .public__header nav {
     justify-content: center;
     flex-direction: row;
     margin-top: 0px;
   }
 }
-body header nav .nav__bar {
+body .public__header nav .nav__bar {
   display: flex;
   margin-top: 35px;
 }
 @media screen and (min-width: 1440px) {
-  body header nav .nav__bar {
+  body .public__header nav .nav__bar {
     margin-top: 94px;
     margin-right: 324px;
     flex-direction: row;
   }
 }
-body header nav .nav__bar li {
+body .public__header nav .nav__bar li {
   margin-right: 10px;
 }
 @media screen and (min-width: 376px) and (max-width: 1439px) {
-  body header nav .nav__bar li {
+  body .public__header nav .nav__bar li {
     margin-right: 20px;
   }
 }
 @media screen and (min-width: 1440px) {
-  body header nav .nav__bar li {
+  body .public__header nav .nav__bar li {
     margin-right: 28px;
   }
 }
-body header nav .nav__bar li a {
+body .public__header nav .nav__bar li a {
   text-decoration: none;
   color: black;
 }
-body header nav .nav__bar li a:visited {
+body .public__header nav .nav__bar li a:visited {
   color: black;
 }
-body header nav .nav__bar li a:active {
+body .public__header nav .nav__bar li a:active {
   color: black;
 }
-body header nav .nav__bar li a:hover {
+body .public__header nav .nav__bar li a:hover {
   outline: solid 2px black;
   outline-offset: 10px;
 }
-body header nav .nav__login {
+body .public__header nav .nav__login {
   display: flex;
   align-items: center;
   margin-top: 10px;
   margin-bottom: 35px;
 }
 @media screen and (min-width: 1440px) {
-  body header nav .nav__login {
+  body .public__header nav .nav__login {
     margin-right: 28px;
     flex-direction: row;
     margin-top: 94px;
     margin-bottom: 0px;
   }
 }
-body header nav .nav__login li {
+body .public__header nav .nav__login li {
   margin-right: 10px;
 }
 @media screen and (min-width: 1440px) {
-  body header nav .nav__login li {
+  body .public__header nav .nav__login li {
     margin-right: 44px;
   }
 }
-body header nav .nav__login li a {
+body .public__header nav .nav__login li a {
   text-decoration: none;
   color: black;
   position: relative;
@@ -380,7 +381,7 @@ body header nav .nav__login li a {
   transition: transform 0.3s ease;
   z-index: 1;
 }
-body header nav .nav__login li a::after {
+body .public__header nav .nav__login li a::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -393,58 +394,58 @@ body header nav .nav__login li a::after {
   transition: transform 0.3s ease;
   z-index: -1;
 }
-body header nav .nav__login li a:visited {
+body .public__header nav .nav__login li a:visited {
   color: black;
 }
-body header nav .nav__login li a:active {
+body .public__header nav .nav__login li a:active {
   color: black;
 }
-body header nav .nav__login li a:hover {
+body .public__header nav .nav__login li a:hover {
   transform: scale(1);
 }
-body header nav .nav__login li a:hover::after {
+body .public__header nav .nav__login li a:hover::after {
   transform: translate(-50%, -50%) scale(1);
 }
-body header nav h1 {
+body .public__header nav h1 {
   font-size: 48px;
   font-weight: 900;
 }
 @media screen and (min-width: 376px) and (max-width: 1439px) {
-  body header nav h1 {
+  body .public__header nav h1 {
     margin-bottom: 80px;
   }
 }
 @media screen and (min-width: 1440px) {
-  body header nav h1 {
+  body .public__header nav h1 {
     margin-right: 126px;
     margin-top: 94px;
   }
 }
-body header .container__info {
+body .public__header .container__info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 @media screen and (min-width: 1440px) {
-  body header .container__info {
+  body .public__header .container__info {
     flex-direction: row;
     align-items: normal;
   }
 }
-body header .container__info h2 {
+body .public__header .container__info h2 {
   font-size: 35px;
   font-weight: 900;
   text-align: center;
 }
 @media screen and (min-width: 376px) and (max-width: 1439px) {
-  body header .container__info h2 {
+  body .public__header .container__info h2 {
     width: 595px;
     font-size: 50px;
   }
 }
 @media screen and (min-width: 1440px) {
-  body header .container__info h2 {
+  body .public__header .container__info h2 {
     font-size: 65px;
     text-align: left;
     width: 595px;
@@ -452,30 +453,145 @@ body header .container__info h2 {
     margin-left: 100px;
   }
 }
-body header .container__info .container__info__img {
+body .public__header .container__info .container__info__img {
   height: 290px;
   width: 100vw;
 }
 @media screen and (min-width: 376px) and (max-width: 1439px) {
-  body header .container__info .container__info__img {
+  body .public__header .container__info .container__info__img {
     height: 500px;
     width: 759px;
   }
 }
 @media screen and (min-width: 1440px) {
-  body header .container__info .container__info__img {
+  body .public__header .container__info .container__info__img {
     height: 586px;
     width: 759px;
   }
 }
-body header svg {
+body .public__header svg {
   width: 375px;
   height: 33px;
   margin-top: auto;
 }
 @media screen and (min-width: 1440px) {
-  body header svg {
+  body .public__header svg {
     width: 1299px;
     height: 112px;
   }
+}
+body main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body main .container__table {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  position: relative;
+}
+@media screen and (min-width: 1440px) {
+  body main .container__table {
+    width: 1193px;
+    max-height: 799px;
+    margin-bottom: 51px;
+  }
+}
+body main .container__table h3 {
+  font-size: 30px;
+  font-weight: 900;
+  font-family: "Inter", sans-serif;
+  z-index: 1;
+  margin-bottom: 20px;
+}
+@media screen and (min-width: 1440px) {
+  body main .container__table h3 {
+    font-size: 60px;
+    margin-bottom: 0px;
+  }
+}
+body main .container__table__yellow__rectangle {
+  width: 142px;
+  height: 13px;
+  background-color: #f9de4e;
+  position: absolute;
+  top: 15px;
+  left: 76px;
+  z-index: -1;
+}
+@media screen and (min-width: 1440px) {
+  body main .container__table__yellow__rectangle {
+    width: 284px;
+    height: 27px;
+    top: 37px;
+    left: 157px;
+  }
+}
+body main .container__table #searchbar {
+  height: 35px;
+  width: 200px;
+  align-self: flex-end;
+  color: #636363;
+  border: 1px solid #636363;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 300;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 20px;
+  text-align: center;
+}
+@media screen and (min-width: 1440px) {
+  body main .container__table #searchbar {
+    margin-bottom: 42px;
+    height: 53px;
+    width: 245px;
+  }
+}
+body main .container__table .table__container {
+  overflow-y: auto;
+  white-space: nowrap;
+  width: 350px;
+}
+@media screen and (min-width: 1440px) {
+  body main .container__table .table__container {
+    width: 1200px;
+    overflow-y: none;
+    white-space: none;
+  }
+}
+body main .container__table .table__container__info {
+  width: 1200px;
+  font-size: 20px;
+  font-weight: 600;
+}
+body main .container__table .table__container__info__thead {
+  height: 55px;
+  background-color: #f9de4e;
+}
+body main .container__table .table__container__info__thead__tr th {
+  vertical-align: middle;
+  text-align: left;
+}
+body main .container__table .table__container__info__tbody__tr td {
+  height: 55px;
+  vertical-align: middle;
+}
+body main .container__table .table__container__info__tbody__tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+body main .container__button__nav {
+  color: #f9de4e;
+}
+body main .container__button button {
+  background-color: white;
+  border: 1px solid #dfe3e8;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+}
+body main .container__button button:hover {
+  background-color: #919eab;
 }/*# sourceMappingURL=main.css.map */
