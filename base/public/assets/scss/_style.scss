@@ -420,6 +420,10 @@ body {
         }
       }
     }
+    hr {
+      border: 1px solid #cdcdcd;
+      width: 70%;
+    }
     .container__table {
       display: flex;
       flex-direction: column;

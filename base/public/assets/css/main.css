@@ -575,6 +575,10 @@ body main .container__contact__photo img {
      object-fit: cover;
   border-radius: 50%;
 }
+body main hr {
+  border: 1px solid #cdcdcd;
+  width: 70%;
+}
 body main .container__table {
   display: flex;
   flex-direction: column;
