@@ -1,5 +1,6 @@
 <?php
 include "header.php";
+include "../../Controllers/invoiceController.php";
 ?>
 
 <main>
@@ -13,7 +14,6 @@ include "header.php";
             <table class="table__container__info">
                 <thead class="table__container__info__thead">
                     <tr class="table__container__info__thead__tr">
-
                         <th>Invoice number</th>
                         <th>Due dates</th>
                         <th>Company</th>
