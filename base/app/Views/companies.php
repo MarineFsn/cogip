@@ -1,12 +1,61 @@
 <?php
-echo 'companies<br>';
-foreach ($companies as $company) {
-    echo "ID: " . $company->id . "<br>";
-    echo "Nom: " . $company->name . "<br>";
-    echo "Type: " . $company->type . "<br>";
-    echo "Pays: " . $company->country . "<br>";
-    echo "TVA: " . $company->tva . "<br>";
-    echo "Date de mise à jour: " . $company->update_date . "<br>";
-    echo "<br>";
-}
+include "header.php";
+?>
+
+<main>
+    <section class="container__table">
+        <h3>All companies </h3>
+        <div class="container__table__yellow__rectangle"> </div>
+        <input type="text" id="searchbar" name="searchbar" placeholder="Search company name" required>
+
+
+        <?php
+        $controllercontact = new CompanyController();
+        $companies = $controllercontact->getCompanies();
+        ?>
+
+        <div class="table__container">
+            <table class="table__container__info">
+                <thead class="table__container__info__thead">
+                    <tr class="table__container__info__thead__tr">
+
+                        <th>Name</th>
+                        <th>TVA</th>
+                        <th>Country</th>
+                        <th>Type</th>
+                        <th>Created at</th>
+                    </tr>
+                </thead>
+                <tbody class="table__container__info__tbody">
+                    <?php foreach ($companies as $company) : ?>
+                        <tr class="table__container__info__tbody__tr">
+
+                            <td><?php echo $company->name; ?></td>
+                            <td><?php echo $company->tva; ?></td>
+                            <td><?php echo $company->country; ?></td>
+                            <td><?php echo $company->type; ?></td>
+                            <td><?php echo $company->creation_date; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+
+        <script src="/projects/cogip/base/public/assets/js/invoices.js"></script>
+
+    </section>
+    <section class="container__button">
+        <button class="container__button__nav">
+            < </button>
+                <button>1</button>
+                <button>2</button>
+                <button>...</button>
+                <button>9</button>
+                <button>10</button>
+                <button class="container__button__nav">></button>
+    </section>
+</main>
+
+<?php
+include "footer.php";
 ?>
