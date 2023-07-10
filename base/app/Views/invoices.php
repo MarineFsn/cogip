@@ -25,7 +25,7 @@ include "header.php";
                         <tr class="table__container__info__tbody__tr">
 
 
-                            <td><a href="show_invoices.php?invoice_id=<?php echo $invoice->id; ?>"><?php echo $invoice->ref; ?></td>
+                            <td><a href="app/Views/show_invoices.php?invoiceId=<?php echo $invoice->id; ?>"><?php echo $invoice->ref; ?></td>
                             <td>
                                 <?php echo $invoice->update_date; ?>
                             </td>

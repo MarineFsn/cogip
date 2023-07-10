@@ -34,7 +34,7 @@ include "header.php";
                         <tr class="table__container__info__tbody__tr">
 
 
-                            <td><a href="app/Views/show_contact.php?contact_id=<?php echo $contact->id; ?>"><?php echo $contact->name; ?></td>
+                            <td><a href="app/Views/show_contact.php?contactId=<?php echo $contact->id; ?>"><?php echo $contact->name; ?></td>
                             <td>
                                 <?php echo $contact->phone; ?>
                             </td>
