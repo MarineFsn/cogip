@@ -76,12 +76,12 @@ include "header.php";
         <div class="container__table__yellow__rectangle"> </div>
         <section class="container__table">
             <?php
-            // $controller = new ContactController($db);
-            // $contacts = $controller->getContacts();
+            $controller = new ContactController($db);
+            $contacts = $controller->getContacts();
 
-            // usort($contacts, function ($a, $b) {
-            //     return strcmp($a->name, $b->name);
-            // });
+            usort($contacts, function ($a, $b) {
+                return strcmp($a->name, $b->name);
+            });
             ?>
             <div class="table__container">
                 <table class="table__container__info">
