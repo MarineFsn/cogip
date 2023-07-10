@@ -22,16 +22,36 @@ include "header.php";
                 <div class="container__people__info__card__photo">
                     <img src="/cogip/base/public/assets/img/img-contact.jpg" alt="photo du contact">
                 </div>
-                <p>
-                    Prénom Nom
-                </p>
+                <p>Prénom</p>
+                <p>Nom</p>
+            </div>
+            <div class="container__people__info__card">
+                <div class="container__people__info__card__photo">
+                    <img src="/cogip/base/public/assets/img/img-contact.jpg" alt="photo du contact">
+                </div>
+                <p>Prénom</p>
+                <p>Nom</p>
+            </div>
+            <div class="container__people__info__card">
+                <div class="container__people__info__card__photo">
+                    <img src="/cogip/base/public/assets/img/img-contact.jpg" alt="photo du contact">
+                </div>
+                <p>Prénom</p>
+                <p>Nom</p>
+            </div>
+            <div class="container__people__info__card">
+                <div class="container__people__info__card__photo">
+                    <img src="/cogip/base/public/assets/img/img-contact.jpg" alt="photo du contact">
+                </div>
+                <p>Prénom</p>
+                <p>Nom</p>
             </div>
 
             <img class="container__people__info__svg" src="/cogip/base/public/assets/img/drawkit.svg" alt="illustration">
         </div>
     </section>
     <hr>
-    <section>
+    <section class="container__table">
         <h5>Last invoices</h5>
     </section>
 </main>

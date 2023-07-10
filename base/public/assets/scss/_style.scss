@@ -344,18 +344,15 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    .container__contact {
-      display: flex;
-      flex-direction: column-reverse;
-      @include responsive-desktop {
-        flex-direction: row;
-        justify-content: space-between;
-        width: 1088px;
-        height: 290px;
-      }
+
+    .container__company {
       &__info {
+        display: flex;
+        flex-direction: column;
         @include responsive-desktop {
-          margin-top: 39px;
+          flex-direction: column;
+          width: 1088px;
+          height: 290px;
         }
         &__name {
           position: relative;
@@ -382,7 +379,7 @@ body {
               width: 496px;
               height: 35px;
 
-              top: 35px;
+              top: 75px;
               left: 30px;
             }
           }
@@ -401,142 +398,306 @@ body {
           }
         }
       }
-      &__photo {
-        height: 125px;
-        width: 125px;
-
-        border-radius: 50%;
-        margin-bottom: 15px;
-        align-self: center;
-        @include responsive-desktop {
-          height: 255px;
-          width: 255px;
-        }
-        img {
-          height: 100%;
-          width: 100%;
-          object-fit: cover;
-          border-radius: 50%;
-        }
-      }
     }
-    hr {
-      border: 1px solid #cdcdcd;
-      width: 70%;
-    }
-    .container__table {
+    .container__people {
+      width: 100vw;
       display: flex;
       flex-direction: column;
-      width: 350px;
-      position: relative;
-      @include responsive-desktop {
-        width: 1193px;
-        max-height: 799px;
-        margin-bottom: 51px;
-      }
-      h3 {
-        font-size: 30px;
-        font-weight: $font-weight-title;
+      align-items: center;
+      h5 {
+        align-self: flex-start;
         font-family: $font-family-title;
-        z-index: 1;
-        margin-bottom: 20px;
+        font-size: 25px;
+        font-weight: $font-weight-title;
+        margin-left: 30px;
+        margin-bottom: 15px;
         @include responsive-desktop {
           font-size: 60px;
-          margin-bottom: 0px;
         }
       }
-      &__yellow__rectangle {
-        width: 142px;
-        height: 13px;
-        background-color: $yellow;
-        position: absolute;
-        top: 15px;
-        left: 76px;
-        z-index: -1;
-        @include responsive-desktop {
-          width: 284px;
-          height: 27px;
-          top: 37px;
-          left: 157px;
-        }
-      }
-      #searchbar {
-        height: 35px;
-        width: 200px;
-        align-self: flex-end;
-        color: #636363;
-        border: 1px solid #636363;
-        border-radius: 10px;
-        font-size: 15px;
-        font-weight: 300;
-        font-family: $font-family-title;
-        margin-bottom: 20px;
-        text-align: center;
-        @include responsive-desktop {
-          margin-bottom: 42px;
-          height: 53px;
-          width: 245px;
-          font-size: $font-size-text;
-        }
-      }
-
-      .table__container {
-        overflow-y: auto;
-        white-space: nowrap;
+      &__info {
+        display: flex;
+        flex-direction: row;
         width: 350px;
+        overflow-y: auto;
+        position: relative;
+        margin-bottom: 15px;
         @include responsive-desktop {
-          width: 1200px;
-          overflow-y: none;
-          white-space: none;
+          flex-direction: column;
+          width: 1088px;
         }
-        &__info {
-          width: 1200px;
-          font-size: $font-size-text;
-          font-weight: $font-weight-text;
-
-          &__thead {
-            height: 55px;
-            background-color: $yellow;
-            &__tr {
-              th {
-                vertical-align: middle;
-                text-align: left;
-              }
+        &__card {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-around;
+          height: 170px;
+          width: 120px;
+          margin-right: 10px;
+          background-color: #f5f5f5;
+          border-radius: 15px;
+          @include responsive-desktop {
+            flex-direction: row;
+            height: 193px;
+            width: 376px;
+          }
+          &__photo {
+            height: 90px;
+            width: 90px;
+            border-radius: 50%;
+            @include responsive-desktop {
+              height: 255px;
+              width: 255px;
+            }
+            img {
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+              border-radius: 50%;
             }
           }
-          &__tbody {
-            &__tr {
-              td {
-                height: 55px;
-                vertical-align: middle;
-                a {
-                  text-decoration: none;
-                  color: black;
-                }
-              }
+          p {
+            font-family: $font-family-text;
+            font-weight: $font-weight-title;
+            font-size: $font-size-text;
+            @include responsive-desktop {
+              font-size: 35px;
             }
-            &__tr:nth-child(even) {
-              background-color: #f5f5f5;
-            }
+          }
+        }
+        &__svg {
+          display: none;
+          @include responsive-desktop {
+            display: block;
+            position: absolute;
+            right: 0;
+            z-index: -1;
           }
         }
       }
     }
-    .container__button {
-      &__nav {
-        color: $yellow;
+    // .container__compagny__invoices {
+    //   width: 100vw;
+    //   display: flex;
+    //   flex-direction: column;
+
+    //   h5 {
+    //     font-family: $font-family-title;
+    //     font-size: 25px;
+    //     font-weight: $font-weight-title;
+    //     margin-left: 30px;
+    //     margin-bottom: 15px;
+    //     @include responsive-desktop {
+    //       font-size: 60px;
+    //     }
+    //   }
+    // }
+  }
+  .container__contact {
+    display: flex;
+    flex-direction: column-reverse;
+    @include responsive-desktop {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 1088px;
+      height: 290px;
+    }
+    &__info {
+      @include responsive-desktop {
+        margin-top: 39px;
       }
-      button {
-        background-color: white;
-        border: 1px solid #dfe3e8;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: 700;
+      &__name {
+        position: relative;
+        h5 {
+          font-size: 30px;
+          font-weight: $font-weight-title;
+          z-index: 1;
+          margin-bottom: 20px;
+          font-family: $font-family-title;
+          @include responsive-desktop {
+            margin-top: 39px;
+            font-size: 60px;
+          }
+        }
+        &__yellow {
+          width: 200px;
+          height: 17px;
+          background-color: $yellow;
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          z-index: -1;
+          @include responsive-desktop {
+            width: 496px;
+            height: 35px;
+
+            top: 35px;
+            left: 30px;
+          }
+        }
       }
-      button:hover {
-        background-color: #919eab;
+
+      p {
+        margin-bottom: 15px;
+        font-size: $font-size-text;
+        font-weight: $font-weight-title;
+
+        @include responsive-desktop {
+          margin-bottom: 5px;
+          font-size: 25px;
+          font-weight: $font-weight-title;
+          text-align: left;
+        }
       }
+    }
+    &__photo {
+      height: 125px;
+      width: 125px;
+
+      border-radius: 50%;
+      margin-bottom: 15px;
+      align-self: center;
+      @include responsive-desktop {
+        height: 255px;
+        width: 255px;
+      }
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+  }
+  hr {
+    border: 1px solid #cdcdcd;
+    width: 70%;
+    margin-bottom: 15px;
+    @include responsive-desktop {
+    }
+  }
+  .container__table {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    position: relative;
+    @include responsive-desktop {
+      width: 1193px;
+      max-height: 799px;
+      margin-bottom: 51px;
+    }
+    h5 {
+      font-family: $font-family-title;
+      font-size: 25px;
+      font-weight: $font-weight-title;
+      margin-left: 30px;
+      margin-bottom: 15px;
+      @include responsive-desktop {
+        font-size: 60px;
+      }
+    }
+    h3 {
+      font-size: 30px;
+      font-weight: $font-weight-title;
+      font-family: $font-family-title;
+      z-index: 1;
+      margin-bottom: 20px;
+      @include responsive-desktop {
+        font-size: 60px;
+        margin-bottom: 0px;
+      }
+    }
+    &__yellow__rectangle {
+      width: 142px;
+      height: 13px;
+      background-color: $yellow;
+      position: absolute;
+      top: 15px;
+      left: 76px;
+      z-index: -1;
+      @include responsive-desktop {
+        width: 284px;
+        height: 27px;
+        top: 37px;
+        left: 157px;
+      }
+    }
+    #searchbar {
+      height: 35px;
+      width: 200px;
+      align-self: flex-end;
+      color: #636363;
+      border: 1px solid #636363;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 300;
+      font-family: $font-family-title;
+      margin-bottom: 20px;
+      text-align: center;
+      @include responsive-desktop {
+        margin-bottom: 42px;
+        height: 53px;
+        width: 245px;
+        font-size: $font-size-text;
+      }
+    }
+
+    .table__container {
+      overflow-y: auto;
+      white-space: nowrap;
+      width: 350px;
+      @include responsive-desktop {
+        width: 1200px;
+        overflow-y: none;
+        white-space: none;
+      }
+      &__info {
+        width: 1200px;
+        font-size: $font-size-text;
+        font-weight: $font-weight-text;
+
+        &__thead {
+          height: 55px;
+          background-color: $yellow;
+          &__tr {
+            th {
+              vertical-align: middle;
+              text-align: left;
+            }
+          }
+        }
+        &__tbody {
+          &__tr {
+            td {
+              height: 55px;
+              vertical-align: middle;
+              a {
+                text-decoration: none;
+                color: black;
+              }
+            }
+          }
+          &__tr:nth-child(even) {
+            background-color: #f5f5f5;
+          }
+        }
+      }
+    }
+  }
+  .container__button {
+    &__nav {
+      color: $yellow;
+    }
+    button {
+      background-color: white;
+      border: 1px solid #dfe3e8;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    button:hover {
+      background-color: #919eab;
     }
   }
 }
