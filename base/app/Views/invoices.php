@@ -27,7 +27,7 @@ include "header.php";
                                 <?php echo $invoice->ref; ?>
                             </td>
                             <td>
-                                <?php echo $invoice->update_date; ?>
+                                <?php echo $invoice->due_dates; ?>
                             </td>
                             <td>
                                 <?php echo $invoice->company; ?>

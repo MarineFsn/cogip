@@ -12,10 +12,10 @@ class ContactController
         $this->db = $db;
     }
 
-    public function getContacts()
+    public function getContacts($query = "SELECT * FROM contacts")
     {
-        $query = "SELECT * FROM contacts";
-        $statement = $this->db->prepare($query);
+        $newquery = $query;
+        $statement = $this->db->prepare($newquery);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
