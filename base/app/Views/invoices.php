@@ -24,9 +24,8 @@ include "header.php";
                     <?php foreach ($invoices as $invoice) : ?>
                         <tr class="table__container__info__tbody__tr">
 
-                            <td>
-                                <?php echo $invoice->ref; ?>
-                            </td>
+
+                            <td><a href="show_invoices.php?invoice_id=<?php echo $invoice->id; ?>"><?php echo $invoice->ref; ?></td>
                             <td>
                                 <?php echo $invoice->update_date; ?>
                             </td>
