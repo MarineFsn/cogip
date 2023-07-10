@@ -492,57 +492,6 @@ body main {
   justify-content: center;
   align-items: center;
 }
-body main .container__info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-@media screen and (min-width: 1440px) {
-  body main .container__info {
-    flex-direction: row;
-    align-items: normal;
-  }
-}
-body main .container__info h2 {
-  font-size: 35px;
-  font-weight: 900;
-  text-align: center;
-}
-@media screen and (min-width: 376px) and (max-width: 1439px) {
-  body main .container__info h2 {
-    width: auto;
-    font-size: 50px;
-  }
-}
-@media screen and (min-width: 1440px) {
-  body main .container__info h2 {
-    font-size: 65px;
-    text-align: left;
-    width: 595px;
-    margin-top: 150px;
-    margin-left: 100px;
-  }
-}
-body main .container__info .container__info__img {
-  height: 290px;
-  width: 100vw;
-}
-@media screen and (min-width: 376px) and (max-width: 1439px) {
-  body main .container__info .container__info__img {
-    height: 500px;
-    width: 550px;
-  }
-}
-@media screen and (min-width: 1440px) {
-  body main .container__info .container__info__img {
-    height: 586px;
-    width: 759px;
-  }
-}
-body main .container_svg_hand {
-  float: right;
-}
 body main .container__contact {
   display: flex;
   flex-direction: column-reverse;

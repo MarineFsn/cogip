@@ -344,49 +344,6 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        .container__info {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            @include responsive-desktop {
-                flex-direction: row;
-                align-items: normal;
-            }
-
-            h2 {
-                font-size: 35px;
-                font-weight: 900;
-                text-align: center;
-
-                @include responsive-tablet {
-                    width: auto;
-                    font-size: 50px;
-                }
-                @include responsive-desktop {
-                    font-size: 65px;
-                    text-align: left;
-                    width: 595px;
-                    margin-top: 150px;
-                    margin-left: 100px;
-                }
-            }
-            .container__info__img {
-                height: 290px;
-                width: 100vw;
-                @include responsive-tablet {
-                    height: 500px;
-                    width: 550px;
-                }
-                @include responsive-desktop {
-                    height: 586px;
-                    width: 759px;
-                }
-            }
-        }
-        .container_svg_hand {
-            float: right;
-        }
         .container__contact {
             display: flex;
             flex-direction: column-reverse;
