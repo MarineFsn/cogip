@@ -1,6 +1,5 @@
 <?php
 include "header.php";
-
 ?>
 
 <main>
@@ -89,7 +88,9 @@ include "header.php";
                         </tr>
                     </thead>
                     <tbody class="table__container__info__tbody">
+
                         <?php foreach ($contacts as $contact): ?>
+
                             <tr class="table__container__info__tbody__tr">
 
 
