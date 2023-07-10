@@ -12,10 +12,10 @@ class CompanyController
         $this->db = $db;
     }
 
-    public function getCompanies()
+    public function getCompanies($query = "SELECT * FROM companies")
     {
-        $query = "SELECT * FROM companies";
-        $statement = $this->db->prepare($query);
+        $newquery = $query;
+        $statement = $this->db->prepare($newquery);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
