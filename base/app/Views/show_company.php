@@ -5,7 +5,7 @@ include "header.php";
     <section class="container__company">
         <div class="container__company__info">
             <div class="container__company__info__name">
-                <h5>Nom de la compagnie</h5>
+                <h5>NOM COMPAGNIE</h5>
                 <div class="container__company__info__name__yellow"></div>
             </div>
             <p>Name:</p>
@@ -17,37 +17,26 @@ include "header.php";
     <hr>
     <section class="container__people">
         <h5>Contact People</h5>
+        <img class="container__people__svg" src="/cogip/base/public/assets/img/drawkit.svg" alt="illustration">
         <div class="container__people__info">
             <div class="container__people__info__card">
                 <div class="container__people__info__card__photo">
                     <img src="/cogip/base/public/assets/img/img-contact.jpg" alt="photo du contact">
                 </div>
-                <p>Prénom</p>
-                <p>Nom</p>
+                <div class="container__people__info__card__name">
+                    <p>Prenom</p>
+                    <p>Nom</p>
+                </div>
             </div>
             <div class="container__people__info__card">
                 <div class="container__people__info__card__photo">
                     <img src="/cogip/base/public/assets/img/img-contact.jpg" alt="photo du contact">
                 </div>
-                <p>Prénom</p>
-                <p>Nom</p>
-            </div>
-            <div class="container__people__info__card">
-                <div class="container__people__info__card__photo">
-                    <img src="/cogip/base/public/assets/img/img-contact.jpg" alt="photo du contact">
+                <div class="container__people__info__card__name">
+                    <p>Prenom</p>
+                    <p>Nom</p>
                 </div>
-                <p>Prénom</p>
-                <p>Nom</p>
             </div>
-            <div class="container__people__info__card">
-                <div class="container__people__info__card__photo">
-                    <img src="/cogip/base/public/assets/img/img-contact.jpg" alt="photo du contact">
-                </div>
-                <p>Prénom</p>
-                <p>Nom</p>
-            </div>
-
-            <img class="container__people__info__svg" src="/cogip/base/public/assets/img/drawkit.svg" alt="illustration">
         </div>
     </section>
     <hr>

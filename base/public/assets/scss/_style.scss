@@ -353,6 +353,7 @@ body {
           flex-direction: column;
           width: 1088px;
           height: 290px;
+          margin-bottom: 74px;
         }
         &__name {
           position: relative;
@@ -364,6 +365,7 @@ body {
             font-family: $font-family-title;
             @include responsive-desktop {
               margin-top: 39px;
+              margin-bottom: 62px;
               font-size: 60px;
             }
           }
@@ -404,6 +406,11 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
+      @include responsive-desktop {
+        width: 1200px;
+        margin-bottom: 84px;
+      }
+
       h5 {
         align-self: flex-start;
         font-family: $font-family-title;
@@ -413,6 +420,8 @@ body {
         margin-bottom: 15px;
         @include responsive-desktop {
           font-size: 60px;
+          align-self: normal;
+          margin-bottom: 65px;
         }
       }
       &__info {
@@ -423,7 +432,8 @@ body {
         position: relative;
         margin-bottom: 15px;
         @include responsive-desktop {
-          flex-direction: column;
+          overflow-y: visible;
+          flex-wrap: wrap;
           width: 1088px;
         }
         &__card {
@@ -436,18 +446,22 @@ body {
           margin-right: 10px;
           background-color: #f5f5f5;
           border-radius: 15px;
+
           @include responsive-desktop {
             flex-direction: row;
             height: 193px;
             width: 376px;
+            border-radius: 32px;
+            margin-right: 53px;
+            box-shadow: 0px 0px 60px -29px #00000040;
           }
           &__photo {
             height: 90px;
             width: 90px;
             border-radius: 50%;
             @include responsive-desktop {
-              height: 255px;
-              width: 255px;
+              height: 132px;
+              width: 132px;
             }
             img {
               height: 100%;
@@ -456,23 +470,28 @@ body {
               border-radius: 50%;
             }
           }
-          p {
-            font-family: $font-family-text;
-            font-weight: $font-weight-title;
-            font-size: $font-size-text;
-            @include responsive-desktop {
-              font-size: 35px;
+          &__name {
+            display: flex;
+            flex-direction: column;
+            p {
+              font-family: $font-family-text;
+              font-weight: $font-weight-title;
+              font-size: $font-size-text;
+              @include responsive-desktop {
+                font-size: 35px;
+              }
             }
           }
         }
-        &__svg {
-          display: none;
-          @include responsive-desktop {
-            display: block;
-            position: absolute;
-            right: 0;
-            z-index: -1;
-          }
+      }
+      &__svg {
+        display: none;
+        @include responsive-desktop {
+          display: block;
+          position: absolute;
+          right: 0;
+          bottom: -200px;
+          z-index: -1;
         }
       }
     }
@@ -571,9 +590,10 @@ body {
   }
   hr {
     border: 1px solid #cdcdcd;
-    width: 70%;
+    width: 75%;
     margin-bottom: 15px;
     @include responsive-desktop {
+      margin-bottom: 46px;
     }
   }
   .container__table {

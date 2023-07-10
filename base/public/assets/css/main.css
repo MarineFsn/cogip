@@ -501,6 +501,7 @@ body main .container__company__info {
     flex-direction: column;
     width: 1088px;
     height: 290px;
+    margin-bottom: 74px;
   }
 }
 body main .container__company__info__name {
@@ -516,6 +517,7 @@ body main .container__company__info__name h5 {
 @media screen and (min-width: 1224px) {
   body main .container__company__info__name h5 {
     margin-top: 39px;
+    margin-bottom: 62px;
     font-size: 60px;
   }
 }
@@ -555,6 +557,12 @@ body main .container__people {
   flex-direction: column;
   align-items: center;
 }
+@media screen and (min-width: 1224px) {
+  body main .container__people {
+    width: 1200px;
+    margin-bottom: 84px;
+  }
+}
 body main .container__people h5 {
   align-self: flex-start;
   font-family: "Inter", sans-serif;
@@ -566,6 +574,8 @@ body main .container__people h5 {
 @media screen and (min-width: 1224px) {
   body main .container__people h5 {
     font-size: 60px;
+    align-self: normal;
+    margin-bottom: 65px;
   }
 }
 body main .container__people__info {
@@ -578,7 +588,8 @@ body main .container__people__info {
 }
 @media screen and (min-width: 1224px) {
   body main .container__people__info {
-    flex-direction: column;
+    overflow-y: visible;
+    flex-wrap: wrap;
     width: 1088px;
   }
 }
@@ -598,6 +609,9 @@ body main .container__people__info__card {
     flex-direction: row;
     height: 193px;
     width: 376px;
+    border-radius: 32px;
+    margin-right: 53px;
+    box-shadow: 0px 0px 60px -29px rgba(0, 0, 0, 0.2509803922);
   }
 }
 body main .container__people__info__card__photo {
@@ -607,8 +621,8 @@ body main .container__people__info__card__photo {
 }
 @media screen and (min-width: 1224px) {
   body main .container__people__info__card__photo {
-    height: 255px;
-    width: 255px;
+    height: 132px;
+    width: 132px;
   }
 }
 body main .container__people__info__card__photo img {
@@ -618,24 +632,29 @@ body main .container__people__info__card__photo img {
      object-fit: cover;
   border-radius: 50%;
 }
-body main .container__people__info__card p {
+body main .container__people__info__card__name {
+  display: flex;
+  flex-direction: column;
+}
+body main .container__people__info__card__name p {
   font-family: "Roboto", serif;
   font-weight: 900;
   font-size: 20px;
 }
 @media screen and (min-width: 1224px) {
-  body main .container__people__info__card p {
+  body main .container__people__info__card__name p {
     font-size: 35px;
   }
 }
-body main .container__people__info__svg {
+body main .container__people__svg {
   display: none;
 }
 @media screen and (min-width: 1224px) {
-  body main .container__people__info__svg {
+  body main .container__people__svg {
     display: block;
     position: absolute;
     right: 0;
+    bottom: -200px;
     z-index: -1;
   }
 }
@@ -724,8 +743,13 @@ body .container__contact__photo img {
 }
 body hr {
   border: 1px solid #cdcdcd;
-  width: 70%;
+  width: 75%;
   margin-bottom: 15px;
+}
+@media screen and (min-width: 1224px) {
+  body hr {
+    margin-bottom: 46px;
+  }
 }
 body .container__table {
   display: flex;
