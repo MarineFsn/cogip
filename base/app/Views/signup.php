@@ -18,4 +18,4 @@
         <input type="submit" name="submit" value="Register" />
     </fieldset>
 </form>
-<p> Already Registered ? <a href="index.php?route=">Login</a> </p>
+<p> Already Registered ? <a href="login.php"></a> </p>
