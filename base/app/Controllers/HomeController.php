@@ -1,5 +1,4 @@
 <?php
-
 // require_once APP . 'Core/Controller.php';
 require_once APP . 'Core/connect.php';
 require_once APP . 'Models/company.php';

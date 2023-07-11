@@ -29,7 +29,7 @@
             </ul>
             <ul class="nav__login">
                 <li><a href="signup.php">Sign up</a></li>
-                <li><a href="login.php">Login</a></li>
+                <li><a href="index.php?route=login">Login</a></li>
             </ul>
         </nav>
         <section class="container__info">

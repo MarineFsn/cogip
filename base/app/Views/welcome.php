@@ -1,5 +1,6 @@
 <?php
 include "header.php";
+
 ?>
 
 <main>
@@ -7,7 +8,8 @@ include "header.php";
     <section class="container">
         <img src="assets/img/Illustration.png" alt="cogip logo" class="illustration">
         <h1>Welcome to
-        
+
+            <?php// echo $_SESSION['user']->getName(); ?>
         </h1>
         <p>This base project is provided by BeCode</p> -->
     
@@ -88,9 +90,7 @@ include "header.php";
                         </tr>
                     </thead>
                     <tbody class="table__container__info__tbody">
-
                         <?php foreach ($contacts as $contact): ?>
-
                             <tr class="table__container__info__tbody__tr">
 
 
