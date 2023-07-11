@@ -67,7 +67,6 @@ include "header.php";
         <section class="container__table container__table__homepage">
         <h3>Last contacts </h3>
         <div class="container__table__yellow__rectangle"> </div>
-        <section class="container__table">
             <?php
             $controller = new HomeController($db);
             $contacts = $controller->getContacts();
@@ -125,6 +124,7 @@ include "header.php";
 </defs>
 </svg>
 </div>
+                        
         <section class="container__table container__table__homepage">
         <h3>Last companies </h3>
         <div class="container__table__yellow__rectangle"> </div>

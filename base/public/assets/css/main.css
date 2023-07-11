@@ -503,20 +503,23 @@ body main .container__image__aside__hand {
 body main .container__info__slogan {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
+  margin: 20px 10px 0px;
+  gap: 25px;
 }
 @media screen and (min-width: 1440px) {
   body main .container__info__slogan {
     flex-direction: row;
     align-items: normal;
+    gap: 0px;
+    justify-content: end;
+    margin: 20px 0px 0px;
   }
 }
 body main .container__info__slogan h2 {
   font-size: 35px;
   font-weight: 900;
   text-align: left;
+  font-family: "Inter", sans-serif;
 }
 @media screen and (min-width: 376px) and (max-width: 1439px) {
   body main .container__info__slogan h2 {
@@ -526,7 +529,7 @@ body main .container__info__slogan h2 {
 }
 @media screen and (min-width: 1440px) {
   body main .container__info__slogan h2 {
-    font-size: 65px;
+    font-size: 68px;
     text-align: left;
     width: 45%;
     margin-top: 150px;
