@@ -279,7 +279,7 @@ body .public__header {
   color: black;
   width: 100vw;
   min-height: 250px;
-  max-height: 100vh;
+  max-height: 1000px;
   background-color: #f9de4e;
   display: flex;
   flex-direction: column;
