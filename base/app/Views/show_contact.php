@@ -3,8 +3,8 @@ include "header.php";
 
 $contactController = new ContactController($db);
 
-if (isset($_GET['contact_id'])) {
-    $contactId = $_GET['contact_id'];
+if (isset($_GET['contactId'])) {
+    $contactId = $_GET['contactId'];
     $contact = $contactController->getContactById($contactId);
 }
 ?>

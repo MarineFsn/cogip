@@ -166,7 +166,7 @@ body {
     align-items: center;
     margin-bottom: 25px;
     @include responsive-desktop {
-      width: auto;
+      width: 100vw;
       margin-bottom: 57px;
     }
 
@@ -324,7 +324,7 @@ body {
         }
       }
     }
-    svg {
+    img {
       width: 375px;
       height: 33px;
       margin-top: auto;
@@ -607,6 +607,7 @@ body {
       max-height: 799px;
       margin-bottom: 51px;
     }
+
     h5 {
       font-family: $font-family-title;
       font-size: 25px;
@@ -643,25 +644,6 @@ body {
         left: 157px;
       }
     }
-    #searchbar {
-      height: 35px;
-      width: 200px;
-      align-self: flex-end;
-      color: #636363;
-      border: 1px solid #636363;
-      border-radius: 10px;
-      font-size: 15px;
-      font-weight: 300;
-      font-family: $font-family-title;
-      margin-bottom: 20px;
-      text-align: center;
-      @include responsive-desktop {
-        margin-bottom: 42px;
-        height: 53px;
-        width: 245px;
-        font-size: $font-size-text;
-      }
-    }
 
     .table__container {
       overflow-y: auto;
@@ -671,6 +653,29 @@ body {
         width: 1200px;
         overflow-y: none;
         white-space: none;
+      }
+
+      .label_search {
+        color: #919eab00;
+      }
+      input {
+        height: 35px;
+        width: 200px;
+        align-self: flex-end;
+        color: #636363;
+        border: 1px solid #636363;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 300;
+        font-family: $font-family-title;
+        margin-bottom: 20px;
+        text-align: center;
+        @include responsive-desktop {
+          margin-bottom: 42px;
+          height: 53px;
+          width: 245px;
+          font-size: $font-size-text;
+        }
       }
       &__info {
         width: 1200px;
@@ -703,22 +708,6 @@ body {
           }
         }
       }
-    }
-  }
-  .container__button {
-    &__nav {
-      color: $yellow;
-    }
-    button {
-      background-color: white;
-      border: 1px solid #dfe3e8;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 700;
-    }
-    button:hover {
-      background-color: #919eab;
     }
   }
 }

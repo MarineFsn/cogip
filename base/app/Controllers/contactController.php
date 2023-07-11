@@ -1,4 +1,5 @@
 <?php
+
 require_once APP . 'Core/connect.php';
 require_once APP . 'Models/contact.php';
 
@@ -57,15 +58,37 @@ class ContactController
         );
         return $contact;
     }
+
+
+    public function getContactsByCompanyId($companyId)
+    {
+        $query = "SELECT * FROM contacts WHERE company_id = :companyId";
+        $statement = $this->db->prepare($query);
+        $statement->bindValue(':companyId', $companyId, PDO::PARAM_INT);
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        $contacts = array();
+
+        foreach ($result as $row) {
+            $contact = new Contact(
+                $row['id'],
+                $row['name'],
+                $row['company_id'],
+                $row['email'],
+                $row['phone'],
+                $row['created_at'],
+                $row['updated_at']
+            );
+            $contacts[] = $contact;
+        }
+
+        return $contacts;
+    }
+
 }
 
 $contactController = new ContactController($db);
 $contacts = $contactController->getContacts();
 
-if (isset($_GET['contact_id'])) {
-    $contactId = $_GET['contact_id'];
-    $contact = $contactController->getContactById($contactId);
-}
-
 require_once APP . 'Views/contacts.php';
-require_once APP . 'Views/show_contact.php';

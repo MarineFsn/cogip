@@ -6,14 +6,11 @@ include "header.php";
     <section class="container__table">
         <h3>Invoices</h3>
         <div class="container__table__yellow__rectangle"> </div>
-        <input type="text" id="searchbar" name="searchbar" placeholder="Search company name" required>
-
 
         <div class="table__container">
-            <table class="table__container__info">
+            <table class="table__container__info table table-striped" id="myTable">
                 <thead class="table__container__info__thead">
                     <tr class="table__container__info__thead__tr">
-
                         <th>Invoice number</th>
                         <th>Due dates</th>
                         <th>Company</th>
@@ -24,10 +21,11 @@ include "header.php";
                     <?php foreach ($invoices as $invoice) : ?>
                         <tr class="table__container__info__tbody__tr">
 
-
-                            <td><a href="app/Views/show_invoices.php?invoiceId=<?php echo $invoice->id; ?>"><?php echo $invoice->ref; ?></td>
                             <td>
-                                <?php echo $invoice->update_date; ?>
+                                <?php echo $invoice->ref; ?>
+                            </td>
+                            <td>
+                                <?php echo $invoice->due_dates; ?>
                             </td>
                             <td>
                                 <?php echo $invoice->company; ?>
@@ -41,19 +39,32 @@ include "header.php";
             </table>
         </div>
 
+        <script src="./base/public/assets/js/invoices.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#myTable').dataTable({
+                    "initComplete": function(settings, json) {
+                        $('input').attr("placeholder", "Search company name...");
+                        $('input').attr("class", "input_search");
+                        $('label').attr("class", "label_search");
+                    }
+                });
+
+
+                const label = document.querySelector(".dataTables_length");
+                label.remove();
+
+                const divInfo = document.querySelector(".dataTables_info");
+                divInfo.remove();
+
+                var labelElement = document.querySelector('.dataTables_filter label');
+                var textElement = labelElement.querySelector('span');
+                textElement.textContent = '';
+
+            });
+        </script>
         <script src="/cogip/base/public/assets/js/invoices.js"></script>
 
-    </section>
-    <section class="container__button">
-        <button class="container__button__nav">
-            < </button>
-                <button>1</button>
-                <button>2</button>
-                <button>...</button>
-                <button>9</button>
-                <button>10</button>
-                <button class="container__button__nav">></button>
-    </section>
 </main>
 <?php
 include "footer.php";
