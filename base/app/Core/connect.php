@@ -1,10 +1,11 @@
 <?php
 
-$host = 'localhost';
-$dbname = 'cogip';
-$username = 'root';
-$password = '';
+$config = parse_ini_file('../config.ini');
 
+$host = $config['host'];
+$dbname = $config['dbname'];
+$username = $config['username'];
+$password = $config['password'];
 
 class Database
 {

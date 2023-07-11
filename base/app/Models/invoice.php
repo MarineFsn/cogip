@@ -37,3 +37,6 @@ class Invoice
     //     return $formattedUpdateDate;
     // }
 }
+
+?>
+

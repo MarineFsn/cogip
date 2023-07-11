@@ -41,6 +41,7 @@ include "header.php";
 
         <script src="./base/public/assets/js/invoices.js"></script>
         <script>
+
             $(document).ready(function() {
                 $('#myTable').dataTable({
                     "initComplete": function(settings, json) {
