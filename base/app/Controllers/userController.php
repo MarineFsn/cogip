@@ -1,10 +1,11 @@
 <?php
-session_start();
-if ($_SESSION["isConnected"] == 1) {
-    header("Location: index.php");
-}
+// session_start();
+// if ($_SESSION["isConnected"] == 1) {
+//     header("Location: index.php");
+// }
 require_once APP . 'Core/connect.php';
 require_once APP . 'Models/user.php';
+require_once APP . 'Models/userLog.php';
 
 class UserController
 {
@@ -46,39 +47,37 @@ class UserController
         $email = $currentUser->email;
         $password = $currentUser->password;
 
-        $query = "SELECT * FROM users WHERE email = " . $email;
+        $query = "SELECT * FROM users WHERE email = ? AND password = ?";
         $statement = $this->db->prepare($query);
-        $statement->execute();
+        $statement->execute([$email, $password]);
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
         $user = $result;
+        // var_dump($user);
 
         if (!$user) {
-            if (!$user || !$password) {
-                return false;
-            }
+            return false;
         }
         return $user;
     }
 }
 
-// $userController = new UserController($db);
-// if (isset($_POST["mail"]) && isset($_POST["password"])) {
-//     $currentUser = new User(0, null, 0, null, $_POST["mail"], $_POST["password"], null, null);
-//     $user = $userController->compareUser($currentUser);
-//     if ($user == false) {
-//         echo 'KO';
-//         $_SESSION["isConnected"] = 0;
-//     }
-//     echo 'OK';
-//     $_SESSION["isConnected"] = 1;
-//     header("Location: index.php");
-//     // require_once APP . 'Views/welcome.php';
-// }
-
-// require_once APP . "Views/check_login.php";
-
-
-// $contactController = new ContactController($db);
-// $contacts = $contactController->getContacts();
+$userController = new UserController($db);
+if (isset($_POST["mail"]) && isset($_POST["password"])) {
+    $currentUserLog = new UserLog($_POST["mail"], $_POST["password"]);
+    $user = $userController->compareUser($currentUserLog);
+    // var_dump($user);
+    $currentUser = $user;
+    if ($user == false) {
+        $_SESSION["isConnected"] = 0;
+        require_once APP . "Controllers/loginController.php";
+    }else{
+        $_SESSION["isConnected"] = 1;
+        // var_dump($_SESSION['isConnected']);
+        $_SESSION["user"] = $currentUser;
+        // var_dump($_SESSION["user"]);
+        require_once APP . "Controllers/HomeController.php";
+    }
+    // exit();
+}
 
 ?>

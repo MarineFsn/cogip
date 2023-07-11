@@ -1,11 +1,11 @@
 <?php
-session_start();
-if ($_SESSION["isConnected"] == 1) {
-    header("Location: index.php");
-}
+// session_start();
+// if ($_SESSION["isConnected"] == 1) {
+//     header("Location: index.php");
+// }
 ?>
 
-<form action="check_login.php" method="POST">
+<form action="index.php?route=user" method="POST">
     <div>
         <label for="mail">E-mail :</label>
         <input name="mail" type="email">

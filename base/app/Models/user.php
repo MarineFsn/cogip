@@ -23,6 +23,11 @@ class User
         $this->update_date = $update_date;
     }
 
+    public function getName(){
+        return $this->first_name;
+    }
+
+    // Fonctions
     public function formatCreationDate($format = 'd/m/Y')
     {
         $creationDate = $this->creation_date;

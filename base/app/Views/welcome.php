@@ -8,7 +8,7 @@ include "header.php";
     <section class="container">
         <img src="assets/img/Illustration.png" alt="cogip logo" class="illustration">
         <h1>Welcome to
-            <?php echo $name ?>
+            <?php// echo $_SESSION['user']->getName(); ?>
         </h1>
         <p>This base project is provided by BeCode</p>
     
@@ -16,7 +16,7 @@ include "header.php";
         $invoiceController = new HomeController($db);
         $invoices = $invoiceController->getinvoices();
         usort($invoices, function ($a, $b) {
-            return strcmp($a->name, $b->name);
+            return strcmp($a->ref, $b->ref);
         });
         ?>
         <section class="container__table">
