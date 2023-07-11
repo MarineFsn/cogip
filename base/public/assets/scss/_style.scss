@@ -376,60 +376,171 @@ body {
         }
       }
     }
-    .container__table {
-      display: flex;
-      flex-direction: column;
-      width: 350px;
-      position: relative;
-      @include responsive-desktop {
-        width: 1193px;
-        max-height: 799px;
-        margin-bottom: 51px;
-      }
-      h3 {
-        font-size: 30px;
-        font-weight: $font-weight-title;
-        font-family: $font-family-title;
-        z-index: 1;
-        margin-bottom: 20px;
-        @include responsive-desktop {
-          font-size: 60px;
-          margin-bottom: 0px;
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .container__image__aside {
+            width: 100%;
+            height: 230px;
+            &__hand {
+                position: absolute;
+                right: 0;
+            }
         }
-      }
-      &__yellow__rectangle {
-        width: 142px;
-        height: 13px;
-        background-color: $yellow;
-        position: absolute;
-        top: 15px;
-        left: 76px;
-        z-index: -1;
-        @include responsive-desktop {
-          width: 284px;
-          height: 27px;
-          top: 37px;
-          left: 157px;
+        .container__info__slogan {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 10px 0px;
+            gap: 25px;
+            @include responsive-tablet {
+            }
+            @include responsive-desktop {
+                flex-direction: row;
+                align-items: normal;
+                gap: 0px;
+                justify-content: end;
+                margin: 20px 0px 0px;
+            }
+            h2 {
+                font-size: 35px;
+                font-weight: 900;
+                text-align: left;
+                font-family: $font-family-title;
+
+                @include responsive-tablet {
+                    width: auto;
+                    font-size: 50px;
+                }
+                @include responsive-desktop {
+                    font-size: 68px;
+                    text-align: left;
+                    width: 45%;
+                    margin-top: 150px;
+                    margin-left: 100px;
+                }
+            }
+            &__phone__square {
+                height: 186px;
+                width: 350px;
+                margin-top: 10px;
+                @include responsive-tablet {
+                    height: 345px;
+                    width: 648px;
+                }
+                @include responsive-desktop {
+                    height: 500px;
+                    width: 55%;
+                }
+            }
         }
-      }
-      #searchbar {
-        height: 35px;
-        width: 200px;
-        align-self: flex-end;
-        color: #636363;
-        border: 1px solid #636363;
-        border-radius: 10px;
-        font-size: $font-size-text;
-        font-weight: 300;
-        font-family: $font-family-title;
-        margin-bottom: 20px;
-        text-align: center;
-        @include responsive-desktop {
-          margin-bottom: 42px;
-          height: 53px;
-          width: 245px;
+        .container__contact {
+            display: flex;
+            flex-direction: column-reverse;
+            &__info {
+                &__name {
+                    h5 {
+                        font-size: 30px;
+                        font-weight: $font-weight-title;
+                    }
+                    &__yellow {
+                        width: 200px;
+                        height: 17px;
+                        background-color: $yellow;
+                    }
+                }
+
+                p {
+                }
+            }
+            &__photo {
+                height: 125px;
+                width: 125px;
+                background-color: red;
+                border-radius: 50%;
+                margin-bottom: 15px;
+                align-self: center;
+                @include responsive-desktop {
+                    height: 255px;
+                    width: 255px;
+                }
+            }
         }
-      }
+        .container__table {
+            display: flex;
+            flex-direction: column;
+            width: 350px;
+            position: relative;
+            @include responsive-desktop {
+                width: 1193px;
+                max-height: 799px;
+                margin-bottom: 51px;
+            }
+            &__homepage {
+                // margin: 0px 0px;
+                @include responsive-desktop {
+                    // margin-bottom: 10px;
+                }
+            }
+            h3 {
+                font-size: 30px;
+                font-weight: $font-weight-title;
+                font-family: $font-family-title;
+                z-index: 1;
+                margin-bottom: 20px;
+                @include responsive-desktop {
+                    font-size: 60px;
+                    // margin-bottom: 0px;
+                }
+            }
+            &__yellow__rectangle {
+                width: 142px;
+                height: 13px;
+                background-color: $yellow;
+                position: absolute;
+                top: 15px;
+                left: 76px;
+                z-index: -1;
+                @include responsive-desktop {
+                    width: 284px;
+                    height: 27px;
+                    top: 37px;
+                    left: 157px;
+                }
+            }
+            #searchbar {
+                height: 35px;
+                width: 200px;
+                align-self: flex-end;
+                color: #636363;
+                border: 1px solid #636363;
+                border-radius: 10px;
+                font-size: $font-size-text;
+                font-weight: 300;
+                font-family: $font-family-title;
+                margin-bottom: 20px;
+                text-align: center;
+                @include responsive-desktop {
+                    margin-bottom: 42px;
+                    height: 53px;
+                    width: 245px;
+                }
+            }
+
+            .table__container {
+                overflow-y: auto;
+                white-space: nowrap;
+                width: 350px;
+                @include responsive-desktop {
+                    width: 1200px;
+                    overflow-y: none;
+                    white-space: none;
+                }
+                &__info {
+                    width: 1200px;
+                    font-size: $font-size-text;
+                    font-weight: $font-weight-text;
 
       .table__container {
         overflow-y: auto;
