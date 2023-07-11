@@ -14,25 +14,28 @@ define('APP', dirname(__FILE__) . "/app/");
 $route = $_GET['route'];
 $routeParts = explode('/', $route);
 $base = $routeParts[0];
-if(!isset($_SESSION["isConnected"]) || $_SESSION["isConnected"] != 1){
-    if($base != 'user'){
-        require_once APP.'Controllers/loginController.php';
-    }else{
+var_dump($base);
+if (!isset($_SESSION["isConnected"]) || $_SESSION["isConnected"] != 1) {
+    if ($base != 'user') {
+        require_once APP . 'Controllers/loginController.php';
+    } else if ($base == 'signup') {
+        require_once APP . 'Controllers/signupController.php';
+    } else {
         $ctrl = APP . 'Controllers/' . $base . 'Controller.php';
-        if(file_exists($ctrl)){
+        if (file_exists($ctrl)) {
             require_once($ctrl);
         } else {
             require_once(APP . 'Views/404.php');
         }
     }
-}else{
-    if($base == ''){
+} else {
+    if ($base == '') {
         $base = 'Home';
     }
     // var_dump($base);
     $ctrl = APP . 'Controllers/' . $base . 'Controller.php';
     // var_dump($ctrl);
-    if(file_exists($ctrl)){
+    if (file_exists($ctrl)) {
         require_once($ctrl);
     } else {
         require_once(APP . 'Views/404.php');

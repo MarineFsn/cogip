@@ -18,3 +18,4 @@ if ($_SESSION["isConnected"] == 1) {
         <input type="submit" value="submit">
     </div>
 </form>
+<p> Not registered yet? <a href="index.php?route=signup">sign up HERE</a> </p>
