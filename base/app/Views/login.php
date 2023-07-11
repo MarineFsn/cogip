@@ -1,8 +1,8 @@
 <?php
 // session_start();
-// if ($_SESSION["isConnected"] == 1) {
-//     header("Location: index.php");
-// }
+if ($_SESSION["isConnected"] == 1) {
+    header("Location: index.php");
+}
 ?>
 
 <form action="index.php?route=user" method="POST">

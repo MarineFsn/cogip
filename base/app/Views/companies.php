@@ -43,7 +43,7 @@ include "header.php";
                                 <?php echo $company->type; ?>
                             </td>
                             <td>
-                                <?php echo $company->creation_date; ?>
+                                <?php echo $company->formatCreationDate(); ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>

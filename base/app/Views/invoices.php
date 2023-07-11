@@ -24,13 +24,13 @@ include "header.php";
 
                             <td><a href="app/Views/show_invoices.php?invoiceId=<?php echo $invoice->id; ?>"><?php echo $invoice->ref; ?></a></td>
                             <td>
-                                <?php echo $invoice->due_dates; ?>
+                                <?php echo $invoice->formatDueDate(); ?>
                             </td>
                             <td>
                                 <?php echo $invoice->company; ?>
                             </td>
                             <td>
-                                <?php echo $invoice->creation_date; ?>
+                                <?php echo $invoice->formatCreationDate(); ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>

@@ -20,6 +20,15 @@ class Invoice
 
     }
 
+    public function formatDueDate($format = 'd/m/Y')
+    {
+        $dueDate = $this->due_dates;
+        $dueDateTime = new DateTime($dueDate);
+        $formattedDueDate = $dueDateTime->format($format);
+
+        return $formattedDueDate;
+    }
+    
     public function formatCreationDate($format = 'd/m/Y')
     {
         $creationDate = $this->creation_date;
