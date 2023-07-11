@@ -709,9 +709,6 @@ body {
       white-space: none;
     }
 
-    .label_search {
-      color: #919eab00;
-    }
     input {
       height: 35px;
       width: 200px;
@@ -810,9 +807,6 @@ body {
             height: 17px;
             background-color: $yellow;
           }
-        }
-
-        p {
         }
       }
       &__photo {
@@ -929,6 +923,20 @@ body {
             }
           }
         }
+      }
+    }
+
+    #myTable_paginate {
+      text-align: center;
+      float: none;
+
+      a {
+        background: white;
+        border: 1px solid #dfe3e8;
+        border-radius: 4px;
+        font-family: $font-family-text;
+        font-size: 14px;
+        font-weight: 700;
       }
     }
   }

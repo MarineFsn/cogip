@@ -880,9 +880,6 @@ body .table__container {
     white-space: none;
   }
 }
-body .table__container .label_search {
-  color: rgba(145, 158, 171, 0);
-}
 body .table__container input {
   height: 35px;
   width: 200px;
@@ -1100,4 +1097,16 @@ body main .container__table .table__container__info__tbody__tr td a {
 }
 body main .container__table .table__container__info__tbody__tr:nth-child(even) {
   background-color: #f5f5f5;
+}
+body main #myTable_paginate {
+  text-align: center;
+  float: none;
+}
+body main #myTable_paginate a {
+  background: white;
+  border: 1px solid #dfe3e8;
+  border-radius: 4px;
+  font-family: "Roboto", serif;
+  font-size: 14px;
+  font-weight: 700;
 }/*# sourceMappingURL=main.css.map */

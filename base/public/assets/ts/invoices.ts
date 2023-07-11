@@ -2,9 +2,8 @@ const containerHeader = document.querySelector(".container__info");
 if (containerHeader) {
   containerHeader.remove();
 }
-const allLabel = document.querySelectorAll("label");
-if (allLabel) {
-  allLabel.forEach((element) => {
-    element.remove();
-  });
+
+const buttonPrevious = document.getElementById("myTable_previous");
+if (buttonPrevious) {
+  buttonPrevious.textContent = "<";
 }
