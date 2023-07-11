@@ -21,9 +21,8 @@ include "header.php";
                     <?php foreach ($invoices as $invoice) : ?>
                         <tr class="table__container__info__tbody__tr">
 
-                            <td>
-                                <?php echo $invoice->ref; ?>
-                            </td>
+
+                            <td><a href="app/Views/show_invoices.php?invoiceId=<?php echo $invoice->id; ?>"><?php echo $invoice->ref; ?></a></td>
                             <td>
                                 <?php echo $invoice->due_dates; ?>
                             </td>
@@ -41,7 +40,6 @@ include "header.php";
 
         <script src="./base/public/assets/js/invoices.js"></script>
         <script>
-
             $(document).ready(function() {
                 $('#myTable').dataTable({
                     "initComplete": function(settings, json) {
