@@ -64,20 +64,14 @@ class UserController
 $userController = new UserController($db);
 if (isset($_POST["mail"]) && isset($_POST["password"])) {
     $currentUserLog = new UserLog($_POST["mail"], $_POST["password"]);
-    $user = $userController->compareUser($currentUserLog);
-    // var_dump($user);
-    $currentUser = $user;
-    if ($user == false) {
+    $currentUser = $userController->compareUser($currentUserLog);
+    if ($currentUser == false) {
         $_SESSION["isConnected"] = 0;
         require_once APP . "Controllers/loginController.php";
-    }else{
+    } else {
         $_SESSION["isConnected"] = 1;
-        // var_dump($_SESSION['isConnected']);
         $_SESSION["user"] = $currentUser;
-        // var_dump($_SESSION["user"]);
         require_once APP . "Controllers/HomeController.php";
     }
-    // exit();
 }
-
 ?>
