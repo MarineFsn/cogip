@@ -34,7 +34,28 @@ class invoiceController
         }
 
         return $invoices;
+    }
 
+    public function getInvoiceById($invoiceId)
+    {
+        $query = "SELECT * FROM invoices WHERE id = :invoiceId";
+        $statement = $this->db->prepare($query);
+        $statement->bindParam(':invoiceId', $invoiceId);
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if (!$result) {
+        }
+        $invoice = new Invoice(
+            $result['id'],
+            $result['name'],
+            $result['type_id'],
+            $result['country'],
+            $result['tva'],
+            $result['created_at'],
+            $result['updated_at']
+        );
+        return $invoice;
     }
 }
 
@@ -43,5 +64,3 @@ $invoices = $invoiceController->getinvoices();
 
 
 require_once APP . 'Views/invoices.php';
-
-?>
