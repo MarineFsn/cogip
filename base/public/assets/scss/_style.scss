@@ -551,3 +551,11 @@ body {
         }
     }
 }
+.dataTables_info {
+    // display: none;
+}
+::placeholder {
+    content: attr(test);
+
+    // background-color: blue;
+}

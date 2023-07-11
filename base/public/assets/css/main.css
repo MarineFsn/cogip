@@ -691,4 +691,12 @@ body main .container__button button {
 }
 body main .container__button button:hover {
   background-color: #919eab;
+}
+
+::-moz-placeholder {
+  content: attr(test);
+}
+
+::placeholder {
+  content: attr(test);
 }/*# sourceMappingURL=main.css.map */

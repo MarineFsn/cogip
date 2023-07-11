@@ -10,7 +10,7 @@ include "header.php";
 
 
         <div class="table__container">
-            <table class="table__container__info">
+            <table class="table__container__info table table-striped" id="myTable">
                 <thead class="table__container__info__thead">
                     <tr class="table__container__info__thead__tr">
                         <th>Invoice number</th>
@@ -42,7 +42,16 @@ include "header.php";
         </div>
 
         <script src="./base/public/assets/js/invoices.js"></script>
-
+        <script>
+$(document).ready(function(){
+    $('#myTable').dataTable({
+        "initComplete": function(settings, json) {
+          $('input').attr("placeholder", "Search...");
+          $('input').attr("class", "input_search");
+        }
+      });
+});
+</script>
     </section>
     <section class="container__button">
         <button class="container__button__nav">
