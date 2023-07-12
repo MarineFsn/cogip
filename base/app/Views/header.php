@@ -36,7 +36,12 @@
             </ul>
             <ul class="nav__login">
                 <li><a href="signup.php">Sign up</a></li>
-                <li><a href="index.php?route=login">Login</a></li>
+                <?php if (isset($_SESSION['isConnected']) && $_SESSION['isConnected'] == 1) {
+                    echo "<li><a href='index.php?route=logout'>Logout</a></li>";
+                } else {
+                    echo "<li><a href='index.php?route=login'>Login</a></li>";
+                }
+                ?>
             </ul>
         </nav>
         <section class="container__info">

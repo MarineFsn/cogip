@@ -1,7 +1,6 @@
 <?php
 
 
-
 ?>
 
 <form action="" method="POST">
@@ -18,5 +17,7 @@
         <input type="submit" name="submit" value="Register" />
     </fieldset>
 </form>
-<div class="error"></div>
+
 <p> Already Registered ? <a href="login.php">Click here</a> </p>
+
+

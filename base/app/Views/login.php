@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,6 +34,7 @@
                 <div>
                     <input class="submit" type="submit" value="submit">
                 </div>
+              <p> Not registered yet? <a href="index.php?route=signup">sign up HERE</a> </p>
             </form>
             <div class="login__section__card__image"></div>
         </div>
@@ -42,3 +44,6 @@
 </body>
 
 </html>
+
+<p> Not registered yet? <a href="index.php?route=signup">sign up HERE</a> </p>
+
