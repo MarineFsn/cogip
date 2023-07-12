@@ -1,32 +1,60 @@
-function validateForm(event) {
-  var name = document.getElementsByName("name")[0].value;
-  var firstname = document.getElementsByName("firstname")[0].value;
-  var email = document.getElementsByName("email")[0].value;
-  var description = document.getElementsByName("description")[0].value;
-  var valid = true;
+function validateForm(event: Event) {
+  const email = (document.getElementsByName("mail")[0] as HTMLInputElement)
+    .value;
+  const password = (
+    document.getElementsByName("password")[0] as HTMLInputElement
+  ).value;
+  const firstName = (
+    document.getElementsByName("first_name")[0] as HTMLInputElement
+  ).value;
+  const lastName = (
+    document.getElementsByName("last_name")[0] as HTMLInputElement
+  ).value;
+  const emailSignUp = (
+    document.getElementsByName("email")[0] as HTMLInputElement
+  ).value;
 
-  var errorElement = document.getElementById("error");
-  errorElement.textContent = "";
+  let valid = true;
+  const passwordValidation = /^[A-Za-z]\w{7,14}$/;
+  const errorElement = document.getElementById("error");
 
-  if (name.length < 2 || name.length > 255) {
-    errorElement.textContent += "*Name must be between 2 and 255 characters";
-    valid = false;
+  if (errorElement) {
+    errorElement.textContent = "";
   }
 
-  if (firstname.length < 2 || firstname.length > 255) {
-    errorElement.textContent +=
-      " *First Name must be between 2 and 255 characters";
+  if (!validateEmail(emailSignUp)) {
+    if (errorElement) {
+      errorElement.textContent += " *Invalid email address";
+    }
     valid = false;
   }
 
   if (!validateEmail(email)) {
-    errorElement.textContent += " *Invalid email address";
+    if (errorElement) {
+      errorElement.textContent += " *Invalid email address";
+    }
     valid = false;
   }
 
-  if (description.length < 2 || description.length > 1000) {
-    errorElement.textContent +=
-      " *Description must be between 2 and 1000 characters";
+  if (!firstName) {
+    if (errorElement) {
+      errorElement.textContent += " *First name is required";
+    }
+    valid = false;
+  }
+
+  if (!lastName) {
+    if (errorElement) {
+      errorElement.textContent += " *Last name is required";
+    }
+    valid = false;
+  }
+
+  if (!password.match(passwordValidation)) {
+    if (errorElement) {
+      errorElement.textContent +=
+        " *Password must be between 7 to 15 characters which contain only characters, numeric digits, underscore, and the first character must be a letter";
+    }
     valid = false;
   }
 
@@ -35,10 +63,12 @@ function validateForm(event) {
   }
 }
 
-function validateEmail(email) {
-  var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+function validateEmail(email: string) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
 }
 
-var form = document.querySelector("form");
-form.addEventListener("submit", validateForm);
+const form = document.querySelector("form");
+if (form) {
+  form.addEventListener("submit", validateForm);
+}
