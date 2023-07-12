@@ -1,5 +1,10 @@
 <?php
 
-echo "coucou KO";
+class signupController
+{
+
+}
+
+require_once APP . "Views/signup.php";
 
 ?>

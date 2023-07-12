@@ -11,7 +11,7 @@ class User
     public string $creation_date;
     public string $update_date;
 
-    public function __construct(int $id, string $first_name, int $role_id, string $last_name, string $email, string $password, string $creation_date, string $update_date)
+    public function __construct(int $id, string $first_name, string $last_name, string $email, string $password, string $creation_date, string $update_date, int $role_id = 3)
     {
         $this->id = $id;
         $this->first_name = $first_name;
@@ -23,7 +23,8 @@ class User
         $this->update_date = $update_date;
     }
 
-    public function getName(){
+    public function getName()
+    {
         return $this->first_name;
     }
 
