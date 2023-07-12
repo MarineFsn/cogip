@@ -1,5 +1,6 @@
 <?php
 
+
 ?>
 
 <form action="index.php?route=user" method="POST">
@@ -18,3 +19,5 @@
     <input type="submit" name="submit" value="Register" />
 </form>
 <p> Already Registered ? <a href="index.php?route=login">Login</a> </p>
+
+

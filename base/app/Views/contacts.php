@@ -28,7 +28,7 @@ include "header.php";
                     </tr>
                 </thead>
                 <tbody class="table__container__info__tbody">
-                    <?php foreach ($contacts as $contact): ?>
+                    <?php foreach ($contacts as $contact) : ?>
                         <tr class="table__container__info__tbody__tr">
 
 
@@ -58,7 +58,7 @@ include "header.php";
             $(document).ready(function() {
                 $('#myTable').dataTable({
                     "initComplete": function(settings, json) {
-                        $('input').attr("placeholder", "Search company name...");
+                        $('input').attr("placeholder", "Search contact...");
                         $('input').attr("class", "input_search");
                         $('label').attr("class", "label_search");
                     }
