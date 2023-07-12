@@ -1,8 +1,8 @@
 <?php
 // session_start();
-if ($_SESSION["isConnected"] == 1) {
-    header("Location: index.php");
-}
+// if ($_SESSION["isConnected"] == 1) {
+//     header("Location: index.php");
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +29,7 @@ if ($_SESSION["isConnected"] == 1) {
                     <label for="password">Password :</label>
                     <input name="password" type="password">
                 </div>
+                <div id="error"></div>
                 <div>
                     <input class="submit" type="submit" value="submit">
                 </div>
@@ -36,7 +37,7 @@ if ($_SESSION["isConnected"] == 1) {
             <div class="login__section__card__image"></div>
         </div>
     </section>
-    <div id="error"></div>
+
 
 </body>
 

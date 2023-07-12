@@ -960,3 +960,140 @@ body {
     }
   }
 }
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #7d97f4;
+  &__section {
+    width: 100%;
+    height: 100%;
+    &__card {
+      display: flex;
+      flex-direction: column-reverse;
+      background-color: white;
+      margin: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+      @include responsive-tablet {
+      }
+      @include responsive-desktop {
+        flex-direction: row;
+      }
+      &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 18px 12px;
+        color: #8a8c91a0;
+        @include responsive-tablet {
+          align-items: flex-start;
+          margin: 20px auto;
+        }
+        @include responsive-desktop {
+          max-width: 40%;
+          height: 100%;
+          padding: 0px 200px;
+        }
+        h2 {
+          font-size: 35px;
+          font-weight: 900;
+          text-align: center;
+          font-family: $font-family-title;
+          color: #000000;
+          margin: 10px auto;
+          padding: 10px 0px;
+          outline: 5px solid #7d97f47a;
+
+          @include responsive-tablet {
+            width: auto;
+            margin: 20px auto;
+            font-size: 50px;
+          }
+          @include responsive-desktop {
+            font-size: 68px;
+            text-align: center;
+            margin: 100px auto 50px;
+          }
+        }
+        h3 {
+          color: #8a8c91;
+          font-size: 30px;
+          font-weight: $font-weight-title;
+          font-family: $font-family-title;
+          margin-bottom: 15px;
+          @include responsive-desktop {
+            text-align: left;
+            font-size: 60px;
+            margin-bottom: 50px;
+          }
+        }
+        #error {
+          width: 300px;
+          color: red;
+          font-size: 10px;
+        }
+        div {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          margin: auto;
+          padding: 10px 5px;
+          @include responsive-desktop {
+          }
+          label {
+            max-width: 100px;
+          }
+
+          input:not(.submit) {
+            max-width: 300px;
+          }
+          input[type="submit"] {
+            display: flex;
+            width: 100px;
+            height: 20px;
+            justify-content: center;
+            font-weight: $font-weight-text;
+            font-family: $font-family-text;
+            color: #000;
+            background-color: #fff;
+            border-color: #8a8c91;
+            border-radius: 5px;
+            margin: 0px auto 0px;
+            @include responsive-tablet {
+              margin: 5px auto 0px;
+            }
+            @include responsive-desktop {
+              width: 150px;
+              height: 50px;
+              margin: 50px auto 0px;
+            }
+          }
+          input[type="submit"]:hover {
+            background-color: #7d97f4;
+          }
+        }
+      }
+      &__image {
+        width: 100%;
+        min-height: 350px;
+        background: url("../img/Workingwoman.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px 10px 0px 0px;
+        @include responsive-tablet {
+        }
+        @include responsive-desktop {
+          width: 60%;
+          height: 650px;
+          border-radius: 0px 10px 10px 0px;
+        }
+      }
+    }
+  }
+}
