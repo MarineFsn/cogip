@@ -35,13 +35,14 @@
                 <li><a href="index.php?route=contact">Contacts</a></li>
             </ul>
             <ul class="nav__login">
-                <li><a href="signup.php">Sign up</a></li>
-                <?php if (isset($_SESSION['isConnected']) && $_SESSION['isConnected'] == 1) {
-                    echo "<li><a href='index.php?route=logout'>Logout</a></li>";
-                } else {
+                <?php if (!isset($_SESSION['isConnected']) || $_SESSION['isConnected'] != 1) {
+                    echo "<li><a href='index.php?route=signup'>signup</a></li>";
                     echo "<li><a href='index.php?route=login'>Login</a></li>";
+                } else {
+                    echo "<li><a href='index.php?route=logout'>Logout</a></li>";
                 }
                 ?>
+
             </ul>
         </nav>
         <section class="container__info">

@@ -4,7 +4,8 @@
 //     header("Location: index.php");
 // }
 
-class LoginController{
+class LoginController
+{
 
 }
 
