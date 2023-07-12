@@ -43,7 +43,7 @@ include "header.php";
             $(document).ready(function() {
                 $('#myTable').dataTable({
                     "initComplete": function(settings, json) {
-                        $('input').attr("placeholder", "Search company name...");
+                        $('input').attr("placeholder", "Search company...");
                         $('input').attr("class", "input_search");
                         $('label').attr("class", "label_search");
                     }

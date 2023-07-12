@@ -880,7 +880,10 @@ body .table__container {
     white-space: none;
   }
 }
-body .table__container input {
+body .table__container .label_search {
+  color: rgba(255, 255, 255, 0);
+}
+body .table__container .label_search input {
   height: 35px;
   width: 200px;
   align-self: flex-end;
@@ -894,7 +897,7 @@ body .table__container input {
   text-align: center;
 }
 @media screen and (min-width: 1224px) {
-  body .table__container input {
+  body .table__container .label_search input {
     margin-bottom: 42px;
     height: 53px;
     width: 245px;
@@ -1030,7 +1033,7 @@ body main .container__table__yellow__rectangle {
   height: 13px;
   background-color: #f9de4e;
   position: absolute;
-  top: 15px;
+  top: 40px;
   left: 76px;
   z-index: -1;
 }
@@ -1038,7 +1041,7 @@ body main .container__table__yellow__rectangle {
   body main .container__table__yellow__rectangle {
     width: 284px;
     height: 27px;
-    top: 37px;
+    top: 60px;
     left: 157px;
   }
 }
@@ -1078,6 +1081,13 @@ body main .container__table .table__container__info {
   width: 1200px;
   font-size: 20px;
   font-weight: 600;
+  border: none;
+  margin-bottom: 25px;
+}
+@media screen and (min-width: 1224px) {
+  body main .container__table .table__container__info {
+    margin-bottom: 53px;
+  }
 }
 body main .container__table .table__container__info__thead {
   height: 55px;
@@ -1086,10 +1096,12 @@ body main .container__table .table__container__info__thead {
 body main .container__table .table__container__info__thead__tr th {
   vertical-align: middle;
   text-align: left;
+  border: none;
 }
 body main .container__table .table__container__info__tbody__tr td {
   height: 55px;
   vertical-align: middle;
+  border: none;
 }
 body main .container__table .table__container__info__tbody__tr td a {
   text-decoration: none;
@@ -1097,6 +1109,9 @@ body main .container__table .table__container__info__tbody__tr td a {
 }
 body main .container__table .table__container__info__tbody__tr:nth-child(even) {
   background-color: #f5f5f5;
+}
+body main .container__table .table__container__info__tbody__tr:nth-child(odd) {
+  background-color: #ffffff;
 }
 body main #myTable_paginate {
   text-align: center;
@@ -1109,4 +1124,7 @@ body main #myTable_paginate a {
   font-family: "Roboto", serif;
   font-size: 14px;
   font-weight: 700;
+}
+body main #myTable_paginate a:hover {
+  background: #919eab;
 }/*# sourceMappingURL=main.css.map */
