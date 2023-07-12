@@ -17,7 +17,7 @@ include "header.php";
     ?>
     <section class="container__table container__table__homepage">
         <h3>Last invoices </h3>
-        <div class="container__table__yellow__rectangle"> </div>
+
         <div class="table__container">
             <table class="table__container__info">
                 <thead class="table__container__info__thead">
@@ -63,7 +63,7 @@ include "header.php";
     </div>
     <section class="container__table container__table__homepage">
         <h3>Last contacts </h3>
-        <div class="container__table__yellow__rectangle"> </div>
+
         <?php
         $controller = new HomeController($db);
         $contacts = $controller->getContacts();
@@ -122,7 +122,7 @@ include "header.php";
 
     <section class="container__table container__table__homepage">
         <h3>Last companies </h3>
-        <div class="container__table__yellow__rectangle"> </div>
+
         <?php
 
         $companyController = new HomeController($db);

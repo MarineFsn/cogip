@@ -1,5 +1,4 @@
 <?php
-echo "coucou KO";
 
 
 ?>
@@ -18,4 +17,7 @@ echo "coucou KO";
         <input type="submit" name="submit" value="Register" />
     </fieldset>
 </form>
-<p> Already Registered ? <a href="login.php"></a> </p>
+
+<p> Already Registered ? <a href="login.php">Click here</a> </p>
+
+
