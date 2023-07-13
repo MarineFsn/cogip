@@ -41,7 +41,7 @@ function validateFormSignUp(event) {
     }
 }
 function validateEmailSignUp(email) {
-    const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
 }
 const formSingUp = document.querySelector("form");

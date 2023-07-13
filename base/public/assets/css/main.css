@@ -993,7 +993,7 @@ body main .container__table {
 @media screen and (min-width: 1224px) {
   body main .container__table {
     width: 1193px;
-    max-height: 799px;
+    max-height: 2000px;
     margin-bottom: 51px;
   }
 }
@@ -1073,7 +1073,7 @@ body main .container__table .table__container__info {
   }
 }
 body main .container__table .table__container__info__thead {
-  height: 55px;
+  height: 34px;
   background-color: #f9de4e;
 }
 body main .container__table .table__container__info__thead__tr th {
@@ -1082,7 +1082,7 @@ body main .container__table .table__container__info__thead__tr th {
   border: none;
 }
 body main .container__table .table__container__info__tbody__tr td {
-  height: 55px;
+  height: 34px;
   vertical-align: middle;
   border: none;
 }

@@ -840,7 +840,7 @@ body {
       position: relative;
       @include responsive-desktop {
         width: 1193px;
-        max-height: 799px;
+        max-height: 2000px;
         margin-bottom: 51px;
       }
       &__homepage {
@@ -916,7 +916,7 @@ body {
           }
 
           &__thead {
-            height: 55px;
+            height: 34px;
             background-color: $yellow;
 
             &__tr {
@@ -930,7 +930,7 @@ body {
           &__tbody {
             &__tr {
               td {
-                height: 55px;
+                height: 34px;
                 vertical-align: middle;
                 border: none;
 
