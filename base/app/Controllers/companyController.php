@@ -23,10 +23,16 @@ class CompanyController
         $companies = array();
 
         foreach ($result as $row) {
+            $type = $row['type_id'];
+            $queryTypes = "SELECT name FROM types WHERE id = ".$type;
+            $statementTypes = $this->db->query($queryTypes);
+            $statementTypes->execute();
+            $resultTypes = $statementTypes->fetch(PDO::FETCH_ASSOC);
+
             $company = new Company(
                 $row['id'],
                 $row['name'],
-                $row['type_id'],
+                $resultTypes['name'],
                 $row['country'],
                 $row['tva'],
                 $row['created_at'],
@@ -45,11 +51,17 @@ class CompanyController
         $statement->bindParam(':companyId', $companyId);
         $statement->execute();
         $result = $statement->fetch(PDO::FETCH_ASSOC);
+        $type = $result['type_id'];
+
+        $queryTypes = "SELECT name FROM types WHERE id = ".$type;
+        $statementTypes = $this->db->query($queryTypes);
+        $statementTypes->execute();
+        $resultTypes = $statementTypes->fetch(PDO::FETCH_ASSOC);
 
         $company = new Company(
             $result['id'],
             $result['name'],
-            $result['type_id'],
+            $resultTypes['name'],
             $result['country'],
             $result['tva'],
             $result['created_at'],
@@ -119,6 +131,28 @@ class CompanyController
         }
 
         return $contacts;
+    }
+
+    public function getTypes()
+    {
+        $this->db->connect();
+        $query = "SELECT name FROM types";
+        $result = $this->db->query($query);
+
+        $types = array();
+
+        if ($result->rowCount() > 0) {
+            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                $type = new type(
+                    $row['id'],
+                    $row['name'],
+                    $row['created_at'],
+                    $row['updated_at']
+                );
+                $types[] = $type;
+            }
+        }
+        return $types;
     }
 }
 

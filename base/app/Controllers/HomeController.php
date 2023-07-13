@@ -35,10 +35,16 @@ class HomeController
         $companies = array();
 
         foreach ($result as $row) {
+            $type = $row['type_id'];
+            $queryTypes = "SELECT name FROM types WHERE id = ".$type;
+            $statementTypes = $this->db->query($queryTypes);
+            $statementTypes->execute();
+            $resultTypes = $statementTypes->fetch(PDO::FETCH_ASSOC);
+
             $company = new Company(
                 $row['id'],
                 $row['name'],
-                $row['type_id'],
+                $resultTypes['name'],
                 $row['country'],
                 $row['tva'],
                 $row['created_at'],
@@ -48,7 +54,6 @@ class HomeController
         }
 
         return $companies;
-
     }
 
     public function getContacts($query = "SELECT * FROM contacts")
@@ -61,10 +66,17 @@ class HomeController
         $contacts = array();
 
         foreach ($result as $row) {
+            $company = $row['company_id'];
+
+            $queryCompany = "SELECT name FROM companies WHERE id = ".$company;
+            $statementCompany = $this->db->query($queryCompany);
+            $statementCompany->execute();
+            $resultCompany = $statementCompany->fetch(PDO::FETCH_ASSOC);
+
             $contact = new Contact(
                 $row['id'],
                 $row['name'],
-                $row['company_id'],
+                $resultCompany['name'],
                 $row['email'],
                 $row['phone'],
                 $row['created_at'],
@@ -87,11 +99,18 @@ class HomeController
         $invoices = array();
 
         foreach ($result as $row) {
+            $company = $row['id_company'];
+
+            $queryCompany = "SELECT name FROM companies WHERE id = ".$company;
+            $statementCompany = $this->db->query($queryCompany);
+            $statementCompany->execute();
+            $resultCompany = $statementCompany->fetch(PDO::FETCH_ASSOC);
+
             $invoice = new invoice(
                 $row['id'],
                 $row['ref'],
                 $row['due_date'],
-                $row['id_company'],
+                $resultCompany['name'],
                 $row['created_at'],
                 $row['updated_at']
             );
@@ -99,7 +118,6 @@ class HomeController
         }
 
         return $invoices;
-
     }
 }
 
