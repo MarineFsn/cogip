@@ -23,7 +23,7 @@ function newInvoice(event) {
     <div class="container__dynamic__dashboard">
       <h4>New invoice</h4>
       <hr>
-      <form class="container__dynamic__dashboard__form">
+      <form class="container__dynamic__dashboard__form" method="POST" >
         <input type="text" placeholder="Reference..." name="reference">
         <input type="text" placeholder="Due date..." name="due_date">
         <select name="choices">
@@ -66,7 +66,7 @@ function newCompany(event) {
     <div class="container__dynamic__dashboard">
       <h4>New Company</h4>
       <hr>
-      <form class="container__new__invoice__form">
+      <form class="container__new__invoice__form" method="POST">
         <select name="choices">
           <option value="" disabled selected>Select a company...</option>
           <option value="1">Raviga</option>
@@ -109,7 +109,7 @@ function newContact(event) {
     <div class="container__dynamic__dashboard">
       <h4>New Contact</h4>
       <hr>
-      <form class="container__new__invoice__form">
+      <form class="container__new__invoice__form" method="POST">
         <input type="text" placeholder="Company name..." name="name">
         <input type="text" placeholder="Country..." name="country">
         <input type="text" placeholder="TVA..." name="tva">
