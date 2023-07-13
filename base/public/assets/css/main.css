@@ -167,7 +167,7 @@ table {
   font-family: "Roboto", serif;
   font-size: 48px;
   font-weight: 900;
-  color: rgb(0, 0, 0);
+  color: #434138;
   text-align: center;
   line-height: 63px;
 }
@@ -299,6 +299,7 @@ body .public__header nav {
   font-size: 20px;
   font-weight: 600;
   margin-top: 35px;
+  font-family: "Roboto", serif;
 }
 @media screen and (min-width: 376px) and (max-width: 1023px) {
   body .public__header nav {
@@ -826,7 +827,7 @@ body .container__table {
 @media screen and (min-width: 1224px) {
   body .container__table {
     width: 1193px;
-    max-height: 799px;
+    max-height: 2000px;
     margin-bottom: 51px;
   }
 }
@@ -1257,4 +1258,249 @@ body main #myTable_paginate a:hover {
     height: 650px;
     border-radius: 0px 10px 10px 0px;
   }
+}
+
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #7d97f4;
+}
+.signup__section {
+  width: 100%;
+  height: 100%;
+}
+.signup__section__card {
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: white;
+  margin: 10px 10px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+}
+@media screen and (min-width: 1224px) {
+  .signup__section__card {
+    flex-direction: row-reverse;
+  }
+}
+.signup__section__card__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 15px;
+  color: rgba(138, 140, 145, 0.6274509804);
+  font-family: "Roboto", serif;
+}
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .signup__section__card__form {
+    align-items: flex-start;
+    margin: 20px auto;
+  }
+}
+@media screen and (min-width: 1224px) {
+  .signup__section__card__form {
+    max-width: 40%;
+    padding: 0px 200px;
+  }
+}
+.signup__section__card__form h2 {
+  font-size: 25px;
+  font-weight: 900;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  color: #000000;
+  margin: 0px auto 15px;
+  padding: 10px 0px;
+  outline: 5px solid rgba(125, 151, 244, 0.4784313725);
+}
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .signup__section__card__form h2 {
+    width: auto;
+    margin: 20px auto;
+    font-size: 50px;
+  }
+}
+@media screen and (min-width: 1224px) {
+  .signup__section__card__form h2 {
+    font-size: 68px;
+    text-align: center;
+    margin: 50px auto 50px;
+  }
+}
+.signup__section__card__form legend {
+  color: #8a8c91;
+  font-size: 20px;
+  font-weight: 900;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 1224px) {
+  .signup__section__card__form legend {
+    text-align: left;
+    font-size: 60px;
+    margin-bottom: 50px;
+  }
+}
+.signup__section__card__form input:not(.submit) {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: 10px auto;
+  font-family: "Roboto", serif;
+}
+@media screen and (min-width: 1224px) {
+  .signup__section__card__form input:not(.submit) {
+    margin: 20px auto;
+  }
+}
+.signup__section__card__form input[type=submit] {
+  display: flex;
+  width: 100px;
+  height: 20px;
+  justify-content: center;
+  font-weight: 600;
+  font-family: "Roboto", serif;
+  color: #000;
+  background-color: #fff;
+  border-color: #8a8c91;
+  border-radius: 5px;
+  margin: 20px auto 0px;
+}
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .signup__section__card__form input[type=submit] {
+    margin: 25px auto 0px;
+  }
+}
+@media screen and (min-width: 1224px) {
+  .signup__section__card__form input[type=submit] {
+    width: 150px;
+    height: 50px;
+    margin: 40px auto 0px;
+  }
+}
+.signup__section__card__form input[type=submit]:hover {
+  background-color: #7d97f4;
+}
+.signup__section__card__form__registered {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.signup__section__card__form__registered a {
+  color: #8a8c91;
+}
+.signup__section__card__form__registered a:hover {
+  color: #7d97f4;
+}
+.signup__section__card__form__registered a:active {
+  color: #000;
+}
+.signup__section__card__image {
+  width: 100%;
+  min-height: 280px;
+  background: url("../img/Working_woman.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px 10px 0px 0px;
+}
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .signup__section__card__image {
+    min-height: 500px;
+  }
+}
+@media screen and (min-width: 1224px) {
+  .signup__section__card__image {
+    width: 60%;
+    height: 650px;
+    border-radius: 10px 0px 0px 10px;
+  }
+}
+
+.dashboard {
+  background-color: #e7e7e7;
+}
+.dashboard__header {
+  width: 100vw;
+  height: 189px;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard__header {
+    width: 1044px;
+    height: 378px;
+  }
+}
+.dashboard__header__first__part {
+  display: flex;
+  flex-direction: row;
+  height: 86px;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard__header__first__part {
+    height: 173px;
+  }
+}
+.dashboard__header__first__part__title h1 {
+  font-family: "Inter", sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 36px;
+}
+.dashboard__header__first__part__title p {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+}
+.dashboard__header__first__part img {
+  height: 150px;
+}
+.dashboard__header__info {
+  display: flex;
+  flex-direction: row;
+  background-color: #9698d6;
+  height: 103px;
+  color: white;
+  border-radius: 10px;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard__header__info {
+    height: 206px;
+  }
+}
+.dashboard__header__info__message h2 {
+  font-size: 35px;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+}
+.dashboard__header__info__message p {
+  font-size: 15px;
+}
+.dashboard__sidebar__menu img {
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+}
+.dashboard__container__statistics {
+  width: 350px;
+  height: 500px;
+  background-color: #ffffff;
+}
+.dashboard__container__invoices {
+  width: 350px;
+  height: 500px;
+  background-color: #ffffff;
+}
+.dashboard__container__contacts {
+  width: 350px;
+  height: 500px;
+  background-color: #ffffff;
+}
+.dashboard__container__company {
+  width: 350px;
+  height: 500px;
+  background-color: #ffffff;
 }/*# sourceMappingURL=main.css.map */

@@ -35,7 +35,7 @@
     font-family: $font-family-text;
     font-size: $font-size-name;
     font-weight: $font-weight-title;
-    color: rgb(0, 0, 0);
+    color: #434138;
     text-align: center;
     line-height: 63px;
     @include responsive-tablet {
@@ -177,6 +177,7 @@ body {
       font-size: 20px;
       font-weight: 600;
       margin-top: 35px;
+      font-family: $font-family-text;
       @include responsive-tablet {
         margin-bottom: 20px;
       }
@@ -662,7 +663,7 @@ body {
     position: relative;
     @include responsive-desktop {
       width: 1193px;
-      max-height: 799px;
+      max-height: 2000px;
       margin-bottom: 51px;
     }
 
@@ -1104,5 +1105,234 @@ body {
         }
       }
     }
+  }
+}
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #7d97f4;
+  &__section {
+    width: 100%;
+    height: 100%;
+    &__card {
+      display: flex;
+      flex-direction: column-reverse;
+      background-color: white;
+      margin: 10px 10px;
+      border-radius: 10px;
+      box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+      @include responsive-tablet {
+      }
+      @include responsive-desktop {
+        flex-direction: row-reverse;
+      }
+      &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 15px;
+        color: #8a8c91a0;
+        font-family: $font-family-text;
+        @include responsive-tablet {
+          align-items: flex-start;
+          margin: 20px auto;
+        }
+        @include responsive-desktop {
+          max-width: 40%;
+          padding: 0px 200px;
+        }
+        h2 {
+          font-size: 25px;
+          font-weight: 900;
+          text-align: center;
+          font-family: $font-family-title;
+          color: #000000;
+          margin: 0px auto 15px;
+          padding: 10px 0px;
+          outline: 5px solid #7d97f47a;
+
+          @include responsive-tablet {
+            width: auto;
+            margin: 20px auto;
+            font-size: 50px;
+          }
+          @include responsive-desktop {
+            font-size: 68px;
+            text-align: center;
+            margin: 50px auto 50px;
+          }
+        }
+        legend {
+          color: #8a8c91;
+          font-size: 20px;
+          font-weight: $font-weight-title;
+          font-family: $font-family-title;
+          margin-bottom: 10px;
+          @include responsive-desktop {
+            text-align: left;
+            font-size: 60px;
+            margin-bottom: 50px;
+          }
+        }
+        input:not(.submit) {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          margin: 10px auto;
+          font-family: $font-family-text;
+          @include responsive-desktop {
+            margin: 20px auto;
+          }
+        }
+        input[type="submit"] {
+          display: flex;
+          width: 100px;
+          height: 20px;
+          justify-content: center;
+          font-weight: $font-weight-text;
+          font-family: $font-family-text;
+          color: #000;
+          background-color: #fff;
+          border-color: #8a8c91;
+          border-radius: 5px;
+          margin: 20px auto 0px;
+          @include responsive-tablet {
+            margin: 25px auto 0px;
+          }
+          @include responsive-desktop {
+            width: 150px;
+            height: 50px;
+            margin: 40px auto 0px;
+          }
+        }
+        input[type="submit"]:hover {
+          background-color: #7d97f4;
+        }
+        &__registered {
+          display: flex;
+          justify-content: center;
+          margin-top: 20px;
+          a {
+            color: #8a8c91;
+          }
+          a:hover {
+            color: #7d97f4;
+          }
+          a:active {
+            color: #000;
+          }
+        }
+      }
+      &__image {
+        width: 100%;
+        min-height: 280px;
+        background: url("../img/Working_woman.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px 10px 0px 0px;
+        @include responsive-tablet {
+          min-height: 500px;
+        }
+        @include responsive-desktop {
+          width: 60%;
+          height: 650px;
+          border-radius: 10px 0px 0px 10px;
+        }
+      }
+    }
+  }
+}
+.dashboard {
+  background-color: #e7e7e7;
+  &__header {
+    width: 100vw;
+    height: 189px;
+    @include responsive-desktop {
+      width: 1044px;
+      height: 378px;
+    }
+
+    &__first__part {
+      display: flex;
+      flex-direction: row;
+      height: 86px;
+
+      @include responsive-desktop {
+        height: 173px;
+      }
+      &__title {
+        h1 {
+          font-family: $font-family-title;
+          font-size: 30px;
+          font-weight: $font-weight-title;
+          line-height: 36px;
+        }
+        p {
+          font-family: $font-family-title;
+          font-size: 15px;
+          font-weight: 300;
+        }
+      }
+      img {
+        height: 150px;
+      }
+    }
+    &__info {
+      display: flex;
+      flex-direction: row;
+      background-color: #9698d6;
+      height: 103px;
+      color: white;
+      border-radius: 10px;
+      @include responsive-desktop {
+        height: 206px;
+      }
+      &__message {
+        h2 {
+          font-size: 35px;
+          font-family: $font-family-title;
+          font-weight: 300;
+        }
+        p {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+
+  &__sidebar__menu {
+    img {
+      width: 105px;
+      height: 105px;
+      border-radius: 50%;
+    }
+  }
+
+  &__container__statistics {
+    width: 350px;
+    height: 500px;
+    background-color: #ffffff;
+  }
+
+  &__container__invoices {
+    width: 350px;
+    height: 500px;
+    background-color: #ffffff;
+  }
+  &__container__contacts {
+    width: 350px;
+    height: 500px;
+    background-color: #ffffff;
+  }
+  &__container__company {
+    width: 350px;
+    height: 500px;
+    background-color: #ffffff;
   }
 }
