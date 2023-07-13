@@ -77,34 +77,21 @@ class CompanyController
         $statement = $this->db->prepare($query);
         $statement->bindParam(':companyId', $companyId);
         $statement->execute();
-        $result = $statement->fetch(PDO::FETCH_ASSOC);
-
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
         $invoices = array();
 
-        if(count($result) > 6){
-            foreach ($result as $row) {
-                $invoice = new Invoice(
-                    $row['id'],
-                    $row['ref'],
-                    $row['due_date'],
-                    $row['id_company'],
-                    $row['created_at'],
-                    $row['updated_at']
-                );
-                $invoices[] = $invoice;
-            }
-            return $invoices;
-        }else{
+        foreach ($result as $row) {
             $invoice = new Invoice(
-                $result['id'],
-                $result['ref'],
-                $result['due_date'],
-                $result['id_company'],
-                $result['created_at'],
-                $result['updated_at']
+                $row['id'],
+                $row['ref'],
+                $row['due_date'],
+                $row['id_company'],
+                $row['created_at'],
+                $row['updated_at']
             );
-            return $invoice;
-        }        
+            $invoices[] = $invoice;
+        }
+        return $invoices;
     }
 
     public function getContactsByCompanyId($companyId)
@@ -114,7 +101,6 @@ class CompanyController
         $statement->bindValue(':companyId', $companyId, PDO::PARAM_INT);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-
         $contacts = array();
 
         foreach ($result as $row) {
