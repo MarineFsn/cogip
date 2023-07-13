@@ -9,7 +9,7 @@ include "header.php";
             echo "<h1>Welcome to " .$_SESSION['user'][0]["first_name"]. "</h1>";
         }
         $invoiceController = new HomeController($db);
-        $invoices = $invoiceController->getinvoices();
+        $invoices = $invoiceController->getLastInvoices();
         usort($invoices, function ($a, $b) {
             return strcmp($a->ref, $b->ref);
         });
@@ -65,7 +65,7 @@ include "header.php";
         <div class="container__table__yellow__rectangle"> </div>
         <?php
         $controller = new HomeController($db);
-        $contacts = $controller->getContacts();
+        $contacts = $controller->getLastContacts();
 
         usort($contacts, function ($a, $b) {
             return strcmp($a->name, $b->name);
@@ -127,7 +127,7 @@ include "header.php";
         <?php
 
         $companyController = new HomeController($db);
-        $companies = $companyController->getCompanies();
+        $companies = $companyController->getLastCompanies();
         usort($companies, function ($a, $b) {
             return strcmp($a->name, $b->name);
         });

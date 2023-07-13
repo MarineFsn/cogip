@@ -23,7 +23,7 @@ include "header.php";
 
                             <td>
                                 <!-- <a href="app/Views/show_invoices.php?invoiceId=<?php //echo $invoice->id; ?>"><?php //echo $invoice->ref; ?></a></td> -->
-                                <a href="index.php?route=invoice&invoiceId=<?php echo $invoice->id; ?>"><?php echo $invoice->ref; ?></a></td>
+                                <a href="invoice&invoiceId=<?php echo $invoice->id; ?>"><?php echo $invoice->ref; ?></a></td>
                             <td>
                                 <?php echo $invoice->formatDueDate(); ?>
                             </td>

@@ -29,17 +29,17 @@
         <nav>
             <h1>COGIP</h1>
             <ul class="nav__bar">
-                <li><a href="index.php?route=Home">Home</a></li>
-                <li><a href="index.php?route=invoice">Invoices</a></li>
-                <li><a href="index.php?route=company">Companies</a></li>
-                <li><a href="index.php?route=contact">Contacts</a></li>
+                <li><a href="Home">Home</a></li>
+                <li><a href="invoice">Invoices</a></li>
+                <li><a href="company">Companies</a></li>
+                <li><a href="contact">Contacts</a></li>
             </ul>
             <ul class="nav__login">
                 <?php if (!isset($_SESSION['isConnected']) || $_SESSION['isConnected'] != 1) {
-                    echo "<li><a href='index.php?route=signup'>signup</a></li>";
-                    echo "<li><a href='index.php?route=login'>Login</a></li>";
+                    echo "<li><a href='signup'>signup</a></li>";
+                    echo "<li><a href='login'>Login</a></li>";
                 } else {
-                    echo "<li><a href='index.php?route=logout'>Logout</a></li>";
+                    echo "<li><a href='logout'>Logout</a></li>";
                 }
                 ?>
 
