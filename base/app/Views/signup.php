@@ -3,7 +3,7 @@
 
 ?>
 
-<form action="index.php?route=user" method="POST">
+<form action="user" method="POST">
     <label for="first_name">First Name :</label>
     <input type="text" name="first_name" placeholder="Please, enter your first name" required />
     <br>
@@ -18,6 +18,6 @@
     <br>
     <input type="submit" name="submit" value="Register" />
 </form>
-<p> Already Registered ? <a href="index.php?route=login">Login</a> </p>
+<p> Already Registered ? <a href="login">Login</a> </p>
 
 

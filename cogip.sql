@@ -3,7 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 13 juil. 2023 à 13:57
+
+-- Généré le : jeu. 13 juil. 2023 à 15:15
+
 -- Version du serveur : 10.4.25-MariaDB
 -- Version de PHP : 8.1.10
 
@@ -284,11 +286,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `role_id`, `last_name`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'Marine', 1, 'Fassin', 'marine.fassin@gmail.com', 'password', '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
-(2, 'Nikko', 2, 'Di Bernardo', 'nikko.dibernardo@gmail.com', 'password', '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
-(3, 'Loïc', 2, 'Lion', 'loic.lion@gmail.com', 'password', '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
-(4, 'Benjamin', 3, 'Mayeur', 'benjamin.mayeur@gmail.com', 'password', '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
-(5, 'Noa', 3, 'Cayphas', 'noa.cayphas@gmail.com', 'password', '2023-07-04 00:00:00', '2023-07-04 00:00:00');
+(1, 'Marine', 1, 'Fassin', 'marine.fassin@gmail.com', 'P@ssw0rd', '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
+(2, 'Nikko', 2, 'Di Bernardo', 'nikko.dibernardo@gmail.com', 'P@ssw0rd', '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
+(3, 'Loïc', 2, 'Lion', 'loic.lion@gmail.com', 'P@ssw0rd', '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
+(4, 'Benjamin', 3, 'Mayeur', 'benjamin.mayeur@gmail.com', 'P@ssw0rd', '2023-07-04 00:00:00', '2023-07-04 00:00:00'),
+(5, 'Noa', 3, 'Cayphas', 'noa.cayphas@gmail.com', 'P@ssw0rd', '2023-07-04 00:00:00', '2023-07-04 00:00:00');
 
 --
 -- Index pour les tables déchargées

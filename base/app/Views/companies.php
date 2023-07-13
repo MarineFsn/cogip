@@ -32,7 +32,7 @@ include "header.php";
                     <?php foreach ($companies as $company) : ?>
                         <tr class="table__container__info__tbody__tr">
 
-                            <td><a href="index.php?route=company&companyId=<?php echo $company->id; ?>"><?php echo $company->name; ?></a></td>
+                            <td><a href="company&companyId=<?php echo $company->id; ?>"><?php echo $company->name; ?></a></td>
                             <td>
                                 <?php echo $company->tva; ?>
                             </td>
