@@ -295,6 +295,7 @@ body {
       }
 
       h2 {
+        color: black;
         font-size: 35px;
         font-weight: 900;
         text-align: center;
@@ -367,6 +368,7 @@ body {
         margin: 20px 0px 0px;
       }
       h2 {
+        color: black;
         font-size: 35px;
         font-weight: 900;
         text-align: left;
@@ -582,6 +584,7 @@ body {
       &__name {
         position: relative;
         h5 {
+          color: black;
           font-size: 30px;
           font-weight: $font-weight-title;
           z-index: 1;
@@ -612,6 +615,7 @@ body {
       }
 
       p {
+        color: black;
         margin-bottom: 15px;
         font-size: $font-size-text;
         font-weight: $font-weight-title;
@@ -668,11 +672,13 @@ body {
       font-weight: $font-weight-title;
       margin-left: 30px;
       margin-bottom: 15px;
+      color: black;
       @include responsive-desktop {
         font-size: 60px;
       }
     }
     h3 {
+      color: black;
       font-size: 30px;
       font-weight: $font-weight-title;
       font-family: $font-family-title;
@@ -765,6 +771,7 @@ body {
         margin: 20px 0px 0px;
       }
       h2 {
+        color: black;
         font-size: 35px;
         font-weight: 900;
         text-align: left;
@@ -796,35 +803,35 @@ body {
         }
       }
     }
-    .container__contact {
-      display: flex;
-      flex-direction: column-reverse;
-      &__info {
-        &__name {
-          h5 {
-            font-size: 30px;
-            font-weight: $font-weight-title;
-          }
-          &__yellow {
-            width: 200px;
-            height: 17px;
-            background-color: $yellow;
-          }
-        }
-      }
-      &__photo {
-        height: 125px;
-        width: 125px;
-        background-color: red;
-        border-radius: 50%;
-        margin-bottom: 15px;
-        align-self: center;
-        @include responsive-desktop {
-          height: 255px;
-          width: 255px;
-        }
-      }
-    }
+    // .container__contact {
+    //   display: flex;
+    //   flex-direction: column-reverse;
+    //   &__info {
+    //     &__name {
+    //       h5 {
+    //         font-size: 30px;
+    //         font-weight: $font-weight-title;
+    //       }
+    //       &__yellow {
+    //         width: 200px;
+    //         height: 17px;
+    //         background-color: $yellow;
+    //       }
+    //     }
+    //   }
+    //   &__photo {
+    //     height: 125px;
+    //     width: 125px;
+    //     background-color: red;
+    //     border-radius: 50%;
+    //     margin-bottom: 15px;
+    //     align-self: center;
+    //     @include responsive-desktop {
+    //       height: 255px;
+    //       width: 255px;
+    //     }
+    //   }
+    // }
     .container__table {
       display: flex;
       flex-direction: column;
@@ -842,6 +849,7 @@ body {
         }
       }
       h3 {
+        color: black;
         font-size: 30px;
         font-weight: $font-weight-title;
         font-family: $font-family-title;
@@ -890,6 +898,7 @@ body {
         overflow-y: auto;
         white-space: nowrap;
         width: 350px;
+        color: black;
         @include responsive-desktop {
           width: 1200px;
           overflow-y: none;
@@ -1004,7 +1013,7 @@ body {
           font-weight: 900;
           text-align: center;
           font-family: $font-family-title;
-          color: #000000;
+          color: black;
           margin: 10px auto;
           padding: 10px 0px;
           outline: 5px solid #7d97f47a;

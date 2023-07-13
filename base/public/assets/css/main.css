@@ -434,6 +434,7 @@ body .public__header .container__info {
   }
 }
 body .public__header .container__info h2 {
+  color: black;
   font-size: 35px;
   font-weight: 900;
   text-align: center;
@@ -516,6 +517,7 @@ body main .container__info__slogan {
   }
 }
 body main .container__info__slogan h2 {
+  color: black;
   font-size: 35px;
   font-weight: 900;
   text-align: left;
@@ -740,6 +742,7 @@ body .container__contact__info__name {
   position: relative;
 }
 body .container__contact__info__name h5 {
+  color: black;
   font-size: 30px;
   font-weight: 900;
   z-index: 1;
@@ -771,6 +774,7 @@ body .container__contact__info__name__yellow {
   }
 }
 body .container__contact__info p {
+  color: black;
   margin-bottom: 15px;
   font-size: 20px;
   font-weight: 900;
@@ -832,6 +836,7 @@ body .container__table h5 {
   font-weight: 900;
   margin-left: 30px;
   margin-bottom: 15px;
+  color: black;
 }
 @media screen and (min-width: 1224px) {
   body .container__table h5 {
@@ -839,6 +844,7 @@ body .container__table h5 {
   }
 }
 body .container__table h3 {
+  color: black;
   font-size: 30px;
   font-weight: 900;
   font-family: "Inter", sans-serif;
@@ -939,6 +945,7 @@ body main .container__info__slogan {
   }
 }
 body main .container__info__slogan h2 {
+  color: black;
   font-size: 35px;
   font-weight: 900;
   text-align: left;
@@ -976,33 +983,6 @@ body main .container__info__slogan__phone__square {
     width: 55%;
   }
 }
-body main .container__contact {
-  display: flex;
-  flex-direction: column-reverse;
-}
-body main .container__contact__info__name h5 {
-  font-size: 30px;
-  font-weight: 900;
-}
-body main .container__contact__info__name__yellow {
-  width: 200px;
-  height: 17px;
-  background-color: #f9de4e;
-}
-body main .container__contact__photo {
-  height: 125px;
-  width: 125px;
-  background-color: red;
-  border-radius: 50%;
-  margin-bottom: 15px;
-  align-self: center;
-}
-@media screen and (min-width: 1224px) {
-  body main .container__contact__photo {
-    height: 255px;
-    width: 255px;
-  }
-}
 body main .container__table {
   display: flex;
   flex-direction: column;
@@ -1017,6 +997,7 @@ body main .container__table {
   }
 }
 body main .container__table h3 {
+  color: black;
   font-size: 30px;
   font-weight: 900;
   font-family: "Inter", sans-serif;
@@ -1069,6 +1050,7 @@ body main .container__table .table__container {
   overflow-y: auto;
   white-space: nowrap;
   width: 350px;
+  color: black;
 }
 @media screen and (min-width: 1224px) {
   body main .container__table .table__container {
@@ -1181,7 +1163,7 @@ body main #myTable_paginate a:hover {
   font-weight: 900;
   text-align: center;
   font-family: "Inter", sans-serif;
-  color: #000000;
+  color: black;
   margin: 10px auto;
   padding: 10px 0px;
   outline: 5px solid rgba(125, 151, 244, 0.4784313725);
