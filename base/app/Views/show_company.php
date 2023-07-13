@@ -1,18 +1,18 @@
 <?php
 include "header.php";
 
-$companyController = new CompanyController($db);
+// $companyController = new CompanyController($db);
 
-if (isset($_GET['companyId'])) {
-    $companyId = $_GET['companyId'];
-    $company = $companyController->getCompanyById($companyId);
+// if (isset($_GET['companyId'])) {
+//     $companyId = $_GET['companyId'];
+//     $company = $companyController->getCompanyById($companyId);
 
-    $contactController = new ContactController($db);
-    $contacts = $contactController->getContactsByCompanyId($companyId);
+//     $contactController = new ContactController($db);
+//     $contacts = $contactController->getContactsByCompanyId($companyId);
 
-    $invoiceController = new invoiceController($db);
-    $invoices = $invoiceController->getInvoiceById($invoiceId);
-}
+//     $invoiceController = new invoiceController($db);
+//     $invoices = $invoiceController->getInvoiceById($invoiceId);
+// }
 ?>
 <main>
     <section class="container__company">
@@ -57,13 +57,21 @@ if (isset($_GET['companyId'])) {
                     </tr>
                 </thead>
                 <tbody class="table__container__info__tbody">
-                    <?php foreach ($invoices as $invoice) : ?>
+                    <?php if(is_array($invoices) > 6){ ?>
+                        <?php foreach ($invoices as $invoice) : ?>
+                            <tr class="table__container__info__tbody__tr">
+                                <td><?php echo $invoice->ref; ?></td>
+                                <td><?php echo $invoice->formatCreationDate(); ?></td>
+                                <td> <?php echo $invoice->formatDueDate(); ?></td>
+                            </tr>
+                        <?php endforeach; 
+                    }else{ ?>
                         <tr class="table__container__info__tbody__tr">
-                            <td><?php echo $invoice->ref; ?></td>
-                            <td><?php echo $invoice->created_at; ?></td>
-                            <td> <?php echo $invoice->updated_at; ?></td>
+                            <td><?php echo $invoices->ref; ?></td>
+                            <td><?php echo $invoices->formatCreationDate(); ?></td>
+                            <td> <?php echo $invoices->formatDueDate(); ?></td>
                         </tr>
-                    <?php endforeach; ?>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>

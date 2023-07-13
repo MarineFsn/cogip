@@ -1,12 +1,6 @@
 <?php
 include "header.php";
 
-$invoiceController = new invoiceController($db);
-
-if (isset($_GET['invoiceId'])) {
-    $invoiceId = $_GET['invoiceId'];
-    $invoice = $invoiceController->getInvoiceById($invoiceId);
-}
 ?>
 <main>
     <section class="container__contact">
@@ -16,8 +10,8 @@ if (isset($_GET['invoiceId'])) {
                 <div class="container__contact__info__name__yellow"></div>
             </div>
             <p>Invoice number: <?php echo $invoice->ref; ?></p>
-            <p>Due dates: <?php echo $invoice->update_date; ?></p>
-            <p>Created at: <?php echo $invoice->creation_date; ?></p>
+            <p>Due dates: <?php echo $invoice->formatDueDate(); ?></p>
+            <p>Created at: <?php echo $invoice->formatCreationDate(); ?></p>
             <p>Company: <?php echo $invoice->company; ?></p>
         </div>
     </section>

@@ -21,8 +21,9 @@ include "header.php";
                     <?php foreach ($invoices as $invoice) : ?>
                         <tr class="table__container__info__tbody__tr">
 
-
-                            <td><a href="app/Views/show_invoices.php?invoiceId=<?php echo $invoice->id; ?>"><?php echo $invoice->ref; ?></a></td>
+                            <td>
+                                <!-- <a href="app/Views/show_invoices.php?invoiceId=<?php //echo $invoice->id; ?>"><?php //echo $invoice->ref; ?></a></td> -->
+                                <a href="index.php?route=invoice&invoiceId=<?php echo $invoice->id; ?>"><?php echo $invoice->ref; ?></a></td>
                             <td>
                                 <?php echo $invoice->formatDueDate(); ?>
                             </td>
@@ -43,7 +44,7 @@ include "header.php";
             $(document).ready(function() {
                 $('#myTable').dataTable({
                     "initComplete": function(settings, json) {
-                        $('input').attr("placeholder", "Search invoice...");
+                        $('input').attr("placeholder", "Search company name...");
                         $('input').attr("class", "input_search");
                         $('label').attr("class", "label_search");
                     }

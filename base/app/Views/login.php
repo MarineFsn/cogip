@@ -44,6 +44,3 @@
 </body>
 
 </html>
-
-<p> Not registered yet? <a href="index.php?route=signup">sign up HERE</a> </p>
-

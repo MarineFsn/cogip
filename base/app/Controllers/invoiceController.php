@@ -44,14 +44,11 @@ class invoiceController
         $statement->execute();
         $result = $statement->fetch(PDO::FETCH_ASSOC);
 
-        if (!$result) {
-        }
         $invoice = new Invoice(
             $result['id'],
-            $result['name'],
-            $result['type_id'],
-            $result['country'],
-            $result['tva'],
+            $result['ref'],
+            $result['due_date'],
+            $result['id_company'],
             $result['created_at'],
             $result['updated_at']
         );
@@ -60,7 +57,14 @@ class invoiceController
 }
 
 $invoiceController = new invoiceController($db);
-$invoices = $invoiceController->getinvoices();
 
+if (isset($_GET['invoiceId'])) {
+    $invoiceId = $_GET['invoiceId'];
+    $invoice = $invoiceController->getInvoiceById($invoiceId);
 
-require_once APP . 'Views/invoices.php';
+    require_once APP . 'Views/show_invoices.php';
+}else{
+    $invoices = $invoiceController->getinvoices();
+
+    require_once APP . 'Views/invoices.php';
+}

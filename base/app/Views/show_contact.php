@@ -1,12 +1,12 @@
 <?php
 include "header.php";
 
-$contactController = new ContactController($db);
+// $contactController = new ContactController($db);
 
-if (isset($_GET['contactId'])) {
-    $contactId = $_GET['contactId'];
-    $contact = $contactController->getContactById($contactId);
-}
+// if (isset($_GET['contactId'])) {
+//     $contactId = $_GET['contactId'];
+//     $contact = $contactController->getContactById($contactId);
+// }
 ?>
 
 <main>

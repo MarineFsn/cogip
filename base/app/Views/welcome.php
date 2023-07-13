@@ -4,20 +4,19 @@ include "header.php";
 ?>
 
 <main>
-    <h1>Welcome to
-        <?php echo $_SESSION['user'][0]["first_name"]; ?>
-    </h1>
-
-    <?php
-    $invoiceController = new HomeController($db);
-    $invoices = $invoiceController->getinvoices();
-    usort($invoices, function ($a, $b) {
-        return strcmp($a->ref, $b->ref);
-    });
+    <?php 
+        if((isset($_SESSION['user']) && isset($_SESSION['isConnected'])) && $_SESSION['isConnected'] == 1){
+            echo "<h1>Welcome to " .$_SESSION['user'][0]["first_name"]. "</h1>";
+        }
+        $invoiceController = new HomeController($db);
+        $invoices = $invoiceController->getinvoices();
+        usort($invoices, function ($a, $b) {
+            return strcmp($a->ref, $b->ref);
+        });
     ?>
     <section class="container__table container__table__homepage">
         <h3>Last invoices </h3>
-
+        <div class="container__table__yellow__rectangle"> </div>
         <div class="table__container">
             <table class="table__container__info">
                 <thead class="table__container__info__thead">
@@ -63,7 +62,7 @@ include "header.php";
     </div>
     <section class="container__table container__table__homepage">
         <h3>Last contacts </h3>
-
+        <div class="container__table__yellow__rectangle"> </div>
         <?php
         $controller = new HomeController($db);
         $contacts = $controller->getContacts();
@@ -89,7 +88,9 @@ include "header.php";
                         <tr class="table__container__info__tbody__tr">
 
 
-                            <td><a href="show_contact.php?contact_id=<?php echo $contact->id; ?>"><?php echo $contact->name; ?></td>
+                            <td>
+                                <?php echo $contact->name; ?>
+                            </td>
                             <td>
                                 <?php echo $contact->phone; ?>
                             </td>
@@ -122,7 +123,7 @@ include "header.php";
 
     <section class="container__table container__table__homepage">
         <h3>Last companies </h3>
-
+        <div class="container__table__yellow__rectangle"> </div>
         <?php
 
         $companyController = new HomeController($db);
@@ -147,7 +148,9 @@ include "header.php";
                     <?php foreach ($companies as $company) : ?>
                         <tr class="table__container__info__tbody__tr">
 
-                            <td><a href="show_company.php?company_id=<?php echo $company->id; ?>"><?php echo $company->name; ?></a></td>
+                            <td>
+                                <?php echo $company->name; ?>
+                            </td>
                             <td>
                                 <?php echo $company->tva; ?>
                             </td>
