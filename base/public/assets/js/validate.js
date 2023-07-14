@@ -4,7 +4,7 @@ function validateForm(event) {
         .value;
     const password = document.getElementsByName("password")[0].value;
     let valid = true;
-    const passwordValidation = /^[A-Za-z]\w{7,14}$/;
+    const passwordValidation = /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
     const errorElement = document.getElementById("error");
     if (errorElement) {
         errorElement.textContent = "";

@@ -12,7 +12,8 @@ function validateFormSignUp(event: Event) {
     .value;
 
   let valid = true;
-  const passwordValidation = /^[A-Za-z]\w{7,14}$/;
+  const passwordValidation: RegExp =
+    /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
   const errorElement = document.getElementById("error");
 
   if (errorElement) {
@@ -43,7 +44,7 @@ function validateFormSignUp(event: Event) {
   if (!password.match(passwordValidation)) {
     if (errorElement) {
       errorElement.textContent +=
-        " *Password must be between 7 to 15 characters which contain only characters, numeric digits, underscore, and the first character must be a letter";
+        " *The password must be between 8 and 15 characters and must contain at least one lowercase letter, one uppercase letter, one digit, and one special character from [@ $!%*?&]. The first character must be a letter.";
     }
     valid = false;
   }
@@ -54,7 +55,7 @@ function validateFormSignUp(event: Event) {
 }
 
 function validateEmailSignUp(email: string) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const re: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
 }
 
