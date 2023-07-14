@@ -1729,4 +1729,16 @@ body main #myTable_paginate a:hover {
 }
 .dashboard .main__dashboard .container__main .statistics .number__companies {
   background-color: #ff808b;
+}
+
+#new__invoices {
+  display: none;
+}
+
+#new__company {
+  display: none;
+}
+
+#new__contact {
+  display: none;
 }/*# sourceMappingURL=main.css.map */
