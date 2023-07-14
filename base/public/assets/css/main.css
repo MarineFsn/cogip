@@ -624,7 +624,7 @@ body main .container__people {
 @media screen and (min-width: 1224px) {
   body main .container__people {
     width: 1200px;
-    margin-bottom: 84px;
+    margin-bottom: 31px;
   }
 }
 body main .container__people h5 {
@@ -675,6 +675,7 @@ body main .container__people__info__card {
     width: 376px;
     border-radius: 32px;
     margin-right: 53px;
+    margin-bottom: 53px;
     box-shadow: 0px 0px 60px -29px rgba(0, 0, 0, 0.2509803922);
   }
 }

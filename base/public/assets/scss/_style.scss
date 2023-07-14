@@ -465,7 +465,7 @@ body {
       align-items: center;
       @include responsive-desktop {
         width: 1200px;
-        margin-bottom: 84px;
+        margin-bottom: 31px;
       }
 
       h5 {
@@ -510,6 +510,7 @@ body {
             width: 376px;
             border-radius: 32px;
             margin-right: 53px;
+            margin-bottom: 53px;
             box-shadow: 0px 0px 60px -29px #00000040;
           }
           &__photo {
