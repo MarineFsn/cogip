@@ -37,7 +37,6 @@
                 </svg>
                 <button class="logout__button">logout</button>
             </div>
-
         </nav>
         <button id="openBtn" class="burger__icon"><img src="/cogip/base/public/assets/img/sidebar_open.png" alt="">
         </button>
@@ -169,9 +168,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Phone</th>
-                            <th>Mail</th>
-                            <th>Company</th>
-                            <th>Created at</th>
+                            <th>Email</th>
                         </tr>
                         <?php
                             usort($contacts, function ($a, $b) {
@@ -188,12 +185,6 @@
                                 <td>
                                     <?php echo $contact->email; ?>
                                 </td>
-                                <td>
-                                    <?php echo $contact->company; ?>
-                                </td>
-                                <td>
-                                    <?php echo $contact->formatCreationDate(); ?>
-                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </table>
@@ -204,9 +195,8 @@
                     <table>
                         <tr>
                             <th>Invoice number</th>
-                            <th>Due dates</th>
+                            <th>Dates</th>
                             <th>Company</th>
-                            <th>Created at</th>
                         </tr>
                         <?php 
                             usort($invoices, function ($a, $b) {
@@ -224,9 +214,6 @@
                                 <td>
                                     <?php echo $invoice->company; ?>
                                 </td>
-                                <td>
-                                    <?php echo $invoice->formatCreationDate(); ?>
-                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </table>
@@ -239,8 +226,6 @@
                             <th>Name</th>
                             <th>TVA</th>
                             <th>Country</th>
-                            <th>Type</th>
-                            <th>Created at</th>
                         </tr>
                         <?php
                             usort($companies, function ($a, $b) {
@@ -257,12 +242,6 @@
                                 </td>
                                 <td>
                                     <?php echo $company->country; ?>
-                                </td>
-                                <td>
-                                    <?php echo $company->type; ?>
-                                </td>
-                                <td>
-                                    <?php echo $company->formatCreationDate(); ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
