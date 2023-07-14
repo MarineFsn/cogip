@@ -7,7 +7,7 @@
 This project is aimed at developing a web application to meet the needs and desires of Jean-Christian Ranu, an accountant at the COGIP company. The current software he uses is old, ugly, and incomplete, forcing him to switch between it and Excel sheets. Jean-Christian has expressed his interest in a web application that can provide a better solution for his accounting tasks. Our mission is to code this web application.
 
 
-Team Members
+## 👨‍💻 Team Members
 
 | Collaborators        | Github                        | Rôle                          |
 | -------------------- | ----------------------------- | ----------------------------- |
