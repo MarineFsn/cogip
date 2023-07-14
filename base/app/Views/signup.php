@@ -1,5 +1,7 @@
 <?php
 
+require_once APP . 'Core/validation.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +13,7 @@
     <title>Document</title>
     <link href="/cogip/base/public/assets/css/main.css" rel="stylesheet" type="text/css">
 </head>
+
 <body class="signup">
     <section class="signup__section">
         <div class="signup__section__card">
@@ -23,7 +26,8 @@
                     <input type="email" name="email" placeholder="E-mail" required />
                     <input type="password" name="password" placeholder="Password" required />
                     <input type="submit" name="submit" value="Register" />
-                    <p class="signup__section__card__form__registered"> Already Registered ? <a href="login.php">Login</a></p>
+                    <p class="signup__section__card__form__registered"> Already Registered ? <a
+                            href="login.php">Login</a></p>
                 </fieldset>
             </form>
             <div class="signup__section__card__image"></div>

@@ -1,4 +1,6 @@
 <?php
+
+require_once APP . 'Core/validation.php';
 // session_start();
 // if ($_SESSION["isConnected"] == 1) {
 //     header("Location: index.php");
@@ -34,7 +36,7 @@
                 <div>
                     <input class="submit" type="submit" value="submit">
                 </div>
-              <p> Not registered yet? <a href="signup">sign up HERE</a> </p>
+                <p> Not registered yet? <a href="signup">sign up HERE</a> </p>
             </form>
             <div class="login__section__card__image"></div>
         </div>
