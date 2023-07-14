@@ -9,13 +9,11 @@ Team Members
     Benjamin (Front-end)
     Noa (Front-end)
 
-Tech Used & Missions
-
 ## 🛠 Technos
 
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=js,html,css,sass,git" />
+    <img src="https://skillicons.dev/icons?i=js,html,css,sass,php,git" />
   </a>
 </p>
 <img src="https://img.shields.io/badge/Technos-HMTL5_/_SCSS_/_CSS3_/_JS_/_PHP_/_Git-green?style=for-the-badge&logo=appveyor" alt="Badge Technologies" style="margin-right:10px;">
