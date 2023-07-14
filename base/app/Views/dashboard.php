@@ -19,10 +19,10 @@
             </div>
             <hr>
             <ul class="page__list">
-                <li><img src="/cogip/base/public/assets/img/Icon_dashboard.png" alt=""><a href="#">Dashboard</a></li>
-                <li><img src="/cogip/base/public/assets/img/Icon_invoices.png" alt=""><a href="base/Resources/views/invoices.php">Invoices</a></li>
-                <li><img src="/cogip/base/public/assets/img/Icon_compagnies.png" alt=""><a href="base/Resources/views/companies.php">Companies</a></li>
-                <li><img src="/cogip/base/public/assets/img/Icon_contact.png" alt=""><a href="base/Resources/views/contacts.php">Contacts</a></li>
+                <li><img src="/cogip/base/public/assets/img/Icon_dashboard.png" alt=""><a href="" class="page__list__btn__dashboard">Dashboard</a></li>
+                <li><img src="/cogip/base/public/assets/img/Icon_invoices.png" alt=""><a href="" class="page__list__btn__invoices">Invoices</a></li>
+                <li><img src="/cogip/base/public/assets/img/Icon_compagnies.png" alt=""><a href="" class="page__list__btn__companies">Companies</a></li>
+                <li><img src="/cogip/base/public/assets/img/Icon_contact.png" alt=""><a href="" class="page__list__btn__contact">Contacts</a></li>
             </ul>
             <hr>
             <div class="user__footer">
@@ -211,6 +211,7 @@
                     </table>
                 </section>
             </article>
+            <article class="container__dynamic"></article>
         </main>
     </div>
 </body>
