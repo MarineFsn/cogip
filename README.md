@@ -4,7 +4,9 @@
 <a href="https://becode.org"><img src="https://img.shields.io/badge/Project-BeCode-blue?style=for-the-badge&logo=appveyor" alt="Badge Project" style="margin-right:10px;">
 </a>
 
-This project is aimed at developing a web application to meet the needs and desires of Jean-Christian Ranu, an accountant at the COGIP company. The current software he uses is old, ugly, and incomplete, forcing him to switch between it and Excel sheets. Jean-Christian has expressed his interest in a web application that can provide a better solution for his accounting tasks. Your mission is to code this web application.
+This project is aimed at developing a web application to meet the needs and desires of Jean-Christian Ranu, an accountant at the COGIP company. The current software he uses is old, ugly, and incomplete, forcing him to switch between it and Excel sheets. Jean-Christian has expressed his interest in a web application that can provide a better solution for his accounting tasks. Our mission is to code this web application.
+
+
 Team Members
 
 | Collaborators        | Github                        | Rôle                          |
