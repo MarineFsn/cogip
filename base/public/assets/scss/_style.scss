@@ -403,6 +403,7 @@ body {
     }
     .container__company {
       &__info {
+        color: black;
         display: flex;
         flex-direction: column;
         @include responsive-desktop {
@@ -414,6 +415,7 @@ body {
         &__name {
           position: relative;
           h5 {
+            text-transform: uppercase;
             font-size: 30px;
             font-weight: $font-weight-title;
             z-index: 1;
@@ -454,6 +456,10 @@ body {
             font-weight: $font-weight-title;
             text-align: left;
           }
+
+          span {
+            font-weight: $font-weight-text;
+          }
         }
       }
     }
@@ -463,6 +469,7 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
+      color: black;
       @include responsive-desktop {
         width: 1200px;
         margin-bottom: 31px;
@@ -506,6 +513,7 @@ body {
 
           @include responsive-desktop {
             flex-direction: row;
+            flex-wrap: nowrap;
             height: 193px;
             width: 376px;
             border-radius: 32px;
@@ -514,6 +522,7 @@ body {
             box-shadow: 0px 0px 60px -29px #00000040;
           }
           &__photo {
+            flex: 1 1 50%;
             height: 90px;
             width: 90px;
             border-radius: 50%;
@@ -529,6 +538,7 @@ body {
             }
           }
           &__name {
+            flex: 1 1 50%;
             display: flex;
             flex-direction: column;
             p {
@@ -1249,91 +1259,400 @@ body {
     }
   }
 }
+// .dashboard {
+//   background-color: #e7e7e7;
+//   &__header {
+//     width: 100vw;
+//     height: 189px;
+//     @include responsive-desktop {
+//       width: 1044px;
+//       height: 378px;
+//     }
+
+//     &__first__part {
+//       display: flex;
+//       flex-direction: row;
+//       height: 86px;
+
+//       @include responsive-desktop {
+//         height: 173px;
+//       }
+//       &__title {
+//         h1 {
+//           font-family: $font-family-title;
+//           font-size: 30px;
+//           font-weight: $font-weight-title;
+//           line-height: 36px;
+//         }
+//         p {
+//           font-family: $font-family-title;
+//           font-size: 15px;
+//           font-weight: 300;
+//         }
+//       }
+//       img {
+//         height: 150px;
+//       }
+//     }
+//     &__info {
+//       display: flex;
+//       flex-direction: row;
+//       background-color: #9698d6;
+//       height: 103px;
+//       color: white;
+//       border-radius: 10px;
+//       @include responsive-desktop {
+//         height: 206px;
+//       }
+//       &__message {
+//         h2 {
+//           font-size: 35px;
+//           font-family: $font-family-title;
+//           font-weight: 300;
+//         }
+//         p {
+//           font-size: 15px;
+//         }
+//       }
+//     }
+//   }
+
+//   &__sidebar__menu {
+//     img {
+//       width: 105px;
+//       height: 105px;
+//       border-radius: 50%;
+//     }
+//   }
+
+//   &__container__statistics {
+//     width: 350px;
+//     height: 500px;
+//     background-color: #ffffff;
+//   }
+
+//   &__container__invoices {
+//     width: 350px;
+//     height: 500px;
+//     background-color: #ffffff;
+//   }
+//   &__container__contacts {
+//     width: 350px;
+//     height: 500px;
+//     background-color: #ffffff;
+//   }
+//   &__container__company {
+//     width: 350px;
+//     height: 500px;
+//     background-color: #ffffff;
+//   }
+// }
+//////////////////////////////////////////////////////////////////////NOA
 .dashboard {
   background-color: #e7e7e7;
-  &__header {
-    width: 100vw;
-    height: 189px;
+  @include responsive-desktop {
+    display: flex;
+    flex-direction: row;
+  }
+  .nav__container {
+    background-color: #f5f5fb;
+    position: fixed;
+    z-index: 1;
+    top: 0px;
     @include responsive-desktop {
-      width: 1044px;
-      height: 378px;
+      position: initial;
+      z-index: initial;
     }
-
-    &__first__part {
+    .side__navbar {
       display: flex;
-      flex-direction: row;
-      height: 86px;
-
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      position: absolute;
+      background-color: #f5f5fb;
+      width: 250px;
+      height: 350.63px;
+      z-index: 1;
+      left: -250px;
+      padding: 10px 0;
       @include responsive-desktop {
-        height: 173px;
+        width: 285px;
+        justify-content: initial;
+
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        // flex-shrink: 0;
+        left: 0px;
+        height: 100vh;
       }
-      &__title {
-        h1 {
-          font-family: $font-family-title;
-          font-size: 30px;
+      hr {
+        width: 100%;
+        height: 1px;
+        background: #e0e0e0;
+        opacity: 0.5;
+      }
+      // padding-top: 60px;
+      // transition: left 5 ease;
+      .user__profile {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        @include responsive-desktop {
+          top: 32px;
+        }
+        img {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+
+          margin-bottom: 10px;
+        }
+        h2 {
+          text-align: center;
+          margin-bottom: 20px;
+          font-size: 20px;
           font-weight: $font-weight-title;
-          line-height: 36px;
         }
-        p {
-          font-family: $font-family-title;
-          font-size: 15px;
-          font-weight: 300;
+      }
+      ul {
+        // height: ;
+        margin-left: auto;
+        margin-right: auto;
+        li {
+          margin: 17px 0;
+          display: flex;
+          align-items: center;
+          a {
+            text-decoration: none;
+            font-weight: $font-weight-footer;
+            color: #000000;
+          }
+          img {
+            margin-right: 6px;
+          }
         }
+      }
+      .user__footer {
+        svg {
+          display: none;
+        }
+        .logout__button {
+          color: #9698d6;
+          border: none;
+          background: none;
+          margin-top: 5px;
+          right: 2px;
+        }
+      }
+    }
+    .active {
+      left: 0;
+    }
+    .close {
+      position: absolute;
+      top: 15px;
+      width: 45px;
+      height: 45px;
+      right: 15px;
+      font-size: 36px;
+      border: none;
+      background: none;
+      @include responsive-desktop {
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        // flex-shrink: 0;
+        display: none;
       }
       img {
-        height: 150px;
+        width: 45px;
+        height: 45px;
       }
     }
-    &__info {
-      display: flex;
-      flex-direction: row;
-      background-color: #9698d6;
-      height: 103px;
-      color: white;
-      border-radius: 10px;
+    .burger__icon {
+      position: fixed;
+      top: 0px;
+      width: 45px;
+      height: 45px;
+      background: none;
+      border: none;
+      margin: 6px 0;
       @include responsive-desktop {
-        height: 206px;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        // flex-shrink: 0;
+        display: none;
       }
-      &__message {
-        h2 {
-          font-size: 35px;
-          font-family: $font-family-title;
-          font-weight: 300;
+      img {
+        width: 45px;
+        height: 45px;
+      }
+    }
+  }
+  .dashboard__header {
+    font-family: $font-family-title;
+    p {
+      font-weight: $font-weight-text-dashboard;
+    }
+    // position: relative;
+    @include responsive-desktop {
+      width: 1044px;
+      height: 380px;
+      padding-left: 337px;
+    }
+    .title {
+      text-align: right;
+      padding-top: 10px;
+      padding-right: 10px;
+      @include responsive-desktop {
+        text-align: initial;
+        // padding-left: 337px;
+      }
+      h2 {
+        font-size: 20px;
+        font-weight: $font-weight-title;
+        color: #000000;
+        @include responsive-desktop {
+          font-size: 30px;
+          font-style: normal;
+          font-weight: 900;
+          line-height: normal;
         }
-        p {
+      }
+      p {
+        color: #000;
+        margin-bottom: 20px;
+        @include responsive-desktop {
           font-size: 15px;
+          font-style: normal;
+          font-weight: 300;
+          line-height: normal;
+          margin-bottom: 70px;
         }
       }
     }
-  }
-
-  &__sidebar__menu {
-    img {
-      width: 105px;
-      height: 105px;
-      border-radius: 50%;
+    .title__description {
+      // position: absolute;
+      margin-left: 20px;
+      margin-right: auto;
+      text-align: center;
+      width: 320px;
+      height: 80px;
+      border-radius: 10px;
+      background: #9698d6;
+      @include responsive-desktop {
+        text-align: initial;
+        margin: none;
+        width: 1044px;
+        height: 206px;
+        flex-shrink: 0;
+        // padding-left: 337px;
+      }
+      h2 {
+        font-size: 25px;
+        font-weight: $font-weight-title-dashboard;
+        padding-top: 7px;
+        color: #fff;
+        @include responsive-desktop {
+          font-size: 35px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          padding-left: 74px;
+          padding-top: 57px;
+        }
+      }
+      p {
+        font-size: 16px;
+        font-weight: $font-weight-text-dashboard;
+        padding-top: 4px;
+        color: #fff;
+        @include responsive-desktop {
+          // font-size: 15px;
+          // font-style: normal;
+          // font-weight: 300;
+          // line-height: normal;
+          // padding-left: 82px;
+          // padding-top: 6px;
+        }
+      }
     }
-  }
+    .svg {
+      // z-index: 1;
+      // display: flex;
+      // flex-shrink: 1;
+      // object-position: left top;
+      width: 260px;
+      height: auto;
 
-  &__container__statistics {
-    width: 350px;
-    height: 500px;
-    background-color: #ffffff;
-  }
+      @include responsive-desktop {
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        // flex-shrink: 0;
+      }
+    }
 
-  &__container__invoices {
-    width: 350px;
-    height: 500px;
-    background-color: #ffffff;
+    //     nav{
+    //   display: hidden;
+    // }
   }
-  &__container__contacts {
-    width: 350px;
-    height: 500px;
-    background-color: #ffffff;
-  }
-  &__container__company {
-    width: 350px;
-    height: 500px;
-    background-color: #ffffff;
+  .main__dashboard {
+    font-family: $font-family-title;
+    padding-top: 15px;
+    display: flex;
+    .container__main {
+      display: flex;
+      gap: 29px;
+      flex-direction: column;
+      padding: 60px 26px;
+      section {
+        background-color: #ffffff;
+        border-radius: 10px;
+        min-height: 100px;
+        padding: 10px 15px;
+        h3 {
+          font-weight: $font-weight-title-dashboard;
+        }
+        hr {
+          background: #e0e0e0;
+          opacity: 0.5;
+        }
+      }
+      .statistics {
+        padding: 4px 24px;
+        h3 {
+          margin-bottom: 7px;
+        }
+        .number__container {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          div {
+            width: 74px;
+            height: 74px;
+            font-size: 13px;
+            margin-bottom: 10px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #ffffff;
+          }
+        }
+        .number__invoices {
+          background-color: #4d4cac;
+        }
+        .number__contacts {
+          background-color: #9698d6;
+        }
+        .number__companies {
+          background-color: #ff808b;
+        }
+      }
+    }
   }
 }

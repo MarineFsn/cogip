@@ -1,25 +1,49 @@
 "use strict";
-const invoiceButton = document.querySelector(".dashboard__sidebar__menu__invoice");
-const companyButton = document.querySelector(".dashboard__sidebar__menu__company");
-const contactButton = document.querySelector(".dashboard__sidebar__menu__contact");
+
+let sidenav = document.getElementById("sideNav");
+let openBtn = document.getElementById("openBtn");
+let closeBtn = document.getElementById("closeBtn");
+
+function openNav() {
+  sidenav.classList.add("active");
+}
+
+function closeNav() {
+  sidenav.classList.remove("active");
+}
+// console.log(closeBtn);
+openBtn.onclick = openNav;
+closeBtn.onclick = closeNav;
+
+//////////////////////////////// menu new inputs//////////////
+
+const invoiceButton = document.querySelector(
+  ".dashboard__sidebar__menu__invoice"
+);
+const companyButton = document.querySelector(
+  ".dashboard__sidebar__menu__company"
+);
+const contactButton = document.querySelector(
+  ".dashboard__sidebar__menu__contact"
+);
 const recapButton = document.querySelector(".dashboard__sidebar__menu__recap");
 function newInvoice(event) {
-    event.preventDefault();
-    if (invoiceButton) {
-        invoiceButton.style.fontWeight = "bold";
-    }
-    if (companyButton) {
-        companyButton.style.fontWeight = "normal";
-    }
-    if (contactButton) {
-        contactButton.style.fontWeight = "normal";
-    }
-    if (recapButton) {
-        recapButton.style.fontWeight = "normal";
-    }
-    let mainElement = document.querySelector(".container__main");
-    let dynamicElement = document.querySelector(".dashboard__container__dynamic");
-    let formInvoice = `
+  event.preventDefault();
+  if (invoiceButton) {
+    invoiceButton.style.fontWeight = "bold";
+  }
+  if (companyButton) {
+    companyButton.style.fontWeight = "normal";
+  }
+  if (contactButton) {
+    contactButton.style.fontWeight = "normal";
+  }
+  if (recapButton) {
+    recapButton.style.fontWeight = "normal";
+  }
+  let mainElement = document.querySelector(".container__main");
+  let dynamicElement = document.querySelector(".dashboard__container__dynamic");
+  let formInvoice = `
     <div class="container__dynamic__dashboard">
       <h4>New invoice</h4>
       <hr>
@@ -38,31 +62,31 @@ function newInvoice(event) {
       </form>
     </div>
   `;
-    if (mainElement) {
-        mainElement.style.display = "none";
-        if (dynamicElement) {
-            dynamicElement.innerHTML = "";
-            dynamicElement.innerHTML = formInvoice;
-        }
+  if (mainElement) {
+    mainElement.style.display = "none";
+    if (dynamicElement) {
+      dynamicElement.innerHTML = "";
+      dynamicElement.innerHTML = formInvoice;
     }
+  }
 }
 function newCompany(event) {
-    event.preventDefault();
-    if (companyButton) {
-        companyButton.style.fontWeight = "bold";
-    }
-    if (invoiceButton) {
-        invoiceButton.style.fontWeight = "normal";
-    }
-    if (contactButton) {
-        contactButton.style.fontWeight = "normal";
-    }
-    if (recapButton) {
-        recapButton.style.fontWeight = "normal";
-    }
-    let mainElement = document.querySelector(".container__main");
-    let dynamicElement = document.querySelector(".dashboard__container__dynamic");
-    let formCompany = `
+  event.preventDefault();
+  if (companyButton) {
+    companyButton.style.fontWeight = "bold";
+  }
+  if (invoiceButton) {
+    invoiceButton.style.fontWeight = "normal";
+  }
+  if (contactButton) {
+    contactButton.style.fontWeight = "normal";
+  }
+  if (recapButton) {
+    recapButton.style.fontWeight = "normal";
+  }
+  let mainElement = document.querySelector(".container__main");
+  let dynamicElement = document.querySelector(".dashboard__container__dynamic");
+  let formCompany = `
     <div class="container__dynamic__dashboard">
       <h4>New Company</h4>
       <hr>
@@ -81,31 +105,31 @@ function newCompany(event) {
       </form>
     </div>
   `;
-    if (mainElement) {
-        mainElement.style.display = "none";
-        if (dynamicElement) {
-            dynamicElement.innerHTML = "";
-            dynamicElement.innerHTML = formCompany;
-        }
+  if (mainElement) {
+    mainElement.style.display = "none";
+    if (dynamicElement) {
+      dynamicElement.innerHTML = "";
+      dynamicElement.innerHTML = formCompany;
     }
+  }
 }
 function newContact(event) {
-    event.preventDefault();
-    if (contactButton) {
-        contactButton.style.fontWeight = "bold";
-    }
-    if (companyButton) {
-        companyButton.style.fontWeight = "normal";
-    }
-    if (invoiceButton) {
-        invoiceButton.style.fontWeight = "normal";
-    }
-    if (recapButton) {
-        recapButton.style.fontWeight = "normal";
-    }
-    let mainElement = document.querySelector(".container__main");
-    let dynamicElement = document.querySelector(".dashboard__container__dynamic");
-    let formContact = `
+  event.preventDefault();
+  if (contactButton) {
+    contactButton.style.fontWeight = "bold";
+  }
+  if (companyButton) {
+    companyButton.style.fontWeight = "normal";
+  }
+  if (invoiceButton) {
+    invoiceButton.style.fontWeight = "normal";
+  }
+  if (recapButton) {
+    recapButton.style.fontWeight = "normal";
+  }
+  let mainElement = document.querySelector(".container__main");
+  let dynamicElement = document.querySelector(".dashboard__container__dynamic");
+  let formContact = `
     <div class="container__dynamic__dashboard">
       <h4>New Contact</h4>
       <hr>
@@ -117,52 +141,58 @@ function newContact(event) {
       </form>
     </div>
   `;
-    if (mainElement) {
-        mainElement.style.display = "none";
-        if (dynamicElement) {
-            dynamicElement.innerHTML = "";
-            dynamicElement.innerHTML = formContact;
-        }
+  if (mainElement) {
+    mainElement.style.display = "none";
+    if (dynamicElement) {
+      dynamicElement.innerHTML = "";
+      dynamicElement.innerHTML = formContact;
     }
+  }
 }
 function showRecap(event) {
-    event.preventDefault();
-    if (recapButton) {
-        recapButton.style.fontWeight = "bold";
+  event.preventDefault();
+  if (recapButton) {
+    recapButton.style.fontWeight = "bold";
+  }
+  if (contactButton) {
+    contactButton.style.fontWeight = "normal";
+  }
+  if (companyButton) {
+    companyButton.style.fontWeight = "normal";
+  }
+  if (invoiceButton) {
+    invoiceButton.style.fontWeight = "normal";
+  }
+  let mainElement = document.querySelector(".container__main");
+  let dynamicElement = document.querySelector(".dashboard__container__dynamic");
+  if (dynamicElement) {
+    dynamicElement.innerHTML = "";
+    if (mainElement) {
+      mainElement.style.display = "block";
     }
-    if (contactButton) {
-        contactButton.style.fontWeight = "normal";
-    }
-    if (companyButton) {
-        companyButton.style.fontWeight = "normal";
-    }
-    if (invoiceButton) {
-        invoiceButton.style.fontWeight = "normal";
-    }
-    let mainElement = document.querySelector(".container__main");
-    let dynamicElement = document.querySelector(".dashboard__container__dynamic");
-    if (dynamicElement) {
-        dynamicElement.innerHTML = "";
-        if (mainElement) {
-            mainElement.style.display = "block";
-        }
-    }
+  }
 }
 document.addEventListener("DOMContentLoaded", function () {
-    const invoiceLink = document.querySelector(".dashboard__sidebar__menu__invoice");
-    const companyLink = document.querySelector(".dashboard__sidebar__menu__company");
-    const contactLink = document.querySelector(".dashboard__sidebar__menu__contact");
-    const linkRecap = document.querySelector(".dashboard__sidebar__menu__recap");
-    if (invoiceLink) {
-        invoiceLink.addEventListener("click", newInvoice);
-    }
-    if (companyLink) {
-        companyLink.addEventListener("click", newCompany);
-    }
-    if (contactLink) {
-        contactLink.addEventListener("click", newContact);
-    }
-    if (linkRecap) {
-        linkRecap.addEventListener("click", showRecap);
-    }
+  const invoiceLink = document.querySelector(
+    ".dashboard__sidebar__menu__invoice"
+  );
+  const companyLink = document.querySelector(
+    ".dashboard__sidebar__menu__company"
+  );
+  const contactLink = document.querySelector(
+    ".dashboard__sidebar__menu__contact"
+  );
+  const linkRecap = document.querySelector(".dashboard__sidebar__menu__recap");
+  if (invoiceLink) {
+    invoiceLink.addEventListener("click", newInvoice);
+  }
+  if (companyLink) {
+    companyLink.addEventListener("click", newCompany);
+  }
+  if (contactLink) {
+    contactLink.addEventListener("click", newContact);
+  }
+  if (linkRecap) {
+    linkRecap.addEventListener("click", showRecap);
+  }
 });
