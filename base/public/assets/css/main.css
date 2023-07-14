@@ -147,7 +147,7 @@ table {
   font-family: "Inter", sans-serif;
   color: rgba(0, 0, 0, 0.4);
 }
-@media screen and (min-width: 376px) and (max-width: 1023px) {
+@media screen and (min-width: 376px) and (max-width: 1223px) {
   .public_footer {
     justify-content: space-around;
     padding: 100px 60px;
@@ -181,7 +181,7 @@ table {
   padding: 40px 0px;
   gap: 60px;
 }
-@media screen and (min-width: 376px) and (max-width: 1023px) {
+@media screen and (min-width: 376px) and (max-width: 1223px) {
   .public_footer_section {
     flex-direction: row;
   }
@@ -301,7 +301,7 @@ body .public__header nav {
   margin-top: 35px;
   font-family: "Roboto", serif;
 }
-@media screen and (min-width: 376px) and (max-width: 1023px) {
+@media screen and (min-width: 376px) and (max-width: 1223px) {
   body .public__header nav {
     margin-bottom: 20px;
   }
@@ -327,7 +327,7 @@ body .public__header nav .nav__bar {
 body .public__header nav .nav__bar li {
   margin-right: 10px;
 }
-@media screen and (min-width: 376px) and (max-width: 1023px) {
+@media screen and (min-width: 376px) and (max-width: 1223px) {
   body .public__header nav .nav__bar li {
     margin-right: 20px;
   }
@@ -411,7 +411,7 @@ body .public__header nav h1 {
   font-size: 48px;
   font-weight: 900;
 }
-@media screen and (min-width: 376px) and (max-width: 1023px) {
+@media screen and (min-width: 376px) and (max-width: 1223px) {
   body .public__header nav h1 {
     margin-bottom: 20px;
   }
@@ -440,7 +440,7 @@ body .public__header .container__info h2 {
   font-weight: 900;
   text-align: center;
 }
-@media screen and (min-width: 376px) and (max-width: 1023px) {
+@media screen and (min-width: 376px) and (max-width: 1223px) {
   body .public__header .container__info h2 {
     width: auto;
     font-size: 50px;
@@ -459,7 +459,7 @@ body .public__header .container__info .container__info__img {
   height: 290px;
   width: 100vw;
 }
-@media screen and (min-width: 376px) and (max-width: 1023px) {
+@media screen and (min-width: 376px) and (max-width: 1223px) {
   body .public__header .container__info .container__info__img {
     height: 500px;
     width: 550px;
@@ -476,7 +476,7 @@ body .public__header img {
   height: 33px;
   margin-top: auto;
 }
-@media screen and (min-width: 376px) and (max-width: 1023px) {
+@media screen and (min-width: 376px) and (max-width: 1223px) {
   body .public__header img {
     height: 66px;
     width: 751px;
@@ -524,7 +524,7 @@ body main .container__info__slogan h2 {
   text-align: left;
   font-family: "Inter", sans-serif;
 }
-@media screen and (min-width: 376px) and (max-width: 1023px) {
+@media screen and (min-width: 376px) and (max-width: 1223px) {
   body main .container__info__slogan h2 {
     width: auto;
     font-size: 50px;
@@ -544,7 +544,7 @@ body main .container__info__slogan__phone__square {
   width: 350px;
   margin-top: 10px;
 }
-@media screen and (min-width: 376px) and (max-width: 1023px) {
+@media screen and (min-width: 376px) and (max-width: 1223px) {
   body main .container__info__slogan__phone__square {
     height: 345px;
     width: 648px;
@@ -571,6 +571,12 @@ body main .container__company__info {
 }
 body main .container__company__info__name {
   position: relative;
+  margin-left: -30px;
+}
+@media screen and (min-width: 1224px) {
+  body main .container__company__info__name {
+    margin-left: 0px;
+  }
 }
 body main .container__company__info__name h5 {
   text-transform: uppercase;
@@ -640,6 +646,13 @@ body main .container__people h5 {
   font-weight: 900;
   margin-left: 30px;
   margin-bottom: 15px;
+}
+@media screen and (min-width: 376px) and (max-width: 1223px) {
+  body main .container__people h5 {
+    align-self: normal;
+    text-align: center;
+    margin-left: -120px;
+  }
 }
 @media screen and (min-width: 1224px) {
   body main .container__people h5 {
@@ -962,7 +975,7 @@ body main .container__info__slogan h2 {
   text-align: left;
   font-family: "Inter", sans-serif;
 }
-@media screen and (min-width: 376px) and (max-width: 1023px) {
+@media screen and (min-width: 376px) and (max-width: 1223px) {
   body main .container__info__slogan h2 {
     width: auto;
     font-size: 50px;
@@ -982,7 +995,7 @@ body main .container__info__slogan__phone__square {
   width: 350px;
   margin-top: 10px;
 }
-@media screen and (min-width: 376px) and (max-width: 1023px) {
+@media screen and (min-width: 376px) and (max-width: 1223px) {
   body main .container__info__slogan__phone__square {
     height: 345px;
     width: 648px;
@@ -1156,7 +1169,7 @@ body main #myTable_paginate a:hover {
   padding: 18px 12px;
   color: rgba(138, 140, 145, 0.6274509804);
 }
-@media screen and (min-width: 376px) and (max-width: 1023px) {
+@media screen and (min-width: 376px) and (max-width: 1223px) {
   .login__section__card__form {
     align-items: flex-start;
     margin: 20px auto;
@@ -1179,7 +1192,7 @@ body main #myTable_paginate a:hover {
   padding: 10px 0px;
   outline: 5px solid rgba(125, 151, 244, 0.4784313725);
 }
-@media screen and (min-width: 376px) and (max-width: 1023px) {
+@media screen and (min-width: 376px) and (max-width: 1223px) {
   .login__section__card__form h2 {
     width: auto;
     margin: 20px auto;
@@ -1238,7 +1251,7 @@ body main #myTable_paginate a:hover {
   border-radius: 5px;
   margin: 0px auto 0px;
 }
-@media screen and (min-width: 376px) and (max-width: 1023px) {
+@media screen and (min-width: 376px) and (max-width: 1223px) {
   .login__section__card__form div input[type=submit] {
     margin: 5px auto 0px;
   }
@@ -1305,7 +1318,7 @@ body main #myTable_paginate a:hover {
   color: rgba(138, 140, 145, 0.6274509804);
   font-family: "Roboto", serif;
 }
-@media screen and (min-width: 376px) and (max-width: 1023px) {
+@media screen and (min-width: 376px) and (max-width: 1223px) {
   .signup__section__card__form {
     align-items: flex-start;
     margin: 20px auto;
@@ -1327,7 +1340,7 @@ body main #myTable_paginate a:hover {
   padding: 10px 0px;
   outline: 5px solid rgba(125, 151, 244, 0.4784313725);
 }
-@media screen and (min-width: 376px) and (max-width: 1023px) {
+@media screen and (min-width: 376px) and (max-width: 1223px) {
   .signup__section__card__form h2 {
     width: auto;
     margin: 20px auto;
@@ -1380,7 +1393,7 @@ body main #myTable_paginate a:hover {
   border-radius: 5px;
   margin: 20px auto 0px;
 }
-@media screen and (min-width: 376px) and (max-width: 1023px) {
+@media screen and (min-width: 376px) and (max-width: 1223px) {
   .signup__section__card__form input[type=submit] {
     margin: 25px auto 0px;
   }
@@ -1418,7 +1431,7 @@ body main #myTable_paginate a:hover {
   background-position: center;
   border-radius: 10px 10px 0px 0px;
 }
-@media screen and (min-width: 376px) and (max-width: 1023px) {
+@media screen and (min-width: 376px) and (max-width: 1223px) {
   .signup__section__card__image {
     min-height: 500px;
   }

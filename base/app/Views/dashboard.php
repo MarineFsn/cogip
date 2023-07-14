@@ -211,7 +211,25 @@
                     </table>
                 </section>
             </article>
-            <article class="container__dynamic"></article>
+            <article class="container__dynamic">
+            <div class="container__dynamic__dashboard">
+      <h4>New invoice</h4>
+      <hr>
+      <form class="container__dynamic__dashboard__form" method="POST" >
+        <input type="text" placeholder="Reference..." name="reference">
+        <input type="text" placeholder="Due date..." name="due_date">
+        <select name="choices">
+          <option value="" disabled selected>Select a company...</option>
+          <option value="1">Raviga</option>
+          <option value="2">Dunder Mifflin</option>
+          <option value="3">Pierre Cailloux</option>
+          <option value="4">Belgalol</option>
+          <option value="5">Jouet Jean-Michel</option>
+        </select>
+        <input type="submit" value="save">
+      </form>
+    </div>
+            </article>
         </main>
     </div>
 </body>
