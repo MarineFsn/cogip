@@ -1,14 +1,31 @@
-const invoiceButton = document.querySelector(
-  ".dashboard__sidebar__menu__invoice"
-);
+const sidenav = document.getElementById("sideNav") as HTMLElement;
+const openBtn = document.getElementById("openBtn") as HTMLElement;
+const closeBtn = document.getElementById("closeBtn") as HTMLElement;
 
-const companyButton = document.querySelector(
-  ".dashboard__sidebar__menu__company"
-);
-const contactButton = document.querySelector(
-  ".dashboard__sidebar__menu__contact"
-);
-const recapButton = document.querySelector(".dashboard__sidebar__menu__recap");
+function openNav() {
+  if (sidenav) {
+    sidenav.classList.add("active");
+  }
+}
+
+function closeNav() {
+  if (sidenav) {
+    sidenav.classList.remove("active");
+  }
+}
+if (openBtn) {
+  openBtn.onclick = openNav;
+}
+if (closeBtn) {
+  closeBtn.onclick = closeNav;
+}
+
+////////////////////////////////////////////:
+const invoiceButton = document.querySelector(".page__list__btn__invoices");
+
+const companyButton = document.querySelector(".page__list__btn__companies");
+const contactButton = document.querySelector(".page__list__btn__contact");
+const recapButton = document.querySelector(".page__list__btn__dashboar");
 
 function newInvoice(event: Event): void {
   event.preventDefault();
@@ -29,7 +46,7 @@ function newInvoice(event: Event): void {
   let mainElement: HTMLElement | null =
     document.querySelector(".container__main");
   let dynamicElement: HTMLElement | null = document.querySelector(
-    ".dashboard__container__dynamic"
+    ".container__dynamic"
   );
   let formInvoice: string = `
     <div class="container__dynamic__dashboard">
@@ -82,7 +99,7 @@ function newCompany(event: Event): void {
   let mainElement: HTMLElement | null =
     document.querySelector(".container__main");
   let dynamicElement: HTMLElement | null = document.querySelector(
-    ".dashboard__container__dynamic"
+    ".container__dynamic"
   );
   let formCompany: string = `
     <div class="container__dynamic__dashboard">
@@ -136,7 +153,7 @@ function newContact(event: Event): void {
   let mainElement: HTMLElement | null =
     document.querySelector(".container__main");
   let dynamicElement: HTMLElement | null = document.querySelector(
-    ".dashboard__container__dynamic"
+    ".container__dynamic"
   );
   let formContact: string = `
     <div class="container__dynamic__dashboard">
@@ -183,7 +200,7 @@ function showRecap(event: Event): void {
   let mainElement: HTMLElement | null =
     document.querySelector(".container__main");
   let dynamicElement: HTMLElement | null = document.querySelector(
-    ".dashboard__container__dynamic"
+    ".container__dynamic"
   );
 
   if (dynamicElement) {
@@ -195,16 +212,10 @@ function showRecap(event: Event): void {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const invoiceLink = document.querySelector(
-    ".dashboard__sidebar__menu__invoice"
-  );
-  const companyLink = document.querySelector(
-    ".dashboard__sidebar__menu__company"
-  );
-  const contactLink = document.querySelector(
-    ".dashboard__sidebar__menu__contact"
-  );
-  const linkRecap = document.querySelector(".dashboard__sidebar__menu__recap");
+  const invoiceLink = document.querySelector(".page__list__btn__invoices");
+  const companyLink = document.querySelector(".page__list__btn__companies");
+  const contactLink = document.querySelector(".page__list__btn__contact");
+  const linkRecap = document.querySelector(".page__list__btn__dashboard");
 
   if (invoiceLink) {
     invoiceLink.addEventListener("click", newInvoice);
