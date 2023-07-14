@@ -22,11 +22,18 @@ class invoiceController
         $invoices = array();
 
         foreach ($result as $row) {
+            $company = $row['id_company'];
+
+            $queryCompany = "SELECT name FROM companies WHERE id = ".$company;
+            $statementCompany = $this->db->query($queryCompany);
+            $statementCompany->execute();
+            $resultCompany = $statementCompany->fetch(PDO::FETCH_ASSOC);
+
             $invoice = new invoice(
                 $row['id'],
                 $row['ref'],
                 $row['due_date'],
-                $row['id_company'],
+                $resultCompany['name'],
                 $row['created_at'],
                 $row['updated_at']
             );
@@ -44,11 +51,18 @@ class invoiceController
         $statement->execute();
         $result = $statement->fetch(PDO::FETCH_ASSOC);
 
+        $company = $result['id_company'];
+
+        $queryCompany = "SELECT name FROM companies WHERE id = ".$company;
+        $statementCompany = $this->db->query($queryCompany);
+        $statementCompany->execute();
+        $resultCompany = $statementCompany->fetch(PDO::FETCH_ASSOC);
+
         $invoice = new Invoice(
             $result['id'],
             $result['ref'],
             $result['due_date'],
-            $result['id_company'],
+            $resultCompany['name'],
             $result['created_at'],
             $result['updated_at']
         );

@@ -19,7 +19,7 @@
 <body class="login">
     <section class="login__section">
         <div class="login__section__card">
-            <form class="login__section__card__form" action="index.php?route=user" method="POST">
+            <form class="login__section__card__form" action="user" method="POST">
                 <h2>COGIP</h2>
                 <h3>Login</h3>
                 <div>
@@ -34,7 +34,7 @@
                 <div>
                     <input class="submit" type="submit" value="submit">
                 </div>
-              <p> Not registered yet? <a href="index.php?route=signup">sign up HERE</a> </p>
+              <p> Not registered yet? <a href="signup">sign up HERE</a> </p>
             </form>
             <div class="login__section__card__image"></div>
         </div>

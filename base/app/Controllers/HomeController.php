@@ -25,7 +25,7 @@ class HomeController
         $this->db = $db;
     }
 
-    public function getCompanies($query = "SELECT * FROM companies")
+    public function getLastCompanies($query = "SELECT * FROM companies ORDER BY id DESC")
     {
         $newquery = $query;
         $statement = $this->db->prepare($newquery);
@@ -34,24 +34,29 @@ class HomeController
 
         $companies = array();
 
-        foreach ($result as $row) {
+        for($i = 0; $i <5; $i++){
+            $type = $result[$i]['type_id'];
+            $queryTypes = "SELECT name FROM types WHERE id = ".$type;
+            $statementTypes = $this->db->query($queryTypes);
+            $statementTypes->execute();
+            $resultTypes = $statementTypes->fetch(PDO::FETCH_ASSOC);
+
             $company = new Company(
-                $row['id'],
-                $row['name'],
-                $row['type_id'],
-                $row['country'],
-                $row['tva'],
-                $row['created_at'],
-                $row['updated_at']
+                $result[$i]['id'],
+                $result[$i]['name'],
+                $resultTypes['name'],
+                $result[$i]['country'],
+                $result[$i]['tva'],
+                $result[$i]['created_at'],
+                $result[$i]['updated_at']
             );
             $companies[] = $company;
         }
 
         return $companies;
-
     }
 
-    public function getContacts($query = "SELECT * FROM contacts")
+    public function getLastContacts($query = "SELECT * FROM contacts ORDER BY id DESC")
     {
         $newquery = $query;
         $statement = $this->db->prepare($newquery);
@@ -60,15 +65,21 @@ class HomeController
 
         $contacts = array();
 
-        foreach ($result as $row) {
+        for($i = 0; $i <5; $i++){
+            $company = $result[$i]['company_id'];
+            $queryCompany = "SELECT name FROM companies WHERE id = ".$company;
+            $statementCompany = $this->db->query($queryCompany);
+            $statementCompany->execute();
+            $resultCompany = $statementCompany->fetch(PDO::FETCH_ASSOC);
+
             $contact = new Contact(
-                $row['id'],
-                $row['name'],
-                $row['company_id'],
-                $row['email'],
-                $row['phone'],
-                $row['created_at'],
-                $row['updated_at']
+                $result[$i]['id'],
+                $result[$i]['name'],
+                $resultCompany['name'],
+                $result[$i]['email'],
+                $result[$i]['phone'],
+                $result[$i]['created_at'],
+                $result[$i]['updated_at']
             );
             $contacts[] = $contact;
         }
@@ -76,7 +87,7 @@ class HomeController
         return $contacts;
     }
 
-    public function getinvoices($query = "SELECT * FROM invoices")
+    public function getLastInvoices($query = "SELECT * FROM invoices ORDER BY id DESC")
     {
 
         $newquery = $query;
@@ -86,27 +97,32 @@ class HomeController
 
         $invoices = array();
 
-        foreach ($result as $row) {
+        for($i = 0; $i <5; $i++){
+            $company = $result[$i]['id_company'];
+            $queryCompany = "SELECT name FROM companies WHERE id = ".$company;
+            $statementCompany = $this->db->query($queryCompany);
+            $statementCompany->execute();
+            $resultCompany = $statementCompany->fetch(PDO::FETCH_ASSOC);
+
             $invoice = new invoice(
-                $row['id'],
-                $row['ref'],
-                $row['due_date'],
-                $row['id_company'],
-                $row['created_at'],
-                $row['updated_at']
+                $result[$i]['id'],
+                $result[$i]['ref'],
+                $result[$i]['due_date'],
+                $resultCompany['name'],
+                $result[$i]['created_at'],
+                $result[$i]['updated_at']
             );
             $invoices[] = $invoice;
         }
 
         return $invoices;
-
     }
 }
 
 $HomeController = new HomeController($db);
-$invoices = $HomeController->getinvoices();
-$contacts = $HomeController->getContacts();
-$companies = $HomeController->getCompanies();
+$invoices = $HomeController->getLastInvoices();
+$contacts = $HomeController->getLastContacts();
+$companies = $HomeController->getLastCompanies();
 
 
 require_once APP . 'Views/welcome.php';

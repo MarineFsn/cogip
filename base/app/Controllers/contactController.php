@@ -21,10 +21,17 @@ class ContactController
         $contacts = array();
 
         foreach ($result as $row) {
+            $company = $row['company_id'];
+
+            $queryCompany = "SELECT name FROM companies WHERE id = ".$company;
+            $statementCompany = $this->db->query($queryCompany);
+            $statementCompany->execute();
+            $resultCompany = $statementCompany->fetch(PDO::FETCH_ASSOC);
+
             $contact = new Contact(
                 $row['id'],
                 $row['name'],
-                $row['company_id'],
+                $resultCompany['name'],
                 $row['email'],
                 $row['phone'],
                 $row['created_at'],
@@ -44,10 +51,17 @@ class ContactController
         $statement->execute();
         $result = $statement->fetch(PDO::FETCH_ASSOC);
 
+        $company = $result['company_id'];
+
+        $queryCompany = "SELECT name FROM companies WHERE id = ".$company;
+        $statementCompany = $this->db->query($queryCompany);
+        $statementCompany->execute();
+        $resultCompany = $statementCompany->fetch(PDO::FETCH_ASSOC);
+
         $contact = new Contact(
             $result['id'],
             $result['name'],
-            $result['company_id'],
+            $resultCompany['name'],
             $result['email'],
             $result['phone'],
             $result['created_at'],

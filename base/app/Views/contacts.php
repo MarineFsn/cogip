@@ -32,12 +32,12 @@ include "header.php";
                         <tr class="table__container__info__tbody__tr">
 
 
-                            <td><a href="index.php?route=contact&contactId=<?php echo $contact->id; ?>"><?php echo $contact->name; ?></td>
-                            <td>
-                                <?php echo $contact->phone; ?>
-                            </td>
+                            <td><a href="contact&contactId=<?php echo $contact->id; ?>"><?php echo $contact->name; ?></td>
                             <td>
                                 <?php echo $contact->email; ?>
+                            </td>
+                            <td>
+                                <?php echo $contact->phone; ?>
                             </td>
                             <td>
                                 <?php echo $contact->company; ?>

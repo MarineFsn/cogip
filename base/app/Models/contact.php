@@ -4,13 +4,13 @@ class Contact
 {
     public int $id;
     public string $name;
-    public int $company;
+    public string $company;
     public string $email;
     public string $phone;
     public string $creation_date;
     public string $update_date;
 
-    public function __construct(int $id, string $name, int $company, string $email, string $phone, string $creation_date, string $update_date)
+    public function __construct(int $id, string $name, string $company, string $email, string $phone, string $creation_date, string $update_date)
     {
         $this->id = $id;
         $this->name = $name;

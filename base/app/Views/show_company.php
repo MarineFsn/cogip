@@ -57,21 +57,13 @@ include "header.php";
                     </tr>
                 </thead>
                 <tbody class="table__container__info__tbody">
-                    <?php if(is_array($invoices) > 6){ ?>
-                        <?php foreach ($invoices as $invoice) : ?>
-                            <tr class="table__container__info__tbody__tr">
-                                <td><?php echo $invoice->ref; ?></td>
-                                <td><?php echo $invoice->formatCreationDate(); ?></td>
-                                <td> <?php echo $invoice->formatDueDate(); ?></td>
-                            </tr>
-                        <?php endforeach; 
-                    }else{ ?>
+                    <?php foreach ($invoices as $invoice) : ?>
                         <tr class="table__container__info__tbody__tr">
-                            <td><?php echo $invoices->ref; ?></td>
-                            <td><?php echo $invoices->formatCreationDate(); ?></td>
-                            <td> <?php echo $invoices->formatDueDate(); ?></td>
+                            <td><?php echo $invoice->ref; ?></td>
+                            <td><?php echo $invoice->formatCreationDate(); ?></td>
+                            <td> <?php echo $invoice->formatDueDate(); ?></td>
                         </tr>
-                    <?php } ?>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

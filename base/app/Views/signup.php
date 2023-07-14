@@ -11,7 +11,6 @@
     <title>Document</title>
     <link href="/cogip/base/public/assets/css/main.css" rel="stylesheet" type="text/css">
 </head>
-
 <body class="signup">
     <section class="signup__section">
         <div class="signup__section__card">

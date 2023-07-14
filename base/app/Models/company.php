@@ -4,13 +4,13 @@
     {
         public int $id;
         public string $name;
-        public int $type;
+        public string $type;
         public string $country;
         public string $tva;
         public string $creation_date;
         public string $update_date;
 
-        public function __construct(int $id, string $name, int $type, string $country, string $tva, string $creation_date, string $update_date){
+        public function __construct(int $id, string $name, string $type, string $country, string $tva, string $creation_date, string $update_date){
             $this->id = $id;
             $this->name = $name;
             $this->type = $type;

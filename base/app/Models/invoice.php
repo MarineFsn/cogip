@@ -4,12 +4,12 @@ class Invoice
 {
     public int $id;
     public string $ref;
-    public int $company;
+    public string $company;
     public string $creation_date;
     public string $update_date;
     public string $due_dates;
 
-    public function __construct(int $id, string $ref, string $due_dates, int $company, string $creation_date, string $update_date, )
+    public function __construct(int $id, string $ref, string $due_dates, string $company, string $creation_date, string $update_date, )
     {
         $this->id = $id;
         $this->ref = $ref;
