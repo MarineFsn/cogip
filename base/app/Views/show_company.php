@@ -21,10 +21,10 @@ include "header.php";
                 <h5><?php echo $company->name; ?></h5>
                 <div class="container__company__info__name__yellow"></div>
             </div>
-            <p>Name: <?php echo $company->name; ?></p>
-            <p>TVA: <?php echo $company->tva; ?></p>
-            <p>Country: <?php echo $company->country; ?></p>
-            <p>Type: <?php echo $company->type; ?></p>
+            <p>Name: <span><?php echo $company->name; ?></span></p>
+            <p>TVA: <span><?php echo $company->tva; ?></span></p>
+            <p>Country: <span><?php echo $company->country; ?></span></p>
+            <p>Type: <span><?php echo $company->type; ?></span></p>
         </div>
     </section>
     <hr>
