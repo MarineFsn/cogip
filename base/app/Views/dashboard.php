@@ -169,13 +169,33 @@
                         <tr>
                             <th>Name</th>
                             <th>Phone</th>
-                            <th>Email</th>
+                            <th>Mail</th>
+                            <th>Company</th>
+                            <th>Created at</th>
                         </tr>
-                        <tr>
-                            <td>henry bailleux</td>
-                            <td>0485 78 76 67</td>
-                            <td>hnerybailleux@gr.com</td>
-                        </tr>
+                        <?php
+                            usort($contacts, function ($a, $b) {
+                                return strcmp($a->name, $b->name);
+                            });
+                            foreach ($contacts as $contact) : ?>
+                            <tr>
+                                <td>
+                                    <?php echo $contact->name; ?>
+                                </td>
+                                <td>
+                                    <?php echo $contact->phone; ?>
+                                </td>
+                                <td>
+                                    <?php echo $contact->email; ?>
+                                </td>
+                                <td>
+                                    <?php echo $contact->company; ?>
+                                </td>
+                                <td>
+                                    <?php echo $contact->formatCreationDate(); ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </table>
                 </section>
                 <section class="invoice">
@@ -183,15 +203,32 @@
                     <hr>
                     <table>
                         <tr>
-                            <th>Name</th>
-                            <th>Phone</th>
-                            <th>Email</th>
+                            <th>Invoice number</th>
+                            <th>Due dates</th>
+                            <th>Company</th>
+                            <th>Created at</th>
                         </tr>
-                        <tr>
-                            <td>henry bailleux</td>
-                            <td>0485 78 76 67</td>
-                            <td>hnerybailleux@gr.com</td>
-                        </tr>
+                        <?php 
+                            usort($invoices, function ($a, $b) {
+                                return strcmp($a->ref, $b->ref);
+                            });
+
+                            foreach ($invoices as $invoice) : ?>
+                            <tr>
+                                <td>
+                                    <?php echo $invoice->ref; ?>
+                                </td>
+                                <td>
+                                    <?php echo $invoice->formatDueDate(); ?>
+                                </td>
+                                <td>
+                                    <?php echo $invoice->company; ?>
+                                </td>
+                                <td>
+                                    <?php echo $invoice->formatCreationDate(); ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </table>
                 </section>
                 <section class="companies">
@@ -202,12 +239,33 @@
                             <th>Name</th>
                             <th>TVA</th>
                             <th>Country</th>
+                            <th>Type</th>
+                            <th>Created at</th>
                         </tr>
-                        <tr>
-                            <td>henry bailleux</td>
-                            <td>0485 78 76 67</td>
-                            <td>hnerybailleux@gr.com</td>
-                        </tr>
+                        <?php
+                            usort($companies, function ($a, $b) {
+                                return strcmp($a->name, $b->name);
+                            });
+
+                            foreach ($companies as $company) : ?>
+                            <tr class="table__container__info__tbody__tr">
+                                <td>
+                                    <?php echo $company->name; ?>
+                                </td>
+                                <td>
+                                    <?php echo $company->tva; ?>
+                                </td>
+                                <td>
+                                    <?php echo $company->country; ?>
+                                </td>
+                                <td>
+                                    <?php echo $company->type; ?>
+                                </td>
+                                <td>
+                                    <?php echo $company->formatCreationDate(); ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </table>
                 </section>
             </article>
