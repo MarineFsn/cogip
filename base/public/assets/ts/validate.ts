@@ -6,7 +6,7 @@ function validateForm(event: Event) {
   ).value;
   let valid = true;
   const passwordValidation: RegExp =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
 
   const errorElement = document.getElementById("error");
   if (errorElement) {

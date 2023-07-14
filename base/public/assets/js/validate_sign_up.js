@@ -6,7 +6,7 @@ function validateFormSignUp(event) {
     const email = document.getElementsByName("email")[0]
         .value;
     let valid = true;
-    const passwordValidation = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const passwordValidation = /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
     const errorElement = document.getElementById("error");
     if (errorElement) {
         errorElement.textContent = "";
