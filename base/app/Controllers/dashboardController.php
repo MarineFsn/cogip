@@ -30,7 +30,7 @@ class DashboardController
 
         foreach ($result as $row) {
             $type = $row['type_id'];
-            $queryTypes = "SELECT name FROM types WHERE id = ".$type;
+            $queryTypes = "SELECT name FROM types WHERE id = " . $type;
             $statementTypes = $this->db->query($queryTypes);
             $statementTypes->execute();
             $resultTypes = $statementTypes->fetch(PDO::FETCH_ASSOC);
@@ -61,7 +61,7 @@ class DashboardController
         foreach ($result as $row) {
             $company = $row['company_id'];
 
-            $queryCompany = "SELECT name FROM companies WHERE id = ".$company;
+            $queryCompany = "SELECT name FROM companies WHERE id = " . $company;
             $statementCompany = $this->db->query($queryCompany);
             $statementCompany->execute();
             $resultCompany = $statementCompany->fetch(PDO::FETCH_ASSOC);
@@ -92,7 +92,7 @@ class DashboardController
         foreach ($result as $row) {
             $company = $row['id_company'];
 
-            $queryCompany = "SELECT name FROM companies WHERE id = ".$company;
+            $queryCompany = "SELECT name FROM companies WHERE id = " . $company;
             $statementCompany = $this->db->query($queryCompany);
             $statementCompany->execute();
             $resultCompany = $statementCompany->fetch(PDO::FETCH_ASSOC);
@@ -119,9 +119,9 @@ class DashboardController
 
         $companies = array();
 
-        for($i = 0; $i <5; $i++){
+        for ($i = 0; $i < 5; $i++) {
             $type = $result[$i]['type_id'];
-            $queryTypes = "SELECT name FROM types WHERE id = ".$type;
+            $queryTypes = "SELECT name FROM types WHERE id = " . $type;
             $statementTypes = $this->db->query($queryTypes);
             $statementTypes->execute();
             $resultTypes = $statementTypes->fetch(PDO::FETCH_ASSOC);
@@ -149,9 +149,9 @@ class DashboardController
 
         $contacts = array();
 
-        for($i = 0; $i <5; $i++){
+        for ($i = 0; $i < 5; $i++) {
             $company = $result[$i]['company_id'];
-            $queryCompany = "SELECT name FROM companies WHERE id = ".$company;
+            $queryCompany = "SELECT name FROM companies WHERE id = " . $company;
             $statementCompany = $this->db->query($queryCompany);
             $statementCompany->execute();
             $resultCompany = $statementCompany->fetch(PDO::FETCH_ASSOC);
@@ -180,9 +180,9 @@ class DashboardController
 
         $invoices = array();
 
-        for($i = 0; $i <5; $i++){
+        for ($i = 0; $i < 5; $i++) {
             $company = $result[$i]['id_company'];
-            $queryCompany = "SELECT name FROM companies WHERE id = ".$company;
+            $queryCompany = "SELECT name FROM companies WHERE id = " . $company;
             $statementCompany = $this->db->query($queryCompany);
             $statementCompany->execute();
             $resultCompany = $statementCompany->fetch(PDO::FETCH_ASSOC);
@@ -276,8 +276,23 @@ class DashboardController
 
     }
 
+    public function addCompany($name, $typeId, $country, $tva)
+    {
+        $query = "INSERT INTO companies (name, type_id, country, tva, created_at, updated_at)
+              VALUES (:name, :type_id, :country, :tva, NOW(), NOW())";
+        $statement = $this->db->prepare($query);
+
+        $statement->bindValue(':name', $name);
+        $statement->bindValue(':type_id', $typeId);
+        $statement->bindValue(':country', $country);
+        $statement->bindValue(':tva', $tva);
+
+        $statement->execute();
+    }
+
     // UPDATES
-    public function updateCompany($name, $type, $country, $tva, $id){
+    public function updateCompany($name, $type, $country, $tva, $id)
+    {
         $updated_at = date('Y-m-d H:i:s');
         $type_id = $type;
 
@@ -291,7 +306,8 @@ class DashboardController
         $stmt->bindParam(':id', $id);
         $stmt->execute();
     }
-    public function updateInvoice($ref, $company, $due_date, $tva, $id){
+    public function updateInvoice($ref, $company, $due_date, $tva, $id)
+    {
         $updated_at = date('Y-m-d H:i:s');
         $id_company = $company;
 
@@ -304,10 +320,11 @@ class DashboardController
         $stmt->bindParam(':id', $id);
         $stmt->execute();
     }
-    public function updateContact($name, $company, $email, $phone, $id) {
+    public function updateContact($name, $company, $email, $phone, $id)
+    {
         $updated_at = date('Y-m-d H:i:s');
         $company_id = $company;
-    
+
         $query = "UPDATE contacts SET name = :name, company_id = :company_id, email = :email, phone = :phone, updated_at = :updated_at WHERE id = :id";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':name', $name);
@@ -320,19 +337,22 @@ class DashboardController
     }
 
     // DELETE 
-    public function deleteCompany($id) {
+    public function deleteCompany($id)
+    {
         $query = "DELETE FROM companies WHERE id = :id";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
     }
-    public function deleteInvoice($id) {
+    public function deleteInvoice($id)
+    {
         $query = "DELETE FROM invoices WHERE id = :id";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
     }
-    public function deleteContact($id) {
+    public function deleteContact($id)
+    {
         $query = "DELETE FROM contacts WHERE id = :id";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':id', $id);
@@ -360,15 +380,30 @@ $typesNames = $dashboardController->getTypesNames();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['reference']) && isset($_POST['due_date']) && isset($_POST['choices'])) {
         $reference = $_POST['reference'];
-        var_dump($reference);
         $dueDate = $_POST['due_date'];
-        var_dump($dueDate);
         $companyId = $_POST['choices'];
-        var_dump($companyId);
+
 
         $dashboardController->addInvoice($reference, $dueDate, $companyId);
     }
 }
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['name']) && isset($_POST['choices']) && isset($_POST['country']) && isset($_POST['tva'])) {
+        $name = $_POST['name'];
+        var_dump($name);
+        $typeId = $_POST['choices'];
+        var_dump($typeId);
+        $country = $_POST['country'];
+        var_dump($country);
+        $tva = $_POST['tva'];
+        var_dump($tva);
+
+        $dashboardController->addCompany($name, $typeId, $country, $tva);
+
+    }
+}
+
 
 require_once APP . "Views/dashboard.php";
 
