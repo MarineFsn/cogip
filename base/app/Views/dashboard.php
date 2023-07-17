@@ -79,7 +79,7 @@
                 ?>
                 <p>You can here add an invoice, a company and some contacts</p>
             </div>
-            <div>
+            <div class="svg__container">
                 <svg class="svg" width="417" height="333" viewBox="0 0 417 333" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_48_9)">
                         <path d="M185.938 274.782C205.456 274.782 221.279 271.286 221.279 266.973C221.279 262.661 205.456 259.165 185.938 259.165C166.42 259.165 150.597 262.661 150.597 266.973C150.597 271.286 166.42 274.782 185.938 274.782Z" fill="black" />
@@ -302,13 +302,14 @@
                         </form>
                     </div>
 
-                    <div class="container__dynamic__dashboard__modify">
-                        <h4>Modify/delete invoice</h4>
+                    <div class="container__dynamic__dashboard">
+                        <h4>Edit/delete invoice</h4>
                         <hr>
+                        <div class="container__dynamic__dashboard__modify">
                         <table class="container__dynamic__dashboard__modify__table table table-striped" id="myTableInvoices">
                             <thead class="container__dynamic__dashboard__modify__table__thead">
                                 <tr class="container__dynamic__dashboard__modify__table__thead__tr">
-                                    <th>Modify</th>
+                                    <th>Edit</th>
                                     <th>Delete</th>
                                     <th>Invoice number</th>
                                     <th>Due dates</th>
@@ -345,7 +346,7 @@
                             </tbody>
                         </table>
 
-
+                   </div>
                     </div>
                 </section>
                 <section class="container__dynamic__dashboard__company" id="new__company">
@@ -368,13 +369,14 @@
                         </form>
                     </div>
 
-                    <div class="container__dynamic__dashboard__modify">
-                        <h4>Modify/delete companies</h4>
+                    <div class="container__dynamic__dashboard">
+                        <h4>Edit/delete companies</h4>
                         <hr>
+                        <div class="container__dynamic__dashboard__modify">
                         <table class="container__dynamic__dashboard__modify__table  table table-striped" id="myTableCompanies">
                             <thead class="container__dynamic__dashboard__modify__table__thead">
                                 <tr class="container__dynamic__dashboard__modify__table__thead__tr">
-                                    <th>Modify</th>
+                                    <th>Edit</th>
                                     <th>Delete</th>
                                     <th>Name</th>
                                     <th>TVA</th>
@@ -411,6 +413,7 @@
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
+                        </div>
                     </div>
 
 
@@ -436,13 +439,13 @@
                     </div>
 
                     <div class="container__dynamic__dashboard">
-                        <h4>Modify/delete contacts</h4>
+                        <h4>Edit/delete contacts</h4>
                         <hr>
                         <div class="container__dynamic__dashboard__modify">
                             <table class="container__dynamic__dashboard__modify__table  table table-striped" id="myTableContacts">
                                 <thead class="container__dynamic__dashboard__modify__table__thead">
                                     <tr class="container__dynamic__dashboard__modify__table__thead__tr">
-                                        <th>Modify</th>
+                                        <th>Edit</th>
                                         <th>Delete</th>
                                         <th>Name</th>
                                         <th>Mail</th>
