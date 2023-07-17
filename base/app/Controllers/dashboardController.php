@@ -181,17 +181,17 @@ class DashboardController
 
         return $typesNames;
     }
-    public function updateCompany($name, $type, $country, $tva){
-        id	
-        name	
-        type_id	
-        country	
-        tva	
-        created_at	
-        updated_at
+    // public function updateCompany($name, $type, $country, $tva){
+    //     id	
+    //     name	
+    //     type_id	
+    //     country	
+    //     tva	
+    //     created_at	
+    //     updated_at
         
 
-    }
+    // }
 }
 
 $dashboardController = new DashboardController($db);

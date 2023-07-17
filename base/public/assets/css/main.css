@@ -714,8 +714,7 @@ body main .container__people__info__card__photo {
 body main .container__people__info__card__photo img {
   height: 100%;
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 50%;
 }
 body main .container__people__info__card__name {
@@ -827,8 +826,7 @@ body .container__contact__photo {
 body .container__contact__photo img {
   height: 100%;
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 50%;
 }
 body hr {
@@ -1493,6 +1491,11 @@ body main #myTable_paginate a:hover {
   background: #e0e0e0;
   opacity: 0.5;
 }
+.dashboard .nav__container .side__navbar .footer_hr {
+  width: 285px;
+  position: fixed;
+  bottom: 24px;
+}
 .dashboard .nav__container .side__navbar .user__profile {
   display: flex;
   align-items: center;
@@ -1500,14 +1503,16 @@ body main #myTable_paginate a:hover {
 }
 @media screen and (min-width: 1224px) {
   .dashboard .nav__container .side__navbar .user__profile {
+    justify-content: center;
     top: 32px;
+    height: 280px;
   }
 }
 .dashboard .nav__container .side__navbar .user__profile img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .dashboard .nav__container .side__navbar .user__profile h2 {
   text-align: center;
@@ -1515,9 +1520,19 @@ body main #myTable_paginate a:hover {
   font-size: 20px;
   font-weight: 900;
 }
+@media screen and (min-width: 1224px) {
+  .dashboard .nav__container .side__navbar .user__profile h2 {
+    width: 80px;
+  }
+}
 .dashboard .nav__container .side__navbar ul {
   margin-left: auto;
   margin-right: auto;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .nav__container .side__navbar ul {
+    padding-top: 55px;
+  }
 }
 .dashboard .nav__container .side__navbar ul li {
   margin: 17px 0;
@@ -1657,14 +1672,14 @@ body main #myTable_paginate a:hover {
     flex-shrink: 0;
   }
 }
-.dashboard .dashboard__header .title__description h2 {
+.dashboard .dashboard__header .title__description h1 {
   font-size: 25px;
   font-weight: 700;
   padding-top: 7px;
   color: #fff;
 }
 @media screen and (min-width: 1224px) {
-  .dashboard .dashboard__header .title__description h2 {
+  .dashboard .dashboard__header .title__description h1 {
     font-size: 35px;
     font-style: normal;
     font-weight: 700;

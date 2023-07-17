@@ -22,14 +22,14 @@
                 echo "<a href='Home'>Go to home page</a>"
                 ?>
             </div>
-            <hr>
+            <hr class="user__hr">
             <ul class="page__list">
                 <li><img src="/cogip/base/public/assets/img/Icon_dashboard.png" alt=""><a href="" class="page__list__btn__dashboard">Dashboard</a></li>
                 <li><img src="/cogip/base/public/assets/img/Icon_invoices.png" alt=""><a href="" class="page__list__btn__invoices">Invoices</a></li>
                 <li><img src="/cogip/base/public/assets/img/Icon_compagnies.png" alt=""><a href="" class="page__list__btn__companies">Companies</a></li>
                 <li><img src="/cogip/base/public/assets/img/Icon_contact.png" alt=""><a href="" class="page__list__btn__contact">Contacts</a></li>
             </ul>
-            <hr>
+            <hr class="footer_hr">
             <div class="user__footer">
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <rect x="-3.4043" y="-9.87207" width="59.5745" height="89.8723" fill="url(#pattern0)" />
@@ -65,7 +65,7 @@
                 ?>
                 <p>You can here add an invoice, a company and some contacts</p>
             </div>
-            <div>
+            <div class="svg__container">
                 <svg class="svg" width="417" height="333" viewBox="0 0 417 333" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_48_9)">
                         <path d="M185.938 274.782C205.456 274.782 221.279 271.286 221.279 266.973C221.279 262.661 205.456 259.165 185.938 259.165C166.42 259.165 150.597 262.661 150.597 266.973C150.597 271.286 166.42 274.782 185.938 274.782Z" fill="black" />
