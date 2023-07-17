@@ -1751,14 +1751,127 @@ body {
 
     .container__dynamic {
       width: 375px;
+      display: flex;
+      flex-direction: column;
+      // align-items: center;
       &__dashboard {
-        width: 350px;
+        width: 340px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0px 0px 37px -21px #00000040;
+        margin-left: 35px;
+        margin-bottom: 30px;
+        @include responsive-desktop {
+          width: 1044px;
+        }
+        h4 {
+          font-family: $font-family-title;
+          font-size: $font-size-text;
+          font-weight: $font-weight-title-dashboard;
+          margin-left: 30px;
+          padding-top: 35px;
+        }
+
         &__modify {
-          width: 350px;
+          width: 340px;
           overflow-y: scroll;
+          @include responsive-desktop {
+            width: 1044px;
+            overflow-y: visible;
+          }
+          .label_search {
+            color: #ffffff00;
+            input {
+              height: 35px;
+              width: 200px;
+              align-self: flex-end;
+              color: #636363;
+              border: 1px solid #636363;
+              border-radius: 10px;
+              font-size: 15px;
+              font-weight: 300;
+              font-family: $font-family-title;
+              margin-bottom: 20px;
+              text-align: center;
+              @include responsive-desktop {
+                margin-bottom: 42px;
+                height: 53px;
+                width: 245px;
+                font-size: $font-size-text;
+              }
+            }
+          }
           img {
             height: 30px;
             width: 30px;
+          }
+        }
+
+        &__invoices__new {
+          background-color: #ffffff;
+          border-radius: 10px;
+          margin-left: 35px;
+          box-shadow: 0px 0px 37px -21px #00000040;
+          @include responsive-desktop {
+            width: 1044px;
+          }
+          h4 {
+            font-family: $font-family-title;
+            font-size: $font-size-text;
+            font-weight: $font-weight-title-dashboard;
+            margin-left: 30px;
+            padding-top: 35px;
+            @include responsive-desktop {
+              width: 1044px;
+              padding-top: 53px;
+            }
+          }
+          hr {
+            border: 1px solid #e0e0e0;
+            margin-bottom: 20px;
+            @include responsive-desktop {
+              width: 981px;
+            }
+          }
+          form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            @include responsive-desktop {
+              width: 1044px;
+            }
+            input {
+              margin-bottom: 20px;
+              width: 320px;
+              height: 36px;
+              background-color: #f5f5f5;
+              border-style: none;
+              font-size: $font-size-text;
+              font-weight: 100;
+              &:last-child {
+                background-color: #9698d6;
+                color: white;
+              }
+              @include responsive-desktop {
+                width: 978px;
+                height: 60px;
+                margin-bottom: 45px;
+              }
+            }
+            select {
+              margin-bottom: 20px;
+              width: 320px;
+              height: 36px;
+              background-color: #f5f5f5;
+              border-style: none;
+              font-size: $font-size-text;
+              font-weight: 100;
+              @include responsive-desktop {
+                width: 978px;
+                height: 60px;
+                margin-bottom: 45px;
+              }
+            }
           }
         }
       }
