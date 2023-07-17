@@ -571,6 +571,12 @@ body main .container__company__info {
 }
 body main .container__company__info__name {
   position: relative;
+  margin-left: -30px;
+}
+@media screen and (min-width: 1224px) {
+  body main .container__company__info__name {
+    margin-left: 0px;
+  }
 }
 body main .container__company__info__name h5 {
   text-transform: uppercase;
@@ -640,6 +646,13 @@ body main .container__people h5 {
   font-weight: 900;
   margin-left: 30px;
   margin-bottom: 15px;
+}
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  body main .container__people h5 {
+    align-self: normal;
+    text-align: center;
+    margin-left: -120px;
+  }
 }
 @media screen and (min-width: 1224px) {
   body main .container__people h5 {
@@ -1469,6 +1482,7 @@ body main #myTable_paginate a:hover {
   .dashboard .nav__container .side__navbar {
     width: 285px;
     justify-content: initial;
+    position: fixed;
     left: 0px;
     height: 100vh;
   }
@@ -1517,6 +1531,13 @@ body main #myTable_paginate a:hover {
 }
 .dashboard .nav__container .side__navbar ul li img {
   margin-right: 6px;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .nav__container .side__navbar .user__footer {
+    position: fixed;
+    left: 201px;
+    bottom: 22px;
+  }
 }
 .dashboard .nav__container .side__navbar .user__footer svg {
   display: none;
@@ -1589,6 +1610,7 @@ body main #myTable_paginate a:hover {
 @media screen and (min-width: 1224px) {
   .dashboard .dashboard__header .title {
     text-align: initial;
+    padding-top: 54px;
   }
 }
 .dashboard .dashboard__header .title h2 {
@@ -1629,7 +1651,7 @@ body main #myTable_paginate a:hover {
 @media screen and (min-width: 1224px) {
   .dashboard .dashboard__header .title__description {
     text-align: initial;
-    margin: none;
+    margin-left: initial;
     width: 1044px;
     height: 206px;
     flex-shrink: 0;
@@ -1657,14 +1679,47 @@ body main #myTable_paginate a:hover {
   padding-top: 4px;
   color: #fff;
 }
-.dashboard .dashboard__header .svg {
+@media screen and (min-width: 1224px) {
+  .dashboard .dashboard__header .title__description p {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    padding-left: 82px;
+    padding-top: 6px;
+  }
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .dashboard__header .svg__container {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 140px;
+  }
+}
+.dashboard .dashboard__header .svg__container .svg {
   width: 260px;
   height: auto;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .dashboard__header .svg__container .svg {
+    display: flex;
+    width: initial;
+    height: initial;
+  }
 }
 .dashboard .main__dashboard {
   font-family: "Inter", sans-serif;
   padding-top: 15px;
   display: flex;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard {
+    width: 1044px;
+    position: absolute;
+    left: 337px;
+    top: 440px;
+  }
 }
 .dashboard .main__dashboard .container__main {
   display: flex;
@@ -1672,11 +1727,25 @@ body main #myTable_paginate a:hover {
   flex-direction: column;
   padding: 60px 26px;
 }
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard .container__main {
+    gap: initial;
+    display: grid;
+    grid-template-columns: 505px 505px;
+    grid-template-areas: "statistics invoice" "contacts companies";
+  }
+}
 .dashboard .main__dashboard .container__main section {
   background-color: #ffffff;
   border-radius: 10px;
   min-height: 100px;
   padding: 10px 15px;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard .container__main section {
+    margin-right: 35px;
+    margin-bottom: 30px;
+  }
 }
 .dashboard .main__dashboard .container__main section h3 {
   font-weight: 700;
@@ -1687,6 +1756,12 @@ body main #myTable_paginate a:hover {
 }
 .dashboard .main__dashboard .container__main .statistics {
   padding: 4px 24px;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard .container__main .statistics {
+    grid-area: statistics;
+    height: 200px;
+  }
 }
 .dashboard .main__dashboard .container__main .statistics h3 {
   margin-bottom: 7px;
@@ -1717,15 +1792,34 @@ body main #myTable_paginate a:hover {
 .dashboard .main__dashboard .container__main .statistics .number__companies {
   background-color: #ff808b;
 }
-
-#new__invoices {
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard .container__main .contacts {
+    z-index: 1;
+    position: absolute;
+    width: 440px;
+    bottom: 237px;
+    min-height: 400px;
+    grid-area: contacts;
+  }
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard .container__main .invoice {
+    min-height: 400px;
+    grid-area: invoice;
+  }
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard .container__main .companies {
+    min-height: 400px;
+    grid-area: companies;
+  }
+}
+.dashboard #new__invoices {
   display: none;
 }
-
-#new__company {
+.dashboard #new__company {
   display: none;
 }
-
-#new__contact {
+.dashboard #new__contact {
   display: none;
-}
+}/*# sourceMappingURL=main.css.map */

@@ -37,7 +37,7 @@ function newInvoice(event) {
     if (recapButton) {
         recapButton.style.fontWeight = "normal";
     }
-    let mainElement = document.querySelector(".container__main");
+    let mainElement = document.querySelector(".container");
     let dynamicElement = document.querySelector(".container__dynamic");
     let newinvoices = document.getElementById("new__invoices");
     let newCompany = document.getElementById("new__company");
@@ -69,7 +69,7 @@ function newCompany(event) {
     if (recapButton) {
         recapButton.style.fontWeight = "normal";
     }
-    let mainElement = document.querySelector(".container__main");
+    let mainElement = document.querySelector(".container");
     let newinvoices = document.getElementById("new__invoices");
     let newCompany = document.getElementById("new__company");
     let newContact = document.getElementById("new__contact");
@@ -100,7 +100,7 @@ function newContact(event) {
     if (recapButton) {
         recapButton.style.fontWeight = "normal";
     }
-    let mainElement = document.querySelector(".container__main");
+    let mainElement = document.querySelector(".container");
     let newinvoices = document.getElementById("new__invoices");
     let newCompany = document.getElementById("new__company");
     let newContact = document.getElementById("new__contact");
@@ -131,7 +131,7 @@ function showRecap(event) {
     if (invoiceButton) {
         invoiceButton.style.fontWeight = "normal";
     }
-    let mainElement = document.querySelector(".container__main");
+    let mainElement = document.querySelector(".container");
     let newinvoices = document.getElementById("new__invoices");
     let newCompany = document.getElementById("new__company");
     let newContact = document.getElementById("new__contact");
