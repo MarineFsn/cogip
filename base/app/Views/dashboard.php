@@ -15,11 +15,11 @@
             <button id="closeBtn" class="close"><img src="/cogip/base/public/assets/img/sidebar_close.png" alt=""></button>
             <div class="user__profile">
                 <img src="/cogip/base/public/assets/img/img-contact.jpg" alt="">
-                <?php 
-                    if((isset($_SESSION['user']) && isset($_SESSION['isConnected'])) && $_SESSION['isConnected'] == 1){
-                        echo "<h2>".$_SESSION['user'][0]["first_name"]." ".$_SESSION['user'][0]["last_name"]."</h2>";
-                    }
-                    echo "<a href='Home'>Go to home page</a>"
+                <?php
+                if ((isset($_SESSION['user']) && isset($_SESSION['isConnected'])) && $_SESSION['isConnected'] == 1) {
+                    echo "<h2>" . $_SESSION['user'][0]["first_name"] . " " . $_SESSION['user'][0]["last_name"] . "</h2>";
+                }
+                echo "<a href='Home'>Go to home page</a>"
                 ?>
             </div>
             <hr>
@@ -41,13 +41,12 @@
                     </defs>
                 </svg>
                 <!-- <button class="logout__button">logout</button> -->
-                <?php 
-                    if (isset($_SESSION['isConnected']) && $_SESSION['isConnected'] == 1) {
-                        echo "<a class='logout__button' href='logout'>Logout</a>";
-                    }
+                <?php
+                if (isset($_SESSION['isConnected']) && $_SESSION['isConnected'] == 1) {
+                    echo "<a class='logout__button' href='logout'>Logout</a>";
+                }
                 ?>
             </div>
-
         </nav>
         <button id="openBtn" class="burger__icon"><img src="/cogip/base/public/assets/img/sidebar_open.png" alt="">
         </button>
@@ -59,10 +58,10 @@
                 <p>dashboard/</p>
             </div>
             <div class="title__description">
-                <?php 
-                    if((isset($_SESSION['user']) && isset($_SESSION['isConnected'])) && $_SESSION['isConnected'] == 1){
-                        echo "<h1>Welcome back " .$_SESSION['user'][0]["first_name"]. "!</h1>";
-                    }
+                <?php
+                if ((isset($_SESSION['user']) && isset($_SESSION['isConnected'])) && $_SESSION['isConnected'] == 1) {
+                    echo "<h1>Welcome back " . $_SESSION['user'][0]["first_name"] . "!</h1>";
+                }
                 ?>
                 <p>You can here add an invoice, a company and some contacts</p>
             </div>
@@ -161,164 +160,176 @@
 
         </header>
         <main class="main__dashboard">
-            <article class="container__main">
-                <section class="statistics">
-                    <h3>Statistics</h3>
-                    <div class="number__container">
-                        <div class="number__invoices">
-                            <?php echo $countInvoices['total'] ?>
-                            <br>Invoices
+            <div class="container">
+                <article class="container__main">
+                    <section class="statistics">
+                        <h3>Statistics</h3>
+                        <div class="number__container">
+                            <div class="number__invoices">
+                                <?php echo $countInvoices['total'] ?>
+                                <br>Invoices
+                            </div>
+                            <div class="number__contacts">
+                                <?php echo $countContacts['total'] ?>
+                                <br>Contacts
+                            </div>
+                            <div class="number__companies">
+                                <?php echo $countCompanies['total'] ?>
+                                <br>Companies
+                            </div>
                         </div>
-                        <div class="number__contacts">
-                            <?php echo $countContacts['total'] ?>
-                            <br>Contacts
-                        </div>
-                        <div class="number__companies">
-                            <?php echo $countCompanies['total'] ?>
-                            <br>Companies
-                        </div>
-                    </div>
-                </section>
-                <section class="contacts">
-                    <h3>Last Contacts</h3>
-                    <hr>
-                    <table>
-                        <tr>
-                            <th>Name</th>
-                            <th>Phone</th>
-                            <th>Email</th>
-                        </tr>
-                        <?php
+                    </section>
+                    <section class="contacts">
+                        <h3>Last Contacts</h3>
+                        <hr>
+                        <table>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                            </tr>
+                            <?php
                             usort($contacts, function ($a, $b) {
                                 return strcmp($a->name, $b->name);
                             });
                             foreach ($contacts as $contact) : ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $contact->name; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $contact->phone; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $contact->email; ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </table>
+                    </section>
+                    <section class="invoice">
+                        <h3>Last Invoices</h3>
+                        <hr>
+                        <table>
                             <tr>
-                                <td>
-                                    <?php echo $contact->name; ?>
-                                </td>
-                                <td>
-                                    <?php echo $contact->phone; ?>
-                                </td>
-                                <td>
-                                    <?php echo $contact->email; ?>
-                                </td>
+                                <th>Invoice number</th>
+                                <th>Dates</th>
+                                <th>Company</th>
                             </tr>
-                        <?php endforeach; ?>
-                    </table>
-                </section>
-                <section class="invoice">
-                    <h3>Last Invoices</h3>
-                    <hr>
-                    <table>
-                        <tr>
-                            <th>Invoice number</th>
-                            <th>Dates</th>
-                            <th>Company</th>
-                        </tr>
-                        <?php 
+                            <?php
                             usort($invoices, function ($a, $b) {
                                 return strcmp($a->ref, $b->ref);
                             });
 
                             foreach ($invoices as $invoice) : ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $invoice->ref; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $invoice->formatDueDate(); ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $invoice->company; ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </table>
+                    </section>
+                    <section class="companies">
+                        <h3>Last Companies</h3>
+                        <hr>
+                        <table>
                             <tr>
-                                <td>
-                                    <?php echo $invoice->ref; ?>
-                                </td>
-                                <td>
-                                    <?php echo $invoice->formatDueDate(); ?>
-                                </td>
-                                <td>
-                                    <?php echo $invoice->company; ?>
-                                </td>
+                                <th>Name</th>
+                                <th>TVA</th>
+                                <th>Country</th>
                             </tr>
-                        <?php endforeach; ?>
-                    </table>
-                </section>
-                <section class="companies">
-                    <h3>Last Companies</h3>
-                    <hr>
-                    <table>
-                        <tr>
-                            <th>Name</th>
-                            <th>TVA</th>
-                            <th>Country</th>
-                        </tr>
-                        <?php
+                            <?php
                             usort($companies, function ($a, $b) {
                                 return strcmp($a->name, $b->name);
                             });
 
                             foreach ($companies as $company) : ?>
-                            <tr class="table__container__info__tbody__tr">
-                                <td>
-                                    <?php echo $company->name; ?>
-                                </td>
-                                <td>
-                                    <?php echo $company->tva; ?>
-                                </td>
-                                <td>
-                                    <?php echo $company->country; ?>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </table>
-                </section>
-            </article>
-            <article class="container__dynamic">
-            <div class="container__dynamic__dashboard" id="new__invoices">
-                <h4>New invoice</h4>
-                      <hr>
-                     <form class="container__dynamic__dashboard__form" method="POST" >
-                        <input type="text" placeholder="Reference..." name="reference">
-                        <input type="text" placeholder="Due date..." name="due_date">
-                        <select name="choices">
-                            <option value="" disabled selected>Select a company...</option>
-                            <?php
-                            for($i=0; $i<count($companiesNames); $i++){
-                                echo "<option value='".$i."'>".$companiesNames[$i]."</option>";
-                            }
-                            // <option value="1">Raviga</option>
-                            // <option value="2">Dunder Mifflin</option>
-                            // <option value="3">Pierre Cailloux</option>
-                            // <option value="4">Belgalol</option>
-                            // <option value="5">Jouet Jean-Michel</option>
-                            ?>
-                        </select>
-                        <input type="submit" value="save">
-                    </form>
-             </div>
-            </article>
-            <div class="container__dynamic__dashboard" id="new__company">
-            <h4>New Company</h4>
-            <hr>
-            <form class="container__new__invoice__form" method="POST">
-                <select name="choices">
-                    <option value="" disabled selected>Select a company...</option>
-                    <option value="1">Raviga</option>
-                    <option value="2">Dunder Mifflin</option>
-                    <option value="3">Pierre Cailloux</option>
-                    <option value="4">Belgalol</option>
-                    <option value="5">Jouet Jean-Michel</option>
-                </select>
-                <input type="text" placeholder="Country..." name="country">
-                <input type="text" placeholder="TVA..." name="tva">
-                <input type="submit" value="save">
-            </form>
+                                <tr class="table__container__info__tbody__tr">
+                                    <td>
+                                        <?php echo $company->name; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $company->tva; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $company->country; ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </table>
+                    </section>
+                </article>
             </div>
 
-            <div class="container__dynamic__dashboard" id="new__contact">
-                <h4>New Contact</h4>
-                <hr>
-                <form class="container__new__invoice__form" method="POST">
-                    <input type="text" placeholder="Company name..." name="name">
-                    <input type="text" placeholder="Country..." name="country">
-                    <input type="text" placeholder="TVA..." name="tva">
-                    <input type="submit" value="save">
-                </form>
-            </div>
-        </main>
+            <article class="container__dynamic">
+
+
+                <section class="container__dynamic__dashboard__invoices">
+                    <div class="container__dynamic__dashboard__invoices__new" id="new__invoices">
+                        <h4>New invoice</h4>
+                        <hr>
+                        <form class="container__dynamic__dashboard____invoices__new__form" method="POST">
+                            <input type="text" placeholder="Reference..." name="reference">
+                            <input type="text" placeholder="Due date..." name="due_date">
+                            <select name="choices">
+                                <option value="" disabled selected>Select a company...</option>
+                                <option value="1">Raviga</option>
+                                <option value="2">Dunder Mifflin</option>
+                                <option value="3">Pierre Cailloux</option>
+                                <option value="4">Belgalol</option>
+                                <option value="5">Jouet Jean-Michel</option>
+                            </select>
+                            <input type="submit" value="save">
+                        </form>
+                    </div>
+
+                </section>
+
+                <section class="container__dynamic__dashboard__company">
+
+                    <div class="container__dynamic__dashboard__company__new" id="new__company">
+                        <h4>New Company</h4>
+                        <hr>
+                        <form class="container__dynamic__dashboard__company__new__form" method="POST">
+                            <select name="choices">
+                                <option value="" disabled selected>Select a company...</option>
+                                <option value="1">Raviga</option>
+                                <option value="2">Dunder Mifflin</option>
+                                <option value="3">Pierre Cailloux</option>
+                                <option value="4">Belgalol</option>
+                                <option value="5">Jouet Jean-Michel</option>
+                            </select>
+                            <input type="text" placeholder="Country..." name="country">
+                            <input type="text" placeholder="TVA..." name="tva">
+                            <input type="submit" value="save">
+                        </form>
+                    </div>
+
+                </section>
+
+
+                <section class="container__dynamic__dashboard__company>
+            <div class=" container__dynamic__dashboard" id="new__contact">
+                    <h4>New Contact</h4>
+                    <hr>
+                    <form class="container__new__invoice__form" method="POST">
+                        <input type="text" placeholder="Company name..." name="name">
+                        <input type="text" placeholder="Country..." name="country">
+                        <input type="text" placeholder="TVA..." name="tva">
+                        <input type="submit" value="save">
+                    </form>
+    </div>
+
+    </section>
+    </article>
+    </main>
     </div>
 </body>
 

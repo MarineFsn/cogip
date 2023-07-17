@@ -43,37 +43,25 @@ function newInvoice(event: Event): void {
     (recapButton as HTMLElement).style.fontWeight = "normal";
   }
 
-  let mainElement: HTMLElement | null =
-    document.querySelector(".container__main");
+  let mainElement: HTMLElement | null = document.querySelector(".container");
   let dynamicElement: HTMLElement | null = document.querySelector(
     ".container__dynamic"
   );
-  let formInvoice: string = `
-    <div class="container__dynamic__dashboard">
-      <h4>New invoice</h4>
-      <hr>
-      <form class="container__dynamic__dashboard__form" method="POST" >
-        <input type="text" placeholder="Reference..." name="reference">
-        <input type="text" placeholder="Due date..." name="due_date">
-        <select name="choices">
-          <option value="" disabled selected>Select a company...</option>
-          <option value="1">Raviga</option>
-          <option value="2">Dunder Mifflin</option>
-          <option value="3">Pierre Cailloux</option>
-          <option value="4">Belgalol</option>
-          <option value="5">Jouet Jean-Michel</option>
-        </select>
-        <input type="submit" value="save">
-      </form>
-    </div>
-  `;
+
+  let newinvoices = document.getElementById("new__invoices");
+  let newCompany = document.getElementById("new__company");
+  let newContact = document.getElementById("new__contact");
 
   if (mainElement) {
     mainElement.style.display = "none";
-
-    if (dynamicElement) {
-      dynamicElement.innerHTML = "";
-      dynamicElement.innerHTML = formInvoice;
+    if (newinvoices) {
+      newinvoices.style.display = "block";
+      if (newCompany) {
+        newCompany.style.display = "none";
+        if (newContact) {
+          newContact.style.display = "none";
+        }
+      }
     }
   }
 }
@@ -96,37 +84,21 @@ function newCompany(event: Event): void {
     (recapButton as HTMLElement).style.fontWeight = "normal";
   }
 
-  let mainElement: HTMLElement | null =
-    document.querySelector(".container__main");
-  let dynamicElement: HTMLElement | null = document.querySelector(
-    ".container__dynamic"
-  );
-  let formCompany: string = `
-    <div class="container__dynamic__dashboard">
-      <h4>New Company</h4>
-      <hr>
-      <form class="container__new__invoice__form" method="POST">
-        <select name="choices">
-          <option value="" disabled selected>Select a company...</option>
-          <option value="1">Raviga</option>
-          <option value="2">Dunder Mifflin</option>
-          <option value="3">Pierre Cailloux</option>
-          <option value="4">Belgalol</option>
-          <option value="5">Jouet Jean-Michel</option>
-        </select>
-        <input type="text" placeholder="Country..." name="country">
-        <input type="text" placeholder="TVA..." name="tva">
-        <input type="submit" value="save">
-      </form>
-    </div>
-  `;
+  let mainElement: HTMLElement | null = document.querySelector(".container");
+  let newinvoices = document.getElementById("new__invoices");
+  let newCompany = document.getElementById("new__company");
+  let newContact = document.getElementById("new__contact");
 
   if (mainElement) {
     mainElement.style.display = "none";
-
-    if (dynamicElement) {
-      dynamicElement.innerHTML = "";
-      dynamicElement.innerHTML = formCompany;
+    if (newinvoices) {
+      newinvoices.style.display = "none";
+      if (newCompany) {
+        newCompany.style.display = "block";
+        if (newContact) {
+          newContact.style.display = "none";
+        }
+      }
     }
   }
 }
@@ -150,30 +122,21 @@ function newContact(event: Event): void {
     (recapButton as HTMLElement).style.fontWeight = "normal";
   }
 
-  let mainElement: HTMLElement | null =
-    document.querySelector(".container__main");
-  let dynamicElement: HTMLElement | null = document.querySelector(
-    ".container__dynamic"
-  );
-  let formContact: string = `
-    <div class="container__dynamic__dashboard">
-      <h4>New Contact</h4>
-      <hr>
-      <form class="container__new__invoice__form" method="POST">
-        <input type="text" placeholder="Company name..." name="name">
-        <input type="text" placeholder="Country..." name="country">
-        <input type="text" placeholder="TVA..." name="tva">
-        <input type="submit" value="save">
-      </form>
-    </div>
-  `;
+  let mainElement: HTMLElement | null = document.querySelector(".container");
+  let newinvoices = document.getElementById("new__invoices");
+  let newCompany = document.getElementById("new__company");
+  let newContact = document.getElementById("new__contact");
 
   if (mainElement) {
     mainElement.style.display = "none";
-
-    if (dynamicElement) {
-      dynamicElement.innerHTML = "";
-      dynamicElement.innerHTML = formContact;
+    if (newinvoices) {
+      newinvoices.style.display = "none";
+      if (newCompany) {
+        newCompany.style.display = "none";
+        if (newContact) {
+          newContact.style.display = "block";
+        }
+      }
     }
   }
 }
@@ -197,16 +160,21 @@ function showRecap(event: Event): void {
     (invoiceButton as HTMLElement).style.fontWeight = "normal";
   }
 
-  let mainElement: HTMLElement | null =
-    document.querySelector(".container__main");
-  let dynamicElement: HTMLElement | null = document.querySelector(
-    ".container__dynamic"
-  );
+  let mainElement: HTMLElement | null = document.querySelector(".container");
+  let newinvoices = document.getElementById("new__invoices");
+  let newCompany = document.getElementById("new__company");
+  let newContact = document.getElementById("new__contact");
 
-  if (dynamicElement) {
-    dynamicElement.innerHTML = "";
-    if (mainElement) {
-      mainElement.style.display = "block";
+  if (mainElement) {
+    mainElement.style.display = "block";
+    if (newinvoices) {
+      newinvoices.style.display = "none";
+      if (newCompany) {
+        newCompany.style.display = "none";
+        if (newContact) {
+          newContact.style.display = "none";
+        }
+      }
     }
   }
 }
