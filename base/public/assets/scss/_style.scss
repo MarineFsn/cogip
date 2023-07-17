@@ -1374,6 +1374,7 @@ body {
     @include responsive-desktop {
       position: initial;
       z-index: initial;
+      // height: 100vh;
     }
     .side__navbar {
       display: flex;
@@ -1390,7 +1391,7 @@ body {
       @include responsive-desktop {
         width: 285px;
         justify-content: initial;
-
+        position: fixed;
         // display: flex;
         // justify-content: center;
         // align-items: center;
@@ -1446,6 +1447,11 @@ body {
         }
       }
       .user__footer {
+        @include responsive-desktop {
+          position: fixed;
+          left: 201px;
+          bottom: 22px;
+        }
         svg {
           display: none;
         }
@@ -1521,6 +1527,7 @@ body {
       @include responsive-desktop {
         text-align: initial;
         // padding-left: 337px;
+        padding-top: 54px;
       }
       h2 {
         font-size: 20px;
@@ -1556,7 +1563,7 @@ body {
       background: #9698d6;
       @include responsive-desktop {
         text-align: initial;
-        margin: none;
+        margin-left: initial;
         width: 1044px;
         height: 206px;
         flex-shrink: 0;
@@ -1582,28 +1589,38 @@ body {
         padding-top: 4px;
         color: #fff;
         @include responsive-desktop {
-          // font-size: 15px;
-          // font-style: normal;
-          // font-weight: 300;
-          // line-height: normal;
-          // padding-left: 82px;
-          // padding-top: 6px;
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 300;
+          line-height: normal;
+          padding-left: 82px;
+          padding-top: 6px;
         }
       }
     }
-    .svg {
-      // z-index: 1;
-      // display: flex;
-      // flex-shrink: 1;
-      // object-position: left top;
-      width: 260px;
-      height: auto;
-
+    .svg__container {
       @include responsive-desktop {
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
-        // flex-shrink: 0;
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        right: 140px;
+      }
+      .svg {
+        // flex-shrink: 1;
+        // object-position: left top;
+        width: 260px;
+        height: auto;
+
+        @include responsive-desktop {
+          display: flex;
+          width: initial;
+          height: initial;
+          // top: 0;
+          // display: flex;
+          // justify-content: center;
+          // align-items: center;
+          // flex-shrink: 0;
+        }
       }
     }
 
@@ -1615,16 +1632,34 @@ body {
     font-family: $font-family-title;
     padding-top: 15px;
     display: flex;
+    @include responsive-desktop {
+      width: 1044px;
+      position: absolute;
+      left: 337px;
+      top: 440px;
+    }
     .container__main {
       display: flex;
       gap: 29px;
       flex-direction: column;
       padding: 60px 26px;
+      @include responsive-desktop {
+        gap: initial;
+        display: grid;
+        grid-template-columns: 505px 505px;
+        grid-template-areas:
+          "statistics invoice"
+          "contacts companies";
+      }
       section {
         background-color: #ffffff;
         border-radius: 10px;
         min-height: 100px;
         padding: 10px 15px;
+        @include responsive-desktop {
+          margin-right: 35px;
+          margin-bottom: 30px;
+        }
         h3 {
           font-weight: $font-weight-title-dashboard;
         }
@@ -1635,6 +1670,12 @@ body {
       }
       .statistics {
         padding: 4px 24px;
+        @include responsive-desktop {
+          grid-area: statistics;
+          height: 200px;
+          // margin-right: 35px;
+          // margin-bottom: 30px;
+        }
         h3 {
           margin-bottom: 7px;
         }
@@ -1665,15 +1706,39 @@ body {
           background-color: #ff808b;
         }
       }
+      .contacts {
+        @include responsive-desktop {
+          z-index: 1;
+          position: absolute;
+          width: 440px;
+          bottom: 237px;
+          min-height: 400px;
+          grid-area: contacts;
+          // margin-right: 35px;
+        }
+      }
+      .invoice {
+        @include responsive-desktop {
+          min-height: 400px;
+          grid-area: invoice;
+          // margin-bottom: 30px;
+        }
+      }
+      .companies {
+        @include responsive-desktop {
+          min-height: 400px;
+          grid-area: companies;
+        }
+      }
     }
   }
-}
-#new__invoices {
-  display: none;
-}
-#new__company {
-  display: none;
-}
-#new__contact {
-  display: none;
+  #new__invoices {
+    display: none;
+  }
+  #new__company {
+    display: none;
+  }
+  #new__contact {
+    display: none;
+  }
 }
