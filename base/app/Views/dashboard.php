@@ -286,10 +286,10 @@
                         <h4>New invoice</h4>
                         <hr>
                         <form class="container__dynamic__dashboard____invoices__new__form" method="POST">
-                            <input type="text" placeholder="Reference..." name="reference">
-                            <input type="date" placeholder="Due date..." name="due_date">
+                            <input type="text" placeholder=" Reference..." name="reference">
+                            <input type="date" placeholder=" Due date..." name="due_date">
                             <select name="choices">
-                                <option value="" disabled selected>Select a company...</option>
+                                <option value="" disabled selected> Select a company...</option>
                                 <?php
                                 for ($i = 0; $i < count($companiesNames); $i++) {
                                     echo "<option value='" . ($i+1) . "'>" . $companiesNames[$i] . "</option>";
@@ -352,17 +352,17 @@
                         <h4>New Company</h4>
                         <hr>
                         <form class="container__dynamic__dashboard__company__new__form" method="POST">
-                            <input type="text" placeholder="Name..." name="name">
+                            <input type="text" placeholder=" Name..." name="name">
                             <select name="choices">
-                                <option value="" disabled selected>Select a type...</option>
+                                <option value="" disabled selected> Select a type...</option>
                                 <?php
                                 for ($i = 0; $i < count($typesNames); $i++) {
                                     echo "<option value='" . ($i+1) . "'>" . $typesNames[$i] . "</option>";
                                 }
                                 ?>
                             </select>
-                            <input type="text" placeholder="Country..." name="country">
-                            <input type="text" placeholder="TVA..." name="tva">
+                            <input type="text" placeholder=" Country..." name="country">
+                            <input type="text" placeholder=" TVA..." name="tva">
                             <input type="submit" value="save">
                         </form>
                     </div>
@@ -419,17 +419,17 @@
                         <h4>New Contact</h4>
                         <hr>
                         <form class="container__dynamic__dashboard__contact__new__form" method="POST">
-                            <input type="text" placeholder="Name..." name="name">
+                            <input type="text" placeholder=" Name..." name="name">
                             <select name="choices">
-                                <option value="" disabled selected>Select a company...</option>
+                                <option value="" disabled selected> Select a company...</option>
                                 <?php
                                 for ($i = 0; $i < count($companiesNames); $i++) {
                                     echo "<option value='" . ($i+1) . "'>" . $companiesNames[$i] . "</option>";
                                 }
                                 ?>
                             </select>
-                            <input type="mail" placeholder="Email..." name="email">
-                            <input type="tel" placeholder="Phone..." name="phone">
+                            <input type="mail" placeholder=" Email..." name="email">
+                            <input type="tel" placeholder=" Phone..." name="phone">
                             <input type="submit" value="save">
                         </form>
                     </div>
