@@ -272,18 +272,13 @@
                       <hr>
                      <form class="container__dynamic__dashboard__form" method="POST" >
                         <input type="text" placeholder="Reference..." name="reference">
-                        <input type="text" placeholder="Due date..." name="due_date">
+                        <input type="date" placeholder="Due date..." name="due_date">
                         <select name="choices">
                             <option value="" disabled selected>Select a company...</option>
                             <?php
                             for($i=0; $i<count($companiesNames); $i++){
                                 echo "<option value='".$i."'>".$companiesNames[$i]."</option>";
                             }
-                            // <option value="1">Raviga</option>
-                            // <option value="2">Dunder Mifflin</option>
-                            // <option value="3">Pierre Cailloux</option>
-                            // <option value="4">Belgalol</option>
-                            // <option value="5">Jouet Jean-Michel</option>
                             ?>
                         </select>
                         <input type="submit" value="save">
@@ -294,13 +289,14 @@
             <h4>New Company</h4>
             <hr>
             <form class="container__new__invoice__form" method="POST">
+                <input type="text" placeholder="Name..." name="name">
                 <select name="choices">
-                    <option value="" disabled selected>Select a company...</option>
-                    <option value="1">Raviga</option>
-                    <option value="2">Dunder Mifflin</option>
-                    <option value="3">Pierre Cailloux</option>
-                    <option value="4">Belgalol</option>
-                    <option value="5">Jouet Jean-Michel</option>
+                    <option value="" disabled selected>Select a type...</option>
+                    <?php
+                    for($i=0; $i<count($typesNames); $i++){
+                        echo "<option value='".$i."'>".$typesNames[$i]."</option>";
+                    }
+                    ?>
                 </select>
                 <input type="text" placeholder="Country..." name="country">
                 <input type="text" placeholder="TVA..." name="tva">
@@ -312,7 +308,14 @@
                 <h4>New Contact</h4>
                 <hr>
                 <form class="container__new__invoice__form" method="POST">
-                    <input type="text" placeholder="Company name..." name="name">
+                    <select name="choices">
+                        <option value="" disabled selected>Select a company...</option>
+                        <?php
+                        for($i=0; $i<count($companiesNames); $i++){
+                            echo "<option value='".$i."'>".$companiesNames[$i]."</option>";
+                        }
+                        ?>
+                    </select>
                     <input type="text" placeholder="Country..." name="country">
                     <input type="text" placeholder="TVA..." name="tva">
                     <input type="submit" value="save">

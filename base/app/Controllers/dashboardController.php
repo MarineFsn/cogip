@@ -165,6 +165,33 @@ class DashboardController
 
         return $companiesNames;
     }
+    public function getTypesNames($query = "SELECT name FROM types")
+    {
+        $newquery = $query;
+        $statement = $this->db->prepare($newquery);
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        $types = array();
+
+        foreach ($result as $row) {
+            $typeName = $row['name'];
+            $typesNames[] = $typeName;
+        }
+
+        return $typesNames;
+    }
+    public function updateCompany($name, $type, $country, $tva){
+        id	
+        name	
+        type_id	
+        country	
+        tva	
+        created_at	
+        updated_at
+        
+
+    }
 }
 
 $dashboardController = new DashboardController($db);
@@ -175,6 +202,7 @@ $countInvoices = $dashboardController->countInvoices();
 $countContacts = $dashboardController->countContacts();
 $countCompanies = $dashboardController->countCompanies();
 $companiesNames = $dashboardController->getCompaniesNames();
+$typesNames = $dashboardController->getTypesNames();
 
 // if(isset($_GET['companyId'])){
 
