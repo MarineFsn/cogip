@@ -38,9 +38,9 @@ class DashboardController
 
         $companies = array();
 
-        for($i = 0; $i <5; $i++){
+        for ($i = 0; $i < 5; $i++) {
             $type = $result[$i]['type_id'];
-            $queryTypes = "SELECT name FROM types WHERE id = ".$type;
+            $queryTypes = "SELECT name FROM types WHERE id = " . $type;
             $statementTypes = $this->db->query($queryTypes);
             $statementTypes->execute();
             $resultTypes = $statementTypes->fetch(PDO::FETCH_ASSOC);
@@ -69,9 +69,9 @@ class DashboardController
 
         $contacts = array();
 
-        for($i = 0; $i <5; $i++){
+        for ($i = 0; $i < 5; $i++) {
             $company = $result[$i]['company_id'];
-            $queryCompany = "SELECT name FROM companies WHERE id = ".$company;
+            $queryCompany = "SELECT name FROM companies WHERE id = " . $company;
             $statementCompany = $this->db->query($queryCompany);
             $statementCompany->execute();
             $resultCompany = $statementCompany->fetch(PDO::FETCH_ASSOC);
@@ -101,9 +101,9 @@ class DashboardController
 
         $invoices = array();
 
-        for($i = 0; $i <5; $i++){
+        for ($i = 0; $i < 5; $i++) {
             $company = $result[$i]['id_company'];
-            $queryCompany = "SELECT name FROM companies WHERE id = ".$company;
+            $queryCompany = "SELECT name FROM companies WHERE id = " . $company;
             $statementCompany = $this->db->query($queryCompany);
             $statementCompany->execute();
             $resultCompany = $statementCompany->fetch(PDO::FETCH_ASSOC);
@@ -189,8 +189,6 @@ class DashboardController
     //     tva	
     //     created_at	
     //     updated_at
-        
-
     // }
 }
 
