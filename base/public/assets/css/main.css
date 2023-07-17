@@ -1493,6 +1493,11 @@ body main #myTable_paginate a:hover {
   background: #e0e0e0;
   opacity: 0.5;
 }
+.dashboard .nav__container .side__navbar .footer_hr {
+  width: 285px;
+  position: fixed;
+  bottom: 24px;
+}
 .dashboard .nav__container .side__navbar .user__profile {
   display: flex;
   align-items: center;
@@ -1500,14 +1505,16 @@ body main #myTable_paginate a:hover {
 }
 @media screen and (min-width: 1224px) {
   .dashboard .nav__container .side__navbar .user__profile {
+    justify-content: center;
     top: 32px;
+    height: 280px;
   }
 }
 .dashboard .nav__container .side__navbar .user__profile img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .dashboard .nav__container .side__navbar .user__profile h2 {
   text-align: center;
@@ -1515,9 +1522,19 @@ body main #myTable_paginate a:hover {
   font-size: 20px;
   font-weight: 900;
 }
+@media screen and (min-width: 1224px) {
+  .dashboard .nav__container .side__navbar .user__profile h2 {
+    width: 80px;
+  }
+}
 .dashboard .nav__container .side__navbar ul {
   margin-left: auto;
   margin-right: auto;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .nav__container .side__navbar ul {
+    padding-top: 55px;
+  }
 }
 .dashboard .nav__container .side__navbar ul li {
   margin: 17px 0;
@@ -1657,14 +1674,14 @@ body main #myTable_paginate a:hover {
     flex-shrink: 0;
   }
 }
-.dashboard .dashboard__header .title__description h2 {
+.dashboard .dashboard__header .title__description h1 {
   font-size: 25px;
   font-weight: 700;
   padding-top: 7px;
   color: #fff;
 }
 @media screen and (min-width: 1224px) {
-  .dashboard .dashboard__header .title__description h2 {
+  .dashboard .dashboard__header .title__description h1 {
     font-size: 35px;
     font-style: normal;
     font-weight: 700;
@@ -1694,7 +1711,7 @@ body main #myTable_paginate a:hover {
     z-index: 1;
     position: absolute;
     top: 0;
-    right: 140px;
+    left: 885px;
   }
 }
 .dashboard .dashboard__header .svg__container .svg {
@@ -1812,6 +1829,156 @@ body main #myTable_paginate a:hover {
   .dashboard .main__dashboard .container__main .companies {
     min-height: 400px;
     grid-area: companies;
+  }
+}
+
+.dashboard .main__dashboard .container__dynamic {
+  width: 375px;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard .container__dynamic {
+    width: 1044px;
+  }
+}
+.dashboard .main__dashboard .container__dynamic__dashboard {
+  width: 340px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 37px -21px rgba(0, 0, 0, 0.2509803922);
+  margin-left: 35px;
+  margin-bottom: 30px;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard .container__dynamic__dashboard {
+    width: 1044px;
+    margin-left: 0px;
+  }
+}
+.dashboard .main__dashboard .container__dynamic__dashboard h4 {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-left: 30px;
+  padding-top: 35px;
+}
+.dashboard .main__dashboard .container__dynamic__dashboard__modify {
+  width: 340px;
+  overflow-y: scroll;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard .container__dynamic__dashboard__modify {
+    width: 1044px;
+    overflow-y: visible;
+  }
+}
+.dashboard .main__dashboard .container__dynamic__dashboard__modify .label_search {
+  color: rgba(255, 255, 255, 0);
+}
+.dashboard .main__dashboard .container__dynamic__dashboard__modify .label_search input {
+  height: 35px;
+  width: 200px;
+  align-self: flex-end;
+  color: #636363;
+  border: 1px solid #636363;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 300;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 20px;
+  text-align: center;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard .container__dynamic__dashboard__modify .label_search input {
+    margin-bottom: 42px;
+    height: 53px;
+    width: 245px;
+    font-size: 20px;
+  }
+}
+.dashboard .main__dashboard .container__dynamic__dashboard__modify img {
+  height: 30px;
+  width: 30px;
+}
+.dashboard .main__dashboard .container__dynamic__dashboard__invoices__new {
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-left: 35px;
+  box-shadow: 0px 0px 37px -21px rgba(0, 0, 0, 0.2509803922);
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard .container__dynamic__dashboard__invoices__new {
+    width: 1044px;
+    margin-left: 0px;
+  }
+}
+.dashboard .main__dashboard .container__dynamic__dashboard__invoices__new h4 {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-left: 30px;
+  padding-top: 35px;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard .container__dynamic__dashboard__invoices__new h4 {
+    width: 1044px;
+    padding-top: 53px;
+  }
+}
+.dashboard .main__dashboard .container__dynamic__dashboard__invoices__new hr {
+  border: 1px solid #e0e0e0;
+  margin-bottom: 20px;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard .container__dynamic__dashboard__invoices__new hr {
+    width: 981px;
+  }
+}
+.dashboard .main__dashboard .container__dynamic__dashboard__invoices__new form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard .container__dynamic__dashboard__invoices__new form {
+    width: 1044px;
+  }
+}
+.dashboard .main__dashboard .container__dynamic__dashboard__invoices__new form input {
+  margin-bottom: 20px;
+  width: 320px;
+  height: 36px;
+  background-color: #f5f5f5;
+  border-style: none;
+  font-size: 20px;
+  font-weight: 100;
+}
+.dashboard .main__dashboard .container__dynamic__dashboard__invoices__new form input:last-child {
+  background-color: #9698d6;
+  color: white;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard .container__dynamic__dashboard__invoices__new form input {
+    width: 978px;
+    height: 60px;
+    margin-bottom: 45px;
+  }
+}
+.dashboard .main__dashboard .container__dynamic__dashboard__invoices__new form select {
+  margin-bottom: 20px;
+  width: 320px;
+  height: 36px;
+  background-color: #f5f5f5;
+  border-style: none;
+  font-size: 20px;
+  font-weight: 100;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard .container__dynamic__dashboard__invoices__new form select {
+    width: 978px;
+    height: 60px;
+    margin-bottom: 45px;
   }
 }
 .dashboard #new__invoices {
