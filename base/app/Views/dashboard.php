@@ -34,7 +34,7 @@
                     echo "<h2>" . $_SESSION['user'][0]["first_name"] . " " . $_SESSION['user'][0]["last_name"] . "</h2>";
                 }
                 echo "<a href='Home'>Go to home page</a>"
-                ?>
+                    ?>
             </div>
             <hr>
             <ul class="page__list">
@@ -206,7 +206,7 @@
                             usort($contacts, function ($a, $b) {
                                 return strcmp($a->name, $b->name);
                             });
-                            foreach ($contacts as $contact) : ?>
+                            foreach ($contacts as $contact): ?>
                                 <tr>
                                     <td>
                                         <?php echo $contact->name; ?>
@@ -235,7 +235,7 @@
                                 return strcmp($a->ref, $b->ref);
                             });
 
-                            foreach ($invoices as $invoice) : ?>
+                            foreach ($invoices as $invoice): ?>
                                 <tr>
                                     <td>
                                         <?php echo $invoice->ref; ?>
@@ -264,19 +264,19 @@
                                 return strcmp($a->name, $b->name);
                             });
 
-                            foreach ($companies as $company) : ?>
+                            foreach ($companies as $company): ?>
 
-                                <tr class="table__container__info__tbody__tr">
-                                    <td>
-                                        <?php echo $company->name; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $company->tva; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $company->country; ?>
-                                    </td>
-                                </tr>
+                                    <tr class="table__container__info__tbody__tr">
+                                        <td>
+                                            <?php echo $company->name; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $company->tva; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $company->country; ?>
+                                        </td>
+                                    </tr>
                             <?php endforeach; ?>
                         </table>
                     </section>
@@ -294,7 +294,7 @@
                                 <option value="" disabled selected>Select a company...</option>
                                 <?php
                                 for ($i = 0; $i < count($companiesNames); $i++) {
-                                    echo "<option value='" . $i . "'>" . $companiesNames[$i] . "</option>";
+                                    echo "<option value='" . ($i + 1) . "'>" . $companiesNames[$i] . "</option>";
                                 }
                                 ?>
                             </select>
@@ -317,7 +317,7 @@
                                 </tr>
                             </thead>
                             <tbody class="container__dynamic__dashboard__modify__table__tbody">
-                                <?php foreach ($invoices as $invoice) : ?>
+                                <?php foreach ($invoices as $invoice): ?>
                                     <tr class="container__dynamic__dashboard__modify__table__tbody__tr">
                                         <td>
                                             <a href=""><img src="/cogip/base/public/assets/img/edit.png" alt="Modify button"></a>
@@ -327,8 +327,8 @@
                                         </td>
                                         <td>
                                             <!-- <a href="app/Views/show_invoices.php?invoiceId=<?php //echo $invoice->id; 
-                                                                                                ?>"><?php //echo $invoice->ref; 
-                                                                                                    ?></a></td> -->
+                                                ?>"><?php //echo $invoice->ref; 
+                                                    ?></a></td> -->
                                             <?php echo $invoice->ref; ?>
                                         </td>
                                         <td>
@@ -384,7 +384,7 @@
                                 </tr>
                             </thead>
                             <tbody class="container__dynamic__dashboard__modify__table__tbody">
-                                <?php foreach ($companies as $company) : ?>
+                                <?php foreach ($companies as $company): ?>
                                     <tr class="container__dynamic__dashboard__modify__table__tbody__tr">
 
                                         <td>
@@ -452,7 +452,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="container__dynamic__dashboard__modify__table__tbody">
-                                    <?php foreach ($contacts as $contact) : ?>
+                                    <?php foreach ($contacts as $contact): ?>
                                         <tr class="container__dynamic__dashboard__modify__table__tbody__tr">
                                             <td>
                                                 <a href=""><img src="/cogip/base/public/assets/img/edit.png" alt="Modify button"></a>

@@ -181,6 +181,22 @@ class DashboardController
 
         return $typesNames;
     }
+
+    public function addInvoice($reference, $dueDate, $companyId)
+    {
+        $query = "INSERT INTO invoices (ref, id_company, due_date, created_at, updated_at)
+              VALUES (:ref, :id_company, :due_date, NOW(), NOW())";
+        $statement = $this->db->prepare($query);
+
+        $statement->bindValue(':ref', $reference);
+        $statement->bindValue(':due_date', $dueDate);
+        $statement->bindValue(':id_company', $companyId);
+
+        $statement->execute();
+
+    }
+
+
     // public function updateCompany($name, $type, $country, $tva){
     //     id	
     //     name	
@@ -189,6 +205,8 @@ class DashboardController
     //     tva	
     //     created_at	
     //     updated_at
+
+
     // }
 }
 
@@ -206,4 +224,19 @@ $typesNames = $dashboardController->getTypesNames();
 
 // }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['reference']) && isset($_POST['due_date']) && isset($_POST['choices'])) {
+        $reference = $_POST['reference'];
+        var_dump($reference);
+        $dueDate = $_POST['due_date'];
+        var_dump($dueDate);
+        $companyId = $_POST['choices'];
+        var_dump($companyId);
+
+        $dashboardController->addInvoice($reference, $dueDate, $companyId);
+    }
+}
+
 require_once APP . "Views/dashboard.php";
+
+?>
