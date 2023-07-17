@@ -1707,9 +1707,9 @@ body main #myTable_paginate a:hover {
 @media screen and (min-width: 1224px) {
   .dashboard .dashboard__header .svg__container {
     z-index: 1;
-    position: absolute;
+    position: fixed;
     top: 0;
-    right: 140px;
+    left: 885px;
   }
 }
 .dashboard .dashboard__header .svg__container .svg {

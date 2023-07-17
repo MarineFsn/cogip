@@ -1620,9 +1620,9 @@ body {
     .svg__container {
       @include responsive-desktop {
         z-index: 1;
-        position: absolute;
+        position: fixed;
         top: 0;
-        right: 140px;
+        left: 885px;
       }
       .svg {
         // flex-shrink: 1;
