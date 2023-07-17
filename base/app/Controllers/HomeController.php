@@ -9,26 +9,26 @@ require_once APP . 'Models/invoice.php';
 
 class HomeController
 {
-
-    /*
-     * return view
-     */
     // public function index()
     // {
     //     return $this->view('welcome', ["name" => "Cogip"]);
     // }
 
+    /* Variables */
     private $db;
 
+    /* Functions */
+    // Database
     public function __construct($db)
     {
         $this->db = $db;
     }
 
-    public function getLastCompanies($query = "SELECT * FROM companies ORDER BY id DESC")
+    // Get functions
+    public function getLastCompanies()
     {
-        $newquery = $query;
-        $statement = $this->db->prepare($newquery);
+        $query = "SELECT * FROM companies ORDER BY id DESC";
+        $statement = $this->db->prepare($query);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -55,11 +55,10 @@ class HomeController
 
         return $companies;
     }
-
-    public function getLastContacts($query = "SELECT * FROM contacts ORDER BY id DESC")
+    public function getLastContacts()
     {
-        $newquery = $query;
-        $statement = $this->db->prepare($newquery);
+        $query = "SELECT * FROM contacts ORDER BY id DESC";
+        $statement = $this->db->prepare($query);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -86,12 +85,11 @@ class HomeController
 
         return $contacts;
     }
-
-    public function getLastInvoices($query = "SELECT * FROM invoices ORDER BY id DESC")
+    public function getLastInvoices()
     {
 
-        $newquery = $query;
-        $statement = $this->db->prepare($newquery);
+        $query = "SELECT * FROM invoices ORDER BY id DESC";
+        $statement = $this->db->prepare($query);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 

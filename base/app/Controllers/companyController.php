@@ -6,17 +6,21 @@ require_once APP . 'Models/invoice.php';
 
 class CompanyController
 {
+    /* Variables */
     private $db;
 
+    /* Functions */
+    // Database
     public function __construct($db)
     {
         $this->db = $db;
     }
 
-    public function getCompanies($query = "SELECT * FROM companies")
+    // Get functions
+    public function getCompanies()
     {
-        $newquery = $query;
-        $statement = $this->db->prepare($newquery);
+        $query = "SELECT * FROM companies";
+        $statement = $this->db->prepare($query);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -43,7 +47,27 @@ class CompanyController
 
         return $companies;
     }
+    public function getTypes()
+    {
+        $this->db->connect();
+        $query = "SELECT name FROM types";
+        $result = $this->db->query($query);
 
+        $types = array();
+
+        if ($result->rowCount() > 0) {
+            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                $type = new type(
+                    $row['id'],
+                    $row['name'],
+                    $row['created_at'],
+                    $row['updated_at']
+                );
+                $types[] = $type;
+            }
+        }
+        return $types;
+    }
     public function getCompanyById($companyId)
     {
         $query = "SELECT * FROM companies WHERE id = :companyId";
@@ -70,7 +94,6 @@ class CompanyController
 
         return $company;
     }
-
     public function getInvoicesByCompanyId($companyId)
     {
         $query = "SELECT * FROM invoices WHERE id_company = :companyId";
@@ -93,7 +116,6 @@ class CompanyController
         }
         return $invoices;
     }
-
     public function getContactsByCompanyId($companyId)
     {
         $query = "SELECT * FROM contacts WHERE company_id = :companyId";
@@ -117,28 +139,6 @@ class CompanyController
         }
 
         return $contacts;
-    }
-
-    public function getTypes()
-    {
-        $this->db->connect();
-        $query = "SELECT name FROM types";
-        $result = $this->db->query($query);
-
-        $types = array();
-
-        if ($result->rowCount() > 0) {
-            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                $type = new type(
-                    $row['id'],
-                    $row['name'],
-                    $row['created_at'],
-                    $row['updated_at']
-                );
-                $types[] = $type;
-            }
-        }
-        return $types;
     }
 }
 

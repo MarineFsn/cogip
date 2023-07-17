@@ -1006,7 +1006,7 @@ body {
       display: flex;
       flex-direction: column-reverse;
       background-color: white;
-      margin: 15px 30px;
+      margin: 20px 30px;
       border-radius: 10px;
       box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
       -webkit-box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
@@ -1021,11 +1021,10 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        padding: 18px 25px;
+        padding: 18px 12px;
         color: #8a8c91a0;
         @include responsive-tablet {
           align-items: flex-start;
-          padding: 18px 0px;
           margin: 20px auto;
         }
         @include responsive-desktop {
@@ -1076,12 +1075,8 @@ body {
           width: 100%;
           justify-content: space-between;
           margin: auto;
-          padding: 5px 5px;
-          @include responsive-tablet {
-            padding: 10px 5px;
-          }
+          padding: 10px 5px;
           @include responsive-desktop {
-            padding: 10px 5px;
           }
           label {
             max-width: 100px;
@@ -1115,22 +1110,10 @@ body {
             background-color: #7d97f4;
           }
         }
-        p {
-          margin: 10px auto;
-          a {
-            color: #8a8c91;
-          }
-          a:hover {
-            color: #7d97f4;
-          }
-          a:active {
-            color: #000;
-          }
-        }
       }
       &__image {
         width: 100%;
-        min-height: 290px;
+        min-height: 350px;
         background: url("../img/Workingwoman.svg");
         background-repeat: no-repeat;
         background-size: cover;
@@ -1748,134 +1731,6 @@ body {
         }
       }
     }
-
-    .container__dynamic {
-      width: 375px;
-      display: flex;
-      flex-direction: column;
-      // align-items: center;
-      &__dashboard {
-        width: 340px;
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0px 0px 37px -21px #00000040;
-        margin-left: 35px;
-        margin-bottom: 30px;
-        @include responsive-desktop {
-          width: 1044px;
-        }
-        h4 {
-          font-family: $font-family-title;
-          font-size: $font-size-text;
-          font-weight: $font-weight-title-dashboard;
-          margin-left: 30px;
-          padding-top: 35px;
-        }
-
-        &__modify {
-          width: 340px;
-          overflow-y: scroll;
-          @include responsive-desktop {
-            width: 1044px;
-            overflow-y: visible;
-          }
-          .label_search {
-            color: #ffffff00;
-            input {
-              height: 35px;
-              width: 200px;
-              align-self: flex-end;
-              color: #636363;
-              border: 1px solid #636363;
-              border-radius: 10px;
-              font-size: 15px;
-              font-weight: 300;
-              font-family: $font-family-title;
-              margin-bottom: 20px;
-              text-align: center;
-              @include responsive-desktop {
-                margin-bottom: 42px;
-                height: 53px;
-                width: 245px;
-                font-size: $font-size-text;
-              }
-            }
-          }
-          img {
-            height: 30px;
-            width: 30px;
-          }
-        }
-
-        &__invoices__new {
-          background-color: #ffffff;
-          border-radius: 10px;
-          margin-left: 35px;
-          box-shadow: 0px 0px 37px -21px #00000040;
-          @include responsive-desktop {
-            width: 1044px;
-          }
-          h4 {
-            font-family: $font-family-title;
-            font-size: $font-size-text;
-            font-weight: $font-weight-title-dashboard;
-            margin-left: 30px;
-            padding-top: 35px;
-            @include responsive-desktop {
-              width: 1044px;
-              padding-top: 53px;
-            }
-          }
-          hr {
-            border: 1px solid #e0e0e0;
-            margin-bottom: 20px;
-            @include responsive-desktop {
-              width: 981px;
-            }
-          }
-          form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            @include responsive-desktop {
-              width: 1044px;
-            }
-            input {
-              margin-bottom: 20px;
-              width: 320px;
-              height: 36px;
-              background-color: #f5f5f5;
-              border-style: none;
-              font-size: $font-size-text;
-              font-weight: 100;
-              &:last-child {
-                background-color: #9698d6;
-                color: white;
-              }
-              @include responsive-desktop {
-                width: 978px;
-                height: 60px;
-                margin-bottom: 45px;
-              }
-            }
-            select {
-              margin-bottom: 20px;
-              width: 320px;
-              height: 36px;
-              background-color: #f5f5f5;
-              border-style: none;
-              font-size: $font-size-text;
-              font-weight: 100;
-              @include responsive-desktop {
-                width: 978px;
-                height: 60px;
-                margin-bottom: 45px;
-              }
-            }
-          }
-        }
-      }
-    }
   }
   #new__invoices {
     display: none;
@@ -1885,71 +1740,5 @@ body {
   }
   #new__contact {
     display: none;
-  }
-}
-.error {
-  min-height: 100vh;
-  width: 100%;
-  background-image: url("../img/error.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  @include responsive-tablet {
-  }
-  @include responsive-desktop {
-    background-size: 100% 100%;
-  }
-  &__message {
-    position: absolute;
-    z-index: 1;
-    min-height: 20vh;
-    width: 70%;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 40vh 15%;
-    padding: 50px auto;
-    gap: 10px;
-    background-color: #ffffffcc;
-    border: 2px solid #000;
-    border-radius: 20px;
-    font-family: $font-family-text;
-    @include responsive-tablet {
-    }
-    @include responsive-desktop {
-      width: 40%;
-      margin: 40vh 30%;
-    }
-    &__text {
-      font-size: $font-size-text;
-      @include responsive-tablet {
-        font-size: 30px;
-      }
-      @include responsive-desktop {
-      }
-    }
-    &__homelink {
-      a {
-        color: #000;
-        text-decoration: none;
-        @include responsive-tablet {
-          font-size: 25px;
-        }
-        @include responsive-desktop {
-        }
-        &:hover {
-          color: #00000074;
-          text-decoration: underline;
-        }
-        &:active {
-          color: #000;
-          background-color: $yellow;
-          text-decoration: underline;
-        }
-      }
-    }
   }
 }
