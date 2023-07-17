@@ -1,9 +1,4 @@
 <?php
-// session_start();
-// if ($_SESSION["isConnected"] == 1) {
-//     header("Location: index.php");
-// }
-// require_once APP . 'Core/Controller.php';
 require_once APP . 'Core/connect.php';
 require_once APP . 'Models/company.php';
 require_once APP . 'Models/contact.php';
@@ -13,34 +8,120 @@ require_once APP . 'Models/invoice.php';
 
 class DashboardController
 {
-
-    /*
-     * return view
-     */
-    // public function index()
-    // {
-    //     return $this->view('welcome', ["name" => "Cogip"]);
-    // }
-
+    /* Variables */
     private $db;
 
+    /* Functions */
+    // Database
     public function __construct($db)
     {
         $this->db = $db;
     }
 
-    public function getLastCompanies($query = "SELECT * FROM companies ORDER BY id DESC")
+    // READ 
+    public function getCompanies()
     {
-        $newquery = $query;
-        $statement = $this->db->prepare($newquery);
+        $query = "SELECT * FROM companies";
+        $statement = $this->db->prepare($query);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         $companies = array();
 
-        for ($i = 0; $i < 5; $i++) {
+        foreach ($result as $row) {
+            $type = $row['type_id'];
+            $queryTypes = "SELECT name FROM types WHERE id = ".$type;
+            $statementTypes = $this->db->query($queryTypes);
+            $statementTypes->execute();
+            $resultTypes = $statementTypes->fetch(PDO::FETCH_ASSOC);
+
+            $company = new Company(
+                $row['id'],
+                $row['name'],
+                $resultTypes['name'],
+                $row['country'],
+                $row['tva'],
+                $row['created_at'],
+                $row['updated_at']
+            );
+            $companies[] = $company;
+        }
+
+        return $companies;
+    }
+    public function getContacts()
+    {
+        $query = "SELECT * FROM contacts";
+        $statement = $this->db->prepare($query);
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        $contacts = array();
+
+        foreach ($result as $row) {
+            $company = $row['company_id'];
+
+            $queryCompany = "SELECT name FROM companies WHERE id = ".$company;
+            $statementCompany = $this->db->query($queryCompany);
+            $statementCompany->execute();
+            $resultCompany = $statementCompany->fetch(PDO::FETCH_ASSOC);
+
+            $contact = new Contact(
+                $row['id'],
+                $row['name'],
+                $resultCompany['name'],
+                $row['email'],
+                $row['phone'],
+                $row['created_at'],
+                $row['updated_at']
+            );
+            $contacts[] = $contact;
+        }
+
+        return $contacts;
+    }
+    public function getinvoices()
+    {
+        $query = "SELECT * FROM invoices";
+        $statement = $this->db->prepare($query);
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        $invoices = array();
+
+        foreach ($result as $row) {
+            $company = $row['id_company'];
+
+            $queryCompany = "SELECT name FROM companies WHERE id = ".$company;
+            $statementCompany = $this->db->query($queryCompany);
+            $statementCompany->execute();
+            $resultCompany = $statementCompany->fetch(PDO::FETCH_ASSOC);
+
+            $invoice = new invoice(
+                $row['id'],
+                $row['ref'],
+                $row['due_date'],
+                $resultCompany['name'],
+                $row['created_at'],
+                $row['updated_at']
+            );
+            $invoices[] = $invoice;
+        }
+
+        return $invoices;
+    }
+    public function getLastCompanies()
+    {
+        $query = "SELECT * FROM companies ORDER BY id DESC";
+        $statement = $this->db->prepare($query);
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        $companies = array();
+
+        for($i = 0; $i <5; $i++){
             $type = $result[$i]['type_id'];
-            $queryTypes = "SELECT name FROM types WHERE id = " . $type;
+            $queryTypes = "SELECT name FROM types WHERE id = ".$type;
             $statementTypes = $this->db->query($queryTypes);
             $statementTypes->execute();
             $resultTypes = $statementTypes->fetch(PDO::FETCH_ASSOC);
@@ -59,19 +140,18 @@ class DashboardController
 
         return $companies;
     }
-
-    public function getLastContacts($query = "SELECT * FROM contacts ORDER BY id DESC")
+    public function getLastContacts()
     {
-        $newquery = $query;
-        $statement = $this->db->prepare($newquery);
+        $query = "SELECT * FROM contacts ORDER BY id DESC";
+        $statement = $this->db->prepare($query);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         $contacts = array();
 
-        for ($i = 0; $i < 5; $i++) {
+        for($i = 0; $i <5; $i++){
             $company = $result[$i]['company_id'];
-            $queryCompany = "SELECT name FROM companies WHERE id = " . $company;
+            $queryCompany = "SELECT name FROM companies WHERE id = ".$company;
             $statementCompany = $this->db->query($queryCompany);
             $statementCompany->execute();
             $resultCompany = $statementCompany->fetch(PDO::FETCH_ASSOC);
@@ -90,20 +170,19 @@ class DashboardController
 
         return $contacts;
     }
-
-    public function getLastInvoices($query = "SELECT * FROM invoices ORDER BY id DESC")
+    public function getLastInvoices()
     {
 
-        $newquery = $query;
-        $statement = $this->db->prepare($newquery);
+        $query = "SELECT * FROM invoices ORDER BY id DESC";
+        $statement = $this->db->prepare($query);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         $invoices = array();
 
-        for ($i = 0; $i < 5; $i++) {
+        for($i = 0; $i <5; $i++){
             $company = $result[$i]['id_company'];
-            $queryCompany = "SELECT name FROM companies WHERE id = " . $company;
+            $queryCompany = "SELECT name FROM companies WHERE id = ".$company;
             $statementCompany = $this->db->query($queryCompany);
             $statementCompany->execute();
             $resultCompany = $statementCompany->fetch(PDO::FETCH_ASSOC);
@@ -121,7 +200,6 @@ class DashboardController
 
         return $invoices;
     }
-
     public function countInvoices()
     {
         $newquery = "SELECT COUNT(*) as 'total' FROM invoices";
@@ -149,10 +227,11 @@ class DashboardController
 
         return $result;
     }
-    public function getCompaniesNames($query = "SELECT name FROM companies")
+    // FORMS 
+    public function getCompaniesNames()
     {
-        $newquery = $query;
-        $statement = $this->db->prepare($newquery);
+        $query = "SELECT name FROM companies";
+        $statement = $this->db->prepare($query);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -165,10 +244,10 @@ class DashboardController
 
         return $companiesNames;
     }
-    public function getTypesNames($query = "SELECT name FROM types")
+    public function getTypesNames()
     {
-        $newquery = $query;
-        $statement = $this->db->prepare($newquery);
+        $query = "SELECT name FROM types";
+        $statement = $this->db->prepare($query);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -182,6 +261,7 @@ class DashboardController
         return $typesNames;
     }
 
+    // CREATE
     public function addInvoice($reference, $dueDate, $companyId)
     {
         $query = "INSERT INTO invoices (ref, id_company, due_date, created_at, updated_at)
@@ -196,24 +276,77 @@ class DashboardController
 
     }
 
+    // UPDATES
+    public function updateCompany($name, $type, $country, $tva, $id){
+        $updated_at = date('Y-m-d H:i:s');
+        $type_id = $type;
 
-    // public function updateCompany($name, $type, $country, $tva){
-    //     id	
-    //     name	
-    //     type_id	
-    //     country	
-    //     tva	
-    //     created_at	
-    //     updated_at
+        $query = "UPDATE companies SET name = :name, type_id = :type_id, country = :country, tva = :tva, updated_at = :updated_at WHERE id = :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':type_id', $type_id);
+        $stmt->bindParam(':country', $country);
+        $stmt->bindParam(':tva', $tva);
+        $stmt->bindParam(':updated_at', $updated_at);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+    }
+    public function updateInvoice($ref, $company, $due_date, $tva, $id){
+        $updated_at = date('Y-m-d H:i:s');
+        $id_company = $company;
 
+        $query = "UPDATE invoices SET ref = :ref, id_company = :id_company, due_date = :due_date, updated_at = :updated_at WHERE id = :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':ref', $ref);
+        $stmt->bindParam(':id_company', $id_company);
+        $stmt->bindParam(':due_date', $due_date);
+        $stmt->bindParam(':updated_at', $updated_at);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+    }
+    public function updateContact($name, $company, $email, $phone, $id) {
+        $updated_at = date('Y-m-d H:i:s');
+        $company_id = $company;
+    
+        $query = "UPDATE contacts SET name = :name, company_id = :company_id, email = :email, phone = :phone, updated_at = :updated_at WHERE id = :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':company_id', $company_id);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':phone', $phone);
+        $stmt->bindParam(':updated_at', $updated_at);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+    }
 
-    // }
+    // DELETE 
+    public function deleteCompany($id) {
+        $query = "DELETE FROM companies WHERE id = :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+    }
+    public function deleteInvoice($id) {
+        $query = "DELETE FROM invoices WHERE id = :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+    }
+    public function deleteContact($id) {
+        $query = "DELETE FROM contacts WHERE id = :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+    }
 }
 
 $dashboardController = new DashboardController($db);
-$invoices = $dashboardController->getLastInvoices();
-$contacts = $dashboardController->getLastContacts();
-$companies = $dashboardController->getLastCompanies();
+$companies = $dashboardController->getCompanies();
+$contacts = $dashboardController->getContacts();
+$invoices = $dashboardController->getinvoices();
+$lastInvoices = $dashboardController->getLastInvoices();
+$lastContacts = $dashboardController->getLastContacts();
+$lastCompanies = $dashboardController->getLastCompanies();
 $countInvoices = $dashboardController->countInvoices();
 $countContacts = $dashboardController->countContacts();
 $countCompanies = $dashboardController->countCompanies();

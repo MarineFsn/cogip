@@ -4,18 +4,21 @@ require_once APP . 'Models/invoice.php';
 
 class invoiceController
 {
+    /* Variables */
     private $db;
 
+    /* Functions */
+    // Database
     public function __construct($db)
     {
         $this->db = $db;
     }
 
-    public function getinvoices($query = "SELECT * FROM invoices")
+    // Get functions
+    public function getinvoices()
     {
-
-        $newquery = $query;
-        $statement = $this->db->prepare($newquery);
+        $query = "SELECT * FROM invoices";
+        $statement = $this->db->prepare($query);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -42,7 +45,6 @@ class invoiceController
 
         return $invoices;
     }
-
     public function getInvoiceById($invoiceId)
     {
         $query = "SELECT * FROM invoices WHERE id = :invoiceId";

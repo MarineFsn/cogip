@@ -1006,7 +1006,7 @@ body {
       display: flex;
       flex-direction: column-reverse;
       background-color: white;
-      margin: 15px 30px;
+      margin: 20px 30px;
       border-radius: 10px;
       box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
       -webkit-box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
@@ -1021,11 +1021,10 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        padding: 18px 25px;
+        padding: 18px 12px;
         color: #8a8c91a0;
         @include responsive-tablet {
           align-items: flex-start;
-          padding: 18px 0px;
           margin: 20px auto;
         }
         @include responsive-desktop {
@@ -1076,12 +1075,8 @@ body {
           width: 100%;
           justify-content: space-between;
           margin: auto;
-          padding: 5px 5px;
-          @include responsive-tablet {
-            padding: 10px 5px;
-          }
+          padding: 10px 5px;
           @include responsive-desktop {
-            padding: 10px 5px;
           }
           label {
             max-width: 100px;
@@ -1115,22 +1110,10 @@ body {
             background-color: #7d97f4;
           }
         }
-        p {
-          margin: 10px auto;
-          a {
-            color: #8a8c91;
-          }
-          a:hover {
-            color: #7d97f4;
-          }
-          a:active {
-            color: #000;
-          }
-        }
       }
       &__image {
         width: 100%;
-        min-height: 290px;
+        min-height: 350px;
         background: url("../img/Workingwoman.svg");
         background-repeat: no-repeat;
         background-size: cover;
@@ -1767,6 +1750,7 @@ body {
         }
       }
     }
+
     .container__dynamic {
       width: 375px;
       display: flex;
@@ -1899,6 +1883,7 @@ body {
         }
       }
     }
+
   }
   #new__invoices {
     display: none;
@@ -1910,6 +1895,7 @@ body {
     display: none;
   }
 }
+
 
 .error {
   min-height: 100vh;
@@ -1977,3 +1963,4 @@ body {
     }
   }
 }
+
