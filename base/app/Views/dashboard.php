@@ -47,6 +47,7 @@
                     }
                 ?>
             </div>
+
         </nav>
         <button id="openBtn" class="burger__icon"><img src="/cogip/base/public/assets/img/sidebar_open.png" alt="">
         </button>
@@ -266,50 +267,46 @@
                 </section>
             </article>
             <article class="container__dynamic">
-
-
-                <section class="container__dynamic__dashboard__invoices">
-            <div class="container__dynamic__dashboard__invoices__new" id="new__invoices">
+            <div class="container__dynamic__dashboard" id="new__invoices">
                 <h4>New invoice</h4>
                       <hr>
-                     <form class="container__dynamic__dashboard____invoices__new__form" method="POST" >
+                     <form class="container__dynamic__dashboard__form" method="POST" >
                         <input type="text" placeholder="Reference..." name="reference">
                         <input type="text" placeholder="Due date..." name="due_date">
                         <select name="choices">
                             <option value="" disabled selected>Select a company...</option>
-                            <option value="1">Raviga</option>
-                            <option value="2">Dunder Mifflin</option>
-                            <option value="3">Pierre Cailloux</option>
-                            <option value="4">Belgalol</option>
-                            <option value="5">Jouet Jean-Michel</option>
+                            <?php
+                            for($i=0; $i<count($companiesNames); $i++){
+                                echo "<option value='".$i."'>".$companiesNames[$i]."</option>";
+                            }
+                            // <option value="1">Raviga</option>
+                            // <option value="2">Dunder Mifflin</option>
+                            // <option value="3">Pierre Cailloux</option>
+                            // <option value="4">Belgalol</option>
+                            // <option value="5">Jouet Jean-Michel</option>
+                            ?>
                         </select>
-                                  <input type="submit" value="save">
+                        <input type="submit" value="save">
                     </form>
              </div>
-
-                 </section>
-                                
-                 <section class="container__dynamic__dashboard__company">
-
-            <div class="container__dynamic__dashboard__company" id="new__company">
+            </article>
+            <div class="container__dynamic__dashboard" id="new__company">
             <h4>New Company</h4>
             <hr>
             <form class="container__new__invoice__form" method="POST">
                 <select name="choices">
-                <option value="" disabled selected>Select a company...</option>
-                <option value="1">Raviga</option>
-                <option value="2">Dunder Mifflin</option>
-                <option value="3">Pierre Cailloux</option>
-                <option value="4">Belgalol</option>
-                <option value="5">Jouet Jean-Michel</option>
+                    <option value="" disabled selected>Select a company...</option>
+                    <option value="1">Raviga</option>
+                    <option value="2">Dunder Mifflin</option>
+                    <option value="3">Pierre Cailloux</option>
+                    <option value="4">Belgalol</option>
+                    <option value="5">Jouet Jean-Michel</option>
                 </select>
                 <input type="text" placeholder="Country..." name="country">
                 <input type="text" placeholder="TVA..." name="tva">
                 <input type="submit" value="save">
             </form>
             </div>
-
-                            </section>
 
             <div class="container__dynamic__dashboard" id="new__contact">
                 <h4>New Contact</h4>
@@ -321,16 +318,8 @@
                     <input type="submit" value="save">
                 </form>
             </div>
-            </article>
         </main>
     </div>
 </body>
 
 </html>
-
-
-
-
-
-
-

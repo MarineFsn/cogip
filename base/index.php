@@ -22,7 +22,6 @@ if (!isset($_SESSION["isConnected"]) || $_SESSION["isConnected"] != 1) {
         } else {
             require_once APP . 'Controllers/loginController.php';
         }
-
     } else {
         $ctrl = APP . 'Controllers/' . $base . 'Controller.php';
         if (file_exists($ctrl)) {

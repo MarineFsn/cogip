@@ -20,12 +20,10 @@
     </style>
     <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
 </head>
 
 <body>
     <header class="public__header">
-
         <nav>
             <h1>COGIP</h1>
             <ul class="nav__bar">
@@ -40,9 +38,9 @@
                     echo "<li><a href='login'>Login</a></li>";
                 } else {
                     echo "<li><a href='logout'>Logout</a></li>";
+                    echo "<li><a href='dashboard'>dashboard</a></li>";
                 }
                 ?>
-
             </ul>
         </nav>
         <section class="container__info">

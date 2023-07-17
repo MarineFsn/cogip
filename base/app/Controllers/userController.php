@@ -52,7 +52,7 @@ class UserController
         $statement->execute([$email, $password]);
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
         $user = $result;
-        var_dump($user);
+        // var_dump($user);
 
         if (!$user) {
             return false;

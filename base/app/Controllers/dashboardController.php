@@ -122,42 +122,59 @@ class DashboardController
         return $invoices;
     }
 
-    // public function getCompanies($query = "SELECT * FROM companies")
-    // {
-    //     $newquery = $query;
-    //     $statement = $this->db->prepare($newquery);
-    //     $statement->execute();
-    //     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    public function countInvoices()
+    {
+        $newquery = "SELECT COUNT(*) as 'total' FROM invoices";
+        $statement = $this->db->prepare($newquery);
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
 
-    //     $companies = array();
+        return $result;
+    }
+    public function countContacts()
+    {
+        $newquery = "SELECT COUNT(*) as 'total' FROM contacts";
+        $statement = $this->db->prepare($newquery);
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
 
-    //     foreach ($result as $row) {
-    //         $type = $row['type_id'];
-    //         $queryTypes = "SELECT name FROM types WHERE id = ".$type;
-    //         $statementTypes = $this->db->query($queryTypes);
-    //         $statementTypes->execute();
-    //         $resultTypes = $statementTypes->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+    public function countCompanies()
+    {
+        $newquery = "SELECT COUNT(*) as 'total' FROM companies";
+        $statement = $this->db->prepare($newquery);
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
 
-    //         $company = new Company(
-    //             $row['id'],
-    //             $row['name'],
-    //             $resultTypes['name'],
-    //             $row['country'],
-    //             $row['tva'],
-    //             $row['created_at'],
-    //             $row['updated_at']
-    //         );
-    //         $companies[] = $company;
-    //     }
+        return $result;
+    }
+    public function getCompaniesNames($query = "SELECT name FROM companies")
+    {
+        $newquery = $query;
+        $statement = $this->db->prepare($newquery);
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-    //     return $companies;
-    // }
+        $companies = array();
+
+        foreach ($result as $row) {
+            $companyName = $row['name'];
+            $companiesNames[] = $companyName;
+        }
+
+        return $companiesNames;
+    }
 }
 
 $dashboardController = new DashboardController($db);
 $invoices = $dashboardController->getLastInvoices();
 $contacts = $dashboardController->getLastContacts();
 $companies = $dashboardController->getLastCompanies();
+$countInvoices = $dashboardController->countInvoices();
+$countContacts = $dashboardController->countContacts();
+$countCompanies = $dashboardController->countCompanies();
+$companiesNames = $dashboardController->getCompaniesNames();
 
 // if(isset($_GET['companyId'])){
 

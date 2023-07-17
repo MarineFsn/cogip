@@ -8,7 +8,6 @@ include "header.php";
         if((isset($_SESSION['user']) && isset($_SESSION['isConnected'])) && $_SESSION['isConnected'] == 1){
             echo "<h1>Welcome to " .$_SESSION['user'][0]["first_name"]. "</h1>";
         }
-        $controller = $HomeController;
     ?>
     <section class="container__table container__table__homepage">
         <h3>Last invoices </h3>
