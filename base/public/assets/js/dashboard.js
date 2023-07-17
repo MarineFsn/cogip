@@ -21,10 +21,10 @@ $(document).ready(function () {
             $("label", this.api().table().container()).attr("class", "label_search");
         },
     });
-    const label = document.querySelector(".dataTables_length");
-    label.remove();
-    const divInfo = document.querySelector(".dataTables_info");
-    divInfo.remove();
+    const labels = document.querySelectorAll(".dataTables_length");
+    labels.forEach((label) => label.remove());
+    const divInfos = document.querySelectorAll(".dataTables_info");
+    divInfos.forEach((divInfo) => divInfo.remove());
     var labelElement = document.querySelector(".dataTables_filter label");
     var textElement = labelElement.querySelector("span");
     textElement.textContent = "";
