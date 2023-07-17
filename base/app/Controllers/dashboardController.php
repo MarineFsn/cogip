@@ -189,8 +189,6 @@ class DashboardController
     //     tva	
     //     created_at	
     //     updated_at
-
-
     // }
 }
 
@@ -209,5 +207,3 @@ $typesNames = $dashboardController->getTypesNames();
 // }
 
 require_once APP . "Views/dashboard.php";
-
-?>

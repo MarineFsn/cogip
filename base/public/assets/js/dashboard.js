@@ -1,4 +1,35 @@
 "use strict";
+$(document).ready(function () {
+    $("#myTableContacts").dataTable({
+        initComplete: function (settings, json) {
+            $("input", this.api().table().container()).attr("placeholder", "Search company name...");
+            $("input", this.api().table().container()).attr("class", "input_search");
+            $("label", this.api().table().container()).attr("class", "label_search");
+        },
+    });
+    $("#myTableInvoices").dataTable({
+        initComplete: function (settings, json) {
+            $("input", this.api().table().container()).attr("placeholder", "Search invoice...");
+            $("input", this.api().table().container()).attr("class", "input_search");
+            $("label", this.api().table().container()).attr("class", "label_search");
+        },
+    });
+    $("#myTableCompanies").dataTable({
+        initComplete: function (settings, json) {
+            $("input", this.api().table().container()).attr("placeholder", "Search company...");
+            $("input", this.api().table().container()).attr("class", "input_search");
+            $("label", this.api().table().container()).attr("class", "label_search");
+        },
+    });
+    const label = document.querySelector(".dataTables_length");
+    label.remove();
+    const divInfo = document.querySelector(".dataTables_info");
+    divInfo.remove();
+    var labelElement = document.querySelector(".dataTables_filter label");
+    var textElement = labelElement.querySelector("span");
+    textElement.textContent = "";
+});
+//////////////////////////////////////////////////////////
 const sidenav = document.getElementById("sideNav");
 const openBtn = document.getElementById("openBtn");
 const closeBtn = document.getElementById("closeBtn");
