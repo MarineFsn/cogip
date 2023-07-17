@@ -1006,7 +1006,7 @@ body {
       display: flex;
       flex-direction: column-reverse;
       background-color: white;
-      margin: 20px 30px;
+      margin: 15px 30px;
       border-radius: 10px;
       box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
       -webkit-box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
@@ -1021,10 +1021,11 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        padding: 18px 12px;
+        padding: 18px 25px;
         color: #8a8c91a0;
         @include responsive-tablet {
           align-items: flex-start;
+          padding: 18px 0px;
           margin: 20px auto;
         }
         @include responsive-desktop {
@@ -1075,8 +1076,12 @@ body {
           width: 100%;
           justify-content: space-between;
           margin: auto;
-          padding: 10px 5px;
+          padding: 5px 5px;
+          @include responsive-tablet {
+            padding: 10px 5px;
+          }
           @include responsive-desktop {
+            padding: 10px 5px;
           }
           label {
             max-width: 100px;
@@ -1110,10 +1115,22 @@ body {
             background-color: #7d97f4;
           }
         }
+        p {
+          margin: 10px auto;
+          a {
+            color: #8a8c91;
+          }
+          a:hover {
+            color: #7d97f4;
+          }
+          a:active {
+            color: #000;
+          }
+        }
       }
       &__image {
         width: 100%;
-        min-height: 350px;
+        min-height: 290px;
         background: url("../img/Workingwoman.svg");
         background-repeat: no-repeat;
         background-size: cover;
@@ -1731,6 +1748,21 @@ body {
         }
       }
     }
+
+    .container__dynamic {
+      width: 375px;
+      &__dashboard {
+        width: 350px;
+        &__modify {
+          width: 350px;
+          overflow-y: scroll;
+          img {
+            height: 30px;
+            width: 30px;
+          }
+        }
+      }
+    }
   }
   #new__invoices {
     display: none;
@@ -1740,5 +1772,71 @@ body {
   }
   #new__contact {
     display: none;
+  }
+}
+.error {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url("../img/error.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include responsive-tablet {
+  }
+  @include responsive-desktop {
+    background-size: 100% 100%;
+  }
+  &__message {
+    position: absolute;
+    z-index: 1;
+    min-height: 20vh;
+    width: 70%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 40vh 15%;
+    padding: 50px auto;
+    gap: 10px;
+    background-color: #ffffffcc;
+    border: 2px solid #000;
+    border-radius: 20px;
+    font-family: $font-family-text;
+    @include responsive-tablet {
+    }
+    @include responsive-desktop {
+      width: 40%;
+      margin: 40vh 30%;
+    }
+    &__text {
+      font-size: $font-size-text;
+      @include responsive-tablet {
+        font-size: 30px;
+      }
+      @include responsive-desktop {
+      }
+    }
+    &__homelink {
+      a {
+        color: #000;
+        text-decoration: none;
+        @include responsive-tablet {
+          font-size: 25px;
+        }
+        @include responsive-desktop {
+        }
+        &:hover {
+          color: #00000074;
+          text-decoration: underline;
+        }
+        &:active {
+          color: #000;
+          background-color: $yellow;
+          text-decoration: underline;
+        }
+      }
+    }
   }
 }

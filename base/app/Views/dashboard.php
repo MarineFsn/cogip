@@ -3,9 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, Bootstrap.">
+    <!-- <meta name="description" content="Bootstrap."> -->
+    <link href="/cogip/base/public/assets/css/main.css" rel="stylesheet" type="text/css">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+    </style>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <title>Dashboard</title>
-    <link rel="stylesheet" href="/cogip/base/public/assets/css/main.css">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+    </style>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="/cogip/base/public/assets/js/dashboard.js" defer></script>
 </head>
 
@@ -268,44 +282,85 @@
                     </section>
                 </article>
             </div>
-
             <article class="container__dynamic">
-
-
-                <section class="container__dynamic__dashboard__invoices">
-                    <div class="container__dynamic__dashboard__invoices__new" id="new__invoices">
+                <section class="container__dynamic__dashboard__invoices" id="new__invoices">
+                    <div class="container__dynamic__dashboard__invoices__new">
                         <h4>New invoice</h4>
                         <hr>
                         <form class="container__dynamic__dashboard____invoices__new__form" method="POST">
                             <input type="text" placeholder="Reference..." name="reference">
-                            <input type="text" placeholder="Due date..." name="due_date">
+                            <input type="date" placeholder="Due date..." name="due_date">
                             <select name="choices">
                                 <option value="" disabled selected>Select a company...</option>
-                                <option value="1">Raviga</option>
-                                <option value="2">Dunder Mifflin</option>
-                                <option value="3">Pierre Cailloux</option>
-                                <option value="4">Belgalol</option>
-                                <option value="5">Jouet Jean-Michel</option>
+                                <?php
+                                for ($i = 0; $i < count($companiesNames); $i++) {
+                                    echo "<option value='" . $i . "'>" . $companiesNames[$i] . "</option>";
+                                }
+                                ?>
                             </select>
                             <input type="submit" value="save">
                         </form>
                     </div>
 
+                    <div class="container__dynamic__dashboard__modify">
+                        <h4>Modify/delete invoice</h4>
+                        <hr>
+                        <table class="container__dynamic__dashboard__modify__table table table-striped" id="myTableInvoices">
+                            <thead class="container__dynamic__dashboard__modify__table__thead">
+                                <tr class="container__dynamic__dashboard__modify__table__thead__tr">
+                                    <th>Modify</th>
+                                    <th>Delete</th>
+                                    <th>Invoice number</th>
+                                    <th>Due dates</th>
+                                    <th>Company</th>
+                                    <th>Created at</th>
+                                </tr>
+                            </thead>
+                            <tbody class="container__dynamic__dashboard__modify__table__tbody">
+                                <?php foreach ($invoices as $invoice) : ?>
+                                    <tr class="container__dynamic__dashboard__modify__table__tbody__tr">
+                                        <td>
+                                            <a href=""><img src="/cogip/base/public/assets/img/edit.png" alt="Modify button"></a>
+                                        </td>
+                                        <td>
+                                            <a href=""><img src="/cogip/base/public/assets/img/delete.png" alt="Delete button"></a>
+                                        </td>
+                                        <td>
+                                            <!-- <a href="app/Views/show_invoices.php?invoiceId=<?php //echo $invoice->id; 
+                                                                                                ?>"><?php //echo $invoice->ref; 
+                                                                                                    ?></a></td> -->
+                                            <?php echo $invoice->ref; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $invoice->formatDueDate(); ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $invoice->company; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $invoice->formatCreationDate(); ?>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+
+
+                    </div>
                 </section>
-
-                <section class="container__dynamic__dashboard__company">
-
-                    <div class="container__dynamic__dashboard__company__new" id="new__company">
+                <section class="container__dynamic__dashboard__company" id="new__company">
+                    <div class="container__dynamic__dashboard__company__new">
                         <h4>New Company</h4>
                         <hr>
                         <form class="container__dynamic__dashboard__company__new__form" method="POST">
+                            <input type="text" placeholder="Name..." name="name">
                             <select name="choices">
-                                <option value="" disabled selected>Select a company...</option>
-                                <option value="1">Raviga</option>
-                                <option value="2">Dunder Mifflin</option>
-                                <option value="3">Pierre Cailloux</option>
-                                <option value="4">Belgalol</option>
-                                <option value="5">Jouet Jean-Michel</option>
+                                <option value="" disabled selected>Select a type...</option>
+                                <?php
+                                for ($i = 0; $i < count($typesNames); $i++) {
+                                    echo "<option value='" . $i . "'>" . $typesNames[$i] . "</option>";
+                                }
+                                ?>
                             </select>
                             <input type="text" placeholder="Country..." name="country">
                             <input type="text" placeholder="TVA..." name="tva">
@@ -313,24 +368,124 @@
                         </form>
                     </div>
 
+                    <div class="container__dynamic__dashboard__modify">
+                        <h4>Modify/delete companies</h4>
+                        <hr>
+                        <table class="container__dynamic__dashboard__modify__table  table table-striped" id="myTableCompanies">
+                            <thead class="container__dynamic__dashboard__modify__table__thead">
+                                <tr class="container__dynamic__dashboard__modify__table__thead__tr">
+                                    <th>Modify</th>
+                                    <th>Delete</th>
+                                    <th>Name</th>
+                                    <th>TVA</th>
+                                    <th>Country</th>
+                                    <th>Type</th>
+                                    <th>Created at</th>
+                                </tr>
+                            </thead>
+                            <tbody class="container__dynamic__dashboard__modify__table__tbody">
+                                <?php foreach ($companies as $company) : ?>
+                                    <tr class="container__dynamic__dashboard__modify__table__tbody__tr">
+
+                                        <td>
+                                            <a href=""><img src="/cogip/base/public/assets/img/edit.png" alt="Modify button"></a>
+                                        </td>
+                                        <td>
+                                            <a href=""><img src="/cogip/base/public/assets/img/delete.png" alt="Delete button"></a>
+                                        </td>
+
+                                        <td><?php echo $company->name; ?></td>
+                                        <td>
+                                            <?php echo $company->tva; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $company->country; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $company->type; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $company->formatCreationDate(); ?>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+
+
                 </section>
+                <section class="container__dynamic__dashboard__contact" id="new__contact">
+                    <div class="container__dynamic__dashboard__contact__new">
+                        <h4>New Contact</h4>
+                        <hr>
+                        <form class="container__dynamic__dashboard__contact__new__form" method="POST">
+                            <input type="text" placeholder="Name..." name="name">
+                            <select name="choices">
+                                <option value="" disabled selected>Select a company...</option>
+                                <?php
+                                for ($i = 0; $i < count($companiesNames); $i++) {
+                                    echo "<option value='" . $i . "'>" . $companiesNames[$i] . "</option>";
+                                }
+                                ?>
+                            </select>
+                            <input type="mail" placeholder="Email..." name="email">
+                            <input type="text" placeholder="Phone..." name="phone">
+                            <input type="submit" value="save">
+                        </form>
+                    </div>
+
+                    <div class="container__dynamic__dashboard">
+                        <h4>Modify/delete contacts</h4>
+                        <hr>
+                        <div class="container__dynamic__dashboard__modify">
+                            <table class="container__dynamic__dashboard__modify__table  table table-striped" id="myTableContacts">
+                                <thead class="container__dynamic__dashboard__modify__table__thead">
+                                    <tr class="container__dynamic__dashboard__modify__table__thead__tr">
+                                        <th>Modify</th>
+                                        <th>Delete</th>
+                                        <th>Name</th>
+                                        <th>Mail</th>
+                                        <th>Phone</th>
+                                        <th>Company</th>
+                                        <th>Created at</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="container__dynamic__dashboard__modify__table__tbody">
+                                    <?php foreach ($contacts as $contact) : ?>
+                                        <tr class="container__dynamic__dashboard__modify__table__tbody__tr">
+                                            <td>
+                                                <a href=""><img src="/cogip/base/public/assets/img/edit.png" alt="Modify button"></a>
+                                            </td>
+                                            <td>
+                                                <a href=""><img src="/cogip/base/public/assets/img/delete.png" alt="Delete button"></a>
+                                            </td>
 
 
-                <section class="container__dynamic__dashboard__company>
-            <div class=" container__dynamic__dashboard" id="new__contact">
-                    <h4>New Contact</h4>
-                    <hr>
-                    <form class="container__new__invoice__form" method="POST">
-                        <input type="text" placeholder="Company name..." name="name">
-                        <input type="text" placeholder="Country..." name="country">
-                        <input type="text" placeholder="TVA..." name="tva">
-                        <input type="submit" value="save">
-                    </form>
-    </div>
+                                            <td><?php echo $contact->name; ?></td>
+                                            <td>
+                                                <?php echo $contact->email; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $contact->phone; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $contact->company; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $contact->formatCreationDate(); ?>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
-    </section>
-    </article>
-    </main>
+                </section>
+            </article>
+
+        </main>
     </div>
 </body>
 

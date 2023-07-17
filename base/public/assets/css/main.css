@@ -1150,7 +1150,7 @@ body main #myTable_paginate a:hover {
   display: flex;
   flex-direction: column-reverse;
   background-color: white;
-  margin: 20px 30px;
+  margin: 15px 30px;
   border-radius: 10px;
   box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
@@ -1166,12 +1166,13 @@ body main #myTable_paginate a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 18px 12px;
+  padding: 18px 25px;
   color: rgba(138, 140, 145, 0.6274509804);
 }
 @media screen and (min-width: 376px) and (max-width: 1023px) {
   .login__section__card__form {
     align-items: flex-start;
+    padding: 18px 0px;
     margin: 20px auto;
   }
 }
@@ -1230,7 +1231,17 @@ body main #myTable_paginate a:hover {
   width: 100%;
   justify-content: space-between;
   margin: auto;
-  padding: 10px 5px;
+  padding: 5px 5px;
+}
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .login__section__card__form div {
+    padding: 10px 5px;
+  }
+}
+@media screen and (min-width: 1224px) {
+  .login__section__card__form div {
+    padding: 10px 5px;
+  }
 }
 .login__section__card__form div label {
   max-width: 100px;
@@ -1266,9 +1277,21 @@ body main #myTable_paginate a:hover {
 .login__section__card__form div input[type=submit]:hover {
   background-color: #7d97f4;
 }
+.login__section__card__form p {
+  margin: 10px auto;
+}
+.login__section__card__form p a {
+  color: #8a8c91;
+}
+.login__section__card__form p a:hover {
+  color: #7d97f4;
+}
+.login__section__card__form p a:active {
+  color: #000;
+}
 .login__section__card__image {
   width: 100%;
-  min-height: 350px;
+  min-height: 290px;
   background: url("../img/Workingwoman.svg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -1814,6 +1837,20 @@ body main #myTable_paginate a:hover {
     grid-area: companies;
   }
 }
+.dashboard .main__dashboard .container__dynamic {
+  width: 375px;
+}
+.dashboard .main__dashboard .container__dynamic__dashboard {
+  width: 350px;
+}
+.dashboard .main__dashboard .container__dynamic__dashboard__modify {
+  width: 350px;
+  overflow-y: scroll;
+}
+.dashboard .main__dashboard .container__dynamic__dashboard__modify img {
+  height: 30px;
+  width: 30px;
+}
 .dashboard #new__invoices {
   display: none;
 }
@@ -1822,4 +1859,69 @@ body main #myTable_paginate a:hover {
 }
 .dashboard #new__contact {
   display: none;
+}
+
+.error {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url("../img/error.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media screen and (min-width: 1224px) {
+  .error {
+    background-size: 100% 100%;
+  }
+}
+.error__message {
+  position: absolute;
+  z-index: 1;
+  min-height: 20vh;
+  width: 70%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 40vh 15%;
+  padding: 50px auto;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid #000;
+  border-radius: 20px;
+  font-family: "Roboto", serif;
+}
+@media screen and (min-width: 1224px) {
+  .error__message {
+    width: 40%;
+    margin: 40vh 30%;
+  }
+}
+.error__message__text {
+  font-size: 20px;
+}
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .error__message__text {
+    font-size: 30px;
+  }
+}
+.error__message__homelink a {
+  color: #000;
+  text-decoration: none;
+}
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .error__message__homelink a {
+    font-size: 25px;
+  }
+}
+.error__message__homelink a:hover {
+  color: rgba(0, 0, 0, 0.4549019608);
+  text-decoration: underline;
+}
+.error__message__homelink a:active {
+  color: #000;
+  background-color: #f9de4e;
+  text-decoration: underline;
 }/*# sourceMappingURL=main.css.map */
