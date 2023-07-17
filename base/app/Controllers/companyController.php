@@ -17,10 +17,10 @@ class CompanyController
     }
 
     // Get functions
-    public function getCompanies($query = "SELECT * FROM companies")
+    public function getCompanies()
     {
-        $newquery = $query;
-        $statement = $this->db->prepare($newquery);
+        $query = "SELECT * FROM companies";
+        $statement = $this->db->prepare($query);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 

@@ -15,10 +15,10 @@ class ContactController
     }
 
     // Get functions
-    public function getContacts($query = "SELECT * FROM contacts")
+    public function getContacts()
     {
-        $newquery = $query;
-        $statement = $this->db->prepare($newquery);
+        $query = "SELECT * FROM contacts";
+        $statement = $this->db->prepare($query);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 

@@ -15,11 +15,10 @@ class invoiceController
     }
 
     // Get functions
-    public function getinvoices($query = "SELECT * FROM invoices")
+    public function getinvoices()
     {
-
-        $newquery = $query;
-        $statement = $this->db->prepare($newquery);
+        $query = "SELECT * FROM invoices";
+        $statement = $this->db->prepare($query);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 

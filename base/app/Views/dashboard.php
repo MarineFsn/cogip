@@ -189,10 +189,10 @@
                                 <th>Email</th>
                             </tr>
                             <?php
-                            usort($contacts, function ($a, $b) {
+                            usort($lastContacts, function ($a, $b) {
                                 return strcmp($a->name, $b->name);
                             });
-                            foreach ($contacts as $contact) : ?>
+                            foreach ($lastContacts as $contact) : ?>
                                 <tr>
                                     <td>
                                         <?php echo $contact->name; ?>
@@ -217,11 +217,11 @@
                                 <th>Company</th>
                             </tr>
                             <?php
-                            usort($invoices, function ($a, $b) {
+                            usort($lastInvoices, function ($a, $b) {
                                 return strcmp($a->ref, $b->ref);
                             });
 
-                            foreach ($invoices as $invoice) : ?>
+                            foreach ($lastInvoices as $invoice) : ?>
                                 <tr>
                                     <td>
                                         <?php echo $invoice->ref; ?>
@@ -246,11 +246,11 @@
                                 <th>Country</th>
                             </tr>
                             <?php
-                            usort($companies, function ($a, $b) {
+                            usort($lastCompanies, function ($a, $b) {
                                 return strcmp($a->name, $b->name);
                             });
 
-                            foreach ($companies as $company) : ?>
+                            foreach ($lastCompanies as $company) : ?>
 
                                 <tr class="table__container__info__tbody__tr">
                                     <td>
