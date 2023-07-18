@@ -38,7 +38,7 @@
                     echo "<li><a href='login'>Login</a></li>";
                 } else {
                     echo "<li><a href='logout'>Logout</a></li>";
-                    echo "<li><a href='dashboard'>dashboard</a></li>";
+                    echo "<li><a href='dashboard'>Dashboard</a></li>";
                 }
                 ?>
             </ul>
