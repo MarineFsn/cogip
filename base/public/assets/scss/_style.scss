@@ -1460,6 +1460,9 @@ body {
             font-weight: $font-weight-footer;
             color: #000000;
           }
+          .page__list__btn__dashboard {
+            font-weight: bold;
+          }
           img {
             margin-right: 6px;
           }
@@ -1761,6 +1764,15 @@ body {
       // align-items: center;
       @include responsive-desktop {
         width: 1044px;
+      }
+      #error {
+        display: flex;
+        align-items: center;
+        background-color: #d32626;
+        color: white;
+        height: 40px;
+        width: fit-content;
+        border-radius: 10px;
       }
       &__dashboard {
         width: 340px;

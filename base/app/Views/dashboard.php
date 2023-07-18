@@ -281,6 +281,7 @@
                 </article>
             </div>
             <article class="container__dynamic">
+                <span id="error"></span>
                 <section class="container__dynamic__dashboard__invoices" id="new__invoices">
                     <div class="container__dynamic__dashboard__invoices__new">
                         <h4>New invoice</h4>

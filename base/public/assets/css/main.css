@@ -1545,6 +1545,9 @@ body main #myTable_paginate a:hover {
   font-weight: 400;
   color: #000000;
 }
+.dashboard .nav__container .side__navbar ul li .page__list__btn__dashboard {
+  font-weight: bold;
+}
 .dashboard .nav__container .side__navbar ul li img {
   margin-right: 6px;
 }
@@ -1842,6 +1845,16 @@ body main #myTable_paginate a:hover {
   .dashboard .main__dashboard .container__dynamic {
     width: 1044px;
   }
+}
+.dashboard .main__dashboard .container__dynamic #error {
+  display: flex;
+  align-items: center;
+  background-color: #d32626;
+  color: white;
+  height: 40px;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 10px;
 }
 .dashboard .main__dashboard .container__dynamic__dashboard {
   width: 340px;
