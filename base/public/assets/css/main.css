@@ -1468,7 +1468,7 @@ body main #myTable_paginate a:hover {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   background-color: #f5f5fb;
   width: 250px;
   height: 350.63px;
@@ -1491,10 +1491,12 @@ body main #myTable_paginate a:hover {
   background: #e0e0e0;
   opacity: 0.5;
 }
-.dashboard .nav__container .side__navbar .footer_hr {
-  width: 285px;
-  position: fixed;
-  bottom: 24px;
+@media screen and (min-width: 1224px) {
+  .dashboard .nav__container .side__navbar .footer_hr {
+    width: 285px;
+    position: fixed;
+    bottom: 24px;
+  }
 }
 .dashboard .nav__container .side__navbar .user__profile {
   display: flex;
@@ -1512,7 +1514,7 @@ body main #myTable_paginate a:hover {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .dashboard .nav__container .side__navbar .user__profile h2 {
   text-align: center;
@@ -1609,6 +1611,13 @@ body main #myTable_paginate a:hover {
 }
 .dashboard .dashboard__header p {
   font-weight: 300;
+}
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .dashboard .dashboard__header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 @media screen and (min-width: 1224px) {
   .dashboard .dashboard__header {

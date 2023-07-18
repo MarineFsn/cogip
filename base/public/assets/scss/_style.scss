@@ -1381,7 +1381,7 @@ body {
       align-items: center;
       flex-direction: column;
       justify-content: center;
-      position: absolute;
+      position: fixed;
       background-color: #f5f5fb;
       width: 250px;
       height: 350.63px;
@@ -1409,10 +1409,12 @@ body {
       //   position: fixed;
       //   top: 285px;
       // }
-      .footer_hr {
-        width: 285px;
-        position: fixed;
-        bottom: 24px;
+      @include responsive-desktop {
+        .footer_hr {
+          width: 285px;
+          position: fixed;
+          bottom: 24px;
+        }
       }
       // padding-top: 60px;
       // transition: left 5 ease;
@@ -1422,7 +1424,6 @@ body {
         flex-direction: column;
         @include responsive-desktop {
           justify-content: center;
-
           top: 32px;
           height: 280px;
         }
@@ -1430,8 +1431,7 @@ body {
           width: 60px;
           height: 60px;
           border-radius: 50%;
-
-          margin-bottom: 20px;
+          margin-bottom: 10px;
         }
         h2 {
           text-align: center;
@@ -1532,6 +1532,11 @@ body {
     font-family: $font-family-title;
     p {
       font-weight: $font-weight-text-dashboard;
+    }
+    @include responsive-tablet {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
     }
     // position: relative;
     @include responsive-desktop {
