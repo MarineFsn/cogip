@@ -1,3 +1,9 @@
+<?php
+
+require_once APP . 'Core/ValidationDashboard.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -206,7 +212,7 @@
                             usort($lastContacts, function ($a, $b) {
                                 return strcmp($a->name, $b->name);
                             });
-                            foreach ($lastContacts as $contact) : ?>
+                            foreach ($lastContacts as $contact): ?>
                                 <tr>
                                     <td>
                                         <?php echo $contact->name; ?>
@@ -234,7 +240,7 @@
                             usort($lastInvoices, function ($a, $b) {
                                 return strcmp($a->ref, $b->ref);
                             });
-                            foreach ($lastInvoices as $invoice) : ?>
+                            foreach ($lastInvoices as $invoice): ?>
                                 <tr>
                                     <td>
                                         <?php echo $invoice->ref; ?>
@@ -262,19 +268,19 @@
                             usort($lastCompanies, function ($a, $b) {
                                 return strcmp($a->name, $b->name);
                             });
-                            foreach ($lastCompanies as $company) : ?>
+                            foreach ($lastCompanies as $company): ?>
 
-                                <tr class="table__container__info__tbody__tr">
-                                    <td>
-                                        <?php echo $company->name; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $company->tva; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $company->country; ?>
-                                    </td>
-                                </tr>
+                                                                        <tr class="table__container__info__tbody__tr">
+                                                                            <td>
+                                                                                <?php echo $company->name; ?>
+                                                                            </td>
+                                                                            <td>
+                                                                                <?php echo $company->tva; ?>
+                                                                            </td>
+                                                                            <td>
+                                                                                <?php echo $company->country; ?>
+                                                                            </td>
+                                                                        </tr>
                             <?php endforeach; ?>
                         </table>
                     </section>
@@ -292,7 +298,7 @@
                                 <option value="" disabled selected>Select a company...</option>
                                 <?php
                                 for ($i = 0; $i < count($companiesNames); $i++) {
-                                    echo "<option value='" . ($i+1) . "'>" . $companiesNames[$i] . "</option>";
+                                    echo "<option value='" . ($i + 1) . "'>" . $companiesNames[$i] . "</option>";
                                 }
                                 ?>
                             </select>
@@ -357,7 +363,7 @@
                                 <option value="" disabled selected>Select a type...</option>
                                 <?php
                                 for ($i = 0; $i < count($typesNames); $i++) {
-                                    echo "<option value='" . ($i+1) . "'>" . $typesNames[$i] . "</option>";
+                                    echo "<option value='" . ($i + 1) . "'>" . $typesNames[$i] . "</option>";
                                 }
                                 ?>
                             </select>
@@ -424,7 +430,7 @@
                                 <option value="" disabled selected>Select a company...</option>
                                 <?php
                                 for ($i = 0; $i < count($companiesNames); $i++) {
-                                    echo "<option value='" . ($i+1) . "'>" . $companiesNames[$i] . "</option>";
+                                    echo "<option value='" . ($i + 1) . "'>" . $companiesNames[$i] . "</option>";
                                 }
                                 ?>
                             </select>
