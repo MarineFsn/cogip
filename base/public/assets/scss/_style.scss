@@ -1409,8 +1409,8 @@ body {
       //   position: fixed;
       //   top: 285px;
       // }
-      @include responsive-desktop {
-        .footer_hr {
+      .footer_hr {
+        @include responsive-desktop {
           width: 285px;
           position: fixed;
           bottom: 24px;
@@ -1625,7 +1625,7 @@ body {
     .svg__container {
       @include responsive-desktop {
         z-index: 1;
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 885px;
       }
