@@ -182,8 +182,8 @@
                     <section class="contacts">
                         <h3>Last Contacts</h3>
                         <hr>
-                        <table>
-                            <tr>
+                        <table class="contacts__table">
+                            <tr class="contacts__table__header">
                                 <th>Name</th>
                                 <th>Phone</th>
                                 <th>Email</th>
@@ -193,7 +193,7 @@
                                 return strcmp($a->name, $b->name);
                             });
                             foreach ($contacts as $contact) : ?>
-                                <tr>
+                                <tr class="contacts__table__data">
                                     <td>
                                         <?php echo $contact->name; ?>
                                     </td>

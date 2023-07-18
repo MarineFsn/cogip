@@ -1471,7 +1471,6 @@ body main #myTable_paginate a:hover {
   position: fixed;
   background-color: #f5f5fb;
   width: 250px;
-  height: 350.63px;
   z-index: 1;
   left: -250px;
   padding: 10px 0;
@@ -1734,30 +1733,24 @@ body main #myTable_paginate a:hover {
 }
 .dashboard .main__dashboard {
   font-family: "Inter", sans-serif;
-  padding-top: 15px;
+  width: 360px;
   display: flex;
 }
 @media screen and (min-width: 1224px) {
   .dashboard .main__dashboard {
     width: 1044px;
+    height: 835px;
     position: absolute;
     left: 337px;
     top: 440px;
   }
 }
 .dashboard .main__dashboard .container__main {
+  width: 360px;
   display: flex;
   gap: 29px;
   flex-direction: column;
-  padding: 60px 26px;
-}
-@media screen and (min-width: 1224px) {
-  .dashboard .main__dashboard .container__main {
-    gap: initial;
-    display: grid;
-    grid-template-columns: 505px 505px;
-    grid-template-areas: "statistics invoice" "contacts companies";
-  }
+  padding: 60px 5px;
 }
 .dashboard .main__dashboard .container__main section {
   background-color: #ffffff;
@@ -1767,24 +1760,67 @@ body main #myTable_paginate a:hover {
 }
 @media screen and (min-width: 1224px) {
   .dashboard .main__dashboard .container__main section {
-    margin-right: 35px;
-    margin-bottom: 30px;
+    width: 507px;
+    height: 403px;
+    padding: initial;
   }
 }
 .dashboard .main__dashboard .container__main section h3 {
   font-weight: 700;
 }
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard .container__main section h3 {
+    font-size: 18px;
+    margin-top: 24px;
+    margin-left: 30px;
+    margin-bottom: 21px;
+  }
+}
 .dashboard .main__dashboard .container__main section hr {
   background: #e0e0e0;
+  width: 99%;
   opacity: 0.5;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard .container__main section hr {
+    width: 448px;
+  }
+}
+.dashboard .main__dashboard .container__main section table {
+  table-layout: auto;
+  width: 100%;
+  font-size: 11px;
+}
+.dashboard .main__dashboard .container__main section table tr {
+  line-height: 20px;
+}
+.dashboard .main__dashboard .container__main section table th {
+  text-align: left;
+  font-weight: 700;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard .container__main section table {
+    font-size: 15px;
+    margin-left: 30px;
+  }
+  .dashboard .main__dashboard .container__main section table tr {
+    height: 18px;
+    line-height: 35px;
+  }
+  .dashboard .main__dashboard .container__main section table td {
+    font-weight: 300;
+  }
 }
 .dashboard .main__dashboard .container__main .statistics {
   padding: 4px 24px;
 }
 @media screen and (min-width: 1224px) {
   .dashboard .main__dashboard .container__main .statistics {
-    grid-area: statistics;
-    height: 200px;
+    padding: initial;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 232px;
   }
 }
 .dashboard .main__dashboard .container__main .statistics h3 {
@@ -1794,6 +1830,14 @@ body main #myTable_paginate a:hover {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  font-weight: 900;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard .container__main .statistics .number__container {
+    margin-top: 49px;
+    margin-left: 49px;
+    width: 75%;
+  }
 }
 .dashboard .main__dashboard .container__main .statistics .number__container div {
   width: 74px;
@@ -1818,24 +1862,23 @@ body main #myTable_paginate a:hover {
 }
 @media screen and (min-width: 1224px) {
   .dashboard .main__dashboard .container__main .contacts {
-    z-index: 1;
     position: absolute;
-    width: 440px;
-    bottom: 237px;
-    min-height: 400px;
-    grid-area: contacts;
+    left: 0px;
+    bottom: 171px;
   }
 }
 @media screen and (min-width: 1224px) {
   .dashboard .main__dashboard .container__main .invoice {
-    min-height: 400px;
-    grid-area: invoice;
+    position: absolute;
+    top: 0px;
+    right: 0px;
   }
 }
 @media screen and (min-width: 1224px) {
   .dashboard .main__dashboard .container__main .companies {
-    min-height: 400px;
-    grid-area: companies;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
   }
 }
 .dashboard #new__invoices {

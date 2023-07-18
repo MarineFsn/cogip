@@ -1384,7 +1384,6 @@ body {
       position: fixed;
       background-color: #f5f5fb;
       width: 250px;
-      height: 350.63px;
       z-index: 1;
       left: -250px;
       padding: 10px 0;
@@ -1654,26 +1653,30 @@ body {
   }
   .main__dashboard {
     font-family: $font-family-title;
-    padding-top: 15px;
+    // padding-top: 15px;
+    width: 360px;
     display: flex;
     @include responsive-desktop {
       width: 1044px;
+      height: 835px;
       position: absolute;
       left: 337px;
       top: 440px;
     }
     .container__main {
+      width: 360px;
       display: flex;
       gap: 29px;
       flex-direction: column;
-      padding: 60px 26px;
+      padding: 60px 5px;
       @include responsive-desktop {
-        gap: initial;
-        display: grid;
-        grid-template-columns: 505px 505px;
-        grid-template-areas:
-          "statistics invoice"
-          "contacts companies";
+        // height: 835px;
+        // gap: initial;
+        // display: grid;
+        // grid-template-columns: 505px 505px;
+        // grid-template-areas:
+        //   "statistics invoice"
+        //   "contacts companies";
       }
       section {
         background-color: #ffffff;
@@ -1681,22 +1684,73 @@ body {
         min-height: 100px;
         padding: 10px 15px;
         @include responsive-desktop {
-          margin-right: 35px;
-          margin-bottom: 30px;
+          // position: absolute;
+          width: 507px;
+          height: 403px;
+          padding: initial;
+          // margin-right: 35px;
+          // margin-bottom: 30px;
         }
         h3 {
           font-weight: $font-weight-title-dashboard;
+          @include responsive-desktop {
+            font-size: 18px;
+            margin-top: 24px;
+            margin-left: 30px;
+            margin-bottom: 21px;
+          }
         }
         hr {
           background: #e0e0e0;
+          width: 99%;
           opacity: 0.5;
+          @include responsive-desktop {
+            width: 448px;
+          }
+        }
+        table {
+          table-layout: auto;
+          width: 100%;
+          font-size: 11px;
+          tr {
+            line-height: 20px;
+          }
+          th {
+            text-align: left;
+            font-weight: $font-weight-title-dashboard;
+          }
+          // font-family: initial;
+          // font-family: $font-family-title;
+          @include responsive-desktop {
+            // table-layout: auto;
+            // width: 100%;
+            font-size: 15px;
+            margin-left: 30px;
+            tr {
+              height: 18px;
+              line-height: 35px;
+            }
+            th {
+              // text-align: left;
+              // padding-bottom: 35px;
+            }
+            td {
+              font-weight: $font-weight-text-dashboard;
+              // padding-bottom: 35px;
+            }
+          }
         }
       }
       .statistics {
         padding: 4px 24px;
         @include responsive-desktop {
-          grid-area: statistics;
-          height: 200px;
+          padding: initial;
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          height: 232px;
+          // grid-area: statistics;
+          // height: 200px;
           // margin-right: 35px;
           // margin-bottom: 30px;
         }
@@ -1707,10 +1761,17 @@ body {
           display: flex;
           justify-content: space-between;
           width: 100%;
+          font-weight: $font-weight-title;
+          @include responsive-desktop {
+            margin-top: 49px;
+            margin-left: 49px;
+            width: 75%;
+          }
           div {
             width: 74px;
             height: 74px;
             font-size: 13px;
+
             margin-bottom: 10px;
             text-align: center;
             display: flex;
@@ -1732,26 +1793,51 @@ body {
       }
       .contacts {
         @include responsive-desktop {
-          z-index: 1;
+          // z-index: 1;
           position: absolute;
-          width: 440px;
-          bottom: 237px;
-          min-height: 400px;
-          grid-area: contacts;
+          left: 0px;
+          bottom: 171px;
+          // &__table {
+          //   // margin-left: initial;
+          //   // padding-left: 30px;
+          //   // margin-right: 20px;
+          //   // &__header {
+          //   //   // max-width: 327px;
+          //   //   text-align: left;
+          //   //   // justify-content: space-between;
+          //   //   // width: 80%;
+          //   // }
+          //   // &__data {
+          //   //   // width: 435px;
+          //   //   // td {
+          //   //   //   width: 145px;
+          //   //   // }
+          //   // }
+          // }
+          // min-height: 400px;
+          // grid-area: contacts;
           // margin-right: 35px;
         }
       }
       .invoice {
         @include responsive-desktop {
-          min-height: 400px;
-          grid-area: invoice;
+          position: absolute;
+          top: 0px;
+          right: 0px;
+          // width: 507px;
+          // height: 403px;
+          // min-height: 400px;
+          // grid-area: invoice;
           // margin-bottom: 30px;
         }
       }
       .companies {
         @include responsive-desktop {
-          min-height: 400px;
-          grid-area: companies;
+          position: absolute;
+          bottom: 0px;
+          right: 0px;
+          // min-height: 400px;
+          // grid-area: companies;
         }
       }
     }
