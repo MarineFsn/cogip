@@ -31,7 +31,7 @@
                 <img src="/cogip/base/public/assets/img/img-contact.jpg" alt="">
                 <?php
                 if ((isset($_SESSION['user']) && isset($_SESSION['isConnected'])) && $_SESSION['isConnected'] == 1) {
-                    echo "<h2>" . $_SESSION['user'][0]["first_name"] . " " . $_SESSION['user'][0]["last_name"] . "</h2>";
+                    echo "<h2>" . $_SESSION['user']["first_name"] . " " . $_SESSION['user']["last_name"] . "</h2>";
                 }
                 echo "<a href='Home'>Go to home page</a>"
                     ?>
@@ -74,7 +74,7 @@
             <div class="title__description">
                 <?php
                 if ((isset($_SESSION['user']) && isset($_SESSION['isConnected'])) && $_SESSION['isConnected'] == 1) {
-                    echo "<h1>Welcome back " . $_SESSION['user'][0]["first_name"] . "!</h1>";
+                    echo "<h1>Welcome back " . $_SESSION['user']["first_name"] . "!</h1>";
                 }
                 ?>
                 <p>You can here add an invoice, a company and some contacts</p>

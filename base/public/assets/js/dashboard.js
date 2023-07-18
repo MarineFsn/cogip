@@ -75,12 +75,16 @@ function newInvoice(event) {
     let newContact = document.getElementById("new__contact");
     if (mainElement) {
         mainElement.style.display = "none";
+        mainElement.classList.remove("animation");
         if (newinvoices) {
             newinvoices.style.display = "block";
+            newinvoices.classList.add("animation");
             if (newCompany) {
                 newCompany.style.display = "none";
+                newCompany.classList.remove("animation");
                 if (newContact) {
                     newContact.style.display = "none";
+                    newContact.classList.remove("animation");
                 }
             }
         }
@@ -106,12 +110,16 @@ function newCompany(event) {
     let newContact = document.getElementById("new__contact");
     if (mainElement) {
         mainElement.style.display = "none";
+        mainElement.classList.remove("animation");
         if (newinvoices) {
             newinvoices.style.display = "none";
+            newinvoices.classList.remove("animation");
             if (newCompany) {
                 newCompany.style.display = "block";
+                newCompany.classList.add("animation");
                 if (newContact) {
                     newContact.style.display = "none";
+                    newContact.classList.remove("animation");
                 }
             }
         }
@@ -137,12 +145,16 @@ function newContact(event) {
     let newContact = document.getElementById("new__contact");
     if (mainElement) {
         mainElement.style.display = "none";
+        mainElement.classList.remove("animation");
         if (newinvoices) {
             newinvoices.style.display = "none";
+            newinvoices.classList.remove("animation");
             if (newCompany) {
                 newCompany.style.display = "none";
+                newCompany.classList.remove("animation");
                 if (newContact) {
                     newContact.style.display = "block";
+                    newContact.classList.add("animation");
                 }
             }
         }
@@ -168,12 +180,16 @@ function showRecap(event) {
     let newContact = document.getElementById("new__contact");
     if (mainElement) {
         mainElement.style.display = "block";
+        mainElement.classList.add("animation");
         if (newinvoices) {
             newinvoices.style.display = "none";
+            newinvoices.classList.remove("animation");
             if (newCompany) {
                 newCompany.style.display = "none";
+                newCompany.classList.remove("animation");
                 if (newContact) {
                     newContact.style.display = "none";
+                    newContact.classList.remove("animation");
                 }
             }
         }

@@ -100,12 +100,16 @@ function newInvoice(event: Event): void {
 
   if (mainElement) {
     mainElement.style.display = "none";
+    mainElement.classList.remove("animation");
     if (newinvoices) {
       newinvoices.style.display = "block";
+      newinvoices.classList.add("animation");
       if (newCompany) {
         newCompany.style.display = "none";
+        newCompany.classList.remove("animation");
         if (newContact) {
           newContact.style.display = "none";
+          newContact.classList.remove("animation");
         }
       }
     }
@@ -137,12 +141,16 @@ function newCompany(event: Event): void {
 
   if (mainElement) {
     mainElement.style.display = "none";
+    mainElement.classList.remove("animation");
     if (newinvoices) {
       newinvoices.style.display = "none";
+      newinvoices.classList.remove("animation");
       if (newCompany) {
         newCompany.style.display = "block";
+        newCompany.classList.add("animation");
         if (newContact) {
           newContact.style.display = "none";
+          newContact.classList.remove("animation");
         }
       }
     }
@@ -175,12 +183,16 @@ function newContact(event: Event): void {
 
   if (mainElement) {
     mainElement.style.display = "none";
+    mainElement.classList.remove("animation");
     if (newinvoices) {
       newinvoices.style.display = "none";
+      newinvoices.classList.remove("animation");
       if (newCompany) {
         newCompany.style.display = "none";
+        newCompany.classList.remove("animation");
         if (newContact) {
           newContact.style.display = "block";
+          newContact.classList.add("animation");
         }
       }
     }
@@ -213,12 +225,16 @@ function showRecap(event: Event): void {
 
   if (mainElement) {
     mainElement.style.display = "block";
+    mainElement.classList.add("animation");
     if (newinvoices) {
       newinvoices.style.display = "none";
+      newinvoices.classList.remove("animation");
       if (newCompany) {
         newCompany.style.display = "none";
+        newCompany.classList.remove("animation");
         if (newContact) {
           newContact.style.display = "none";
+          newContact.classList.remove("animation");
         }
       }
     }
@@ -246,3 +262,34 @@ document.addEventListener("DOMContentLoaded", function () {
     linkRecap.addEventListener("click", showRecap);
   }
 });
+
+//////////////////////////////////////////////////////////
+
+function validateFormDashboardInvoice(event: Event) {
+  const reference = (
+    document.getElementsByName("reference")[0] as HTMLInputElement
+  ).value;
+  const dueDate = (
+    document.getElementsByName("due_date")[0] as HTMLInputElement
+  ).value;
+  const choices = (document.getElementsByName("choices")[0] as HTMLInputElement)
+    .value;
+
+  let valid = true;
+
+  const errorElement = document.getElementById("error");
+  if (errorElement) {
+    errorElement.textContent = "";
+  }
+
+  if (!valid) {
+    event.preventDefault();
+  }
+}
+
+const formInvoices = document.querySelector(
+  ".container__dynamic__dashboard____invoices__new__form"
+);
+if (formInvoices) {
+  formInvoices.addEventListener("submit", validateForm);
+}
