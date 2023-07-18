@@ -21,6 +21,7 @@
     <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="/cogip/base/public/assets/js/dashboard.js" defer></script>
+    <script src="/cogip/base/public/assets/js/windows_pop_up.js" defer></script>
 </head>
 
 <body class="dashboard">
@@ -31,7 +32,7 @@
                 <img src="/cogip/base/public/assets/img/img-contact.jpg" alt="">
                 <?php
                 if ((isset($_SESSION['user']) && isset($_SESSION['isConnected'])) && $_SESSION['isConnected'] == 1) {
-                    echo "<h2>" . $_SESSION['user'][0]["first_name"] . " " . $_SESSION['user'][0]["last_name"] . "</h2>";
+                    echo "<h2>" . $_SESSION['user']["first_name"] . " " . $_SESSION['user']["last_name"] . "</h2>";
                 }
                 echo "<a href='Home'>Go to home page</a>"
                     ?>
@@ -317,12 +318,12 @@
                             </thead>
                             <tbody class="container__dynamic__dashboard__modify__table__tbody">
                                 <?php foreach ($invoices as $invoice): ?>
-                                    <tr class="container__dynamic__dashboard__modify__table__tbody__tr">
+                                    <tr class="container__dynamic__dashboard__modify__table__tbody__tr dynamic__dashboard__modify__invoices" id="modify-tr-invoices-<?php echo $invoice->id; ?>">
                                         <td>
-                                            <a href=""><img src="/cogip/base/public/assets/img/edit.png" alt="Modify button"></a>
+                                            <a href=""><img src="/cogip/base/public/assets/img/edit.png" alt="Modify button" class="modify-button-invoices" id="modify-button-invoices-<?php echo $invoice->id; ?>"></a>
                                         </td>
                                         <td>
-                                            <a href=""><img src="/cogip/base/public/assets/img/delete.png" alt="Delete button"></a>
+                                            <a href="" class="disabled-link"><img src="/cogip/base/public/assets/img/delete.png" alt="Delete button"></a>
                                         </td>
                                         <td>
                                             <!-- <a href="app/Views/show_invoices.php?invoiceId=<?php //echo $invoice->id; 

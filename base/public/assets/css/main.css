@@ -1831,7 +1831,6 @@ body main #myTable_paginate a:hover {
     grid-area: companies;
   }
 }
-
 .dashboard .main__dashboard .container__dynamic {
   width: 375px;
   display: flex;
@@ -1862,6 +1861,36 @@ body main #myTable_paginate a:hover {
   font-weight: 700;
   margin-left: 30px;
   padding-top: 35px;
+}
+.dashboard .main__dashboard .container__dynamic__dashboard__pop__up {
+  display: block;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 50vh;
+  z-index: 99;
+}
+.dashboard .main__dashboard .container__dynamic__dashboard__pop__up__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: left;
+  margin: auto;
+  padding: 10px;
+  width: 400px;
+  min-height: 50px;
+  max-height: 500px;
+  gap: 20px;
+  background-color: rgb(255, 255, 255);
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  color: #000;
+  box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 0.79);
+  -webkit-box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 0.79);
+  -moz-box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 0.79);
+}
+.dashboard .main__dashboard .container__dynamic__dashboard__pop__up__form div {
+  display: flex;
 }
 .dashboard .main__dashboard .container__dynamic__dashboard__modify {
   width: 340px;
@@ -1989,4 +2018,69 @@ body main #myTable_paginate a:hover {
 }
 .dashboard #new__contact {
   display: none;
+}
+
+.error {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url("../img/error.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media screen and (min-width: 1224px) {
+  .error {
+    background-size: 100% 100%;
+  }
+}
+.error__message {
+  position: absolute;
+  z-index: 1;
+  min-height: 20vh;
+  width: 70%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 40vh 15%;
+  padding: 50px auto;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid #000;
+  border-radius: 20px;
+  font-family: "Roboto", serif;
+}
+@media screen and (min-width: 1224px) {
+  .error__message {
+    width: 40%;
+    margin: 40vh 30%;
+  }
+}
+.error__message__text {
+  font-size: 20px;
+}
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .error__message__text {
+    font-size: 30px;
+  }
+}
+.error__message__homelink a {
+  color: #000;
+  text-decoration: none;
+}
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .error__message__homelink a {
+    font-size: 25px;
+  }
+}
+.error__message__homelink a:hover {
+  color: rgba(0, 0, 0, 0.4549019608);
+  text-decoration: underline;
+}
+.error__message__homelink a:active {
+  color: #000;
+  background-color: #f9de4e;
+  text-decoration: underline;
 }/*# sourceMappingURL=main.css.map */

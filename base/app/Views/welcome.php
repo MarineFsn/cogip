@@ -6,7 +6,7 @@ include "header.php";
 <main>
     <?php 
         if((isset($_SESSION['user']) && isset($_SESSION['isConnected'])) && $_SESSION['isConnected'] == 1){
-            echo "<h1>Welcome to " .$_SESSION['user'][0]["first_name"]. "</h1>";
+            echo "<h1>Welcome to " .$_SESSION['user']["first_name"]. "</h1>";
         }
     ?>
     <section class="container__table container__table__homepage">
