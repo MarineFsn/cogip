@@ -290,6 +290,22 @@ class DashboardController
         $statement->execute();
     }
 
+    public function addContact($name, $companyId, $email, $phone)
+    {
+        $query = "INSERT INTO contacts (name, company_id, email , phone, created_at, updated_at)
+                VALUES (:name, :company_id, :email, :phone, NOW(), NOW())";
+        $statement = $this->db->prepare($query);
+
+        $statement->bindValue(':name', $name);
+        $statement->bindValue(':company_id', $companyId);
+        $statement->bindValue(':email', $email);
+        $statement->bindValue(':phone', $phone);
+
+        $statement->execute();
+
+
+    }
+
     // UPDATES
     public function updateCompany($name, $type, $country, $tva, $id)
     {
@@ -391,17 +407,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['name']) && isset($_POST['choices']) && isset($_POST['country']) && isset($_POST['tva'])) {
         $name = $_POST['name'];
-        var_dump($name);
         $typeId = $_POST['choices'];
-        var_dump($typeId);
         $country = $_POST['country'];
-        var_dump($country);
         $tva = $_POST['tva'];
-        var_dump($tva);
+
 
         $dashboardController->addCompany($name, $typeId, $country, $tva);
 
     }
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['name']) && isset($_POST['choices']) && isset($_POST['email']) && isset($_POST['phone'])) {
+        $name = $_POST['name'];
+        $companyId = $_POST['choices'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+
+
+        $dashboardController->addContact($name, $companyId, $email, $phone);
+    }
+
 }
 
 
