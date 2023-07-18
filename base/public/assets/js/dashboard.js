@@ -59,6 +59,7 @@ function newInvoice(event) {
     const errorElement = document.getElementById("error");
     if (errorElement) {
         errorElement.textContent = "";
+        errorElement.classList.remove("animation_validate");
     }
     if (invoiceButton) {
         invoiceButton.style.fontWeight = "bold";
@@ -99,6 +100,7 @@ function newCompany(event) {
     const errorElement = document.getElementById("error");
     if (errorElement) {
         errorElement.textContent = "";
+        errorElement.classList.remove("animation_validate");
     }
     if (companyButton) {
         companyButton.style.fontWeight = "bold";
@@ -138,6 +140,7 @@ function newContact(event) {
     const errorElement = document.getElementById("error");
     if (errorElement) {
         errorElement.textContent = "";
+        errorElement.classList.remove("animation_validate");
     }
     if (contactButton) {
         contactButton.style.fontWeight = "bold";
@@ -177,6 +180,7 @@ function showRecap(event) {
     const errorElement = document.getElementById("error");
     if (errorElement) {
         errorElement.textContent = "";
+        errorElement.classList.remove("animation_validate");
     }
     if (recapButton) {
         recapButton.style.fontWeight = "bold";
@@ -231,128 +235,149 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 ///////////////////////////validation invoice///////////////////////////////
 function validateFormDashboardInvoice(event) {
-    const reference = document.getElementsByName("reference")[0].value;
-    const dueDate = document.getElementsByName("due_date")[0].value;
-    const choices = document.getElementsByName("choices")[0]
-        .value;
-    let valid = true;
-    const errorElement = document.getElementById("error");
-    if (errorElement) {
-        errorElement.textContent = "";
-    }
-    if (!reference) {
+    const formInvoices = document.querySelector(".container__dynamic__dashboard____invoices__new__form");
+    if (formInvoices) {
+        const reference = formInvoices.querySelector("[name='reference']").value;
+        const dueDate = formInvoices.querySelector("[name='due_date']").value;
+        const choicesInvoice = formInvoices.querySelector("[name='choices']").value;
+        let valid = true;
+        const errorElement = document.getElementById("error");
         if (errorElement) {
-            errorElement.textContent += " *Reference is required";
+            errorElement.textContent = "";
+            errorElement.classList.remove("animation_validate");
         }
-        valid = false;
-    }
-    if (!dueDate) {
-        if (errorElement) {
-            errorElement.textContent += " *Due date is required";
+        if (!reference || reference.length < 2) {
+            if (errorElement) {
+                errorElement.textContent +=
+                    " *Reference is required & must be at least 2 characters";
+                errorElement.classList.add("animation_validate");
+            }
+            valid = false;
         }
-        valid = false;
-    }
-    if (!choices) {
-        if (errorElement) {
-            errorElement.textContent += " *Company name is required";
+        if (!dueDate) {
+            if (errorElement) {
+                errorElement.textContent += " *Due date is required";
+                errorElement.classList.add("animation_validate");
+            }
+            valid = false;
         }
-        valid = false;
-    }
-    if (!valid) {
-        event.preventDefault();
+        if (!choicesInvoice) {
+            if (errorElement) {
+                errorElement.textContent += " *Company name is required";
+                errorElement.classList.add("animation_validate");
+            }
+            valid = false;
+        }
+        if (!valid) {
+            event.preventDefault();
+        }
     }
 }
 /////////////////////////////validation company////////////////////
 function validateFormDashboardCompany(event) {
-    const name = document.getElementsByName("name")[0]
-        .value;
-    const tva = document.getElementsByName("tva")[0].value;
-    const country = document.getElementsByName("country")[0]
-        .value;
-    const choices = document.getElementsByName("choices")[0]
-        .value;
-    let valid = true;
-    const errorElement = document.getElementById("error");
-    if (errorElement) {
-        errorElement.textContent = "";
-    }
-    if (!name) {
+    const formCompany = document.querySelector(".container__dynamic__dashboard__company__new__form");
+    if (formCompany) {
+        const nameCompany = formCompany.querySelector("[name='name']").value;
+        const tva = formCompany.querySelector("[name='tva']")
+            .value;
+        const country = formCompany.querySelector("[name='country']").value;
+        const choicesCompany = formCompany.querySelector("[name='choices']").value;
+        let valid = true;
+        const errorElement = document.getElementById("error");
         if (errorElement) {
-            errorElement.textContent += " *Name is required";
+            errorElement.textContent = "";
+            errorElement.classList.remove("animation_validate");
         }
-        valid = false;
-    }
-    if (!country) {
-        if (errorElement) {
-            errorElement.textContent += " *Country is required";
+        if (!nameCompany || nameCompany.length < 2) {
+            if (errorElement) {
+                errorElement.textContent +=
+                    " *Name is required & must be at least 2 characters";
+                errorElement.classList.add("animation_validate");
+            }
+            valid = false;
         }
-        valid = false;
-    }
-    if (!choices) {
-        if (errorElement) {
-            errorElement.textContent += " *Type is required";
+        if (!country || country.length < 2) {
+            if (errorElement) {
+                errorElement.textContent +=
+                    " *Country is required & must be at least 2 characters";
+                errorElement.classList.add("animation_validate");
+            }
+            valid = false;
         }
-        valid = false;
-    }
-    if (!tva) {
-        if (errorElement) {
-            errorElement.textContent += " *TVA is required";
+        if (!choicesCompany) {
+            if (errorElement) {
+                errorElement.textContent += " *Type is required ";
+                errorElement.classList.add("animation_validate");
+            }
+            valid = false;
         }
-        valid = false;
-    }
-    if (!valid) {
-        event.preventDefault();
+        if (!tva || tva.length < 2) {
+            if (errorElement) {
+                errorElement.textContent +=
+                    " *TVA is required & must be at least 2 characters";
+                errorElement.classList.add("animation_validate");
+            }
+            valid = false;
+        }
+        if (!valid) {
+            event.preventDefault();
+        }
     }
 }
 //////////////////////////////validation contact///////////////////////////////
 function validateFormDashboardContact(event) {
-    const name = document.getElementsByName("name")[0]
-        .value;
-    const mail = document.getElementsByName("email")[0]
-        .value;
-    const phone = document.getElementsByName("phone")[0]
-        .value;
-    const choices = document.getElementsByName("choices")[0]
-        .value;
-    let valid = true;
-    const errorElement = document.getElementById("error");
-    if (errorElement) {
-        errorElement.textContent = "";
-    }
-    if (!name) {
+    const formContact = document.querySelector(".container__dynamic__dashboard__contact__new__form");
+    if (formContact) {
+        const nameContact = formContact.querySelector("[name='name']").value;
+        const mail = formContact.querySelector("[name='email']").value;
+        const phone = formContact.querySelector("[name='phone']").value;
+        const choicesContact = formContact.querySelector("[name='choices']").value;
+        let valid = true;
+        const errorElement = document.getElementById("error");
         if (errorElement) {
-            errorElement.textContent += " *Name is required";
+            errorElement.textContent = "";
+            errorElement.classList.remove("animation_validate");
         }
-        valid = false;
-    }
-    if (!validateEmailContact(mail)) {
-        if (errorElement) {
-            errorElement.textContent += " *Valid email address is required";
+        if (!nameContact || nameContact.length < 2) {
+            if (errorElement) {
+                errorElement.classList.add("animation_validate");
+                errorElement.textContent +=
+                    " *Name is required & must be at least 2 characters";
+            }
+            valid = false;
         }
-        valid = false;
-    }
-    if (!choices) {
-        if (errorElement) {
-            errorElement.textContent += " *Company name is required";
+        if (!validateEmailContact(mail)) {
+            if (errorElement) {
+                errorElement.classList.add("animation_validate");
+                errorElement.textContent += " *Valid email address is required";
+            }
+            valid = false;
         }
-        valid = false;
-    }
-    if (!validateEmailContact(phone)) {
-        if (errorElement) {
-            errorElement.textContent += " *Valid phone is required";
+        if (!choicesContact) {
+            if (errorElement) {
+                errorElement.textContent += " *Company name is required";
+                errorElement.classList.add("animation_validate");
+            }
+            valid = false;
         }
-        valid = false;
-    }
-    if (!valid) {
-        event.preventDefault();
-    }
-    function validateEmailContact(mail) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(mail);
-    }
-    function validatePhoneNumber(phone) {
-        const rePhone = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
-        return rePhone.test(phone);
+        if (!validatePhoneNumber(phone)) {
+            if (errorElement) {
+                errorElement.classList.add("animation_validate");
+                errorElement.textContent += " *Valid phone is required";
+            }
+            valid = false;
+        }
+        if (!valid) {
+            event.preventDefault();
+        }
+        function validateEmailContact(mail) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(mail);
+        }
+        function validatePhoneNumber(phone) {
+            const rePhone = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+            return rePhone.test(phone);
+        }
     }
 }
 ///////////////////////////////////////////////

@@ -2211,10 +2211,10 @@ body main #myTable_paginate a:hover {
 }
 
 .animation {
-  animation: myAnim 1s ease 0s 1 normal forwards;
+  animation: animDashboard 1s ease 0s 1 normal forwards;
 }
 
-@keyframes myAnim {
+@keyframes animDashboard {
   0% {
     opacity: 0;
     transform: translateY(250px);
@@ -2222,6 +2222,20 @@ body main #myTable_paginate a:hover {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+.animation_validate {
+  animation: animValidate 1s ease 0s 1 normal forwards;
+}
+
+@keyframes animValidate {
+  0% {
+    opacity: 0;
+    transform: translateX(250px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 .error {

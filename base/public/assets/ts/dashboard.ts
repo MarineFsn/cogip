@@ -78,6 +78,7 @@ function newInvoice(event: Event): void {
   const errorElement = document.getElementById("error");
   if (errorElement) {
     errorElement.textContent = "";
+    errorElement.classList.remove("animation_validate");
   }
 
   if (invoiceButton) {
@@ -125,6 +126,7 @@ function newCompany(event: Event): void {
   const errorElement = document.getElementById("error");
   if (errorElement) {
     errorElement.textContent = "";
+    errorElement.classList.remove("animation_validate");
   }
 
   if (companyButton) {
@@ -170,6 +172,7 @@ function newContact(event: Event): void {
   const errorElement = document.getElementById("error");
   if (errorElement) {
     errorElement.textContent = "";
+    errorElement.classList.remove("animation_validate");
   }
 
   if (contactButton) {
@@ -217,6 +220,7 @@ function showRecap(event: Event): void {
   const errorElement = document.getElementById("error");
   if (errorElement) {
     errorElement.textContent = "";
+    errorElement.classList.remove("animation_validate");
   }
 
   if (recapButton) {
@@ -283,147 +287,190 @@ document.addEventListener("DOMContentLoaded", function () {
 ///////////////////////////validation invoice///////////////////////////////
 
 function validateFormDashboardInvoice(event: Event) {
-  const reference = (
-    document.getElementsByName("reference")[0] as HTMLInputElement
-  ).value;
-  const dueDate = (
-    document.getElementsByName("due_date")[0] as HTMLInputElement
-  ).value;
-  const choices = (document.getElementsByName("choices")[0] as HTMLInputElement)
-    .value;
+  const formInvoices = document.querySelector(
+    ".container__dynamic__dashboard____invoices__new__form"
+  );
+  if (formInvoices) {
+    const reference = (
+      formInvoices.querySelector("[name='reference']") as HTMLInputElement
+    ).value;
+    const dueDate = (
+      formInvoices.querySelector("[name='due_date']") as HTMLInputElement
+    ).value;
+    const choicesInvoice = (
+      formInvoices.querySelector("[name='choices']") as HTMLInputElement
+    ).value;
 
-  let valid = true;
+    let valid = true;
 
-  const errorElement = document.getElementById("error");
-  if (errorElement) {
-    errorElement.textContent = "";
-  }
-  if (!reference) {
+    const errorElement = document.getElementById("error");
     if (errorElement) {
-      errorElement.textContent += " *Reference is required";
+      errorElement.textContent = "";
+      errorElement.classList.remove("animation_validate");
     }
-    valid = false;
-  }
-  if (!dueDate) {
-    if (errorElement) {
-      errorElement.textContent += " *Due date is required";
+    if (!reference || reference.length < 2) {
+      if (errorElement) {
+        errorElement.textContent +=
+          " *Reference is required & must be at least 2 characters";
+        errorElement.classList.add("animation_validate");
+      }
+      valid = false;
     }
-    valid = false;
-  }
-  if (!choices) {
-    if (errorElement) {
-      errorElement.textContent += " *Company name is required";
+    if (!dueDate) {
+      if (errorElement) {
+        errorElement.textContent += " *Due date is required";
+        errorElement.classList.add("animation_validate");
+      }
+      valid = false;
     }
-    valid = false;
-  }
+    if (!choicesInvoice) {
+      if (errorElement) {
+        errorElement.textContent += " *Company name is required";
+        errorElement.classList.add("animation_validate");
+      }
+      valid = false;
+    }
 
-  if (!valid) {
-    event.preventDefault();
+    if (!valid) {
+      event.preventDefault();
+    }
   }
 }
 
 /////////////////////////////validation company////////////////////
 
 function validateFormDashboardCompany(event: Event) {
-  const name = (document.getElementsByName("name")[0] as HTMLInputElement)
-    .value;
-  const tva = (document.getElementsByName("tva")[0] as HTMLInputElement).value;
-  const country = (document.getElementsByName("country")[0] as HTMLInputElement)
-    .value;
-  const choices = (document.getElementsByName("choices")[0] as HTMLInputElement)
-    .value;
+  const formCompany = document.querySelector(
+    ".container__dynamic__dashboard__company__new__form"
+  );
+  if (formCompany) {
+    const nameCompany = (
+      formCompany.querySelector("[name='name']") as HTMLInputElement
+    ).value;
+    const tva = (formCompany.querySelector("[name='tva']") as HTMLInputElement)
+      .value;
+    const country = (
+      formCompany.querySelector("[name='country']") as HTMLInputElement
+    ).value;
+    const choicesCompany = (
+      formCompany.querySelector("[name='choices']") as HTMLInputElement
+    ).value;
 
-  let valid = true;
+    let valid = true;
 
-  const errorElement = document.getElementById("error");
-  if (errorElement) {
-    errorElement.textContent = "";
-  }
-  if (!name) {
+    const errorElement = document.getElementById("error");
     if (errorElement) {
-      errorElement.textContent += " *Name is required";
+      errorElement.textContent = "";
+      errorElement.classList.remove("animation_validate");
     }
-    valid = false;
-  }
-  if (!country) {
-    if (errorElement) {
-      errorElement.textContent += " *Country is required";
+    if (!nameCompany || nameCompany.length < 2) {
+      if (errorElement) {
+        errorElement.textContent +=
+          " *Name is required & must be at least 2 characters";
+        errorElement.classList.add("animation_validate");
+      }
+      valid = false;
     }
-    valid = false;
-  }
-  if (!choices) {
-    if (errorElement) {
-      errorElement.textContent += " *Type is required";
+    if (!country || country.length < 2) {
+      if (errorElement) {
+        errorElement.textContent +=
+          " *Country is required & must be at least 2 characters";
+        errorElement.classList.add("animation_validate");
+      }
+      valid = false;
     }
-    valid = false;
-  }
-  if (!tva) {
-    if (errorElement) {
-      errorElement.textContent += " *TVA is required";
+    if (!choicesCompany) {
+      if (errorElement) {
+        errorElement.textContent += " *Type is required ";
+        errorElement.classList.add("animation_validate");
+      }
+      valid = false;
     }
-    valid = false;
-  }
+    if (!tva || tva.length < 2) {
+      if (errorElement) {
+        errorElement.textContent +=
+          " *TVA is required & must be at least 2 characters";
+        errorElement.classList.add("animation_validate");
+      }
+      valid = false;
+    }
 
-  if (!valid) {
-    event.preventDefault();
+    if (!valid) {
+      event.preventDefault();
+    }
   }
 }
-
 //////////////////////////////validation contact///////////////////////////////
 
 function validateFormDashboardContact(event: Event) {
-  const name = (document.getElementsByName("name")[0] as HTMLInputElement)
-    .value;
-  const mail = (document.getElementsByName("email")[0] as HTMLInputElement)
-    .value;
-  const phone = (document.getElementsByName("phone")[0] as HTMLInputElement)
-    .value;
-  const choices = (document.getElementsByName("choices")[0] as HTMLInputElement)
-    .value;
+  const formContact = document.querySelector(
+    ".container__dynamic__dashboard__contact__new__form"
+  );
+  if (formContact) {
+    const nameContact = (
+      formContact.querySelector("[name='name']") as HTMLInputElement
+    ).value;
+    const mail = (
+      formContact.querySelector("[name='email']") as HTMLInputElement
+    ).value;
+    const phone = (
+      formContact.querySelector("[name='phone']") as HTMLInputElement
+    ).value;
+    const choicesContact = (
+      formContact.querySelector("[name='choices']") as HTMLInputElement
+    ).value;
 
-  let valid = true;
+    let valid = true;
 
-  const errorElement = document.getElementById("error");
-  if (errorElement) {
-    errorElement.textContent = "";
-  }
-  if (!name) {
+    const errorElement = document.getElementById("error");
+
     if (errorElement) {
-      errorElement.textContent += " *Name is required";
+      errorElement.textContent = "";
+      errorElement.classList.remove("animation_validate");
     }
-    valid = false;
-  }
-  if (!validateEmailContact(mail)) {
-    if (errorElement) {
-      errorElement.textContent += " *Valid email address is required";
+    if (!nameContact || nameContact.length < 2) {
+      if (errorElement) {
+        errorElement.classList.add("animation_validate");
+        errorElement.textContent +=
+          " *Name is required & must be at least 2 characters";
+      }
+      valid = false;
     }
-    valid = false;
-  }
-  if (!choices) {
-    if (errorElement) {
-      errorElement.textContent += " *Company name is required";
+    if (!validateEmailContact(mail)) {
+      if (errorElement) {
+        errorElement.classList.add("animation_validate");
+        errorElement.textContent += " *Valid email address is required";
+      }
+      valid = false;
     }
-    valid = false;
-  }
-  if (!validateEmailContact(phone)) {
-    if (errorElement) {
-      errorElement.textContent += " *Valid phone is required";
+    if (!choicesContact) {
+      if (errorElement) {
+        errorElement.textContent += " *Company name is required";
+        errorElement.classList.add("animation_validate");
+      }
+      valid = false;
     }
-    valid = false;
-  }
+    if (!validatePhoneNumber(phone)) {
+      if (errorElement) {
+        errorElement.classList.add("animation_validate");
+        errorElement.textContent += " *Valid phone is required";
+      }
+      valid = false;
+    }
 
-  if (!valid) {
-    event.preventDefault();
-  }
+    if (!valid) {
+      event.preventDefault();
+    }
 
-  function validateEmailContact(mail: string) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(mail);
-  }
+    function validateEmailContact(mail: string) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(mail);
+    }
 
-  function validatePhoneNumber(phone: string) {
-    const rePhone = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
-    return rePhone.test(phone);
+    function validatePhoneNumber(phone: string) {
+      const rePhone = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+      return rePhone.test(phone);
+    }
   }
 }
 
