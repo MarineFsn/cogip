@@ -14,15 +14,15 @@ function modify_invoices(allInvoices:any,allInvoicesButton:any) {
             </div>
             <div>
                 <label for="due-dates">Due dates : </label>
-                <input name="due-dates" type="date" name="" id="">
+                <input name="due-dates" type="date" id="">
             </div>
             <div>
                 <label for="company">Company : </label>
-                <input name="company" type="text" name="" id="" placeholder="company">
+                <input name="company" type="text" id="">
             </div>
             <div>
-                <label for="created-date">Created at : </label>
-                <input name="created-date" type="date" name="" id="">
+                <label for="created-at">Created at : </label>
+                <input name="created-at" type="date" id="">
             </div>
             <input type="submit" value="Submit" id="button_submit_invoices_pop_up">
             <input type="submit" value="Cancel" id="button_cancel_invoices_pop_up">
@@ -55,7 +55,22 @@ function modify_invoices(allInvoices:any,allInvoicesButton:any) {
             // console.log(dueDates);
             // console.log(company);
             // console.log(created_at);
-            const inputInvoiceNumber = document.querySelector(`input[name="invoice-number"]`)
+
+            const inputInvoiceNumber = document.querySelector(`input[name="invoice-number"]`) as HTMLInputElement;
+            inputInvoiceNumber.setAttribute("value", `${invoiceNumber?.trim()}`);
+            
+            
+            const inputDueDates = document.querySelector(`input[name="due-dates"]`) as HTMLInputElement;
+            const formattedInputDueDates = String (dueDates?.split('/').reverse().join('-').replace(/\s/g, ''));
+            inputDueDates.setAttribute("value", `${formattedInputDueDates}`);
+            
+            const inputCompany = document.querySelector(`input[name="company"]`) as HTMLInputElement;
+            inputCompany.setAttribute("value", `${company?.trim()}`);
+            
+            const inputCreatedDates = document.querySelector(`input[name="created-at"]`) as HTMLInputElement;
+            const formattedInputCreatedDates = String (created_at?.split('/').reverse().join('-').replace(/\s/g, ''));
+            inputCreatedDates.setAttribute("value", `${formattedInputCreatedDates}`);
+            
             // placeholder="invoice-number"
 
 
@@ -69,12 +84,23 @@ function modify_invoices(allInvoices:any,allInvoicesButton:any) {
         
         const buttonSubmitInvoicesPopUp = document.getElementById("button_submit_invoices_pop_up");
         buttonSubmitInvoicesPopUp?.addEventListener("click", (event : Event)=>{
-            // alert("Infos pas encore envoyées, presque !");
             event.preventDefault();
+            
             // EXPORTER LES DONNEES !
             invoicesPopUp.style.display = "none";
         });
     })
+
+    }
+    function modifySQL() {
+        
+        class Invoices extends Model {}
+        Invoices.init({ 
+            invoice_number : DataTypes.STRING,
+            due-dates: DataTypes.STRING,
+            company: DataTypes.STRING,
+            created_at: DataTypes.STRING,
+        }, { sequelize, modelName: 'invoices' });
 
     }
     modify_invoices(allInvoices ,allInvoicesButton);

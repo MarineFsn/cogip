@@ -323,7 +323,7 @@
                                             <a href=""><img src="/cogip/base/public/assets/img/edit.png" alt="Modify button" class="modify-button-invoices" id="modify-button-invoices-<?php echo $invoice->id; ?>"></a>
                                         </td>
                                         <td>
-                                            <a href="" class="disabled-link"><img src="/cogip/base/public/assets/img/delete.png" alt="Delete button"></a>
+                                            <a href=""><img src="/cogip/base/public/assets/img/delete.png" alt="Delete button" id="delete-button-invoices-<?php echo $invoice->id; ?>"></a>
                                         </td>
                                         <td>
                                             <!-- <a href="app/Views/show_invoices.php?invoiceId=<?php //echo $invoice->id; 
