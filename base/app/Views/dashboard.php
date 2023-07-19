@@ -42,14 +42,14 @@ require_once APP . 'Core/ValidationDashboard.php';
                 echo "<a href='Home'>Go to home page</a>"
                     ?>
             </div>
-            <hr>
+            <hr class="user__hr">
             <ul class="page__list">
                 <li><img src="/cogip/base/public/assets/img/Icon_dashboard.png" alt=""><a href="" class="page__list__btn__dashboard">Dashboard</a></li>
                 <li><img src="/cogip/base/public/assets/img/Icon_invoices.png" alt=""><a href="" class="page__list__btn__invoices">Invoices</a></li>
                 <li><img src="/cogip/base/public/assets/img/Icon_compagnies.png" alt=""><a href="" class="page__list__btn__companies">Companies</a></li>
                 <li><img src="/cogip/base/public/assets/img/Icon_contact.png" alt=""><a href="" class="page__list__btn__contact">Contacts</a></li>
             </ul>
-            <hr>
+            <hr class="footer_hr">
             <div class="user__footer">
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <rect x="-3.4043" y="-9.87207" width="59.5745" height="89.8723" fill="url(#pattern0)" />
@@ -202,8 +202,8 @@ require_once APP . 'Core/ValidationDashboard.php';
                     <section class="contacts">
                         <h3>Last Contacts</h3>
                         <hr>
-                        <table>
-                            <tr>
+                        <table class="contacts__table">
+                            <tr class="contacts__table__header">
                                 <th>Name</th>
                                 <th>Phone</th>
                                 <th>Email</th>
@@ -212,7 +212,7 @@ require_once APP . 'Core/ValidationDashboard.php';
                             usort($lastContacts, function ($a, $b) {
                                 return strcmp($a->name, $b->name);
                             });
-                            foreach ($lastContacts as $contact): ?>
+                            foreach ($contacts as $contact) : ?>
                                 <tr>
                                     <td>
                                         <?php echo $contact->name; ?>

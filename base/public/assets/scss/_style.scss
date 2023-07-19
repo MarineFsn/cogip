@@ -1450,10 +1450,9 @@ body {
       align-items: center;
       flex-direction: column;
       justify-content: center;
-      position: absolute;
+      position: fixed;
       background-color: #f5f5fb;
       width: 250px;
-
       z-index: 1;
       left: -250px;
       padding: 10px 0;
@@ -1479,9 +1478,11 @@ body {
       //   top: 285px;
       // }
       .footer_hr {
-        width: 285px;
-        position: fixed;
-        bottom: 24px;
+        @include responsive-desktop {
+          width: 285px;
+          position: fixed;
+          bottom: 24px;
+        }
       }
       // padding-top: 60px;
       // transition: left 5 ease;
@@ -1491,7 +1492,6 @@ body {
         flex-direction: column;
         @include responsive-desktop {
           justify-content: center;
-
           top: 32px;
           height: 280px;
         }
@@ -1499,8 +1499,7 @@ body {
           width: 60px;
           height: 60px;
           border-radius: 50%;
-
-          margin-bottom: 20px;
+          margin-bottom: 10px;
         }
         h2 {
           text-align: center;
@@ -1510,6 +1509,14 @@ body {
           @include responsive-desktop {
             // text-align: justify;
             width: 80px;
+          }
+        }
+        a {
+          text-decoration: none;
+          font-weight: $font-weight-footer;
+          color: #5a6a97;
+          &:hover {
+            color: #00b7ff;
           }
         }
       }
@@ -1605,6 +1612,11 @@ body {
     p {
       font-weight: $font-weight-text-dashboard;
     }
+    @include responsive-tablet {
+      // display: flex;
+      // align-items: center;
+      // flex-direction: column;
+    }
     // position: relative;
     @include responsive-desktop {
       width: 1044px;
@@ -1652,6 +1664,19 @@ body {
       min-height: 80px;
       border-radius: 10px;
       background: #9698d6;
+      @include responsive-tablet {
+        width: 780px;
+        height: 160px;
+        position: absolute;
+        top: 150px;
+        text-align: initial;
+        // margin-left: auto;
+        // margin-right: auto;
+        // display: flex;
+        // align-items: center;
+        // flex-direction: column;
+        // justify-content: center;
+      }
       @include responsive-desktop {
         text-align: initial;
         margin-left: initial;
@@ -1665,6 +1690,16 @@ body {
         font-weight: $font-weight-title-dashboard;
         padding-top: 7px;
         color: #fff;
+        @include responsive-tablet {
+          padding-left: 15px;
+          padding-top: 25px;
+          font-size: 30px;
+          padding-bottom: 15px;
+
+          // display: flex;
+          // justify-content: center;
+          // flex-direction: column;
+        }
         @include responsive-desktop {
           font-size: 35px;
           font-style: normal;
@@ -1679,6 +1714,11 @@ body {
         font-weight: $font-weight-text-dashboard;
         padding-top: 4px;
         color: #fff;
+        @include responsive-tablet {
+          padding-left: 15px;
+          width: 350px;
+          text-align: justify;
+        }
         @include responsive-desktop {
           font-size: 15px;
           font-style: normal;
@@ -1690,6 +1730,12 @@ body {
       }
     }
     .svg__container {
+      @include responsive-tablet {
+        z-index: 1;
+        position: absolute;
+        top: 0px;
+        left: 425px;
+      }
       @include responsive-desktop {
         z-index: 1;
         position: absolute;
@@ -1701,7 +1747,11 @@ body {
         // object-position: left top;
         width: 260px;
         height: auto;
-
+        @include responsive-tablet {
+          display: flex;
+          width: 360px;
+          height: auto;
+        }
         @include responsive-desktop {
           display: flex;
           width: initial;
@@ -1721,49 +1771,145 @@ body {
   }
   .main__dashboard {
     font-family: $font-family-title;
-    padding-top: 15px;
+    // padding-top: 15px;
+    width: 100%;
     display: flex;
+
+    @include responsive-tablet {
+      margin-top: 350px;
+      margin-left: 5px;
+      width: 810px;
+      height: 600px;
+      position: absolute;
+    }
     @include responsive-desktop {
       width: 1044px;
+      height: 835px;
       position: absolute;
       left: 337px;
       top: 440px;
     }
     .container__main {
+      width: 100%;
       display: flex;
       gap: 29px;
       flex-direction: column;
-      padding: 60px 26px;
+      padding: 60px 0px;
       @include responsive-desktop {
-        gap: initial;
-        display: grid;
-        grid-template-columns: 505px 505px;
-        grid-template-areas:
-          "statistics invoice"
-          "contacts companies";
+        // height: 835px;
+        // gap: initial;
+        // display: grid;
+        // grid-template-columns: 505px 505px;
+        // grid-template-areas:
+        //   "statistics invoice"
+        //   "contacts companies";
       }
       section {
         background-color: #ffffff;
         border-radius: 10px;
         min-height: 100px;
         padding: 10px 15px;
+        @include responsive-tablet {
+          padding: initial;
+          // position: absolute;
+          // left: 50px;
+          width: 380px;
+        }
         @include responsive-desktop {
-          margin-right: 35px;
-          margin-bottom: 30px;
+          // position: absolute;
+          width: 507px;
+          height: 403px;
+          padding: initial;
+          // margin-right: 35px;
+          // margin-bottom: 30px;
         }
         h3 {
           font-weight: $font-weight-title-dashboard;
+          @include responsive-tablet {
+            margin-top: 12px;
+            margin-left: 10px;
+            margin-bottom: 12;
+          }
+          @include responsive-desktop {
+            font-size: 18px;
+            margin-top: 24px;
+            margin-left: 30px;
+            margin-bottom: 21px;
+          }
         }
         hr {
           background: #e0e0e0;
+          width: 99%;
           opacity: 0.5;
+          @include responsive-tablet {
+            width: 95%;
+          }
+          @include responsive-desktop {
+            width: 448px;
+          }
+        }
+        table {
+          table-layout: auto;
+          width: 100%;
+          font-size: 11px;
+          tr {
+            line-height: 20px;
+          }
+          th {
+            text-align: left;
+            font-weight: $font-weight-title-dashboard;
+            // @include responsive-tablet {
+            //   text-align: center;
+            // }
+          }
+          // td {
+          //   // @include responsive-tablet {
+          //   //   text-align: center;
+          //   // }
+          // }
+          // font-family: initial;
+          // font-family: $font-family-title;
+          @include responsive-tablet {
+            margin-left: 10px;
+          }
+          @include responsive-desktop {
+            // table-layout: auto;
+            // width: 100%;
+            font-size: 15px;
+            margin-left: 30px;
+            tr {
+              height: 18px;
+              line-height: 35px;
+            }
+            th {
+              // text-align: left;
+              // padding-bottom: 35px;
+            }
+            td {
+              font-weight: $font-weight-text-dashboard;
+              // padding-bottom: 35px;
+            }
+          }
         }
       }
       .statistics {
         padding: 4px 24px;
+        @include responsive-tablet {
+          // width: 400px;
+          // height: 170px;
+          padding: initial;
+          position: absolute;
+          top: 0px;
+          left: 10px;
+        }
         @include responsive-desktop {
-          grid-area: statistics;
-          height: 200px;
+          padding: initial;
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          height: 232px;
+          // grid-area: statistics;
+          // height: 200px;
           // margin-right: 35px;
           // margin-bottom: 30px;
         }
@@ -1777,10 +1923,24 @@ body {
           display: flex;
           justify-content: space-between;
           width: 100%;
+          font-weight: $font-weight-title;
+          @include responsive-tablet {
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 5px;
+            width: 75%;
+          }
+          @include responsive-desktop {
+            margin-top: 49px;
+            margin-left: 49px;
+            width: 75%;
+          }
           div {
             width: 74px;
             height: 74px;
             font-size: 13px;
+
             margin-bottom: 10px;
             text-align: center;
             display: flex;
@@ -1801,27 +1961,67 @@ body {
         }
       }
       .contacts {
-        @include responsive-desktop {
-          z-index: 1;
+        @include responsive-tablet {
           position: absolute;
-          width: 440px;
-          bottom: 237px;
-          min-height: 400px;
-          grid-area: contacts;
+          left: 10px;
+          top: 175px;
+        }
+        @include responsive-desktop {
+          // z-index: 1;
+          position: absolute;
+          left: 0px;
+          bottom: 171px;
+          // &__table {
+          //   // margin-left: initial;
+          //   // padding-left: 30px;
+          //   // margin-right: 20px;
+          //   // &__header {
+          //   //   // max-width: 327px;
+          //   //   text-align: left;
+          //   //   // justify-content: space-between;
+          //   //   // width: 80%;
+          //   // }
+          //   // &__data {
+          //   //   // width: 435px;
+          //   //   // td {
+          //   //   //   width: 145px;
+          //   //   // }
+          //   // }
+          // }
+          // min-height: 400px;
+          // grid-area: contacts;
           // margin-right: 35px;
         }
       }
       .invoice {
+        @include responsive-tablet {
+          position: absolute;
+          top: 0px;
+          right: 10px;
+        }
         @include responsive-desktop {
-          min-height: 400px;
-          grid-area: invoice;
+          position: absolute;
+          top: 0px;
+          right: 0px;
+          // width: 507px;
+          // height: 403px;
+          // min-height: 400px;
+          // grid-area: invoice;
           // margin-bottom: 30px;
         }
       }
       .companies {
+        @include responsive-tablet {
+          position: absolute;
+          top: 200px;
+          right: 10px;
+        }
         @include responsive-desktop {
-          min-height: 400px;
-          grid-area: companies;
+          position: absolute;
+          bottom: 0px;
+          right: 0px;
+          // min-height: 400px;
+          // grid-area: companies;
         }
       }
     }
