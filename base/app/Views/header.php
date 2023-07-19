@@ -20,12 +20,21 @@
     </style>
     <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="/cogip/base/public/assets/js/menu_burger_header.js" defer></script>
 </head>
 
 <body>
     <header class="public__header">
         <nav>
+            <button class="nav__icone" id="openBtn"><img class="nav__icone__open" src="/cogip/base/public/assets/img/sidebar_open.png" alt="icone menu burger"></button>
             <h1>COGIP</h1>
+            <ul class="nav__burger" id="sideNav">
+                <img class="nav__burger__close" id="closeBtn" src="/cogip/base/public/assets/img/sidebar_close.png" alt="icone menu burger">
+                <li><a href="Home">Home</a></li>
+                <li><a href="invoice">Invoices</a></li>
+                <li><a href="company">Companies</a></li>
+                <li><a href="contact">Contacts</a></li>
+            </ul>
             <ul class="nav__bar">
                 <li><a href="Home">Home</a></li>
                 <li><a href="invoice">Invoices</a></li>
@@ -38,7 +47,7 @@
                     echo "<li><a href='login'>Login</a></li>";
                 } else {
                     echo "<li><a href='logout'>Logout</a></li>";
-                    echo "<li><a href='dashboard'>dashboard</a></li>";
+                    echo "<li><a href='dashboard'>Dashboard</a></li>";
                 }
                 ?>
             </ul>

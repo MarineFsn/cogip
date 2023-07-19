@@ -32,12 +32,12 @@ require_once APP . 'Core/ValidationDashboard.php';
 <body class="dashboard">
     <div class="nav__container">
         <nav id="sideNav" class="side__navbar">
-            <button id="closeBtn" class="close"><img src="/cogip/base/public/assets/img/sidebar_close.png" alt=""></button>
+            <button id="closeBtn" class="close"><img src="/cogip/base/public/assets/img/sidebar_close.png" alt="button close"></button>
             <div class="user__profile">
-                <img src="/cogip/base/public/assets/img/img-contact.jpg" alt="">
+                <img src="/cogip/base/public/assets/img/img-contact.jpg" alt="user photo">
                 <?php
                 if ((isset($_SESSION['user']) && isset($_SESSION['isConnected'])) && $_SESSION['isConnected'] == 1) {
-                    echo "<h2>" . $_SESSION['user'][0]["first_name"] . " " . $_SESSION['user'][0]["last_name"] . "</h2>";
+                    echo "<h2>" . $_SESSION['user']["first_name"] . " " . $_SESSION['user']["last_name"] . "</h2>";
                 }
                 echo "<a href='Home'>Go to home page</a>"
                     ?>
@@ -80,7 +80,7 @@ require_once APP . 'Core/ValidationDashboard.php';
             <div class="title__description">
                 <?php
                 if ((isset($_SESSION['user']) && isset($_SESSION['isConnected'])) && $_SESSION['isConnected'] == 1) {
-                    echo "<h1>Welcome back " . $_SESSION['user'][0]["first_name"] . "!</h1>";
+                    echo "<h1>Welcome back " . $_SESSION['user']["first_name"] . "!</h1>";
                 }
                 ?>
                 <p>You can here add an invoice, a company and some contacts</p>
@@ -287,15 +287,16 @@ require_once APP . 'Core/ValidationDashboard.php';
                 </article>
             </div>
             <article class="container__dynamic">
+                <span id="error"></span>
                 <section class="container__dynamic__dashboard__invoices" id="new__invoices">
                     <div class="container__dynamic__dashboard__invoices__new">
                         <h4>New invoice</h4>
                         <hr>
                         <form class="container__dynamic__dashboard____invoices__new__form" method="POST">
-                            <input type="text" placeholder="Reference..." name="reference">
-                            <input type="date" placeholder="Due date..." name="due_date">
+                            <input type="text" placeholder=" Reference..." name="reference">
+                            <input type="date" placeholder=" Due date..." name="due_date">
                             <select name="choices">
-                                <option value="" disabled selected>Select a company...</option>
+                                <option value="" disabled selected> Select a company...</option>
                                 <?php
                                 for ($i = 0; $i < count($companiesNames); $i++) {
                                     echo "<option value='" . ($i + 1) . "'>" . $companiesNames[$i] . "</option>";
@@ -358,17 +359,17 @@ require_once APP . 'Core/ValidationDashboard.php';
                         <h4>New Company</h4>
                         <hr>
                         <form class="container__dynamic__dashboard__company__new__form" method="POST">
-                            <input type="text" placeholder="Name..." name="name">
+                            <input type="text" placeholder=" Name..." name="name">
                             <select name="choices">
-                                <option value="" disabled selected>Select a type...</option>
+                                <option value="" disabled selected> Select a type...</option>
                                 <?php
                                 for ($i = 0; $i < count($typesNames); $i++) {
                                     echo "<option value='" . ($i + 1) . "'>" . $typesNames[$i] . "</option>";
                                 }
                                 ?>
                             </select>
-                            <input type="text" placeholder="Country..." name="country">
-                            <input type="text" placeholder="TVA..." name="tva">
+                            <input type="text" placeholder=" Country..." name="country">
+                            <input type="text" placeholder=" TVA..." name="tva">
                             <input type="submit" value="save">
                         </form>
                     </div>
@@ -425,17 +426,17 @@ require_once APP . 'Core/ValidationDashboard.php';
                         <h4>New Contact</h4>
                         <hr>
                         <form class="container__dynamic__dashboard__contact__new__form" method="POST">
-                            <input type="text" placeholder="Name..." name="name">
+                            <input type="text" placeholder=" Name..." name="name">
                             <select name="choices">
-                                <option value="" disabled selected>Select a company...</option>
+                                <option value="" disabled selected> Select a company...</option>
                                 <?php
                                 for ($i = 0; $i < count($companiesNames); $i++) {
                                     echo "<option value='" . ($i + 1) . "'>" . $companiesNames[$i] . "</option>";
                                 }
                                 ?>
                             </select>
-                            <input type="mail" placeholder="Email..." name="email">
-                            <input type="tel" placeholder="Phone..." name="phone">
+                            <input type="mail" placeholder=" Email..." name="email">
+                            <input type="tel" placeholder=" Phone..." name="phone">
                             <input type="submit" value="save">
                         </form>
                     </div>
