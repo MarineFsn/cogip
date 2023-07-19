@@ -166,7 +166,7 @@ body {
     align-items: center;
     margin-bottom: 25px;
     @include responsive-desktop {
-      width: 100vw;
+      width: 100%;
       margin-bottom: 57px;
     }
 
@@ -199,6 +199,9 @@ body {
         // cursor: pointer;
         border: none;
         background: none;
+        @include responsive-tablet {
+          display: none;
+        }
         @include responsive-desktop {
           display: none;
         }
@@ -220,6 +223,9 @@ body {
         width: 200px;
         border-radius: 10px;
         box-shadow: 0px 0px 60px -29px #00000040;
+        @include responsive-tablet {
+          display: none;
+        }
         @include responsive-desktop {
           display: none;
         }
@@ -248,6 +254,9 @@ body {
       .nav__bar {
         display: none;
         margin-top: 35px;
+        @include responsive-tablet {
+          display: flex;
+        }
         @include responsive-desktop {
           display: flex;
           margin-top: 94px;
