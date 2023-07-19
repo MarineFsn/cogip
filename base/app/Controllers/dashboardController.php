@@ -230,7 +230,7 @@ class DashboardController
     // FORMS 
     public function getCompaniesNames()
     {
-        $query = "SELECT name FROM companies";
+        $query = "SELECT id, name FROM companies";
         $statement = $this->db->prepare($query);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -239,10 +239,12 @@ class DashboardController
 
         foreach ($result as $row) {
             $companyName = $row['name'];
+            $companyId = $row['id'];
             $companiesNames[] = $companyName;
+            $companiesIds[] = $companyId;
         }
 
-        return $companiesNames;
+        return [$companiesIds, $companiesNames];
     }
     public function getTypesNames()
     {
@@ -276,36 +278,6 @@ class DashboardController
 
     }
 
-    public function addCompany($name, $typeId, $country, $tva)
-    {
-        $query = "INSERT INTO companies (name, type_id, country, tva, created_at, updated_at)
-              VALUES (:name, :type_id, :country, :tva, NOW(), NOW())";
-        $statement = $this->db->prepare($query);
-
-        $statement->bindValue(':name', $name);
-        $statement->bindValue(':type_id', $typeId);
-        $statement->bindValue(':country', $country);
-        $statement->bindValue(':tva', $tva);
-
-        $statement->execute();
-    }
-
-    public function addContact($name, $companyId, $email, $phone)
-    {
-        $query = "INSERT INTO contacts (name, company_id, email , phone, created_at, updated_at)
-                VALUES (:name, :company_id, :email, :phone, NOW(), NOW())";
-        $statement = $this->db->prepare($query);
-
-        $statement->bindValue(':name', $name);
-        $statement->bindValue(':company_id', $companyId);
-        $statement->bindValue(':email', $email);
-        $statement->bindValue(':phone', $phone);
-
-        $statement->execute();
-
-
-    }
-
     // UPDATES
     public function updateCompany($name, $type, $country, $tva, $id)
     {
@@ -322,7 +294,7 @@ class DashboardController
         $stmt->bindParam(':id', $id);
         $stmt->execute();
     }
-    public function updateInvoice($ref, $company, $due_date, $tva, $id)
+    public function updateInvoice($ref, $company, $due_date, $id)
     {
         $updated_at = date('Y-m-d H:i:s');
         $id_company = $company;
@@ -379,42 +351,36 @@ class DashboardController
 $dashboardController = new DashboardController($db);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // CREATE
     if (isset($_POST['reference']) && isset($_POST['due_date']) && isset($_POST['choices'])) {
         $reference = $_POST['reference'];
         $dueDate = $_POST['due_date'];
         $companyId = $_POST['choices'];
 
-
         $dashboardController->addInvoice($reference, $dueDate, $companyId);
     }
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['name']) && isset($_POST['choices']) && isset($_POST['country']) && isset($_POST['tva'])) {
-        $name = $_POST['name'];
-        $typeId = $_POST['choices'];
-        $country = $_POST['country'];
-        $tva = $_POST['tva'];
-
-
-        $dashboardController->addCompany($name, $typeId, $country, $tva);
-
+    // UPDATE
+    if (isset($_GET['companyId']) && !empty($_GET['companyId'])) {
+        $dashboardController->updateCompany($_POST['name'], $_POST['type'], $_POST['country'], $_POST['tva'], $_GET['companyId']);
+    } else if (isset($_GET['contactId']) && !empty($_GET['contactId'])) {
+        echo 'ok';
+        $dashboardController->updateContact($_POST['name'], $_POST['company'], $_POST['email'], $_POST['phone'], $_GET['contactId']);
+    } else if (isset($_GET['invoiceId']) && !empty($_GET['invoiceId'])) {
+        echo 'ok';
+        $dashboardController->updateInvoice($_POST['reference'], $_POST['company'], $_POST['due_date'], $_GET['invoiceId']);
+    }
+} else {
+    // DELETE
+    if (isset($_GET['companyId']) && !empty($_GET['companyId'])) {
+        $dashboardController->deleteCompany($_GET['companyId']);
+    } else if (isset($_GET['contactId']) && !empty($_GET['contactId'])) {
+        $dashboardController->deleteContact($_GET['contactId']);
+    } else if (isset($_GET['invoiceId']) && !empty($_GET['invoiceId'])) {
+        $dashboardController->deleteInvoice($_GET['invoiceId']);
     }
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['name']) && isset($_POST['choices']) && isset($_POST['email']) && isset($_POST['phone'])) {
-        $name = $_POST['name'];
-        $companyId = $_POST['choices'];
-        $email = $_POST['email'];
-        $phone = $_POST['phone'];
-
-
-        $dashboardController->addContact($name, $companyId, $email, $phone);
-    }
-
-}
-
+// READ
 $companies = $dashboardController->getCompanies();
 $contacts = $dashboardController->getContacts();
 $invoices = $dashboardController->getinvoices();
@@ -424,15 +390,8 @@ $lastCompanies = $dashboardController->getLastCompanies();
 $countInvoices = $dashboardController->countInvoices();
 $countContacts = $dashboardController->countContacts();
 $countCompanies = $dashboardController->countCompanies();
-$companiesNames = $dashboardController->getCompaniesNames();
+[$companiesIds, $companiesNames] = $dashboardController->getCompaniesNames();
 $typesNames = $dashboardController->getTypesNames();
-
-// if(isset($_GET['companyId'])){
-
-// }
-
-
-
 
 require_once APP . "Views/dashboard.php";
 

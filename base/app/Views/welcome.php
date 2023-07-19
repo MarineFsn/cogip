@@ -8,6 +8,7 @@ include "header.php";
     if ((isset($_SESSION['user']) && isset($_SESSION['isConnected'])) && $_SESSION['isConnected'] == 1) {
         echo "<h1>Welcome to " . $_SESSION['user']["first_name"] . "</h1>";
     }
+
     ?>
     <section class="container__table container__table__homepage">
         <h3>Last invoices </h3>
@@ -23,27 +24,27 @@ include "header.php";
                     </tr>
                 </thead>
                 <tbody class="table__container__info__tbody">
-                    <?php
-                    usort($invoices, function ($a, $b) {
-                        return strcmp($a->ref, $b->ref);
-                    });
+                <?php
+                usort($invoices, function ($a, $b) {
+                    return strcmp($a->ref, $b->ref);
+                });
 
-                    foreach ($invoices as $invoice) : ?>
-                        <tr class="table__container__info__tbody__tr">
-                            <td>
-                                <?php echo $invoice->ref; ?>
-                            </td>
-                            <td>
-                                <?php echo $invoice->formatDueDate(); ?>
-                            </td>
-                            <td>
-                                <?php echo $invoice->company; ?>
-                            </td>
-                            <td>
-                                <?php echo $invoice->formatCreationDate(); ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
+                foreach ($invoices as $invoice): ?>
+                    <tr class="table__container__info__tbody__tr">
+                        <td>
+                            <?php echo $invoice->ref; ?>
+                        </td>
+                        <td>
+                            <?php echo $invoice->formatDueDate(); ?>
+                        </td>
+                        <td>
+                            <?php echo $invoice->company; ?>
+                        </td>
+                        <td>
+                            <?php echo $invoice->formatCreationDate(); ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
@@ -74,29 +75,29 @@ include "header.php";
                     </tr>
                 </thead>
                 <tbody class="table__container__info__tbody">
-                    <?php
-                    usort($contacts, function ($a, $b) {
-                        return strcmp($a->name, $b->name);
-                    });
-                    foreach ($contacts as $contact) : ?>
-                        <tr class="table__container__info__tbody__tr">
-                            <td>
-                                <?php echo $contact->name; ?>
-                            </td>
-                            <td>
-                                <?php echo $contact->phone; ?>
-                            </td>
-                            <td>
-                                <?php echo $contact->email; ?>
-                            </td>
-                            <td>
-                                <?php echo $contact->company; ?>
-                            </td>
-                            <td>
-                                <?php echo $contact->formatCreationDate(); ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
+                <?php
+                usort($contacts, function ($a, $b) {
+                    return strcmp($a->name, $b->name);
+                });
+                foreach ($contacts as $contact): ?>
+                    <tr class="table__container__info__tbody__tr">
+                        <td>
+                            <?php echo $contact->name; ?>
+                        </td>
+                        <td>
+                            <?php echo $contact->phone; ?>
+                        </td>
+                        <td>
+                            <?php echo $contact->email; ?>
+                        </td>
+                        <td>
+                            <?php echo $contact->company; ?>
+                        </td>
+                        <td>
+                            <?php echo $contact->formatCreationDate(); ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
@@ -128,30 +129,30 @@ include "header.php";
                     </tr>
                 </thead>
                 <tbody class="table__container__info__tbody">
-                    <?php
-                    usort($companies, function ($a, $b) {
-                        return strcmp($a->name, $b->name);
-                    });
+                <?php
+                usort($companies, function ($a, $b) {
+                    return strcmp($a->name, $b->name);
+                });
 
-                    foreach ($companies as $company) : ?>
-                        <tr class="table__container__info__tbody__tr">
-                            <td>
-                                <?php echo $company->name; ?>
-                            </td>
-                            <td>
-                                <?php echo $company->tva; ?>
-                            </td>
-                            <td>
-                                <?php echo $company->country; ?>
-                            </td>
-                            <td>
-                                <?php echo $company->type; ?>
-                            </td>
-                            <td>
-                                <?php echo $company->formatCreationDate(); ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
+                foreach ($companies as $company): ?>
+                    <tr class="table__container__info__tbody__tr">
+                        <td>
+                            <?php echo $company->name; ?>
+                        </td>
+                        <td>
+                            <?php echo $company->tva; ?>
+                        </td>
+                        <td>
+                            <?php echo $company->country; ?>
+                        </td>
+                        <td>
+                            <?php echo $company->type; ?>
+                        </td>
+                        <td>
+                            <?php echo $company->formatCreationDate(); ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

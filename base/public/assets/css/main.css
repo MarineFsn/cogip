@@ -791,7 +791,7 @@ body main .container__people__info__card__photo img {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 50%;
 }
 body main .container__people__info__card__name {
@@ -904,7 +904,7 @@ body .container__contact__photo img {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 50%;
 }
 body hr {
@@ -1314,7 +1314,7 @@ body main #myTable_paginate a:hover {
 .login__section__card__form div input:not(.submit) {
   max-width: 300px;
 }
-.login__section__card__form div input[type=submit] {
+.login__section__card__form div input[type="submit"] {
   display: flex;
   width: 100px;
   height: 20px;
@@ -1328,18 +1328,18 @@ body main #myTable_paginate a:hover {
   margin: 0px auto 0px;
 }
 @media screen and (min-width: 376px) and (max-width: 1223px) {
-  .login__section__card__form div input[type=submit] {
+  .login__section__card__form div input[type="submit"] {
     margin: 5px auto 0px;
   }
 }
 @media screen and (min-width: 1224px) {
-  .login__section__card__form div input[type=submit] {
+  .login__section__card__form div input[type="submit"] {
     width: 150px;
     height: 50px;
     margin: 50px auto 0px;
   }
 }
-.login__section__card__form div input[type=submit]:hover {
+.login__section__card__form div input[type="submit"]:hover {
   background-color: #7d97f4;
 }
 .login__section__card__image {
@@ -1456,7 +1456,7 @@ body main #myTable_paginate a:hover {
     margin: 20px auto;
   }
 }
-.signup__section__card__form input[type=submit] {
+.signup__section__card__form input[type="submit"] {
   display: flex;
   width: 100px;
   height: 20px;
@@ -1470,18 +1470,18 @@ body main #myTable_paginate a:hover {
   margin: 20px auto 0px;
 }
 @media screen and (min-width: 376px) and (max-width: 1223px) {
-  .signup__section__card__form input[type=submit] {
+  .signup__section__card__form input[type="submit"] {
     margin: 25px auto 0px;
   }
 }
 @media screen and (min-width: 1224px) {
-  .signup__section__card__form input[type=submit] {
+  .signup__section__card__form input[type="submit"] {
     width: 150px;
     height: 50px;
     margin: 40px auto 0px;
   }
 }
-.signup__section__card__form input[type=submit]:hover {
+.signup__section__card__form input[type="submit"]:hover {
   background-color: #7d97f4;
 }
 .signup__section__card__form__registered {
@@ -1869,7 +1869,12 @@ body main #myTable_paginate a:hover {
   justify-content: space-between;
   width: 100%;
 }
-.dashboard .main__dashboard .container__main .statistics .number__container div {
+.dashboard
+  .main__dashboard
+  .container__main
+  .statistics
+  .number__container
+  div {
   width: 74px;
   height: 74px;
   font-size: 13px;
@@ -1953,20 +1958,50 @@ body main #myTable_paginate a:hover {
   margin-left: 30px;
   padding-top: 35px;
 }
-@media screen and (min-width: 1224px) {
-  .dashboard .main__dashboard .container__dynamic__dashboard h4 {
-    padding-top: 53px;
-  }
+.dashboard .main__dashboard .container__dynamic__dashboard__pop__up {
+  display: block;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 20vh;
+  z-index: 99;
 }
-.dashboard .main__dashboard .container__dynamic__dashboard hr {
-  border: 1px solid #e0e0e0;
-  margin-bottom: 20px;
+.dashboard .main__dashboard .container__dynamic__dashboard__pop__up__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: left;
+  margin: auto;
+  padding: 30px;
+  width: 400px;
+  min-height: 50px;
+  max-height: 500px;
+  gap: 20px;
+  background-color: rgb(255, 255, 255);
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  color: #000;
+  box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 0.79);
+  -webkit-box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 0.79);
+  -moz-box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 0.79);
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
 }
-@media screen and (min-width: 1224px) {
-  .dashboard .main__dashboard .container__dynamic__dashboard hr {
-    width: 981px;
-    margin-bottom: 39px;
-  }
+.dashboard .main__dashboard .container__dynamic__dashboard__pop__up__form div {
+  display: flex;
+  height: 25px;
+  gap: 5px;
+}
+.dashboard
+  .main__dashboard
+  .container__dynamic__dashboard__pop__up__form
+  input[type="submit"] {
+  background-color: #9698d6;
+  color: #fff;
+  height: 36px;
+  font-size: 16px;
+  font-weight: 200;
 }
 .dashboard .main__dashboard .container__dynamic__dashboard__modify {
   width: 340px;
@@ -1978,11 +2013,18 @@ body main #myTable_paginate a:hover {
     overflow-y: visible;
   }
 }
-.dashboard .main__dashboard .container__dynamic__dashboard__modify .label_search {
+.dashboard
+  .main__dashboard
+  .container__dynamic__dashboard__modify
+  .label_search {
   color: rgba(255, 255, 255, 0);
   border-style: none;
 }
-.dashboard .main__dashboard .container__dynamic__dashboard__modify .label_search input {
+.dashboard
+  .main__dashboard
+  .container__dynamic__dashboard__modify
+  .label_search
+  input {
   height: 35px;
   width: 200px;
   align-self: flex-end;
@@ -1996,7 +2038,11 @@ body main #myTable_paginate a:hover {
   text-align: center;
 }
 @media screen and (min-width: 1224px) {
-  .dashboard .main__dashboard .container__dynamic__dashboard__modify .label_search input {
+  .dashboard
+    .main__dashboard
+    .container__dynamic__dashboard__modify
+    .label_search
+    input {
     margin-bottom: 42px;
     margin-right: 53px;
     height: 53px;
@@ -2055,11 +2101,18 @@ body main #myTable_paginate a:hover {
   align-items: center;
 }
 @media screen and (min-width: 1224px) {
-  .dashboard .main__dashboard .container__dynamic__dashboard__invoices__new form {
+  .dashboard
+    .main__dashboard
+    .container__dynamic__dashboard__invoices__new
+    form {
     width: 1044px;
   }
 }
-.dashboard .main__dashboard .container__dynamic__dashboard__invoices__new form input {
+.dashboard
+  .main__dashboard
+  .container__dynamic__dashboard__invoices__new
+  form
+  input {
   margin-bottom: 20px;
   width: 320px;
   height: 36px;
@@ -2069,22 +2122,38 @@ body main #myTable_paginate a:hover {
   font-weight: 100;
   text-align: left;
 }
-.dashboard .main__dashboard .container__dynamic__dashboard__invoices__new form input:last-child {
+.dashboard
+  .main__dashboard
+  .container__dynamic__dashboard__invoices__new
+  form
+  input:last-child {
   background-color: #9698d6;
   color: white;
 }
-.dashboard .main__dashboard .container__dynamic__dashboard__invoices__new form input:last-child:hover {
+.dashboard
+  .main__dashboard
+  .container__dynamic__dashboard__invoices__new
+  form
+  input:last-child:hover {
   background-color: #56587e;
   color: #fff;
 }
 @media screen and (min-width: 1224px) {
-  .dashboard .main__dashboard .container__dynamic__dashboard__invoices__new form input {
+  .dashboard
+    .main__dashboard
+    .container__dynamic__dashboard__invoices__new
+    form
+    input {
     width: 978px;
     height: 60px;
     margin-bottom: 45px;
   }
 }
-.dashboard .main__dashboard .container__dynamic__dashboard__invoices__new form select {
+.dashboard
+  .main__dashboard
+  .container__dynamic__dashboard__invoices__new
+  form
+  select {
   margin-bottom: 20px;
   width: 320px;
   height: 36px;
@@ -2094,7 +2163,11 @@ body main #myTable_paginate a:hover {
   font-weight: 100;
 }
 @media screen and (min-width: 1224px) {
-  .dashboard .main__dashboard .container__dynamic__dashboard__invoices__new form select {
+  .dashboard
+    .main__dashboard
+    .container__dynamic__dashboard__invoices__new
+    form
+    select {
     width: 978px;
     height: 60px;
     margin-bottom: 45px;
@@ -2143,11 +2216,18 @@ body main #myTable_paginate a:hover {
   align-items: center;
 }
 @media screen and (min-width: 1224px) {
-  .dashboard .main__dashboard .container__dynamic__dashboard__company__new form {
+  .dashboard
+    .main__dashboard
+    .container__dynamic__dashboard__company__new
+    form {
     width: 1044px;
   }
 }
-.dashboard .main__dashboard .container__dynamic__dashboard__company__new form input {
+.dashboard
+  .main__dashboard
+  .container__dynamic__dashboard__company__new
+  form
+  input {
   margin-bottom: 20px;
   width: 320px;
   height: 36px;
@@ -2157,22 +2237,38 @@ body main #myTable_paginate a:hover {
   font-weight: 100;
   text-align: left;
 }
-.dashboard .main__dashboard .container__dynamic__dashboard__company__new form input:last-child {
+.dashboard
+  .main__dashboard
+  .container__dynamic__dashboard__company__new
+  form
+  input:last-child {
   background-color: #9698d6;
   color: white;
 }
-.dashboard .main__dashboard .container__dynamic__dashboard__company__new form input:last-child:hover {
+.dashboard
+  .main__dashboard
+  .container__dynamic__dashboard__company__new
+  form
+  input:last-child:hover {
   background-color: #56587e;
   color: #fff;
 }
 @media screen and (min-width: 1224px) {
-  .dashboard .main__dashboard .container__dynamic__dashboard__company__new form input {
+  .dashboard
+    .main__dashboard
+    .container__dynamic__dashboard__company__new
+    form
+    input {
     width: 978px;
     height: 60px;
     margin-bottom: 45px;
   }
 }
-.dashboard .main__dashboard .container__dynamic__dashboard__company__new form select {
+.dashboard
+  .main__dashboard
+  .container__dynamic__dashboard__company__new
+  form
+  select {
   margin-bottom: 20px;
   width: 320px;
   height: 36px;
@@ -2182,7 +2278,11 @@ body main #myTable_paginate a:hover {
   font-weight: 100;
 }
 @media screen and (min-width: 1224px) {
-  .dashboard .main__dashboard .container__dynamic__dashboard__company__new form select {
+  .dashboard
+    .main__dashboard
+    .container__dynamic__dashboard__company__new
+    form
+    select {
     width: 978px;
     height: 60px;
     margin-bottom: 45px;
@@ -2231,11 +2331,18 @@ body main #myTable_paginate a:hover {
   align-items: center;
 }
 @media screen and (min-width: 1224px) {
-  .dashboard .main__dashboard .container__dynamic__dashboard__contact__new form {
+  .dashboard
+    .main__dashboard
+    .container__dynamic__dashboard__contact__new
+    form {
     width: 1044px;
   }
 }
-.dashboard .main__dashboard .container__dynamic__dashboard__contact__new form input {
+.dashboard
+  .main__dashboard
+  .container__dynamic__dashboard__contact__new
+  form
+  input {
   margin-bottom: 20px;
   width: 320px;
   height: 36px;
@@ -2245,22 +2352,38 @@ body main #myTable_paginate a:hover {
   font-weight: 100;
   text-align: left;
 }
-.dashboard .main__dashboard .container__dynamic__dashboard__contact__new form input:last-child {
+.dashboard
+  .main__dashboard
+  .container__dynamic__dashboard__contact__new
+  form
+  input:last-child {
   background-color: #9698d6;
   color: white;
 }
-.dashboard .main__dashboard .container__dynamic__dashboard__contact__new form input:last-child:hover {
+.dashboard
+  .main__dashboard
+  .container__dynamic__dashboard__contact__new
+  form
+  input:last-child:hover {
   background-color: #56587e;
   color: #fff;
 }
 @media screen and (min-width: 1224px) {
-  .dashboard .main__dashboard .container__dynamic__dashboard__contact__new form input {
+  .dashboard
+    .main__dashboard
+    .container__dynamic__dashboard__contact__new
+    form
+    input {
     width: 978px;
     height: 60px;
     margin-bottom: 45px;
   }
 }
-.dashboard .main__dashboard .container__dynamic__dashboard__contact__new form select {
+.dashboard
+  .main__dashboard
+  .container__dynamic__dashboard__contact__new
+  form
+  select {
   margin-bottom: 20px;
   width: 320px;
   height: 36px;
@@ -2270,7 +2393,11 @@ body main #myTable_paginate a:hover {
   font-weight: 100;
 }
 @media screen and (min-width: 1224px) {
-  .dashboard .main__dashboard .container__dynamic__dashboard__contact__new form select {
+  .dashboard
+    .main__dashboard
+    .container__dynamic__dashboard__contact__new
+    form
+    select {
     width: 978px;
     height: 60px;
     margin-bottom: 45px;
@@ -2377,4 +2504,4 @@ body main #myTable_paginate a:hover {
   color: #000;
   background-color: #f9de4e;
   text-decoration: underline;
-}/*# sourceMappingURL=main.css.map */
+} /*# sourceMappingURL=main.css.map */

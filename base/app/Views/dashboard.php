@@ -1,9 +1,3 @@
-<?php
-
-require_once APP . 'Core/ValidationDashboard.php';
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,14 +21,15 @@ require_once APP . 'Core/ValidationDashboard.php';
     <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="/cogip/base/public/assets/js/dashboard.js" defer></script>
+    <script src="/cogip/base/public/assets/js/windows_pop_up.js" defer></script>
 </head>
 
 <body class="dashboard">
     <div class="nav__container">
         <nav id="sideNav" class="side__navbar">
-            <button id="closeBtn" class="close"><img src="/cogip/base/public/assets/img/sidebar_close.png" alt="button close"></button>
+            <button id="closeBtn" class="close"><img src="/cogip/base/public/assets/img/sidebar_close.png" alt=""></button>
             <div class="user__profile">
-                <img src="/cogip/base/public/assets/img/img-contact.jpg" alt="user photo">
+                <img src="/cogip/base/public/assets/img/img-contact.jpg" alt="">
                 <?php
                 if ((isset($_SESSION['user']) && isset($_SESSION['isConnected'])) && $_SESSION['isConnected'] == 1) {
                     echo "<h2>" . $_SESSION['user']["first_name"] . " " . $_SESSION['user']["last_name"] . "</h2>";
@@ -270,36 +265,55 @@ require_once APP . 'Core/ValidationDashboard.php';
                             });
                             foreach ($lastCompanies as $company): ?>
 
-                                                                        <tr class="table__container__info__tbody__tr">
-                                                                            <td>
-                                                                                <?php echo $company->name; ?>
-                                                                            </td>
-                                                                            <td>
-                                                                                <?php echo $company->tva; ?>
-                                                                            </td>
-                                                                            <td>
-                                                                                <?php echo $company->country; ?>
-                                                                            </td>
-                                                                        </tr>
+                                    <tr class="table__container__info__tbody__tr">
+                                        <td>
+                                            <?php echo $company->name; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $company->tva; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $company->country; ?>
+                                        </td>
+                                    </tr>
                             <?php endforeach; ?>
                         </table>
                     </section>
                 </article>
             </div>
             <article class="container__dynamic">
-                <span id="error"></span>
                 <section class="container__dynamic__dashboard__invoices" id="new__invoices">
+                   
+                    <div class="container__dynamic__dashboard__invoices__pop__up container__dynamic__dashboard__pop__up" id="invoices_pop_up" style="display:none;"  method="POST">
+                        <form class="container__dynamic__dashboard__invoices__pop__up__form container__dynamic__dashboard__pop__up__form" action="dashboard&invoiceId=<?php echo $invoice->id; ?>" method="POST">
+                            <?php $_GET['invoiceId'] = 'invoice' ?>
+                            <div>
+                                <label for="reference">Invoice number : </label>
+                                <input name="reference" type="text">
+                            </div>
+                            <div>
+                                <label for="due-date">Due dates : </label>
+                                <input name="due-date" type="date">
+                            </div>
+                            <div>
+                                <label for="company">Company : </label>
+                                <input name="company" type="text">
+                            </div>
+                            <input type="submit" value="Submit" id="button_submit_invoices_pop_up">
+                            <input type="submit" value="Cancel" id="button_cancel_invoices_pop_up">
+                        </form>
+                    </div>
                     <div class="container__dynamic__dashboard__invoices__new">
                         <h4>New invoice</h4>
                         <hr>
                         <form class="container__dynamic__dashboard____invoices__new__form" method="POST">
-                            <input type="text" placeholder=" Reference..." name="reference">
-                            <input type="date" placeholder=" Due date..." name="due_date">
+                            <input type="text" placeholder="Reference..." name="reference">
+                            <input type="date" placeholder="Due date..." name="due_date">
                             <select name="choices">
-                                <option value="" disabled selected> Select a company...</option>
+                                <option value="" disabled selected>Select a company...</option>
                                 <?php
                                 for ($i = 0; $i < count($companiesNames); $i++) {
-                                    echo "<option value='" . ($i + 1) . "'>" . $companiesNames[$i] . "</option>";
+                                    echo "<option value='" . $companiesIds[$i] . "'>" . $companiesNames[$i] . "</option>";
                                 }
                                 ?>
                             </select>
@@ -314,8 +328,12 @@ require_once APP . 'Core/ValidationDashboard.php';
                         <table class="container__dynamic__dashboard__modify__table table table-striped" id="myTableInvoices">
                             <thead class="container__dynamic__dashboard__modify__table__thead">
                                 <tr class="container__dynamic__dashboard__modify__table__thead__tr">
-                                    <th>Edit</th>
-                                    <th>Delete</th>
+                                    <?php
+                                    if ($_SESSION['user']["role_id"] == 1) {
+                                        echo "<th>Edit</th>
+                                            <th>Delete</th>";
+                                    }
+                                    ?>
                                     <th>Invoice number</th>
                                     <th>Due dates</th>
                                     <th>Company</th>
@@ -324,13 +342,16 @@ require_once APP . 'Core/ValidationDashboard.php';
                             </thead>
                             <tbody class="container__dynamic__dashboard__modify__table__tbody">
                                 <?php foreach ($invoices as $invoice): ?>
-                                    <tr class="container__dynamic__dashboard__modify__table__tbody__tr">
-                                        <td>
-                                            <a href=""><img src="/cogip/base/public/assets/img/edit.png" alt="Modify button"></a>
-                                        </td>
-                                        <td>
-                                            <a href=""><img src="/cogip/base/public/assets/img/delete.png" alt="Delete button"></a>
-                                        </td>
+                                    <tr class="container__dynamic__dashboard__modify__table__tbody__tr"  id="modify-tr-invoices-<?php echo $invoice->id; ?>">
+                                        <?php
+                                        if ($_SESSION['user']["role_id"] == 1) { ?>
+                                                <td>
+                                                    <a href='' class='modify-button-invoices' id='modify-button-invoices-<?php echo $invoice->id; ?>'><img src='/cogip/base/public/assets/img/edit.png' alt='Modify button'></a>
+                                                </td>
+                                                <td>
+                                                    <a href='dashboard&invoiceId=<?php echo $invoice->id; ?>'><img src='/cogip/base/public/assets/img/delete.png' alt='Delete button' id='delete-button-invoices-<?php echo $invoice->id; ?>'></a>
+                                                </td>
+                                        <?php } ?>
                                         <td>
                                             <!-- <a href="app/Views/show_invoices.php?invoiceId=<?php //echo $invoice->id; 
                                                 ?>"><?php //echo $invoice->ref; 
@@ -355,21 +376,44 @@ require_once APP . 'Core/ValidationDashboard.php';
                     </div>
                 </section>
                 <section class="container__dynamic__dashboard__company" id="new__company">
+                    <div class="container__dynamic__dashboard__company__pop__up container__dynamic__dashboard__pop__up" id="company_pop_up" style="display:none;"  method="POST">
+                        <form class="container__dynamic__dashboard__company__pop__up__form container__dynamic__dashboard__pop__up__form" action="dashboard&companyId=<?php echo $company->id; ?>" method="POST">
+                            <?php $_GET['companyId'] = 'company' ?>
+                            <div>
+                                <label for="name">Name : </label>
+                                <input name="name" type="text">
+                            </div>
+                            <div>
+                                <label for="tva">TVA : </label>
+                                <input name="tva" type="text">
+                            </div>
+                            <div>
+                                <label for="country">Company : </label>
+                                <input name="country" type="text">
+                            </div>
+                            <div>
+                                <label for="type">Type : </label>
+                                <input name="type" type="text">
+                            </div>
+                            <input type="submit" value="Submit" id="button_submit_company_pop_up">
+                            <input type="submit" value="Cancel" id="button_cancel_company_pop_up">
+                        </form>
+                    </div>
                     <div class="container__dynamic__dashboard__company__new">
                         <h4>New Company</h4>
                         <hr>
                         <form class="container__dynamic__dashboard__company__new__form" method="POST">
-                            <input type="text" placeholder=" Name..." name="name">
+                            <input type="text" placeholder="Name..." name="name">
                             <select name="choices">
-                                <option value="" disabled selected> Select a type...</option>
+                                <option value="" disabled selected>Select a type...</option>
                                 <?php
                                 for ($i = 0; $i < count($typesNames); $i++) {
-                                    echo "<option value='" . ($i + 1) . "'>" . $typesNames[$i] . "</option>";
+                                    echo "<option value='" . $companiesIds[$i] . "'>" . $typesNames[$i] . "</option>";
                                 }
                                 ?>
                             </select>
-                            <input type="text" placeholder=" Country..." name="country">
-                            <input type="text" placeholder=" TVA..." name="tva">
+                            <input type="text" placeholder="Country..." name="country">
+                            <input type="text" placeholder="TVA..." name="tva">
                             <input type="submit" value="save">
                         </form>
                     </div>
@@ -381,8 +425,12 @@ require_once APP . 'Core/ValidationDashboard.php';
                         <table class="container__dynamic__dashboard__modify__table  table table-striped" id="myTableCompanies">
                             <thead class="container__dynamic__dashboard__modify__table__thead">
                                 <tr class="container__dynamic__dashboard__modify__table__thead__tr">
-                                    <th>Edit</th>
-                                    <th>Delete</th>
+                                    <?php
+                                    if ($_SESSION['user']["role_id"] == 1) {
+                                        echo "<th>Edit</th>
+                                            <th>Delete</th>";
+                                    }
+                                    ?>
                                     <th>Name</th>
                                     <th>TVA</th>
                                     <th>Country</th>
@@ -392,15 +440,17 @@ require_once APP . 'Core/ValidationDashboard.php';
                             </thead>
                             <tbody class="container__dynamic__dashboard__modify__table__tbody">
                                 <?php foreach ($companies as $company): ?>
-                                    <tr class="container__dynamic__dashboard__modify__table__tbody__tr">
-
-                                        <td>
-                                            <a href=""><img src="/cogip/base/public/assets/img/edit.png" alt="Modify button"></a>
-                                        </td>
-                                        <td>
-                                            <a href=""><img src="/cogip/base/public/assets/img/delete.png" alt="Delete button"></a>
-                                        </td>
-
+                                    <tr class="container__dynamic__dashboard__modify__table__tbody__tr"  id="modify-tr-company-<?php echo $company->id; ?>">
+                                        <?php
+                                        if ($_SESSION['user']["role_id"] == 1) {
+                                            echo "<td>
+                                                    <a href=''><img src='/cogip/base/public/assets/img/edit.png' alt='Modify button'  class='modify-button-company' id='modify-button-company-<?php echo $company->id; ?>'></a>
+                                                </td>
+                                                <td>
+                                                    <a href='dashboard&companyId=<?php echo $company->id; ?>'><img src='/cogip/base/public/assets/img/delete.png' alt='Delete button'  class='delete-button-company' id='delete-button-company-<?php echo $company->id; ?>'></a>
+                                                </td>";
+                                        }
+                                        ?>
                                         <td><?php echo $company->name; ?></td>
                                         <td>
                                             <?php echo $company->tva; ?>
@@ -422,21 +472,45 @@ require_once APP . 'Core/ValidationDashboard.php';
                     </div>
                 </section>
                 <section class="container__dynamic__dashboard__contact" id="new__contact">
+                   
+                    <div class="container__dynamic__dashboard__contact__pop__up container__dynamic__dashboard__pop__up" id="contact_pop_up" style="display:none;">
+                        <form class="container__dynamic__dashboard__contact__pop__up__form container__dynamic__dashboard__pop__up__form" action="dashboard&contactId=<?php echo $contact->id; ?>" method="POST">
+                            <?php $_GET['contactId'] = 'contact' ?>
+                            <div>
+                                <label for="contact-name">Name : </label>
+                                <input name="contact-name" type="text">
+                            </div>
+                            <div>
+                                <label for="email">Email : </label>
+                                <input name="email" type="email">
+                            </div>
+                            <div>
+                                <label for="phone">Phone : </label>
+                                <input name="phone" type="tel" pattern="[0-9]{3}-[0-9]{4}">
+                            </div>
+                            <div>
+                                <label for="company">Company : </label>
+                                <input name="company" type="text" required>
+                            </div>
+                            <input type="submit" value="Submit" id="button_submit_contact_pop_up">
+                            <input type="submit" value="Cancel" id="button_cancel_contact_pop_up">
+                        </form>
+                    </div>
                     <div class="container__dynamic__dashboard__contact__new">
                         <h4>New Contact</h4>
                         <hr>
                         <form class="container__dynamic__dashboard__contact__new__form" method="POST">
-                            <input type="text" placeholder=" Name..." name="name">
+                            <input type="text" placeholder="Name..." name="name">
                             <select name="choices">
-                                <option value="" disabled selected> Select a company...</option>
+                                <option value="" disabled selected>Select a company...</option>
                                 <?php
                                 for ($i = 0; $i < count($companiesNames); $i++) {
-                                    echo "<option value='" . ($i + 1) . "'>" . $companiesNames[$i] . "</option>";
+                                    echo "<option value='" . $companiesIds[$i] . "'>" . $companiesNames[$i] . "</option>";
                                 }
                                 ?>
                             </select>
-                            <input type="mail" placeholder=" Email..." name="email">
-                            <input type="tel" placeholder=" Phone..." name="phone">
+                            <input type="mail" placeholder="Email..." name="email">
+                            <input type="tel" placeholder="Phone..." name="phone">
                             <input type="submit" value="save">
                         </form>
                     </div>
@@ -448,8 +522,12 @@ require_once APP . 'Core/ValidationDashboard.php';
                             <table class="container__dynamic__dashboard__modify__table  table table-striped" id="myTableContacts">
                                 <thead class="container__dynamic__dashboard__modify__table__thead">
                                     <tr class="container__dynamic__dashboard__modify__table__thead__tr">
-                                        <th>Edit</th>
-                                        <th>Delete</th>
+                                        <?php
+                                        if ($_SESSION['user']["role_id"] == 1) {
+                                            echo "<th>Edit</th>
+                                                <th>Delete</th>";
+                                        }
+                                        ?>
                                         <th>Name</th>
                                         <th>Mail</th>
                                         <th>Phone</th>
@@ -459,15 +537,17 @@ require_once APP . 'Core/ValidationDashboard.php';
                                 </thead>
                                 <tbody class="container__dynamic__dashboard__modify__table__tbody">
                                     <?php foreach ($contacts as $contact): ?>
-                                        <tr class="container__dynamic__dashboard__modify__table__tbody__tr">
-                                            <td>
-                                                <a href=""><img src="/cogip/base/public/assets/img/edit.png" alt="Modify button"></a>
-                                            </td>
-                                            <td>
-                                                <a href=""><img src="/cogip/base/public/assets/img/delete.png" alt="Delete button"></a>
-                                            </td>
-
-
+                                        <tr class="container__dynamic__dashboard__modify__table__tbody__tr"  id="modify-tr-contact-<?php echo $contact->id; ?>">
+                                            <?php
+                                            if ($_SESSION['user']["role_id"] == 1) {
+                                                echo "<td>
+                                                        <a href=''><img src='/cogip/base/public/assets/img/edit.png' alt='Modify button'  class='modify-button-contact' id='modify-button-contact-<?php echo $contact->id; ?>'></a>
+                                                    </td>
+                                                    <td>
+                                                        <a href='dashboard&contactId=<?php echo $contact->id; ?>'><img src='/cogip/base/public/assets/img/delete.png' alt='Delete button'  id='delete-button-contact-<?php echo $contact->id; ?>'></a>
+                                                    </td>";
+                                            }
+                                            ?>
                                             <td><?php echo $contact->name; ?></td>
                                             <td>
                                                 <?php echo $contact->email; ?>
