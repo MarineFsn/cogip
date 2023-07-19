@@ -1442,6 +1442,14 @@ body {
             width: 80px;
           }
         }
+        a {
+          text-decoration: none;
+          font-weight: $font-weight-footer;
+          color: #5a6a97;
+          &:hover {
+            color: #00b7ff;
+          }
+        }
       }
       ul {
         // height: ;
@@ -1533,9 +1541,9 @@ body {
       font-weight: $font-weight-text-dashboard;
     }
     @include responsive-tablet {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
+      // display: flex;
+      // align-items: center;
+      // flex-direction: column;
     }
     // position: relative;
     @include responsive-desktop {
@@ -1584,6 +1592,19 @@ body {
       height: 80px;
       border-radius: 10px;
       background: #9698d6;
+      @include responsive-tablet {
+        width: 780px;
+        height: 160px;
+        position: absolute;
+        top: 150px;
+        text-align: initial;
+        // margin-left: auto;
+        // margin-right: auto;
+        // display: flex;
+        // align-items: center;
+        // flex-direction: column;
+        // justify-content: center;
+      }
       @include responsive-desktop {
         text-align: initial;
         margin-left: initial;
@@ -1597,6 +1618,16 @@ body {
         font-weight: $font-weight-title-dashboard;
         padding-top: 7px;
         color: #fff;
+        @include responsive-tablet {
+          padding-left: 15px;
+          padding-top: 25px;
+          font-size: 30px;
+          padding-bottom: 15px;
+
+          // display: flex;
+          // justify-content: center;
+          // flex-direction: column;
+        }
         @include responsive-desktop {
           font-size: 35px;
           font-style: normal;
@@ -1611,6 +1642,11 @@ body {
         font-weight: $font-weight-text-dashboard;
         padding-top: 4px;
         color: #fff;
+        @include responsive-tablet {
+          padding-left: 15px;
+          width: 350px;
+          text-align: justify;
+        }
         @include responsive-desktop {
           font-size: 15px;
           font-style: normal;
@@ -1622,6 +1658,12 @@ body {
       }
     }
     .svg__container {
+      @include responsive-tablet {
+        z-index: 1;
+        position: absolute;
+        top: 0px;
+        left: 425px;
+      }
       @include responsive-desktop {
         z-index: 1;
         position: absolute;
@@ -1633,7 +1675,11 @@ body {
         // object-position: left top;
         width: 260px;
         height: auto;
-
+        @include responsive-tablet {
+          display: flex;
+          width: 360px;
+          height: auto;
+        }
         @include responsive-desktop {
           display: flex;
           width: initial;
@@ -1654,8 +1700,16 @@ body {
   .main__dashboard {
     font-family: $font-family-title;
     // padding-top: 15px;
-    width: 360px;
+    width: 100%;
     display: flex;
+
+    @include responsive-tablet {
+      margin-top: 350px;
+      margin-left: 5px;
+      width: 810px;
+      height: 600px;
+      position: absolute;
+    }
     @include responsive-desktop {
       width: 1044px;
       height: 835px;
@@ -1664,11 +1718,11 @@ body {
       top: 440px;
     }
     .container__main {
-      width: 360px;
+      width: 100%;
       display: flex;
       gap: 29px;
       flex-direction: column;
-      padding: 60px 5px;
+      padding: 60px 0px;
       @include responsive-desktop {
         // height: 835px;
         // gap: initial;
@@ -1683,6 +1737,12 @@ body {
         border-radius: 10px;
         min-height: 100px;
         padding: 10px 15px;
+        @include responsive-tablet {
+          padding: initial;
+          // position: absolute;
+          // left: 50px;
+          width: 380px;
+        }
         @include responsive-desktop {
           // position: absolute;
           width: 507px;
@@ -1693,6 +1753,11 @@ body {
         }
         h3 {
           font-weight: $font-weight-title-dashboard;
+          @include responsive-tablet {
+            margin-top: 12px;
+            margin-left: 10px;
+            margin-bottom: 12;
+          }
           @include responsive-desktop {
             font-size: 18px;
             margin-top: 24px;
@@ -1704,6 +1769,9 @@ body {
           background: #e0e0e0;
           width: 99%;
           opacity: 0.5;
+          @include responsive-tablet {
+            width: 95%;
+          }
           @include responsive-desktop {
             width: 448px;
           }
@@ -1718,9 +1786,20 @@ body {
           th {
             text-align: left;
             font-weight: $font-weight-title-dashboard;
+            // @include responsive-tablet {
+            //   text-align: center;
+            // }
           }
+          // td {
+          //   // @include responsive-tablet {
+          //   //   text-align: center;
+          //   // }
+          // }
           // font-family: initial;
           // font-family: $font-family-title;
+          @include responsive-tablet {
+            margin-left: 10px;
+          }
           @include responsive-desktop {
             // table-layout: auto;
             // width: 100%;
@@ -1743,6 +1822,14 @@ body {
       }
       .statistics {
         padding: 4px 24px;
+        @include responsive-tablet {
+          // width: 400px;
+          // height: 170px;
+          padding: initial;
+          position: absolute;
+          top: 0px;
+          left: 10px;
+        }
         @include responsive-desktop {
           padding: initial;
           position: absolute;
@@ -1762,6 +1849,13 @@ body {
           justify-content: space-between;
           width: 100%;
           font-weight: $font-weight-title;
+          @include responsive-tablet {
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 5px;
+            width: 75%;
+          }
           @include responsive-desktop {
             margin-top: 49px;
             margin-left: 49px;
@@ -1792,6 +1886,11 @@ body {
         }
       }
       .contacts {
+        @include responsive-tablet {
+          position: absolute;
+          left: 10px;
+          top: 175px;
+        }
         @include responsive-desktop {
           // z-index: 1;
           position: absolute;
@@ -1820,6 +1919,11 @@ body {
         }
       }
       .invoice {
+        @include responsive-tablet {
+          position: absolute;
+          top: 0px;
+          right: 10px;
+        }
         @include responsive-desktop {
           position: absolute;
           top: 0px;
@@ -1832,6 +1936,11 @@ body {
         }
       }
       .companies {
+        @include responsive-tablet {
+          position: absolute;
+          top: 200px;
+          right: 10px;
+        }
         @include responsive-desktop {
           position: absolute;
           bottom: 0px;

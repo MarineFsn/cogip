@@ -1526,6 +1526,14 @@ body main #myTable_paginate a:hover {
     width: 80px;
   }
 }
+.dashboard .nav__container .side__navbar .user__profile a {
+  text-decoration: none;
+  font-weight: 400;
+  color: #5a6a97;
+}
+.dashboard .nav__container .side__navbar .user__profile a:hover {
+  color: #00b7ff;
+}
 .dashboard .nav__container .side__navbar ul {
   margin-left: auto;
   margin-right: auto;
@@ -1611,13 +1619,6 @@ body main #myTable_paginate a:hover {
 .dashboard .dashboard__header p {
   font-weight: 300;
 }
-@media screen and (min-width: 376px) and (max-width: 1023px) {
-  .dashboard .dashboard__header {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-}
 @media screen and (min-width: 1224px) {
   .dashboard .dashboard__header {
     width: 1044px;
@@ -1671,6 +1672,15 @@ body main #myTable_paginate a:hover {
   border-radius: 10px;
   background: #9698d6;
 }
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .dashboard .dashboard__header .title__description {
+    width: 780px;
+    height: 160px;
+    position: absolute;
+    top: 150px;
+    text-align: initial;
+  }
+}
 @media screen and (min-width: 1224px) {
   .dashboard .dashboard__header .title__description {
     text-align: initial;
@@ -1685,6 +1695,14 @@ body main #myTable_paginate a:hover {
   font-weight: 700;
   padding-top: 7px;
   color: #fff;
+}
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .dashboard .dashboard__header .title__description h1 {
+    padding-left: 15px;
+    padding-top: 25px;
+    font-size: 30px;
+    padding-bottom: 15px;
+  }
 }
 @media screen and (min-width: 1224px) {
   .dashboard .dashboard__header .title__description h1 {
@@ -1702,6 +1720,13 @@ body main #myTable_paginate a:hover {
   padding-top: 4px;
   color: #fff;
 }
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .dashboard .dashboard__header .title__description p {
+    padding-left: 15px;
+    width: 350px;
+    text-align: justify;
+  }
+}
 @media screen and (min-width: 1224px) {
   .dashboard .dashboard__header .title__description p {
     font-size: 15px;
@@ -1710,6 +1735,14 @@ body main #myTable_paginate a:hover {
     line-height: normal;
     padding-left: 82px;
     padding-top: 6px;
+  }
+}
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .dashboard .dashboard__header .svg__container {
+    z-index: 1;
+    position: absolute;
+    top: 0px;
+    left: 425px;
   }
 }
 @media screen and (min-width: 1224px) {
@@ -1724,6 +1757,13 @@ body main #myTable_paginate a:hover {
   width: 260px;
   height: auto;
 }
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .dashboard .dashboard__header .svg__container .svg {
+    display: flex;
+    width: 360px;
+    height: auto;
+  }
+}
 @media screen and (min-width: 1224px) {
   .dashboard .dashboard__header .svg__container .svg {
     display: flex;
@@ -1733,8 +1773,17 @@ body main #myTable_paginate a:hover {
 }
 .dashboard .main__dashboard {
   font-family: "Inter", sans-serif;
-  width: 360px;
+  width: 100%;
   display: flex;
+}
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .dashboard .main__dashboard {
+    margin-top: 350px;
+    margin-left: 5px;
+    width: 810px;
+    height: 600px;
+    position: absolute;
+  }
 }
 @media screen and (min-width: 1224px) {
   .dashboard .main__dashboard {
@@ -1746,17 +1795,23 @@ body main #myTable_paginate a:hover {
   }
 }
 .dashboard .main__dashboard .container__main {
-  width: 360px;
+  width: 100%;
   display: flex;
   gap: 29px;
   flex-direction: column;
-  padding: 60px 5px;
+  padding: 60px 0px;
 }
 .dashboard .main__dashboard .container__main section {
   background-color: #ffffff;
   border-radius: 10px;
   min-height: 100px;
   padding: 10px 15px;
+}
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .dashboard .main__dashboard .container__main section {
+    padding: initial;
+    width: 380px;
+  }
 }
 @media screen and (min-width: 1224px) {
   .dashboard .main__dashboard .container__main section {
@@ -1767,6 +1822,13 @@ body main #myTable_paginate a:hover {
 }
 .dashboard .main__dashboard .container__main section h3 {
   font-weight: 700;
+}
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .dashboard .main__dashboard .container__main section h3 {
+    margin-top: 12px;
+    margin-left: 10px;
+    margin-bottom: 12;
+  }
 }
 @media screen and (min-width: 1224px) {
   .dashboard .main__dashboard .container__main section h3 {
@@ -1780,6 +1842,11 @@ body main #myTable_paginate a:hover {
   background: #e0e0e0;
   width: 99%;
   opacity: 0.5;
+}
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .dashboard .main__dashboard .container__main section hr {
+    width: 95%;
+  }
 }
 @media screen and (min-width: 1224px) {
   .dashboard .main__dashboard .container__main section hr {
@@ -1798,6 +1865,11 @@ body main #myTable_paginate a:hover {
   text-align: left;
   font-weight: 700;
 }
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .dashboard .main__dashboard .container__main section table {
+    margin-left: 10px;
+  }
+}
 @media screen and (min-width: 1224px) {
   .dashboard .main__dashboard .container__main section table {
     font-size: 15px;
@@ -1813,6 +1885,14 @@ body main #myTable_paginate a:hover {
 }
 .dashboard .main__dashboard .container__main .statistics {
   padding: 4px 24px;
+}
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .dashboard .main__dashboard .container__main .statistics {
+    padding: initial;
+    position: absolute;
+    top: 0px;
+    left: 10px;
+  }
 }
 @media screen and (min-width: 1224px) {
   .dashboard .main__dashboard .container__main .statistics {
@@ -1831,6 +1911,15 @@ body main #myTable_paginate a:hover {
   justify-content: space-between;
   width: 100%;
   font-weight: 900;
+}
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .dashboard .main__dashboard .container__main .statistics .number__container {
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 5px;
+    width: 75%;
+  }
 }
 @media screen and (min-width: 1224px) {
   .dashboard .main__dashboard .container__main .statistics .number__container {
@@ -1860,6 +1949,13 @@ body main #myTable_paginate a:hover {
 .dashboard .main__dashboard .container__main .statistics .number__companies {
   background-color: #ff808b;
 }
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .dashboard .main__dashboard .container__main .contacts {
+    position: absolute;
+    left: 10px;
+    top: 175px;
+  }
+}
 @media screen and (min-width: 1224px) {
   .dashboard .main__dashboard .container__main .contacts {
     position: absolute;
@@ -1867,11 +1963,25 @@ body main #myTable_paginate a:hover {
     bottom: 171px;
   }
 }
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .dashboard .main__dashboard .container__main .invoice {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+  }
+}
 @media screen and (min-width: 1224px) {
   .dashboard .main__dashboard .container__main .invoice {
     position: absolute;
     top: 0px;
     right: 0px;
+  }
+}
+@media screen and (min-width: 376px) and (max-width: 1023px) {
+  .dashboard .main__dashboard .container__main .companies {
+    position: absolute;
+    top: 200px;
+    right: 10px;
   }
 }
 @media screen and (min-width: 1224px) {
