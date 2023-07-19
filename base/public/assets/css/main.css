@@ -790,7 +790,8 @@ body main .container__people__info__card__photo {
 body main .container__people__info__card__photo img {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 50%;
 }
 body main .container__people__info__card__name {
@@ -902,7 +903,8 @@ body .container__contact__photo {
 body .container__contact__photo img {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 50%;
 }
 body hr {
@@ -1544,7 +1546,7 @@ body main #myTable_paginate a:hover {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  position: fixed;
+  position: absolute;
   background-color: #f5f5fb;
   width: 250px;
   z-index: 1;
@@ -1566,12 +1568,10 @@ body main #myTable_paginate a:hover {
   background: #e0e0e0;
   opacity: 0.5;
 }
-@media screen and (min-width: 1224px) {
-  .dashboard .nav__container .side__navbar .footer_hr {
-    width: 285px;
-    position: fixed;
-    bottom: 24px;
-  }
+.dashboard .nav__container .side__navbar .footer_hr {
+  width: 285px;
+  position: fixed;
+  bottom: 24px;
 }
 .dashboard .nav__container .side__navbar .user__profile {
   display: flex;
@@ -1589,7 +1589,7 @@ body main #myTable_paginate a:hover {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .dashboard .nav__container .side__navbar .user__profile h2 {
   text-align: center;
@@ -1601,14 +1601,6 @@ body main #myTable_paginate a:hover {
   .dashboard .nav__container .side__navbar .user__profile h2 {
     width: 80px;
   }
-}
-.dashboard .nav__container .side__navbar .user__profile a {
-  text-decoration: none;
-  font-weight: 400;
-  color: #5a6a97;
-}
-.dashboard .nav__container .side__navbar .user__profile a:hover {
-  color: #00b7ff;
 }
 .dashboard .nav__container .side__navbar ul {
   margin-left: auto;
@@ -1751,15 +1743,6 @@ body main #myTable_paginate a:hover {
   border-radius: 10px;
   background: #9698d6;
 }
-@media screen and (min-width: 376px) and (max-width: 1223px) {
-  .dashboard .dashboard__header .title__description {
-    width: 780px;
-    height: 160px;
-    position: absolute;
-    top: 150px;
-    text-align: initial;
-  }
-}
 @media screen and (min-width: 1224px) {
   .dashboard .dashboard__header .title__description {
     text-align: initial;
@@ -1774,14 +1757,6 @@ body main #myTable_paginate a:hover {
   font-weight: 700;
   padding-top: 7px;
   color: #fff;
-}
-@media screen and (min-width: 376px) and (max-width: 1223px) {
-  .dashboard .dashboard__header .title__description h1 {
-    padding-left: 15px;
-    padding-top: 25px;
-    font-size: 30px;
-    padding-bottom: 15px;
-  }
 }
 @media screen and (min-width: 1224px) {
   .dashboard .dashboard__header .title__description h1 {
@@ -1799,13 +1774,6 @@ body main #myTable_paginate a:hover {
   padding-top: 4px;
   color: #fff;
 }
-@media screen and (min-width: 376px) and (max-width: 1223px) {
-  .dashboard .dashboard__header .title__description p {
-    padding-left: 15px;
-    width: 350px;
-    text-align: justify;
-  }
-}
 @media screen and (min-width: 1224px) {
   .dashboard .dashboard__header .title__description p {
     font-size: 15px;
@@ -1814,14 +1782,6 @@ body main #myTable_paginate a:hover {
     line-height: normal;
     padding-left: 82px;
     padding-top: 6px;
-  }
-}
-@media screen and (min-width: 376px) and (max-width: 1223px) {
-  .dashboard .dashboard__header .svg__container {
-    z-index: 1;
-    position: absolute;
-    top: 0px;
-    left: 425px;
   }
 }
 @media screen and (min-width: 1224px) {
@@ -1836,13 +1796,6 @@ body main #myTable_paginate a:hover {
   width: 260px;
   height: auto;
 }
-@media screen and (min-width: 376px) and (max-width: 1223px) {
-  .dashboard .dashboard__header .svg__container .svg {
-    display: flex;
-    width: 360px;
-    height: auto;
-  }
-}
 @media screen and (min-width: 1224px) {
   .dashboard .dashboard__header .svg__container .svg {
     display: flex;
@@ -1852,33 +1805,30 @@ body main #myTable_paginate a:hover {
 }
 .dashboard .main__dashboard {
   font-family: "Inter", sans-serif;
-  width: 100%;
+  padding-top: 15px;
   display: flex;
-}
-@media screen and (min-width: 376px) and (max-width: 1223px) {
-  .dashboard .main__dashboard {
-    margin-top: 350px;
-    margin-left: 5px;
-    width: 810px;
-    height: 600px;
-    position: absolute;
-  }
 }
 @media screen and (min-width: 1224px) {
   .dashboard .main__dashboard {
     width: 1044px;
-    height: 835px;
     position: absolute;
     left: 337px;
     top: 440px;
   }
 }
 .dashboard .main__dashboard .container__main {
-  width: 100%;
   display: flex;
   gap: 29px;
   flex-direction: column;
-  padding: 60px 0px;
+  padding: 60px 26px;
+}
+@media screen and (min-width: 1224px) {
+  .dashboard .main__dashboard .container__main {
+    gap: initial;
+    display: grid;
+    grid-template-columns: 505px 505px;
+    grid-template-areas: "statistics invoice" "contacts companies";
+  }
 }
 .dashboard .main__dashboard .container__main section {
   background-color: #ffffff;
@@ -1886,100 +1836,26 @@ body main #myTable_paginate a:hover {
   min-height: 100px;
   padding: 10px 15px;
 }
-@media screen and (min-width: 376px) and (max-width: 1223px) {
-  .dashboard .main__dashboard .container__main section {
-    padding: initial;
-    width: 380px;
-  }
-}
 @media screen and (min-width: 1224px) {
   .dashboard .main__dashboard .container__main section {
-    width: 507px;
-    height: 403px;
-    padding: initial;
+    margin-right: 35px;
+    margin-bottom: 30px;
   }
 }
 .dashboard .main__dashboard .container__main section h3 {
   font-weight: 700;
 }
-@media screen and (min-width: 376px) and (max-width: 1223px) {
-  .dashboard .main__dashboard .container__main section h3 {
-    margin-top: 12px;
-    margin-left: 10px;
-    margin-bottom: 12;
-  }
-}
-@media screen and (min-width: 1224px) {
-  .dashboard .main__dashboard .container__main section h3 {
-    font-size: 18px;
-    margin-top: 24px;
-    margin-left: 30px;
-    margin-bottom: 21px;
-  }
-}
 .dashboard .main__dashboard .container__main section hr {
   background: #e0e0e0;
-  width: 99%;
   opacity: 0.5;
-}
-@media screen and (min-width: 376px) and (max-width: 1223px) {
-  .dashboard .main__dashboard .container__main section hr {
-    width: 95%;
-  }
-}
-@media screen and (min-width: 1224px) {
-  .dashboard .main__dashboard .container__main section hr {
-    width: 448px;
-  }
-}
-.dashboard .main__dashboard .container__main section table {
-  table-layout: auto;
-  width: 100%;
-  font-size: 11px;
-}
-.dashboard .main__dashboard .container__main section table tr {
-  line-height: 20px;
-}
-.dashboard .main__dashboard .container__main section table th {
-  text-align: left;
-  font-weight: 700;
-}
-@media screen and (min-width: 376px) and (max-width: 1223px) {
-  .dashboard .main__dashboard .container__main section table {
-    margin-left: 10px;
-  }
-}
-@media screen and (min-width: 1224px) {
-  .dashboard .main__dashboard .container__main section table {
-    font-size: 15px;
-    margin-left: 30px;
-  }
-  .dashboard .main__dashboard .container__main section table tr {
-    height: 18px;
-    line-height: 35px;
-  }
-  .dashboard .main__dashboard .container__main section table td {
-    font-weight: 300;
-  }
 }
 .dashboard .main__dashboard .container__main .statistics {
   padding: 4px 24px;
 }
-@media screen and (min-width: 376px) and (max-width: 1223px) {
-  .dashboard .main__dashboard .container__main .statistics {
-    padding: initial;
-    position: absolute;
-    top: 0px;
-    left: 10px;
-  }
-}
 @media screen and (min-width: 1224px) {
   .dashboard .main__dashboard .container__main .statistics {
-    padding: initial;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    height: 232px;
+    grid-area: statistics;
+    height: 200px;
   }
 }
 .dashboard .main__dashboard .container__main .statistics h3 {
@@ -1992,23 +1868,6 @@ body main #myTable_paginate a:hover {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  font-weight: 900;
-}
-@media screen and (min-width: 376px) and (max-width: 1223px) {
-  .dashboard .main__dashboard .container__main .statistics .number__container {
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 5px;
-    width: 75%;
-  }
-}
-@media screen and (min-width: 1224px) {
-  .dashboard .main__dashboard .container__main .statistics .number__container {
-    margin-top: 49px;
-    margin-left: 49px;
-    width: 75%;
-  }
 }
 .dashboard .main__dashboard .container__main .statistics .number__container div {
   width: 74px;
@@ -2031,46 +1890,26 @@ body main #myTable_paginate a:hover {
 .dashboard .main__dashboard .container__main .statistics .number__companies {
   background-color: #ff808b;
 }
-@media screen and (min-width: 376px) and (max-width: 1223px) {
-  .dashboard .main__dashboard .container__main .contacts {
-    position: absolute;
-    left: 10px;
-    top: 175px;
-  }
-}
 @media screen and (min-width: 1224px) {
   .dashboard .main__dashboard .container__main .contacts {
+    z-index: 1;
     position: absolute;
-    left: 0px;
-    bottom: 171px;
-  }
-}
-@media screen and (min-width: 376px) and (max-width: 1223px) {
-  .dashboard .main__dashboard .container__main .invoice {
-    position: absolute;
-    top: 0px;
-    right: 10px;
+    width: 440px;
+    bottom: 237px;
+    min-height: 400px;
+    grid-area: contacts;
   }
 }
 @media screen and (min-width: 1224px) {
   .dashboard .main__dashboard .container__main .invoice {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-  }
-}
-@media screen and (min-width: 376px) and (max-width: 1223px) {
-  .dashboard .main__dashboard .container__main .companies {
-    position: absolute;
-    top: 200px;
-    right: 10px;
+    min-height: 400px;
+    grid-area: invoice;
   }
 }
 @media screen and (min-width: 1224px) {
   .dashboard .main__dashboard .container__main .companies {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
+    min-height: 400px;
+    grid-area: companies;
   }
 }
 .dashboard .main__dashboard .container__dynamic {
@@ -2089,6 +1928,7 @@ body main #myTable_paginate a:hover {
   background-color: #d32626;
   color: white;
   height: 40px;
+  width: -moz-fit-content;
   width: fit-content;
   border-radius: 10px;
 }
