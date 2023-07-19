@@ -31,7 +31,7 @@
                 <img src="/cogip/base/public/assets/img/img-contact.jpg" alt="">
                 <?php
                 if ((isset($_SESSION['user']) && isset($_SESSION['isConnected'])) && $_SESSION['isConnected'] == 1) {
-                    echo "<h2>" . $_SESSION['user'][0]["first_name"] . " " . $_SESSION['user'][0]["last_name"] . "</h2>";
+                    echo "<h2>" . $_SESSION['user']["first_name"] . " " . $_SESSION['user']["last_name"] . "</h2>";
                 }
                 echo "<a href='Home'>Go to home page</a>"
                     ?>
@@ -74,7 +74,7 @@
             <div class="title__description">
                 <?php
                 if ((isset($_SESSION['user']) && isset($_SESSION['isConnected'])) && $_SESSION['isConnected'] == 1) {
-                    echo "<h1>Welcome back " . $_SESSION['user'][0]["first_name"] . "!</h1>";
+                    echo "<h1>Welcome back " . $_SESSION['user']["first_name"] . "!</h1>";
                 }
                 ?>
                 <p>You can here add an invoice, a company and some contacts</p>
@@ -206,7 +206,7 @@
                             usort($lastContacts, function ($a, $b) {
                                 return strcmp($a->name, $b->name);
                             });
-                            foreach ($lastContacts as $contact) : ?>
+                            foreach ($lastContacts as $contact): ?>
                                 <tr>
                                     <td>
                                         <?php echo $contact->name; ?>
@@ -234,7 +234,7 @@
                             usort($lastInvoices, function ($a, $b) {
                                 return strcmp($a->ref, $b->ref);
                             });
-                            foreach ($lastInvoices as $invoice) : ?>
+                            foreach ($lastInvoices as $invoice): ?>
                                 <tr>
                                     <td>
                                         <?php echo $invoice->ref; ?>
@@ -262,19 +262,19 @@
                             usort($lastCompanies, function ($a, $b) {
                                 return strcmp($a->name, $b->name);
                             });
-                            foreach ($lastCompanies as $company) : ?>
+                            foreach ($lastCompanies as $company): ?>
 
-                                <tr class="table__container__info__tbody__tr">
-                                    <td>
-                                        <?php echo $company->name; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $company->tva; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $company->country; ?>
-                                    </td>
-                                </tr>
+                                    <tr class="table__container__info__tbody__tr">
+                                        <td>
+                                            <?php echo $company->name; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $company->tva; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $company->country; ?>
+                                        </td>
+                                    </tr>
                             <?php endforeach; ?>
                         </table>
                     </section>
@@ -292,7 +292,7 @@
                                 <option value="" disabled selected>Select a company...</option>
                                 <?php
                                 for ($i = 0; $i < count($companiesNames); $i++) {
-                                    echo "<option value='" . ($i+1) . "'>" . $companiesNames[$i] . "</option>";
+                                    echo "<option value='" . ($i + 1) . "'>" . $companiesNames[$i] . "</option>";
                                 }
                                 ?>
                             </select>
@@ -357,7 +357,7 @@
                                 <option value="" disabled selected>Select a type...</option>
                                 <?php
                                 for ($i = 0; $i < count($typesNames); $i++) {
-                                    echo "<option value='" . ($i+1) . "'>" . $typesNames[$i] . "</option>";
+                                    echo "<option value='" . ($i + 1) . "'>" . $typesNames[$i] . "</option>";
                                 }
                                 ?>
                             </select>
@@ -424,7 +424,7 @@
                                 <option value="" disabled selected>Select a company...</option>
                                 <?php
                                 for ($i = 0; $i < count($companiesNames); $i++) {
-                                    echo "<option value='" . ($i+1) . "'>" . $companiesNames[$i] . "</option>";
+                                    echo "<option value='" . ($i + 1) . "'>" . $companiesNames[$i] . "</option>";
                                 }
                                 ?>
                             </select>
