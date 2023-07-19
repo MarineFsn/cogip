@@ -230,7 +230,7 @@ class DashboardController
     // FORMS 
     public function getCompaniesNames()
     {
-        $query = "SELECT name FROM companies";
+        $query = "SELECT id, name FROM companies";
         $statement = $this->db->prepare($query);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -239,10 +239,12 @@ class DashboardController
 
         foreach ($result as $row) {
             $companyName = $row['name'];
+            $companyId = $row['id'];
             $companiesNames[] = $companyName;
+            $companiesIds[] = $companyId;
         }
 
-        return $companiesNames;
+        return [$companiesIds, $companiesNames];
     }
     public function getTypesNames()
     {
@@ -262,7 +264,19 @@ class DashboardController
     }
 
     // CREATE
+    public function addInvoice($reference, $dueDate, $companyId)
+    {
+        $query = "INSERT INTO invoices (ref, id_company, due_date, created_at, updated_at)
+              VALUES (:ref, :id_company, :due_date, NOW(), NOW())";
+        $statement = $this->db->prepare($query);
 
+        $statement->bindValue(':ref', $reference);
+        $statement->bindValue(':due_date', $dueDate);
+        $statement->bindValue(':id_company', $companyId);
+
+        $statement->execute();
+
+    }
 
     // UPDATES
     public function updateCompany($name, $type, $country, $tva, $id){
@@ -279,7 +293,7 @@ class DashboardController
         $stmt->bindParam(':id', $id);
         $stmt->execute();
     }
-    public function updateInvoice($ref, $company, $due_date, $tva, $id){
+    public function updateInvoice($ref, $company, $due_date, $id){
         $updated_at = date('Y-m-d H:i:s');
         $id_company = $company;
 
@@ -329,18 +343,49 @@ class DashboardController
 }
 
 $dashboardController = new DashboardController($db);
-$lastIinvoices = $dashboardController->getLastInvoices();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // CREATE
+    if(isset($_POST['reference']) && isset($_POST['due_date']) && isset($_POST['choices'])) {
+        $reference = $_POST['reference'];
+        $dueDate = $_POST['due_date'];
+        $companyId = $_POST['choices'];
+
+        $dashboardController->addInvoice($reference, $dueDate, $companyId);
+    }
+    // UPDATE
+    if(isset($_GET['companyId']) && !empty($_GET['companyId'])){
+        $dashboardController->updateCompany($_POST['name'], $_POST['type'], $_POST['country'], $_POST['tva'], $_GET['companyId']);
+    }else if(isset($_GET['contactId']) && !empty($_GET['contactId'])){
+        echo 'ok';
+        $dashboardController->updateContact($_POST['name'], $_POST['company'], $_POST['email'], $_POST['phone'], $_GET['contactId']);
+    }else if(isset($_GET['invoiceId']) && !empty($_GET['invoiceId'])){
+        echo 'ok';
+        $dashboardController->updateInvoice($_POST['reference'], $_POST['company'], $_POST['due_date'], $_GET['invoiceId']);
+    }
+}else{
+    // DELETE
+    if(isset($_GET['companyId']) && !empty($_GET['companyId'])){
+        $dashboardController->deleteCompany($_GET['companyId']);
+    }else if(isset($_GET['contactId']) && !empty($_GET['contactId'])){
+        $dashboardController->deleteContact($_GET['contactId']);
+    }else if(isset($_GET['invoiceId']) && !empty($_GET['invoiceId'])){
+        $dashboardController->deleteInvoice($_GET['invoiceId']);
+    }
+}
+
+// READ
+$companies = $dashboardController->getCompanies();
+$contacts = $dashboardController->getContacts();
+$invoices = $dashboardController->getinvoices();
+$lastInvoices = $dashboardController->getLastInvoices();
 $lastContacts = $dashboardController->getLastContacts();
 $lastCompanies = $dashboardController->getLastCompanies();
 $countInvoices = $dashboardController->countInvoices();
 $countContacts = $dashboardController->countContacts();
 $countCompanies = $dashboardController->countCompanies();
-$companiesNames = $dashboardController->getCompaniesNames();
+[$companiesIds, $companiesNames] = $dashboardController->getCompaniesNames();
 $typesNames = $dashboardController->getTypesNames();
-
-// if(isset($_GET['companyId'])){
-
-// }
 
 require_once APP . "Views/dashboard.php";
 

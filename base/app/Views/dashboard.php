@@ -3,10 +3,25 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, Bootstrap.">
+    <!-- <meta name="description" content="Bootstrap."> -->
+    <link href="/cogip/base/public/assets/css/main.css" rel="stylesheet" type="text/css">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+    </style>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <title>Dashboard</title>
-    <link rel="stylesheet" href="/cogip/base/public/assets/css/main.css">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+    </style>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="/cogip/base/public/assets/js/dashboard.js" defer></script>
+    <script src="/cogip/base/public/assets/js/windows_pop_up.js" defer></script>
 </head>
 
 <body class="dashboard">
@@ -17,10 +32,10 @@
                 <img src="/cogip/base/public/assets/img/img-contact.jpg" alt="">
                 <?php
                 if ((isset($_SESSION['user']) && isset($_SESSION['isConnected'])) && $_SESSION['isConnected'] == 1) {
-                    echo "<h2>" . $_SESSION['user'][0]["first_name"] . " " . $_SESSION['user'][0]["last_name"] . "</h2>";
+                    echo "<h2>" . $_SESSION['user']["first_name"] . " " . $_SESSION['user']["last_name"] . "</h2>";
                 }
                 echo "<a href='Home'>Go to home page</a>"
-                ?>
+                    ?>
             </div>
             <hr>
             <ul class="page__list">
@@ -60,12 +75,12 @@
             <div class="title__description">
                 <?php
                 if ((isset($_SESSION['user']) && isset($_SESSION['isConnected'])) && $_SESSION['isConnected'] == 1) {
-                    echo "<h1>Welcome back " . $_SESSION['user'][0]["first_name"] . "!</h1>";
+                    echo "<h1>Welcome back " . $_SESSION['user']["first_name"] . "!</h1>";
                 }
                 ?>
                 <p>You can here add an invoice, a company and some contacts</p>
             </div>
-            <div>
+            <div class="svg__container">
                 <svg class="svg" width="417" height="333" viewBox="0 0 417 333" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_48_9)">
                         <path d="M185.938 274.782C205.456 274.782 221.279 271.286 221.279 266.973C221.279 262.661 205.456 259.165 185.938 259.165C166.42 259.165 150.597 262.661 150.597 266.973C150.597 271.286 166.42 274.782 185.938 274.782Z" fill="black" />
@@ -220,7 +235,6 @@
                             usort($lastInvoices, function ($a, $b) {
                                 return strcmp($a->ref, $b->ref);
                             });
-
                             foreach ($lastInvoices as $invoice) : ?>
                                 <tr>
                                     <td>
@@ -249,7 +263,6 @@
                             usort($lastCompanies, function ($a, $b) {
                                 return strcmp($a->name, $b->name);
                             });
-
                             foreach ($lastCompanies as $company) : ?>
 
                                 <tr class="table__container__info__tbody__tr">
@@ -269,37 +282,134 @@
                 </article>
             </div>
             <article class="container__dynamic">
-                <section class="container__dynamic__dashboard__invoices">
-                    <div class="container__dynamic__dashboard__invoices__new" id="new__invoices">
+                <section class="container__dynamic__dashboard__invoices" id="new__invoices">
+                   
+                    <div class="container__dynamic__dashboard__invoices__pop__up container__dynamic__dashboard__pop__up" id="invoices_pop_up" style="display:none;"  method="POST">
+                        <form class="container__dynamic__dashboard__invoices__pop__up__form container__dynamic__dashboard__pop__up__form" action="dashboard&invoiceId=<?php echo $invoice->id; ?>" method="POST">
+                            <?php $_GET['invoiceId'] = 'invoice'?>
+                            <div>
+                                <label for="reference">Invoice number : </label>
+                                <input name="reference" type="text">
+                            </div>
+                            <div>
+                                <label for="due-date">Due dates : </label>
+                                <input name="due-date" type="date">
+                            </div>
+                            <div>
+                                <label for="company">Company : </label>
+                                <input name="company" type="text">
+                            </div>
+                            <input type="submit" value="Submit" id="button_submit_invoices_pop_up">
+                            <input type="submit" value="Cancel" id="button_cancel_invoices_pop_up">
+                        </form>
+                    </div>
+                    <div class="container__dynamic__dashboard__invoices__new">
                         <h4>New invoice</h4>
                         <hr>
                         <form class="container__dynamic__dashboard____invoices__new__form" method="POST">
                             <input type="text" placeholder="Reference..." name="reference">
                             <input type="date" placeholder="Due date..." name="due_date">
-                            <select name="company">
+                            <select name="choices">
                                 <option value="" disabled selected>Select a company...</option>
                                 <?php
-                                for($i=0; $i<count($companiesNames); $i++){
-                                    echo "<option value='".($i+1)."'>".$companiesNames[$i]."</option>";
+                                for ($i = 0; $i < count($companiesNames); $i++) {
+                                    echo "<option value='" . $companiesIds[$i] . "'>" . $companiesNames[$i] . "</option>";
                                 }
                                 ?>
                             </select>
                             <input type="submit" value="save">
                         </form>
                     </div>
+
+                    <div class="container__dynamic__dashboard">
+                        <h4>Edit/delete invoice</h4>
+                        <hr>
+                        <div class="container__dynamic__dashboard__modify">
+                        <table class="container__dynamic__dashboard__modify__table table table-striped" id="myTableInvoices">
+                            <thead class="container__dynamic__dashboard__modify__table__thead">
+                                <tr class="container__dynamic__dashboard__modify__table__thead__tr">
+                                    <?php
+                                        if ($_SESSION['user']["role_id"] == 1) {
+                                            echo "<th>Edit</th>
+                                            <th>Delete</th>";
+                                        }
+                                    ?>
+                                    <th>Invoice number</th>
+                                    <th>Due dates</th>
+                                    <th>Company</th>
+                                    <th>Created at</th>
+                                </tr>
+                            </thead>
+                            <tbody class="container__dynamic__dashboard__modify__table__tbody">
+                                <?php foreach ($invoices as $invoice): ?>
+                                    <tr class="container__dynamic__dashboard__modify__table__tbody__tr"  id="modify-tr-invoices-<?php echo $invoice->id; ?>">
+                                        <?php
+                                            if ($_SESSION['user']["role_id"] == 1) {?>
+                                                <td>
+                                                    <a href='' class='modify-button-invoices' id='modify-button-invoices-<?php echo $invoice->id; ?>'><img src='/cogip/base/public/assets/img/edit.png' alt='Modify button'></a>
+                                                </td>
+                                                <td>
+                                                    <a href='dashboard&invoiceId=<?php echo $invoice->id; ?>'><img src='/cogip/base/public/assets/img/delete.png' alt='Delete button' id='delete-button-invoices-<?php echo $invoice->id; ?>'></a>
+                                                </td>
+                                        <?php } ?>
+                                        <td>
+                                            <!-- <a href="app/Views/show_invoices.php?invoiceId=<?php //echo $invoice->id; 
+                                                ?>"><?php //echo $invoice->ref; 
+                                                    ?></a></td> -->
+                                            <?php echo $invoice->ref; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $invoice->formatDueDate(); ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $invoice->company; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $invoice->formatCreationDate(); ?>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+
+                   </div>
+                    </div>
                 </section>
-                <section class="container__dynamic__dashboard__company">
-                    <div class="container__dynamic__dashboard__company__new" id="new__company">
+                <section class="container__dynamic__dashboard__company" id="new__company">
+                    <div class="container__dynamic__dashboard__company__pop__up container__dynamic__dashboard__pop__up" id="company_pop_up" style="display:none;"  method="POST">
+                        <form class="container__dynamic__dashboard__company__pop__up__form container__dynamic__dashboard__pop__up__form" action="dashboard&companyId=<?php echo $company->id; ?>" method="POST">
+                            <?php $_GET['companyId'] = 'company'?>
+                            <div>
+                                <label for="name">Name : </label>
+                                <input name="name" type="text">
+                            </div>
+                            <div>
+                                <label for="tva">TVA : </label>
+                                <input name="tva" type="text">
+                            </div>
+                            <div>
+                                <label for="country">Company : </label>
+                                <input name="country" type="text">
+                            </div>
+                            <div>
+                                <label for="type">Type : </label>
+                                <input name="type" type="text">
+                            </div>
+                            <input type="submit" value="Submit" id="button_submit_company_pop_up">
+                            <input type="submit" value="Cancel" id="button_cancel_company_pop_up">
+                        </form>
+                    </div>
+                    <div class="container__dynamic__dashboard__company__new">
                         <h4>New Company</h4>
                         <hr>
                         <form class="container__dynamic__dashboard__company__new__form" method="POST">
                             <input type="text" placeholder="Name..." name="name">
-                            <select name="type">
+                            <select name="choices">
                                 <option value="" disabled selected>Select a type...</option>
                                 <?php
-                                    for($i=0; $i<count($typesNames); $i++){
-                                        echo "<option value='".($i+1)."'>".$typesNames[$i]."</option>";
-                                    }
+                                for ($i = 0; $i < count($typesNames); $i++) {
+                                    echo "<option value='" . $companiesIds[$i] . "'>" . $typesNames[$i] . "</option>";
+                                }
                                 ?>
                             </select>
                             <input type="text" placeholder="Country..." name="country">
@@ -308,28 +418,161 @@
                         </form>
                     </div>
 
+                    <div class="container__dynamic__dashboard">
+                        <h4>Edit/delete companies</h4>
+                        <hr>
+                        <div class="container__dynamic__dashboard__modify">
+                        <table class="container__dynamic__dashboard__modify__table  table table-striped" id="myTableCompanies">
+                            <thead class="container__dynamic__dashboard__modify__table__thead">
+                                <tr class="container__dynamic__dashboard__modify__table__thead__tr">
+                                    <?php
+                                        if ($_SESSION['user']["role_id"] == 1) {
+                                            echo "<th>Edit</th>
+                                            <th>Delete</th>";
+                                        }
+                                    ?>
+                                    <th>Name</th>
+                                    <th>TVA</th>
+                                    <th>Country</th>
+                                    <th>Type</th>
+                                    <th>Created at</th>
+                                </tr>
+                            </thead>
+                            <tbody class="container__dynamic__dashboard__modify__table__tbody">
+                                <?php foreach ($companies as $company): ?>
+                                    <tr class="container__dynamic__dashboard__modify__table__tbody__tr"  id="modify-tr-company-<?php echo $company->id; ?>">
+                                        <?php
+                                            if ($_SESSION['user']["role_id"] == 1) {
+                                                echo "<td>
+                                                    <a href=''><img src='/cogip/base/public/assets/img/edit.png' alt='Modify button'  class='modify-button-company' id='modify-button-company-<?php echo $company->id; ?>'></a>
+                                                </td>
+                                                <td>
+                                                    <a href='dashboard&companyId=<?php echo $company->id; ?>'><img src='/cogip/base/public/assets/img/delete.png' alt='Delete button'  class='delete-button-company' id='delete-button-company-<?php echo $company->id; ?>'></a>
+                                                </td>";
+                                            }
+                                        ?>
+                                        <td><?php echo $company->name; ?></td>
+                                        <td>
+                                            <?php echo $company->tva; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $company->country; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $company->type; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $company->formatCreationDate(); ?>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
                 </section>
-                <section class="container__dynamic__dashboard__company">
-                <div class="container__dynamic__dashboard" id="new__contact">
-                    <h4>New Contact</h4>
-                    <hr>
-                    <form class="container__new__invoice__form" method="POST">
-                        <input type="text" placeholder="Name..." name="name">
-                        <select name="company">
-                            <option value="" disabled selected>Select a company...</option>
-                            <?php
-                            for($i=0; $i<count($companiesNames); $i++){
-                                echo "<option value='".($i+1)."'>".$companiesNames[$i]."</option>";
-                            }
-                            ?>
-                        </select>
-                        <input type="mail" placeholder="Email..." name="email">
-                        <input type="tel" placeholder="Phone..." name="phone">
-                        <input type="submit" value="save">
-                    </form>
+                <section class="container__dynamic__dashboard__contact" id="new__contact">
+                   
+                    <div class="container__dynamic__dashboard__contact__pop__up container__dynamic__dashboard__pop__up" id="contact_pop_up" style="display:none;">
+                        <form class="container__dynamic__dashboard__contact__pop__up__form container__dynamic__dashboard__pop__up__form" action="dashboard&contactId=<?php echo $contact->id; ?>" method="POST">
+                            <?php $_GET['contactId'] = 'contact'?>
+                            <div>
+                                <label for="contact-name">Name : </label>
+                                <input name="contact-name" type="text">
+                            </div>
+                            <div>
+                                <label for="email">Email : </label>
+                                <input name="email" type="email">
+                            </div>
+                            <div>
+                                <label for="phone">Phone : </label>
+                                <input name="phone" type="tel" pattern="[0-9]{3}-[0-9]{4}">
+                            </div>
+                            <div>
+                                <label for="company">Company : </label>
+                                <input name="company" type="text" required>
+                            </div>
+                            <input type="submit" value="Submit" id="button_submit_contact_pop_up">
+                            <input type="submit" value="Cancel" id="button_cancel_contact_pop_up">
+                        </form>
+                    </div>
+                    <div class="container__dynamic__dashboard__contact__new">
+                        <h4>New Contact</h4>
+                        <hr>
+                        <form class="container__dynamic__dashboard__contact__new__form" method="POST">
+                            <input type="text" placeholder="Name..." name="name">
+                            <select name="choices">
+                                <option value="" disabled selected>Select a company...</option>
+                                <?php
+                                for ($i = 0; $i < count($companiesNames); $i++) {
+                                    echo "<option value='" . $companiesIds[$i] . "'>" . $companiesNames[$i] . "</option>";
+                                }
+                                ?>
+                            </select>
+                            <input type="mail" placeholder="Email..." name="email">
+                            <input type="tel" placeholder="Phone..." name="phone">
+                            <input type="submit" value="save">
+                        </form>
+                    </div>
+
+                    <div class="container__dynamic__dashboard">
+                        <h4>Edit/delete contacts</h4>
+                        <hr>
+                        <div class="container__dynamic__dashboard__modify">
+                            <table class="container__dynamic__dashboard__modify__table  table table-striped" id="myTableContacts">
+                                <thead class="container__dynamic__dashboard__modify__table__thead">
+                                    <tr class="container__dynamic__dashboard__modify__table__thead__tr">
+                                        <?php
+                                            if ($_SESSION['user']["role_id"] == 1) {
+                                                echo "<th>Edit</th>
+                                                <th>Delete</th>";
+                                            }
+                                        ?>
+                                        <th>Name</th>
+                                        <th>Mail</th>
+                                        <th>Phone</th>
+                                        <th>Company</th>
+                                        <th>Created at</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="container__dynamic__dashboard__modify__table__tbody">
+                                    <?php foreach ($contacts as $contact): ?>
+                                        <tr class="container__dynamic__dashboard__modify__table__tbody__tr"  id="modify-tr-contact-<?php echo $contact->id; ?>">
+                                            <?php
+                                                if ($_SESSION['user']["role_id"] == 1) {
+                                                    echo "<td>
+                                                        <a href=''><img src='/cogip/base/public/assets/img/edit.png' alt='Modify button'  class='modify-button-contact' id='modify-button-contact-<?php echo $contact->id; ?>'></a>
+                                                    </td>
+                                                    <td>
+                                                        <a href='dashboard&contactId=<?php echo $contact->id; ?>'><img src='/cogip/base/public/assets/img/delete.png' alt='Delete button'  id='delete-button-contact-<?php echo $contact->id; ?>'></a>
+                                                    </td>";
+                                                }
+                                            ?>
+                                            <td><?php echo $contact->name; ?></td>
+                                            <td>
+                                                <?php echo $contact->email; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $contact->phone; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $contact->company; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $contact->formatCreationDate(); ?>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
                 </section>
             </article>
+
         </main>
     </div>
 </body>
+
 </html>

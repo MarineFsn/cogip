@@ -38,7 +38,9 @@
                     echo "<li><a href='login'>Login</a></li>";
                 } else {
                     echo "<li><a href='logout'>Logout</a></li>";
-                    echo "<li><a href='dashboard'>dashboard</a></li>";
+                    if ($_SESSION['user']["role_id"] == 1 || $_SESSION['user']["role_id"] == 2) {
+                        echo "<li><a href='dashboard'>dashboard</a></li>";
+                    }
                 }
                 ?>
             </ul>
