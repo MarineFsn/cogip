@@ -300,6 +300,7 @@ body .public__header nav {
   font-weight: 600;
   margin-top: 35px;
   font-family: "Roboto", serif;
+  position: relative;
 }
 @media screen and (min-width: 376px) and (max-width: 1023px) {
   body .public__header nav {
@@ -313,12 +314,72 @@ body .public__header nav {
     margin-top: 0px;
   }
 }
+body .public__header nav .nav__icone {
+  display: block;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 20px;
+  left: -60px;
+  z-index: 1;
+  border: none;
+  background: none;
+}
+@media screen and (min-width: 1224px) {
+  body .public__header nav .nav__icone {
+    display: none;
+  }
+}
+body .public__header nav .nav__icone .nav__icone__open {
+  height: 50px;
+  width: 50px;
+}
+body .public__header nav .nav__burger {
+  color: black;
+  display: block;
+  background-color: #4d4cac;
+  position: absolute;
+  top: 0;
+  left: -200%;
+  z-index: 2;
+  transition: left 0.3s ease;
+  background-color: #f5f5fb;
+  width: 200px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 60px -29px rgba(0, 0, 0, 0.2509803922);
+}
+@media screen and (min-width: 1224px) {
+  body .public__header nav .nav__burger {
+    display: none;
+  }
+}
+body .public__header nav .nav__burger__close {
+  height: 50px;
+  width: 50px;
+  margin-left: 130px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+body .public__header nav .nav__burger li {
+  margin-bottom: 40px;
+  font-size: 20px;
+  font-family: "Roboto", serif;
+  margin-left: 40px;
+}
+body .public__header nav .nav__burger li a {
+  text-decoration: none;
+  color: #000;
+}
+body .public__header nav .active {
+  left: -50%;
+}
 body .public__header nav .nav__bar {
-  display: flex;
+  display: none;
   margin-top: 35px;
 }
 @media screen and (min-width: 1224px) {
   body .public__header nav .nav__bar {
+    display: flex;
     margin-top: 94px;
     margin-right: 324px;
     flex-direction: row;

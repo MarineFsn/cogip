@@ -178,6 +178,8 @@ body {
       font-weight: 600;
       margin-top: 35px;
       font-family: $font-family-text;
+      position: relative;
+      // overflow: hidden;
       @include responsive-tablet {
         margin-bottom: 20px;
       }
@@ -186,10 +188,68 @@ body {
         flex-direction: row;
         margin-top: 0px;
       }
+      .nav__icone {
+        display: block;
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        top: 20px;
+        left: -60px;
+        z-index: 1;
+        // cursor: pointer;
+        border: none;
+        background: none;
+        @include responsive-desktop {
+          display: none;
+        }
+        .nav__icone__open {
+          height: 50px;
+          width: 50px;
+        }
+      }
+      .nav__burger {
+        color: black;
+        display: block;
+        background-color: #4d4cac;
+        position: absolute;
+        top: 0;
+        left: -200%;
+        z-index: 2;
+        transition: left 0.3s ease;
+        background-color: #f5f5fb;
+        width: 200px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 60px -29px #00000040;
+        @include responsive-desktop {
+          display: none;
+        }
+        &__close {
+          height: 50px;
+          width: 50px;
+          margin-left: 130px;
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+        li {
+          margin-bottom: 40px;
+          font-size: $font-size-text;
+          font-family: $font-family-text;
+          margin-left: 40px;
+
+          a {
+            text-decoration: none;
+            color: #000;
+          }
+        }
+      }
+      .active {
+        left: -50%;
+      }
       .nav__bar {
-        display: flex;
+        display: none;
         margin-top: 35px;
         @include responsive-desktop {
+          display: flex;
           margin-top: 94px;
           margin-right: 324px;
           flex-direction: row;

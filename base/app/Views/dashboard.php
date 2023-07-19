@@ -26,9 +26,9 @@
 <body class="dashboard">
     <div class="nav__container">
         <nav id="sideNav" class="side__navbar">
-            <button id="closeBtn" class="close"><img src="/cogip/base/public/assets/img/sidebar_close.png" alt=""></button>
+            <button id="closeBtn" class="close"><img src="/cogip/base/public/assets/img/sidebar_close.png" alt="button close"></button>
             <div class="user__profile">
-                <img src="/cogip/base/public/assets/img/img-contact.jpg" alt="">
+                <img src="/cogip/base/public/assets/img/img-contact.jpg" alt="user photo">
                 <?php
                 if ((isset($_SESSION['user']) && isset($_SESSION['isConnected'])) && $_SESSION['isConnected'] == 1) {
                     echo "<h2>" . $_SESSION['user']["first_name"] . " " . $_SESSION['user']["last_name"] . "</h2>";
