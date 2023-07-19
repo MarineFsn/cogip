@@ -377,21 +377,6 @@ class DashboardController
 }
 
 $dashboardController = new DashboardController($db);
-$companies = $dashboardController->getCompanies();
-$contacts = $dashboardController->getContacts();
-$invoices = $dashboardController->getinvoices();
-$lastInvoices = $dashboardController->getLastInvoices();
-$lastContacts = $dashboardController->getLastContacts();
-$lastCompanies = $dashboardController->getLastCompanies();
-$countInvoices = $dashboardController->countInvoices();
-$countContacts = $dashboardController->countContacts();
-$countCompanies = $dashboardController->countCompanies();
-$companiesNames = $dashboardController->getCompaniesNames();
-$typesNames = $dashboardController->getTypesNames();
-
-// if(isset($_GET['companyId'])){
-
-// }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['reference']) && isset($_POST['due_date']) && isset($_POST['choices'])) {
@@ -429,6 +414,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 }
+
+$companies = $dashboardController->getCompanies();
+$contacts = $dashboardController->getContacts();
+$invoices = $dashboardController->getinvoices();
+$lastInvoices = $dashboardController->getLastInvoices();
+$lastContacts = $dashboardController->getLastContacts();
+$lastCompanies = $dashboardController->getLastCompanies();
+$countInvoices = $dashboardController->countInvoices();
+$countContacts = $dashboardController->countContacts();
+$countCompanies = $dashboardController->countCompanies();
+$companiesNames = $dashboardController->getCompaniesNames();
+$typesNames = $dashboardController->getTypesNames();
+
+// if(isset($_GET['companyId'])){
+
+// }
+
+
 
 
 require_once APP . "Views/dashboard.php";
