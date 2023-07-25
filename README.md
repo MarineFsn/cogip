@@ -9,13 +9,13 @@ This project is aimed at developing a web application to meet the needs and desi
 
 ## 👨‍💻 Team Members
 
-| Collaborators        | Github                        | Rôle                          | Tasks                       |
-| -------------------- | ----------------------------- | ----------------------------- |-----------------------------|
-| Marine Fassin        | https://github.com/MarineFsn  | project Manager / Back-end    |                             |
-| Nikko Di Bernardo    | https://github.com/Leshib     | Back-end                      |                             |
-| Loïc Lion            | https://github.com/Loic-lion  | Front-end                     |                             |
-| Benjamin Mayeur      | https://github.com/benHuey1   | Front-end                     |                             |
-| Noa Cayphas          | https://github.com/osiriscity | Front-end                     |                             |
+| Collaborators        | Github                        | Rôle                          | 
+| -------------------- | ----------------------------- | ----------------------------- |
+| Marine Fassin        | https://github.com/MarineFsn  | project Manager / Back-end    |                   
+| Nikko Di Bernardo    | https://github.com/Leshib     | Back-end                      |                
+| Loïc Lion            | https://github.com/Loic-lion  | Front-end                     |              
+| Benjamin Mayeur      | https://github.com/benHuey1   | Front-end                     |              
+| Noa Cayphas          | https://github.com/osiriscity | Front-end                     |            
 
 
 
