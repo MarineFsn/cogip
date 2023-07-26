@@ -12,7 +12,7 @@ function validateFormSignUp(event: Event) {
     .value;
 
   let valid = true;
-  const passwordValidation: RegExp =
+  const passwordValidation =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   const errorElement = document.getElementById("error");
 
@@ -55,7 +55,7 @@ function validateFormSignUp(event: Event) {
 }
 
 function validateEmailSignUp(email: string) {
-  const re: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
 }
 

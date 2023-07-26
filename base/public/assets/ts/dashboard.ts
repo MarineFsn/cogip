@@ -31,7 +31,7 @@ function newInvoice(event: Event): void {
   let dynamicElement: HTMLElement | null = document.querySelector(
     ".dashboard__container__dynamic"
   );
-  let formInvoice: string = `
+  let formInvoice = `
     <div class="container__dynamic__dashboard">
       <h4>New invoice</h4>
       <hr>
@@ -84,7 +84,7 @@ function newCompany(event: Event): void {
   let dynamicElement: HTMLElement | null = document.querySelector(
     ".dashboard__container__dynamic"
   );
-  let formCompany: string = `
+  let formCompany = `
     <div class="container__dynamic__dashboard">
       <h4>New Company</h4>
       <hr>
@@ -138,7 +138,7 @@ function newContact(event: Event): void {
   let dynamicElement: HTMLElement | null = document.querySelector(
     ".dashboard__container__dynamic"
   );
-  let formContact: string = `
+  let formContact = `
     <div class="container__dynamic__dashboard">
       <h4>New Contact</h4>
       <hr>
